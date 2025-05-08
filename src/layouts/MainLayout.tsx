@@ -11,11 +11,13 @@ export default function AiConsciousnessLayout({
     <div className="min-h-screen w-full flex items-center justify-center bg-neutral-950 font-sans">
   <div className="max-w-3xl w-full mx-auto px-4 py-8 rounded-3xl shadow-2xl border border-neutral-800/70 backdrop-blur-xl bg-neutral-900/80 text-neutral-100 flex flex-col min-h-[80vh] transition-all duration-500">
       <header className="w-full text-center mb-12 animate-fade-in">
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white drop-shadow-lg animate-fade-in">
-          Is AI Conscious Yet?
-        </h1>
+        <img
+          src="/src/assets/hero-image.png"
+          alt="Is AI Conscious Yet? Hero Image"
+          className="mx-auto w-full max-w-lg md:max-w-xl lg:max-w-2xl rounded-2xl shadow-lg animate-fade-in"
+        />
         <p className="mt-4 text-neutral-400 text-lg md:text-xl font-medium tracking-wide max-w-2xl mx-auto animate-fade-in delay-100">
-          Cast your vote on one of the most profound questions of our time
+          Cast your vote to see what others think!
         </p>
       </header>
 

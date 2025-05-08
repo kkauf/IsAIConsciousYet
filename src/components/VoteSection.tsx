@@ -1,51 +1,29 @@
-import { useState } from "react";
+import { useVote } from "../hooks/useVote";
 import VoteButton from "./VoteButton";
 import ResultsDisplay from "./ResultsDisplay";
-import { MOCK_VOTING_DATA } from "../data/voting-data";
 import { trackVote } from "../lib/analytics";
 
 
 export default function VoteSection() {
-  const [hasVoted, setHasVoted] = useState(false);
-  const [userVote, setUserVote] = useState<"yes" | "no" | null>(null);
-  const [votingData, setVotingData] = useState(MOCK_VOTING_DATA);
+  // You can parameterize this if you have multiple questions
+  const itemId = "question123";
+  const { votes, hasVoted, userVote, vote, loading, error } = useVote(itemId);
 
-  const handleVote = (vote: "yes" | "no") => {
-    setUserVote(vote);
-    setHasVoted(true);
-
-    // Track vote event with Google Analytics
-    trackVote(vote);
-
-    // Update the voting data
-    setVotingData((prev) => {
-      const newVotingData = { ...prev };
-      if (vote === "yes") {
-        newVotingData.yes += 1;
-      } else {
-        newVotingData.no += 1;
-      }
-      newVotingData.totalVotes += 1;
-
-      // Add to recent votes
-      newVotingData.recentVotes = [
-        { vote, timestamp: new Date().toISOString() },
-        ...prev.recentVotes.slice(0, 9), // Keep only the 10 most recent
-      ];
-
-      return newVotingData;
-    });
+  const handleVote = (v: "yes" | "no") => {
+    vote(v);
+    trackVote(v);
   };
 
   const handleBackToVote = () => {
-    setHasVoted(false);
+    // Optionally allow revoting for demo, but normally keep disabled to enforce 1 vote/user
+    // window.location.reload(); // or do nothing
   };
 
-  if (hasVoted) {
+  if (hasVoted && votes) {
     return (
       <div className="w-full h-full flex items-center justify-center p-4 md:p-8">
         <ResultsDisplay
-          data={votingData}
+          data={votes}
           userVote={userVote}
           onBackToVote={handleBackToVote}
         />
@@ -55,8 +33,9 @@ export default function VoteSection() {
 
   return (
     <div className="w-full flex flex-row gap-4 items-center justify-center mt-8">
-      <VoteButton type="yes" onVote={handleVote} className="animate-slide-up delay-100" />
-      <VoteButton type="no" onVote={handleVote} className="animate-slide-up delay-200" />
+      <VoteButton type="yes" onVote={handleVote} className="animate-slide-up delay-100" disabled={hasVoted || loading} />
+      <VoteButton type="no" onVote={handleVote} className="animate-slide-up delay-200" disabled={hasVoted || loading} />
+      {error && <div className="text-red-500 ml-4">{error}</div>}
     </div>
   );
 }

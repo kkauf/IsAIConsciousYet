@@ -2,10 +2,12 @@ import { useState, useEffect } from "react";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
 import { ArrowLeftIcon } from "lucide-react";
-import { MOCK_VOTING_DATA } from "../data/voting-data";
+
+
+import type { VoteResult } from '../api/votes';
 
 interface ResultsDisplayProps {
-  data: typeof MOCK_VOTING_DATA;
+  data: VoteResult;
   userVote: "yes" | "no" | null;
   onBackToVote: () => void;
 }
@@ -18,8 +20,8 @@ export default function ResultsDisplay({
   const [yesProgress, setYesProgress] = useState(0);
   const [noProgress, setNoProgress] = useState(0);
 
-  const yesPercentage = Math.round((data.yes / data.totalVotes) * 100);
-  const noPercentage = Math.round((data.no / data.totalVotes) * 100);
+  const yesPercentage = data.totalVotes > 0 ? Math.round((data.yes / data.totalVotes) * 100) : 0;
+  const noPercentage = data.totalVotes > 0 ? Math.round((data.no / data.totalVotes) * 100) : 0;
 
   useEffect(() => {
     // Animate progress bars
@@ -73,7 +75,9 @@ export default function ResultsDisplay({
             className="h-4 bg-neutral-800/70 animate-slide-up delay-100"
           />
           <p className="text-sm text-neutral-400">
-            {data.yes.toLocaleString()} people believe AI is conscious
+            {data.totalVotes === 0
+              ? "No one has voted yet"
+              : `${data.yes.toLocaleString()} person${data.yes !== 1 ? "s" : ""} believe AI is conscious`}
           </p>
         </div>
 
@@ -92,31 +96,16 @@ export default function ResultsDisplay({
         </div>
       </div>
 
-      <div className="mt-12">
+      {/* <div className="mt-12">
         <h4 className="text-lg font-semibold mb-3">Recent Votes</h4>
         <div className="space-y-2">
           {data.recentVotes.slice(0, 5).map((vote, index) => {
             const voteTime = new Date(vote.timestamp);
             const timeAgo = getTimeAgo(voteTime);
 
-            return (
-              <div
-                key={index}
-                className="flex items-center justify-between text-sm"
-              >
-                <span
-                  className={`font-medium ${vote.vote === "yes" ? "text-emerald-500" : "text-rose-500"}`}
-                >
-                  {vote.vote.toUpperCase()}
-                </span>
-                <span className="text-gray-500 dark:text-gray-400">
-                  {timeAgo}
-                </span>
-              </div>
-            );
           })}
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }
