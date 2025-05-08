@@ -4,6 +4,8 @@ interface AiConsciousnessLayoutProps {
   children: ReactNode;
 }
 
+import heroImage from '../assets/hero-image.png';
+
 export default function AiConsciousnessLayout({
   children,
 }: AiConsciousnessLayoutProps) {
@@ -12,7 +14,7 @@ export default function AiConsciousnessLayout({
   <div className="max-w-3xl w-full mx-auto px-4 py-8 rounded-3xl shadow-2xl border border-neutral-800/70 backdrop-blur-xl bg-neutral-900/80 text-neutral-100 flex flex-col min-h-[80vh] transition-all duration-500">
       <header className="w-full text-center mb-12 animate-fade-in">
         <img
-          src="/src/assets/hero-image.png"
+          src={heroImage}
           alt="Is AI Conscious Yet? Hero Image"
           className="mx-auto w-full max-w-lg md:max-w-xl lg:max-w-2xl rounded-2xl shadow-lg animate-fade-in"
         />
