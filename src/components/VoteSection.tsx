@@ -4,6 +4,7 @@ import ResultsDisplay from "./ResultsDisplay";
 import { MOCK_VOTING_DATA } from "../data/voting-data";
 import { trackVote } from "../lib/analytics";
 
+
 export default function VoteSection() {
   const [hasVoted, setHasVoted] = useState(false);
   const [userVote, setUserVote] = useState<"yes" | "no" | null>(null);
