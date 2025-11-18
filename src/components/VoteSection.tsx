@@ -1,3 +1,5 @@
+"use client";
+
 import { useVote } from "../hooks/useVote";
 import VoteButton from "./VoteButton";
 import ResultsDisplay from "./ResultsDisplay";
