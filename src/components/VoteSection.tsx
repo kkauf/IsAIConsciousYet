@@ -5,10 +5,8 @@ import VoteButton from "./VoteButton";
 import ResultsDisplay from "./ResultsDisplay";
 import { trackVote } from "../lib/analytics";
 
-
 export default function VoteSection() {
-  // You can parameterize this if you have multiple questions
-  const itemId = "question123";
+  const itemId = "main-consciousness-question";
   const { votes, hasVoted, userVote, vote, loading, error } = useVote(itemId);
 
   const handleVote = (v: "yes" | "no") => {
@@ -16,28 +14,43 @@ export default function VoteSection() {
     trackVote(v);
   };
 
-  const handleBackToVote = () => {
-    // Optionally allow revoting for demo, but normally keep disabled to enforce 1 vote/user
-    // window.location.reload(); // or do nothing
-  };
-
   if (hasVoted && votes) {
-    return (
-      <div className="w-full h-full flex items-center justify-center p-4 md:p-8">
-        <ResultsDisplay
-          data={votes}
-          userVote={userVote}
-          onBackToVote={handleBackToVote}
-        />
-      </div>
-    );
+    return <ResultsDisplay data={votes} userVote={userVote} />;
   }
 
   return (
-    <div className="w-full flex flex-row gap-4 items-center justify-center mt-8">
-      <VoteButton type="yes" onVote={handleVote} className="animate-slide-up delay-100" disabled={hasVoted || loading} />
-      <VoteButton type="no" onVote={handleVote} className="animate-slide-up delay-200" disabled={hasVoted || loading} />
-      {error && <div className="text-red-500 ml-4">{error}</div>}
+    <div className="w-full flex flex-col items-center">
+      <p className="text-neutral-500 text-sm mb-8">
+        What do you believe?
+      </p>
+
+      <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 w-full max-w-md justify-center">
+        <VoteButton
+          type="yes"
+          onVote={handleVote}
+          disabled={hasVoted || loading}
+        />
+        <VoteButton
+          type="no"
+          onVote={handleVote}
+          disabled={hasVoted || loading}
+        />
+      </div>
+
+      <p className="text-neutral-600 text-xs mt-6">
+        Anonymous · One vote per device · Permanent
+      </p>
+
+      {loading && (
+        <div className="mt-6 flex items-center gap-2 text-neutral-400 text-sm">
+          <div className="w-4 h-4 border-2 border-neutral-600 border-t-white rounded-full animate-spin" />
+          Recording your vote...
+        </div>
+      )}
+
+      {error && (
+        <p className="text-red-400 text-sm mt-6">{error}</p>
+      )}
     </div>
   );
 }

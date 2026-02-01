@@ -1,13 +1,7 @@
 /**
- * @endpoint /vote (POST), /votes/:itemId (GET)
- * @description API client for voting Cloudflare Worker
- * @example
- * const { data, error } = await votesApi.vote({ itemId, userId });
- * if (error) handleError(error);
- * return data;
+ * @endpoint /api/votes (POST), /api/votes/:itemId (GET)
+ * @description API client for voting (proxied through Next.js to Cloudflare Worker)
  */
-
-const VOTES_API_BASE = 'https://votes.kgm-839.workers.dev';
 
 export type VoteResult = {
   yes: number;
@@ -21,7 +15,7 @@ export type VoteResult = {
  */
 export async function getVotes(itemId: string): Promise<{ data: VoteResult | null, error: string | null }> {
   try {
-    const res = await fetch(`${VOTES_API_BASE}/votes/${encodeURIComponent(itemId)}`);
+    const res = await fetch(`/api/votes/${encodeURIComponent(itemId)}`);
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || 'Failed to fetch votes');
     return { data, error: null };
@@ -39,7 +33,7 @@ export async function getVotes(itemId: string): Promise<{ data: VoteResult | nul
  */
 export async function vote({ itemId, userId, vote }: { itemId: string; userId: string; vote: "yes" | "no" }): Promise<{ data: VoteResult | null, error: string | null }> {
   try {
-    const res = await fetch(`${VOTES_API_BASE}/vote`, {
+    const res = await fetch(`/api/votes`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ itemId, userId, vote })
