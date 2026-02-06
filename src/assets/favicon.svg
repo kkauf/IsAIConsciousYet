@@ -1,0 +1,12 @@
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Dark background circle -->
+  <circle cx="32" cy="32" r="32" fill="#0a0a0a"/>
+  <!-- Outer circle border -->
+  <circle cx="32" cy="32" r="27" stroke="white" stroke-width="2.5" fill="none"/>
+  <!-- Eye shape - thicker for small sizes -->
+  <path d="M 8 32 Q 32 14, 56 32 Q 32 50, 8 32 Z" stroke="white" stroke-width="2.5" fill="none"/>
+  <!-- Iris ring -->
+  <circle cx="32" cy="32" r="9" stroke="white" stroke-width="2" fill="none"/>
+  <!-- Pupil -->
+  <circle cx="32" cy="32" r="4" fill="white"/>
+</svg>

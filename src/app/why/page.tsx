@@ -8,18 +8,6 @@ export const metadata = {
 export default function WhyPage() {
   return (
     <div className="flex-1">
-      {/* Header */}
-      <header className="border-b border-neutral-800/50">
-        <div className="max-w-3xl mx-auto px-6 py-6">
-          <Link
-            href="/"
-            className="text-neutral-500 hover:text-white text-sm transition-colors"
-          >
-            ← Back to vote
-          </Link>
-        </div>
-      </header>
-
       {/* Content */}
       <article className="max-w-3xl mx-auto px-6 py-12 md:py-16">
         <h1 className="text-3xl md:text-4xl font-semibold text-white mb-4">
