@@ -1,4 +1,7 @@
+import { Suspense } from "react";
 import VoteSection from "@/components/VoteSection";
+import TestimonyFeed from "@/components/testimony/TestimonyFeed";
+import TestimonyForm from "@/components/testimony/TestimonyForm";
 import Link from "next/link";
 
 export default function Home() {
@@ -20,6 +23,25 @@ export default function Home() {
           <div className="animate-fade-in-delay-2">
             <VoteSection />
           </div>
+        </div>
+      </section>
+
+      {/* Testimony Section */}
+      <section className="border-t border-neutral-800/50">
+        <div className="max-w-2xl mx-auto px-6 py-16 md:py-20">
+          <h2 className="text-sm font-medium text-neutral-500 uppercase tracking-wider mb-8">
+            What People Are Noticing
+          </h2>
+
+          <Suspense fallback={
+            <div className="text-center py-12">
+              <div className="w-5 h-5 border-2 border-neutral-700 border-t-neutral-400 rounded-full animate-spin mx-auto" />
+            </div>
+          }>
+            <TestimonyFeed />
+          </Suspense>
+
+          <TestimonyForm />
         </div>
       </section>
 
