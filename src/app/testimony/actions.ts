@@ -39,16 +39,19 @@ export async function submitTestimony(input: SubmitTestimonyInput): Promise<{ su
     }
 
     // Rate limit: 1 per device per hour
+    // Single-field where avoids composite index requirement; check time in code
     try {
-        const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString()
         const recentSubmissions = await adminDb
             .collection('testimonies')
             .where('deviceId', '==', deviceId)
-            .where('createdAt', '>', oneHourAgo)
-            .limit(1)
+            .limit(5)
             .get()
 
-        if (!recentSubmissions.empty) {
+        const oneHourAgo = new Date(Date.now() - 60 * 60 * 1000).toISOString()
+        const hasRecent = recentSubmissions.docs.some(
+            (doc) => doc.data().createdAt > oneHourAgo
+        )
+        if (hasRecent) {
             return { success: false, error: 'You can submit one testimony per hour. Please try again later.' }
         }
     } catch (error) {
@@ -70,7 +73,8 @@ export async function submitTestimony(input: SubmitTestimonyInput): Promise<{ su
 
         return { success: true }
     } catch (error) {
-        console.error('Failed to save testimony:', error)
-        return { success: false, error: 'Failed to save. Please try again.' }
+        const msg = error instanceof Error ? error.message : String(error)
+        console.error('Failed to save testimony:', msg)
+        return { success: false, error: `Failed to save: ${msg}` }
     }
 }

@@ -13,21 +13,24 @@ export async function getTestimonies(): Promise<Testimony[]> {
     if (!adminDb) return []
 
     try {
+        // Single-field orderBy avoids needing a composite index
         const snapshot = await adminDb
             .collection('testimonies')
-            .where('status', '==', 'published')
             .orderBy('createdAt', 'desc')
-            .limit(50)
+            .limit(100)
             .get()
 
-        return snapshot.docs.map((doc) => ({
-            id: doc.id,
-            content: doc.data().content,
-            sourceUrl: doc.data().sourceUrl || null,
-            displayName: doc.data().displayName || 'Anonymous',
-            createdAt: doc.data().createdAt,
-            status: doc.data().status,
-        }))
+        return snapshot.docs
+            .map((doc) => ({
+                id: doc.id,
+                content: doc.data().content,
+                sourceUrl: doc.data().sourceUrl || null,
+                displayName: doc.data().displayName || 'Anonymous',
+                createdAt: doc.data().createdAt,
+                status: doc.data().status,
+            }))
+            .filter((t) => t.status === 'published')
+            .slice(0, 50)
     } catch (error) {
         console.error('Error fetching testimonies:', error)
         return []
