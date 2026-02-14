@@ -73,8 +73,7 @@ export async function submitTestimony(input: SubmitTestimonyInput): Promise<{ su
 
         return { success: true }
     } catch (error) {
-        const msg = error instanceof Error ? error.message : String(error)
-        console.error('Failed to save testimony:', msg)
-        return { success: false, error: `Failed to save: ${msg}` }
+        console.error('Failed to save testimony:', error)
+        return { success: false, error: 'Failed to save. Please try again.' }
     }
 }
