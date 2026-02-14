@@ -4,6 +4,8 @@ import TestimonyFeed from "@/components/testimony/TestimonyFeed";
 import TestimonyForm from "@/components/testimony/TestimonyForm";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 export default function Home() {
   return (
     <div className="flex-1 flex flex-col">
