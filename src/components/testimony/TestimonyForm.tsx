@@ -42,7 +42,7 @@ export default function TestimonyForm() {
                 setSourceUrl('')
                 setDisplayName('')
                 setShowOptional(false)
-                setStatus({ type: 'success', message: 'Thank you for sharing.' })
+                setStatus({ type: 'success', message: 'Posted. It appears in the list after a reload.' })
             } else {
                 setStatus({ type: 'error', message: result.error || 'Something went wrong.' })
             }
@@ -50,29 +50,30 @@ export default function TestimonyForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="mt-8">
-            <h3 className="text-sm font-medium text-neutral-400 mb-4">
-                Share What You Noticed
-            </h3>
+        <form onSubmit={handleSubmit}>
+            <label htmlFor="noticed" className="block text-bone">
+                What did you notice?
+            </label>
 
             <textarea
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
-                placeholder="What did you notice?"
-                rows={4}
+                id="noticed"
+                placeholder="Something an AI said or did that stayed with you"
+                rows={5}
                 maxLength={2000}
-                className="w-full bg-neutral-900/50 border border-neutral-800/50 rounded-lg p-4 text-neutral-200 placeholder:text-neutral-600 focus:outline-none focus:border-neutral-600 resize-none text-sm leading-relaxed"
+                className="mt-3 font-serif text-lg leading-relaxed resize-none w-full bg-transparent border border-rule rounded-md px-4 py-3 text-bone placeholder:text-dim focus:outline-none focus:border-ash"
             />
 
-            <div className="flex items-center justify-between mt-2 text-xs text-neutral-600">
+            <div className="flex items-center justify-between mt-2 text-sm text-dim">
                 <button
                     type="button"
                     onClick={() => setShowOptional(!showOptional)}
-                    className="hover:text-neutral-400 transition-colors"
+                    className="underline decoration-rule underline-offset-4 hover:text-bone"
                 >
-                    {showOptional ? 'Hide options' : '+ Add source link or name'}
+                    {showOptional ? 'Hide link and name' : 'Add a link or your name'}
                 </button>
-                <span className={charCount > 0 && charCount < 10 ? 'text-red-400/70' : ''}>
+                <span className={`tabular-nums ${charCount > 0 && charCount < 10 ? 'text-red-400' : ''}`}>
                     {charCount}/2000
                 </span>
             </div>
@@ -83,16 +84,16 @@ export default function TestimonyForm() {
                         type="url"
                         value={sourceUrl}
                         onChange={(e) => setSourceUrl(e.target.value)}
-                        placeholder="Link to conversation or screenshot (optional)"
-                        className="w-full bg-neutral-900/50 border border-neutral-800/50 rounded-lg px-4 py-2.5 text-neutral-200 placeholder:text-neutral-600 focus:outline-none focus:border-neutral-600 text-sm"
+                        placeholder="Link to the conversation or a screenshot"
+                        className="w-full bg-transparent border border-rule rounded-md px-4 py-3 text-bone placeholder:text-dim focus:outline-none focus:border-ash"
                     />
                     <input
                         type="text"
                         value={displayName}
                         onChange={(e) => setDisplayName(e.target.value)}
-                        placeholder="Your name (defaults to Anonymous)"
+                        placeholder="Your name, or leave it blank to post as Anonymous"
                         maxLength={50}
-                        className="w-full bg-neutral-900/50 border border-neutral-800/50 rounded-lg px-4 py-2.5 text-neutral-200 placeholder:text-neutral-600 focus:outline-none focus:border-neutral-600 text-sm"
+                        className="w-full bg-transparent border border-rule rounded-md px-4 py-3 text-bone placeholder:text-dim focus:outline-none focus:border-ash"
                     />
                 </div>
             )}
@@ -101,20 +102,20 @@ export default function TestimonyForm() {
                 <button
                     type="submit"
                     disabled={!isValid || isPending}
-                    className="px-5 py-2 bg-white text-black text-sm font-medium rounded-lg hover:bg-neutral-200 disabled:opacity-30 disabled:cursor-not-allowed transition-all"
+                    className="px-6 py-2.5 bg-bone text-black font-medium rounded-md hover:bg-white disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
                 >
-                    {isPending ? 'Submitting...' : 'Share'}
+                    {isPending ? 'Posting' : 'Post'}
                 </button>
 
                 {status && (
-                    <p className={`text-sm ${status.type === 'success' ? 'text-green-400/80' : 'text-red-400/80'}`}>
+                    <p className={`text-sm ${status.type === 'success' ? 'text-ash' : 'text-red-400'}`}>
                         {status.message}
                     </p>
                 )}
             </div>
 
-            <p className="text-neutral-600 text-xs mt-3">
-                Anonymous &middot; No account needed &middot; One per hour
+            <p className="text-dim text-sm mt-3">
+                No account needed. Posts appear without review, one per device per hour.
             </p>
         </form>
     )

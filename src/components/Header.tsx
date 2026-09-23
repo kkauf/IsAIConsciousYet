@@ -27,8 +27,8 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
-      <div className="bg-gradient-to-b from-black to-transparent pb-4">
-        <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
+      <div className="bg-gradient-to-b from-black via-black/80 to-transparent pb-6">
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
           <Link
             href="/"
             className="pointer-events-auto"
@@ -43,7 +43,7 @@ export default function Header() {
                 viewBox="0 0 36 36"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-8 h-8 text-neutral-400 hover:text-white transition-colors duration-300"
+                className="w-8 h-8 text-ash hover:text-bone transition-colors duration-300"
                 aria-hidden="true"
               >
                 {/* Outer circle — the boundary */}
@@ -62,9 +62,10 @@ export default function Header() {
               </svg>
             </div>
           </Link>
-          <Link href="/cases" className="pointer-events-auto text-sm text-neutral-400 hover:text-white transition-colors">
-            Case files
-          </Link>
+          <nav className="pointer-events-auto flex gap-6 text-[0.9375rem] text-ash">
+            <Link href="/cases" className="hover:text-bone transition-colors">Case files</Link>
+            <Link href="/why" className="hover:text-bone transition-colors">Why this exists</Link>
+          </nav>
         </div>
       </div>
     </header>

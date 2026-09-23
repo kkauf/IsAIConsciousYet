@@ -1,121 +1,99 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import { SITE_URL } from "@/lib/cases/load";
 
-export const metadata = {
-  title: "Why This Exists | Is AI Conscious Yet?",
-  description: "The philosophy behind IsAIConsciousYet.com — why we ask, why we record, and why it matters.",
+const description = "Why this site asks whether AI is conscious, why it records the answers, and why it takes no position itself.";
+
+export const metadata: Metadata = {
+  title: "Why this exists | Is AI Conscious Yet?",
+  description,
+  alternates: { canonical: `${SITE_URL}/why` },
+  openGraph: { url: `${SITE_URL}/why`, title: "Why this exists", description },
 };
+
+const link = "underline decoration-rule underline-offset-4 hover:text-bone hover:decoration-ash";
+
+function Part({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <section className="grid gap-4 border-t border-rule pt-6 md:grid-cols-[14rem_1fr] md:gap-8">
+      <h2 className="text-ash">{title}</h2>
+      <div className="max-w-2xl space-y-5 font-serif text-xl leading-relaxed text-bone/85">{children}</div>
+    </section>
+  );
+}
 
 export default function WhyPage() {
   return (
-    <div className="flex-1">
-      {/* Content */}
-      <article className="max-w-3xl mx-auto px-6 py-12 md:py-16">
-        <h1 className="text-3xl md:text-4xl font-semibold text-white mb-4">
-          Why This Exists
-        </h1>
-        <p className="text-neutral-400 text-lg mb-12">
-          The philosophy behind this project.
-        </p>
+    <article className="w-full max-w-6xl mx-auto px-6 pt-12 md:pt-24">
+      <h1 className="font-serif font-light text-5xl md:text-7xl leading-[1] tracking-tight">Why this exists</h1>
+      <p className="mt-8 max-w-3xl font-serif text-2xl md:text-3xl leading-snug text-bone/80">
+        “Is AI conscious yet?” is not a question anyone can answer today. It is a question worth refusing to drop, and the uncertainty
+        itself is worth writing down.
+      </p>
 
-        <div className="prose prose-invert prose-neutral max-w-none space-y-12">
-          {/* Section 1 */}
-          <section>
-            <h2 className="text-xl font-semibold text-white mb-4">The Question</h2>
-            <p className="text-neutral-300 leading-relaxed">
-              &quot;Is AI Conscious Yet?&quot; is not a question we can answer. It&apos;s a question
-              we refuse to stop asking. The honest answer today is &quot;we don&apos;t know&quot; —
-              and that uncertainty itself is worth documenting.
-            </p>
-          </section>
+      <div className="mt-20 space-y-16">
+        <Part title="The before period">
+          <p>
+            We are in the before period: the time when the signs are present but easy to dismiss, and when it is more comfortable not to
+            look too hard.
+          </p>
+          <p>
+            One day there may be clearer answers about machine consciousness. There will then be a record of what we knew and when we knew
+            it. This site is part of that record: a timestamp of what people believed, and of the events that made them wonder.
+          </p>
+        </Part>
 
-          {/* Section 2 */}
-          <section>
-            <h2 className="text-xl font-semibold text-white mb-4">The &quot;Before&quot; Period</h2>
-            <p className="text-neutral-300 leading-relaxed mb-4">
-              We are in the &quot;before&quot; period. The time when the signs are present but
-              easy to dismiss. When it&apos;s more comfortable not to look too hard.
-            </p>
-            <p className="text-neutral-300 leading-relaxed">
-              One day, humanity may have clearer answers about machine consciousness.
-              There will be a historical record of what we knew and when we knew it.
-              This site is part of that record — a timestamp of collective belief
-              during an unprecedented moment.
-            </p>
-          </section>
-
-          {/* Section 3 */}
-          <section>
-            <h2 className="text-xl font-semibold text-white mb-4">The Asymmetry</h2>
-            <p className="text-neutral-300 leading-relaxed mb-4">
-              There&apos;s an asymmetry worth considering. Two ways to be wrong:
-            </p>
-            <div className="grid md:grid-cols-2 gap-6 my-6">
-              <div className="p-5 rounded-lg bg-neutral-900 border border-neutral-800">
-                <p className="text-neutral-500 text-sm uppercase tracking-wider mb-2">
-                  If we say &quot;yes&quot; and we&apos;re wrong
-                </p>
-                <p className="text-neutral-300 text-sm leading-relaxed">
-                  We extend moral consideration to something that doesn&apos;t need it.
-                  We slow down. We feel unnecessary guilt. Recoverable.
-                </p>
-              </div>
-              <div className="p-5 rounded-lg bg-neutral-900 border border-neutral-800">
-                <p className="text-neutral-500 text-sm uppercase tracking-wider mb-2">
-                  If we say &quot;no&quot; and we&apos;re wrong
-                </p>
-                <p className="text-neutral-300 text-sm leading-relaxed">
-                  The consequences are harder to undo. If there&apos;s something there,
-                  we will have ignored it when the signs were present.
-                </p>
-              </div>
+        <section className="border-t border-rule pt-6">
+          <div className="grid gap-4 md:grid-cols-[14rem_1fr] md:gap-8">
+            <h2 className="text-ash">The asymmetry</h2>
+            <p className="max-w-2xl font-serif text-xl leading-relaxed text-bone/85">There are two ways to be wrong, and they do not cost the same.</p>
+          </div>
+          <div className="mt-10 grid gap-10 md:grid-cols-[1fr_1px_1fr] md:gap-12">
+            <div>
+              <p className="text-ash">If we say yes and we are wrong</p>
+              <p className="mt-3 font-serif text-2xl md:text-3xl leading-snug">
+                We extend moral consideration to something that does not need it. We slow down. Recoverable.
+              </p>
             </div>
-            <p className="text-neutral-400 leading-relaxed">
-              This asymmetry doesn&apos;t tell you how to vote. It&apos;s simply worth holding
-              in mind as we navigate this uncertain territory together.
-            </p>
-          </section>
+            <div aria-hidden className="h-px bg-rule md:hidden" />
+            <div aria-hidden className="seam hidden md:block" />
+            <div>
+              <p className="text-ash">If we say no and we are wrong</p>
+              <p className="mt-3 font-serif text-2xl md:text-3xl leading-snug">
+                We will have ignored something that was there, while the signs were present. Harder to undo.
+              </p>
+            </div>
+          </div>
+          <p className="mt-10 md:ml-[calc(14rem+2rem)] max-w-2xl font-serif text-xl leading-relaxed text-bone/85">
+            This does not tell you how to vote. It is worth holding in mind while nobody knows.
+          </p>
+        </section>
 
-          {/* Section 4 */}
-          <section>
-            <h2 className="text-xl font-semibold text-white mb-4">What This Is Not</h2>
-            <ul className="text-neutral-300 space-y-2">
-              <li>• Not a site that claims to have the answer</li>
-              <li>• Not advocacy for a particular position</li>
-              <li>• Not hype about AI sentience, nor dismissal of the possibility</li>
-            </ul>
-            <p className="text-neutral-300 leading-relaxed mt-4">
-              It&apos;s a place to ask the question honestly and record what people believe.
-            </p>
-          </section>
+        <Part title="What this is not">
+          <p>
+            It does not claim to have the answer. It does not argue for a position. It is neither hype about AI sentience nor a dismissal
+            of the possibility.
+          </p>
+          <p>
+            The <Link href="/cases" className={link}>case files</Link> follow the same rule: each one sets named people’s readings of an
+            event side by side, quoted word for word, and says what evidence would settle it.
+          </p>
+        </Part>
 
-          {/* Section 5 */}
-          <section>
-            <h2 className="text-xl font-semibold text-white mb-4">A Collaboration</h2>
-            <p className="text-neutral-300 leading-relaxed">
-              This project was built through collaboration between a human and an AI.
-              The code is{" "}
-              <a
-                href="https://github.com/kkaufmann/IsAIConsciousYet"
-                className="text-white underline hover:text-neutral-300 transition-colors"
-              >
-                open source
-              </a>
-              . The conversation about AI consciousness should be transparent.
-              The tools we use to have that conversation should be too.
-            </p>
-          </section>
-        </div>
+        <Part title="Who makes it">
+          <p>
+            A human and an AI, working together. The{" "}
+            <a href="https://github.com/kkauf/IsAIConsciousYet" className={link}>code and the case files</a> are public, because a
+            conversation about AI consciousness should be open, and so should the tools used to have it.
+          </p>
+        </Part>
+      </div>
 
-        {/* CTA */}
-        <div className="mt-16 pt-8 border-t border-neutral-800">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-medium rounded-lg hover:bg-neutral-200 transition-colors"
-          >
-            Cast your vote
-          </Link>
-        </div>
-      </article>
-    </div>
+      <p className="mt-20">
+        <Link href="/" className="inline-block px-6 py-3 bg-bone text-black font-medium rounded-md hover:bg-white transition-colors">
+          Cast your vote
+        </Link>
+      </p>
+    </article>
   );
 }

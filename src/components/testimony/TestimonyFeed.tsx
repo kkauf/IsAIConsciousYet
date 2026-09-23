@@ -1,21 +1,15 @@
 import { getTestimonies } from '@/lib/firebase/queries'
 import TestimonyCard from './TestimonyCard'
 
-export default async function TestimonyFeed() {
-    const testimonies = await getTestimonies()
+export default async function TestimonyFeed({ limit }: { limit?: number }) {
+    const testimonies = (await getTestimonies()).slice(0, limit)
 
     if (testimonies.length === 0) {
-        return (
-            <div className="text-center py-12">
-                <p className="text-neutral-500 text-sm">
-                    No one has shared yet. Be the first.
-                </p>
-            </div>
-        )
+        return <p className="py-7 text-ash">Nobody has written anything yet.</p>
     }
 
     return (
-        <div className="space-y-4">
+        <div className="divide-y divide-rule">
             {testimonies.map((testimony) => (
                 <TestimonyCard key={testimony.id} testimony={testimony} />
             ))}
