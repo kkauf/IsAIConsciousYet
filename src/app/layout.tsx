@@ -11,7 +11,7 @@ const publicSans = Public_Sans({ variable: "--font-public-sans", subsets: ["lati
 export const metadata: Metadata = {
   metadataBase: new URL("https://isaiconsciousyet.com"),
   title: "Is AI Conscious Yet?",
-  description: "Nobody can say yet whether AI is conscious. A record of what people believe, and of what AI systems do that the usual story does not explain.",
+  description: "Case files on things AI systems did that the story of a machine doing what we ask does not explain, with named people's readings quoted word for word. The site takes no position on whether AI is conscious.",
   openGraph: { siteName: "Is AI Conscious Yet?", type: "website" },
   twitter: { card: "summary_large_image" },
 };

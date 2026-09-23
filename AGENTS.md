@@ -60,10 +60,10 @@ Free-floating posts have nowhere to go: every contribution attaches to a reading
 - **Publishing is fully automated, no human approval** (Konstantin, 2026-09-21). The literal quote-check is the gate; speaker check and neutrality lint stand in for the human look. Full design: `docs/pipeline.md`.
 - Prototype in `pipeline/` (2026-09-21): parallel.ai for research and page fetches, Gemini 3.8 Flash to select passages, Jev (TypeSafe) for the judgments. Measured $0.30 per new case file. Do not run case-file work through Claude or Codex session tokens.
 
-### Existing features (proposed, not yet confirmed)
+### Existing features (decided 2026-09-23 unless marked)
 
-- Global yes/no vote: keep, demoted below the heat map. Konstantin rates votes as weak.
-- Testimony feed: fold into "submit a source" or retire.
+- Global yes/no vote: kept, but small and last on the homepage. Case files lead. Konstantin rates votes as weak; never put the vote above the case files.
+- Testimony feed: retired. The code is removed; the Firestore `testimonies` collection is untouched.
 - Evidence feed and news feed (both unfinished): superseded by case files.
 
 ### Research base

@@ -39,7 +39,7 @@ export default function WhyPage() {
           </p>
           <p>
             One day there may be clearer answers about machine consciousness. There will then be a record of what we knew and when we knew
-            it. This site is part of that record: a timestamp of what people believed, and of the events that made them wonder.
+            it. This site is part of that record: the events that made people wonder, what they said about them at the time, and what they believed.
           </p>
         </Part>
 
@@ -65,7 +65,7 @@ export default function WhyPage() {
             </div>
           </div>
           <p className="mt-10 md:ml-[calc(14rem+2rem)] max-w-2xl font-serif text-xl leading-relaxed text-bone/85">
-            This does not tell you how to vote. It is worth holding in mind while nobody knows.
+            This does not settle anything. It is worth holding in mind while nobody knows.
           </p>
         </section>
 
@@ -90,8 +90,8 @@ export default function WhyPage() {
       </div>
 
       <p className="mt-20">
-        <Link href="/" className="inline-block px-6 py-3 bg-bone text-black font-medium rounded-md hover:bg-white transition-colors">
-          Cast your vote
+        <Link href="/cases" className="inline-block px-6 py-3 bg-bone text-black font-medium rounded-md hover:bg-white transition-colors">
+          Read the case files
         </Link>
       </p>
     </article>

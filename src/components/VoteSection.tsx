@@ -30,9 +30,9 @@ export default function VoteSection() {
 
   return (
     <div className="w-full">
-      <p className="text-ash text-lg">{results ? "Everyone who has voted so far" : "What do you believe?"}</p>
+      <p className="font-serif text-2xl md:text-3xl leading-tight">{results ? "What everyone who voted believes" : "What do you believe?"}</p>
 
-      <div className="relative mt-4 grid grid-cols-2 border-y border-rule">
+      <div className="relative mt-6 grid grid-cols-2 border-y border-rule">
         {/* Share of yes votes, as area */}
         <span
           aria-hidden
@@ -41,12 +41,12 @@ export default function VoteSection() {
         />
         {SIDES.map((side) => {
           const align = side === "yes" ? "text-left pl-1" : "text-right pr-1";
-          const word = <span className="block font-serif font-light text-6xl md:text-8xl leading-none">{LABEL[side]}</span>;
+          const word = <span className="block font-serif font-light text-4xl md:text-5xl leading-none">{LABEL[side]}</span>;
           return results ? (
-            <div key={side} className={`relative py-8 md:py-12 ${align}`}>
+            <div key={side} className={`relative py-5 md:py-6 ${align}`}>
               {word}
-              <span className="mt-3 block tabular-nums text-ash">
-                <span className="text-bone text-2xl">{pct[side]}%</span>
+              <span className="mt-2 block tabular-nums text-ash">
+                <span className="text-bone text-xl">{pct[side]}%</span>
                 {userVote === side && <span className="ml-3">your vote</span>}
               </span>
             </div>
@@ -55,7 +55,7 @@ export default function VoteSection() {
               key={side}
               onClick={() => cast(side)}
               disabled={loading}
-              className={`relative py-10 md:py-14 ${align} text-bone/85 hover:text-bone hover:bg-bone/[0.04] transition-colors disabled:cursor-wait disabled:text-bone/40 focus-visible:outline-offset-[-2px]`}
+              className={`relative py-5 md:py-6 ${align} text-bone/85 hover:text-bone hover:bg-bone/[0.04] transition-colors disabled:cursor-wait disabled:text-bone/40 focus-visible:outline-offset-[-2px]`}
             >
               {word}
             </button>
