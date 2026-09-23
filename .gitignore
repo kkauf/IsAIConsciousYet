@@ -49,3 +49,7 @@ pipeline/runs/
 
 # local research artefacts: unverified third-party claims, not for the public repo
 docs/research/
+
+# local agent tooling
+.mcp.json
+.playwright-mcp/

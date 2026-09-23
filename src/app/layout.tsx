@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Newsreader, Public_Sans } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
-import { Toaster } from "@/components/ui/sonner";
 import Header from "@/components/Header";
 
 const newsreader = Newsreader({ variable: "--font-newsreader", subsets: ["latin"], style: ["normal", "italic"], axes: ["opsz"] });
@@ -54,7 +53,6 @@ export default function RootLayout({
             </p>
           </footer>
         </div>
-        <Toaster />
       </body>
     </html>
   );

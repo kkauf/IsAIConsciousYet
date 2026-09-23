@@ -60,11 +60,10 @@ Free-floating posts have nowhere to go: every contribution attaches to a reading
 - **Publishing is fully automated, no human approval** (Konstantin, 2026-09-21). The literal quote-check is the gate; speaker check and neutrality lint stand in for the human look. Full design: `docs/pipeline.md`.
 - Prototype in `pipeline/` (2026-09-21): parallel.ai for research and page fetches, Gemini 3.8 Flash to select passages, Jev (TypeSafe) for the judgments. Measured $0.30 per new case file. Do not run case-file work through Claude or Codex session tokens.
 
-### Existing features (decided 2026-09-23 unless marked)
+### Existing features (decided 2026-09-23)
 
 - Global yes/no vote: kept, but small and last on the homepage. Case files lead. Konstantin rates votes as weak; never put the vote above the case files.
-- Testimony feed: retired. The code is removed; the Firestore `testimonies` collection is untouched.
-- Evidence feed and news feed (both unfinished): superseded by case files.
+- Testimony feed, evidence feed, news feed, admin and login: retired and removed from the code. Firestore data is untouched. The unfinished Feb 2026 versions survive only on the local branch `archive/2026-02-wip` in Konstantin's checkout.
 
 ### Research base
 
@@ -78,43 +77,30 @@ Conceived through collaboration between a human (Konstantin) and an AI (Claude).
 
 ---
 
-## Current State
-
-[BACKLOG.md](./BACKLOG.md) predates the 2026-09-21 concept and is stale until rewritten. Live at: https://isaiconscious.vercel.app. Push to `main` = live.
-
----
-
 ## Technical Context
 
-### Stack
-- **Framework**: Next.js 16 (App Router), React 19, TypeScript
-- **Styling**: Tailwind CSS v4, shadcn/ui
-- **Hosting**: Vercel (auto-deploy from GitHub)
-- **Backend**: Hybrid — see architecture below
+Live at https://isaiconsciousyet.com (Vercel project "iaicy"). Push to `main` = live. GitHub Actions (`.github/workflows/ci.yml`) runs the same checks on every push.
 
-### Architecture
+| Part | Where |
+|---|---|
+| Pages | `src/app/`: `/` (latest case file, then the vote), `/cases`, `/cases/[slug]`, `/why` |
+| Case files | JSON in `content/cases/`, written by `pipeline/` (contract: `pipeline/contract.mjs`), read by `src/lib/cases/load.ts` |
+| Machine-readable | `sitemap.ts`, `robots.ts`, `llms.txt/route.ts`, JSON-LD on each case page, social cards in `opengraph-image.tsx` (fonts in `src/assets/`) |
+| Vote | `src/lib/votes.ts` → `/api/votes/*` proxy → Cloudflare Worker `votes.kgm-839.workers.dev` (`docs/votes-worker.md`) |
+| Design | Tokens and the seam in `src/app/globals.css`; Newsreader + Public Sans via `next/font` in `src/app/layout.tsx` |
 
-| Feature | Backend | Notes |
-|---------|---------|-------|
-| Main consciousness vote | Cloudflare Worker | `votes.kgm-839.workers.dev` |
-| Vote API proxy | Next.js API routes | `/api/votes/*` — proxies to Worker, fixes CORS |
-| News feed ("The Pulse") | Firebase Firestore | Working |
-| Evidence feed | Supabase | **Incomplete** — client not set up |
-
-### Commands
+Stack: Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4. No database; the site needs no environment variables. Pipeline keys live in `~/.claude/secrets/` (see `pipeline/run.sh`).
 
 ```bash
-npm run dev        # Start dev server (localhost:4000)
-npm run build      # Production build
-npm run lint       # ESLint
-npm run test:e2e   # Run Playwright e2e tests
+npm run dev          # localhost:4000
+npm run build        # validates content/cases/*.json first, then builds; a bad case file fails the deploy
+npm run lint
+npm run typecheck
+npm run test:e2e     # smoke tests against the built site; E2E_BASE_URL=https://isaiconsciousyet.com to test production
+pipeline/run.sh      # draft a case file from a seed (see docs/pipeline.md)
 ```
 
-### Environment Variables
-
-See `env.example`. Required:
-- Firebase client config (NEXT_PUBLIC_FIREBASE_*)
-- Firebase admin credentials (FIREBASE_CLIENT_EMAIL, FIREBASE_PRIVATE_KEY)
+The smoke tests never click the vote: that would write to the production counter.
 
 ---
 

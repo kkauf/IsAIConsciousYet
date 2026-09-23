@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useVote } from "../hooks/useVote";
-import { trackVote } from "../lib/analytics";
+import { useVote } from "@/lib/votes";
+import { trackVote } from "@/lib/analytics";
 
 const SIDES = ["yes", "no"] as const;
 const LABEL = { yes: "Yes", no: "No" };
