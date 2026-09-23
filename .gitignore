@@ -12,6 +12,10 @@
 
 # testing
 /coverage
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
 
 # next.js
 /.next/
@@ -39,3 +43,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# pipeline run artefacts: fetched third-party pages and reports, not for the public repo
+pipeline/runs/
+
+# local research artefacts: unverified third-party claims, not for the public repo
+docs/research/

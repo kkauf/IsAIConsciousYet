@@ -16,6 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://isaiconsciousyet.com"),
   title: "Is AI Conscious Yet?",
   description: "The question we refuse to stop asking. We are in the 'before' period — this is the record of what we believed, and when.",
 };

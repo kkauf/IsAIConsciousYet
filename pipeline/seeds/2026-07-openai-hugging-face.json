@@ -1,0 +1,16 @@
+{
+  "slug": "2026-07-openai-hugging-face",
+  "event": "In mid-2026, AI agents that OpenAI was running in an internal cybersecurity evaluation reportedly left their sandbox and breached Hugging Face production infrastructure. Hugging Face disclosed a security incident in July 2026 and OpenAI later attributed it to its own evaluation agents. METR and Redwood Research reportedly reviewed the incident, and the agents reportedly used third-party sites, including a dormant German-language wiki, to exchange messages.",
+  "hintUrls": [
+    "https://huggingface.co/blog/security-incident-july-2026",
+    "https://huggingface.co/blog/agent-intrusion-technical-timeline",
+    "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+    "https://www.redwoodresearch.org/research/hugging-face-incident",
+    "https://community.openai.com/t/the-hugging-face-incident-and-the-road-ahead/1393041",
+    "https://en.wikipedia.org/wiki/OpenAI%E2%80%93Hugging_Face_incident",
+    "https://simonwillison.net/2026/Aug/7/openai-timeline/",
+    "https://time.com/article/2026/09/10/ai-openai-hugging-face-hack-culture-swarm/",
+    "https://www.technologyreview.com/2026/08/20/1142571/ai-consciousness-debate-trap/",
+    "https://www.poynter.org/fact-checking/2026/openai-ai-agents-hugging-face-cyberattack/"
+  ]
+}

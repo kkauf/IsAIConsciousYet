@@ -28,7 +28,7 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none">
       <div className="bg-gradient-to-b from-black to-transparent pb-4">
-        <div className="max-w-6xl mx-auto px-6 h-14 flex items-center">
+        <div className="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
           <Link
             href="/"
             className="pointer-events-auto"
@@ -61,6 +61,9 @@ export default function Header() {
                 <circle cx="18" cy="18" r="2" fill="currentColor" />
               </svg>
             </div>
+          </Link>
+          <Link href="/cases" className="pointer-events-auto text-sm text-neutral-400 hover:text-white transition-colors">
+            Case files
           </Link>
         </div>
       </div>
