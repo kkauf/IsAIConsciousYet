@@ -4,7 +4,7 @@ Concept: `AGENTS.md` § Concept. Decisions by Konstantin on 2026-09-21: fully au
 
 Status: prototype of research, selection and gates 1-5 exists in `pipeline/` and has run on one event under the Version 2 inclusion rule. The site renders case files from `content/cases/*.json` at `/cases/<slug>` (`src/app/cases/[slug]/page.tsx`, local only, not pushed). Detect, triage and publish are not built.
 
-Open after the first rendered page (2026-09-21): 6 of the 9 readings assess danger or retell the event; only Seth, Patel and Haldar speak to the nature of the system, and the top disagreement pair scored 0.71 against a 0.7 threshold. Selection should prefer what a party says about the nature of the system, and the page should lay the positions out against each other instead of listing them.
+Live since 2026-09-23: `/cases`, `/cases/<slug>`, `sitemap.xml`, `robots.txt`, `llms.txt`, Article JSON-LD. Page layout: readings with `aboutNature` (Jev score >= 0.6 on "does the quote make a claim about the nature of the system", set by code in `markAboutNature`, `pipeline/lib.mjs`) face each other under the open question; the rest are listed as "also on the record". On the Hugging Face case this picked Seth (0.91) and Patel (0.93); all others scored <= 0.58. Backfill an existing case: `pipeline/run.sh mark-about-nature.mjs content/cases/<slug>.json`. Still open: quote selection itself does not yet prefer nature-of-system passages, and the top disagreement pair (0.71) sits just above the 0.7 threshold.
 
 ## Prototype (2026-09-21): `pipeline/`
 
