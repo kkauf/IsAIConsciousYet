@@ -58,7 +58,7 @@ Status 2026-09-26: built (`.github/workflows/pipeline.yml`, `pipeline/auto.mjs`,
 | re-check | Built. Marks `sourceChanged`, shown on the case page. |
 | notify | Built. Issue with label `pipeline-run` per run, another on failure. |
 | spend cap | Built. $10/month from `pipeline/config.json`, checked before every paid step. |
-| Dependabot | Built. npm weekly (minor and patch grouped), Actions monthly. `.github/workflows/dependabot-merge.yml` merges those after CI passes; npm major updates stay open. |
+| Dependabot | Built. npm weekly (minor and patch grouped), Actions monthly. `.github/workflows/dependabot-merge.yml` merges those after CI passes. npm major versions are not proposed (they need deliberate work). |
 | Updates to existing cases | Not built. Found and listed in the summary; case files are not edited. |
 | New readings of existing cases, mention re-checks | Not built. |
 | IndexNow on publish | Built. The workflow calls `pipeline/indexnow.mjs` once the first new page answers. |

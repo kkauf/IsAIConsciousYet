@@ -1,4 +1,6 @@
-# Weekly npm updates, minor and patch grouped into one PR so CI tests them together; majors stay separate.
+# Weekly npm updates, minor and patch grouped into one PR so CI tests them together.
+# Major versions are not proposed: they need deliberate work (TypeScript 7 and ESLint 10 failed CI on 2026-09-26).
+# GitHub security updates are separate and still arrive.
 version: 2
 updates:
   - package-ecosystem: npm
@@ -8,6 +10,9 @@ updates:
     groups:
       minor-and-patch:
         update-types: [minor, patch]
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
   - package-ecosystem: github-actions
     directory: /
     schedule:

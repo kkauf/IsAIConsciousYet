@@ -1,5 +1,5 @@
 # Merges Dependabot PRs once CI has passed on them: grouped npm minor/patch updates and
-# GitHub Actions updates. npm major updates stay open for a person or agent to review.
+# GitHub Actions updates. npm major versions are not proposed (see dependabot.yml).
 name: Merge Dependabot updates
 on:
   workflow_run:
