@@ -8,8 +8,8 @@ Goal (Konstantin, 2026-09-25): the project maintains itself, is visually appeali
 |---|---|---|
 | Adds value | 1 published case file (OpenAI–Hugging Face) | More case files. With one, the site is a single article. |
 | Maintains itself | CI on every push; the build refuses a malformed case file | Detect, triage, a scheduled run, auto-publish, the weekly quote re-check, a spend cap. The pipeline runs only by hand. No API keys in Actions secrets. |
-| Usable by agents | `llms.txt`, sitemap, robots, Article JSON-LD, social cards, licence (MIT code, CC BY 4.0 content) | Case data as JSON, a feed, search-engine submission |
-| Usable by humans | Design pass 2026-09-23; case files first, vote last | "Report an error" link (promised in `docs/pipeline.md`), a case index that scales past a handful |
+| Usable by agents | `llms.txt`, sitemap, robots, Article JSON-LD, social cards, licence (MIT code, CC BY 4.0 content), case data as JSON, Atom feed, IndexNow script | Search Console and Bing Webmaster submission; IndexNow is not yet called on publish |
+| Usable by humans | Design pass 2026-09-23; case files first, vote last; "Report an error" link on each case page | A case index that scales past a handful |
 
 ## Order
 
@@ -56,10 +56,11 @@ Also needed:
 
 ## 3. Agents and search
 
-- `/cases/<slug>.json` and `/cases.json`: the case files as data, served by the same loader.
-- An Atom feed at `/feed.xml`, so people and agents can follow new case files.
-- Submit the sitemap to Google Search Console and Bing Webmaster, and ping IndexNow on every publish.
-- A "Report an error" link on each case page that opens a prefilled GitHub issue.
+- Done: `/cases/<slug>.json` and `/cases.json`, the case files as data, served by the same loader. Linked from `llms.txt` and `<link rel="alternate">`.
+- Done: an Atom feed at `/feed.xml`, so people and agents can follow new case files.
+- Done: a "Report an error" link on each case page that opens a prefilled GitHub issue.
+- Built, not wired: `pipeline/indexnow.mjs` pings IndexNow (key file `public/<key>.txt`). The stage 2 publish job should call it after each deploy.
+- Open: submit the sitemap to Google Search Console and Bing Webmaster (needs Konstantin's accounts).
 
 ## 4. Scale the index
 

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { allCases, dateRange, SITE_URL } from "@/lib/cases/load";
+import { allCases, dateRange, DATA_LINKS, SITE_URL } from "@/lib/cases/load";
 
 const description =
   "Events where AI systems did something that does not fit the story of a machine doing the work we ask, with competing readings by named people, quoted word for word.";
@@ -8,7 +8,7 @@ const description =
 export const metadata: Metadata = {
   title: "Case files | Is AI Conscious Yet?",
   description,
-  alternates: { canonical: `${SITE_URL}/cases` },
+  alternates: { canonical: `${SITE_URL}/cases`, types: DATA_LINKS },
   openGraph: { url: `${SITE_URL}/cases`, title: "Case files", description },
 };
 

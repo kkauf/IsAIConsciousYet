@@ -2,10 +2,10 @@ import { Fragment } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import VoteSection from "@/components/VoteSection";
-import { allCases, dateRange, SITE_URL } from "@/lib/cases/load";
+import { allCases, dateRange, DATA_LINKS, SITE_URL } from "@/lib/cases/load";
 import { QUESTIONS } from "../../pipeline/contract.mjs";
 
-export const metadata: Metadata = { alternates: { canonical: SITE_URL }, openGraph: { url: SITE_URL } };
+export const metadata: Metadata = { alternates: { canonical: SITE_URL, types: DATA_LINKS }, openGraph: { url: SITE_URL } };
 
 const rows = QUESTIONS as Record<string, string>;
 const link = "underline decoration-rule underline-offset-4 hover:text-bone hover:decoration-ash";

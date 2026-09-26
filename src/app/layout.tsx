@@ -3,6 +3,7 @@ import { Newsreader, Public_Sans } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import Header from "@/components/Header";
+import { DATA_LINKS } from "@/lib/cases/load";
 
 const newsreader = Newsreader({ variable: "--font-newsreader", subsets: ["latin"], style: ["normal", "italic"], axes: ["opsz"] });
 const publicSans = Public_Sans({ variable: "--font-public-sans", subsets: ["latin"] });
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
   description: "Case files on things AI systems did that the story of a machine doing what we ask does not explain, with named people's readings quoted word for word. The site takes no position on whether AI is conscious.",
   openGraph: { siteName: "Is AI Conscious Yet?", type: "website" },
   twitter: { card: "summary_large_image" },
+  alternates: { types: DATA_LINKS },
 };
 
 export default function RootLayout({
