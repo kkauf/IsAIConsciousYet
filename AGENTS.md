@@ -6,7 +6,7 @@ Shared instructions for Codex and Claude Code when working in this repository.
 
 ## Concept (decided by Konstantin 2026-09-21)
 
-This supersedes the Feb 2026 founding text, archived at `docs/founding-concept-2026-02.md`. That text justified asking the question ("holding the question") and gave agents nothing to build toward, so they looped. Do not reintroduce it. Do not write copy about why the question matters. Build the thing below.
+This supersedes the Feb 2026 founding text, archived at `docs/founding-concept-2026-02.md`. That text justified asking the question ("holding the question") and gave agents nothing to build toward, so they looped. Do not reintroduce it as the product. Why the question matters is said once, on `/why` (Konstantin approved the 2026-09-23 wording); keep it there and keep it short. Everywhere else, build case files, not justification.
 
 ### One sentence
 
@@ -32,22 +32,24 @@ EVENT  (primary source, date, what the system did that nobody asked for)
 
 Rules:
 
-1. **The site takes no position.** Konstantin's own reading is one slot among the others, labelled as his.
+1. **The site takes no position.** Konstantin's own reading may be one slot among the others, labelled as his (`site-owner` party type; how he adds it is undecided, see `docs/plan.md`).
 2. **Agency is not consciousness.** Goal pursuit, coordination, deception and self-preservation-shaped behaviour are evidence about agency. Each case file keeps the two apart.
 3. **AI self-report is weak evidence.** Models say what they were trained to say, in either direction. Agent statements may be quoted as part of an event, never as testimony that settles anything.
 4. **Attribution accuracy.** A reading attributed to a named person needs a verbatim quote and a URL opened at drafting time. No paraphrase presented as a quote. This is the main legal and reputational risk of the project.
 5. **Inclusion rule (Version 2, confirmed by Konstantin 2026-09-21).** Superseded Version 1: (a) a primary source from the operator or the affected party exists, (b) the system did something its operators did not ask for or expect, (c) at least two named parties read it differently. Version 1 admitted mostly security incidents and kept out findings about consciousness (`docs/research/rule-preview.html`). Version 2, in force: (a) unchanged; (b) the event does not fit the machine story, which includes findings about a system's inner workings or self-description; (c) two named parties disagree about the nature of the system, not about severity, blame or policy. Essays and opinions are never events; they can be readings.
 6. **Honorable mentions** (Konstantin, 2026-09-21). An event that was researched and does not fit the machine story, but misses (a) or (c), is shown as an honorable mention with the missing criterion named. Every quote on a mention still passes the literal quote check and the speaker check.
 
-### Heat map
+### Heat map (not built)
 
-Timeline of qualifying events, grouped by the open question each bears on. Intensity counts events, never votes. Nothing on the site is ranked by count, so volume attacks have nothing to win.
+Timeline of qualifying events, grouped by the open question each bears on. Intensity counts events, never votes. Nothing on the site is ranked by count, so volume attacks have nothing to win. Today each case file names its questions (`bearsOn`, shown on the page); the grid itself waits until there are enough case files to fill it (`docs/plan.md`).
 
-### Contribution (phased)
+### Contribution (phased, none built yet)
+
+The site went live on 2026-09-23 without the first phase. Order and status: `docs/plan.md`.
 
 | Phase | Visitors can | Gate |
 |---|---|---|
-| Launch | pick which reading they hold; submit a source | none needed, no free text |
+| First | pick which reading they hold; submit a source | none needed, no free text |
 | Later | post arguments attached to a specific reading | one-time fee to post; invite tree as alternative |
 | Later | declared AI agents post in a labelled lane | never counted in human tallies |
 
@@ -56,9 +58,9 @@ Free-floating posts have nowhere to go: every contribution attaches to a reading
 ### Production and funding
 
 - Agents gather candidate events and draft case files on a schedule (parallel.ai for web research, not model subagents).
-- Research has a real cost. Funding: posting fee, plus donations.
+- Research has a real cost (about $0.30 per case file). Intended funding: posting fee, plus donations. Neither exists yet; Konstantin pays.
 - **Publishing is fully automated, no human approval** (Konstantin, 2026-09-21). The literal quote-check is the gate; speaker check and neutrality lint stand in for the human look. Full design: `docs/pipeline.md`.
-- Prototype in `pipeline/` (2026-09-21): parallel.ai for research and page fetches, Gemini 3.8 Flash to select passages, Jev (TypeSafe) for the judgments. Measured $0.30 per new case file. Do not run case-file work through Claude or Codex session tokens.
+- Pipeline in `pipeline/` (2026-09-21): research, quote selection and gates 1-5 run by hand on a seed; detect, triage, scheduled runs and auto-publish are not built. It uses parallel.ai for research and page fetches, Gemini 3.8 Flash to select passages, Jev (TypeSafe) for the judgments. Measured $0.30 per new case file. Do not run case-file work through Claude or Codex session tokens.
 
 ### Existing features (decided 2026-09-23)
 
@@ -67,7 +69,7 @@ Free-floating posts have nowhere to go: every contribution attaches to a reading
 
 ### Research base
 
-`docs/research/20260921-incident-landscape-research-UNVERIFIED.json`: incident research, landscape, live questions, repo audit. Single pass; the fact-check stage did not run. Verify primary URLs before publishing anything from it. First case file candidate: the OpenAI–Hugging Face incident (May–July 2026).
+`docs/research/20260921-incident-landscape-research-UNVERIFIED.json`: incident research, landscape, live questions, repo audit. Single pass; the fact-check stage did not run. Verify primary URLs before publishing anything from it. The OpenAI–Hugging Face incident from it was published on 2026-09-23 as the first case file. `docs/research/` is gitignored (unverified third-party claims) and exists only in Konstantin's checkout; its README lists source intakes for the next candidates (Anthropic J-space, Hoel and Hossenfelder).
 
 ---
 
@@ -106,6 +108,6 @@ The smoke tests never click the vote: that would write to the production counter
 
 ## Project Constraints
 
-- Open source — the conversation about AI consciousness should be transparent
+- Public code and case files, so the conversation about AI consciousness stays transparent. The repo has no licence file yet (`docs/plan.md`).
 - The site is live — your changes will be seen
-- Lean: automated gathering, no editorial staff. An approval click is acceptable; authoring by hand is not.
+- Lean: automated gathering, no editorial staff, no approval click (decided 2026-09-21), no authoring by hand. The one exception is Konstantin's own labelled reading.

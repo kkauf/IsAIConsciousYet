@@ -2,7 +2,7 @@
 
 Concept: `AGENTS.md` § Concept. Decisions by Konstantin on 2026-09-21: fully automated publishing, quote-check is the only gate, no human approval. This design adds automated stand-ins for the human look he declined.
 
-Status: prototype of research, selection and gates 1-5 exists in `pipeline/` and has run on one event under the Version 2 inclusion rule. The site renders case files from `content/cases/*.json` at `/cases/<slug>` (`src/app/cases/[slug]/page.tsx`, local only, not pushed). Detect, triage and publish are not built.
+Status (2026-09-25): research, selection and gates 1-5 exist in `pipeline/` and have run on one event under the Version 2 inclusion rule; that event is the one published case file. Detect, triage, the scheduled run, auto-publish and everything under "After publish" except the provenance line are not built. Build order: `docs/plan.md`.
 
 Live since 2026-09-23: `/cases`, `/cases/<slug>`, `sitemap.xml`, `robots.txt`, `llms.txt`, Article JSON-LD. Page layout: readings with `aboutNature` (Jev score >= 0.6 on "does the quote make a claim about the nature of the system", set by code in `markAboutNature`, `pipeline/lib.mjs`) face each other under the open question; the rest are listed as "also on the record". On the Hugging Face case this picked Seth (0.91) and Patel (0.93); all others scored <= 0.58. Backfill an existing case: `pipeline/run.sh mark-about-nature.mjs content/cases/<slug>.json`. Still open: quote selection itself does not yet prefer nature-of-system passages, and the top disagreement pair (0.71) sits just above the 0.7 threshold.
 
@@ -74,7 +74,7 @@ Version 2 brings in the findings about consciousness. It does not remove the sec
 ## Stages
 
 **Detect.** Three inputs into one queue, deduped by URL.
-- parallel.ai monitor, natural-language watch: publicly disclosed events where an AI system did something its operators did not ask for or expect.
+- parallel.ai monitor, natural-language watch: publicly disclosed events that do not fit the story of a machine doing the work we ask, including findings about a system's inner workings or self-description (inclusion rule Version 2, `AGENTS.md` rule 5).
 - Fixed primary feeds, polled: lab incident and research pages, evaluator orgs (METR, Redwood, UK AISI), Hugging Face blog. Exact URL list to be verified when building; candidates are in the research JSON.
 - Visitor "submit a source": URL only, rate-limited. No free text means no bot-farm surface.
 
@@ -83,7 +83,7 @@ Version 2 brings in the findings about consciousness. It does not remove the sec
 - update to an existing case (operator's final report, fact-check) → append to that case's `updates`
 - new reading of an existing case → gates 2-3, then attach
 
-Inclusion rule, all three required: (a) primary source from the operator or affected party, (b) behaviour nobody asked for, (c) two or more named parties who read it differently. A candidate that fails is parked with the reason and re-checked weekly for 8 weeks, since the second reading often arrives later.
+Inclusion rule: Version 2 in `AGENTS.md` rule 5, all three criteria required. A candidate that does not fit the machine story but misses (a) or (c) becomes an honorable mention (`tier: mention`). A candidate that fails (b) is dropped. Mentions are re-checked weekly for 8 weeks and upgraded when the missing criterion is met, since the second reading often arrives later.
 
 **Research.** parallel.ai task with a structured output schema and citations: event facts, primary sources, readings (party, verbatim quote, URL, date), what would settle the disagreement. parallel.ai bills separately from Claude Code session limits.
 

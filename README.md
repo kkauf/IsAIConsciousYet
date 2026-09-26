@@ -29,5 +29,6 @@ No environment variables are needed to run the site. Drafting case files needs A
 | `pipeline/` | Finds sources, checks quotes, drafts case files |
 | `src/app/` | The site (Next.js) |
 | `AGENTS.md` | The concept and its rules, for people and coding agents |
+| `docs/plan.md` | What is built, what is next, open decisions |
 
 Made by a human and an AI together. Corrections to a quote or attribution: open an issue with the link.
