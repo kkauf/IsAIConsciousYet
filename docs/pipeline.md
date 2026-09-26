@@ -150,6 +150,7 @@ Source  { url, archivedUrl, publisher, published, quote, sourceChanged? }
 cap check ─► DETECT (1 parallel.ai task) ─► TRIAGE (1 Jev call per batch) ─► queue in candidates.json
                                                                                  │ up to maxNewCasesPerRun, oldest first
 cap check ─► run-case.mjs per seed (child process) ─► content/cases/<slug>.json if it passes
+cap check ─► PRESS COVERAGE (coverage.mjs, § Press coverage) ─► content/coverage.json
 cap check ─► RECHECK every live quote ─► state files ─► summary.md
 Action: npm run build (validates case files) ─► commit to main ─► IndexNow (if pipeline/indexnow.mjs exists) ─► run summary (issue only if actionable)
 ```
@@ -168,6 +169,33 @@ Action: npm run build (validates case files) ─► commit to main ─► IndexN
 Spend cap: before each paid step, month-to-date spend (`spend.json`) + this run so far + the step's worst case (`worstCaseUsd` in config) must stay under `monthlyCapUsd` ($10). Otherwise the step is skipped and the summary says so. Queued events wait for the next run.
 
 A failed build publishes nothing; the failure step commits only `pipeline/state` and `pipeline/seeds`, so spend and dedupe survive, and opens an issue linking the run.
+
+## Press coverage (built 2026-09-26)
+
+The popular debate, drawn on `/timeline` and the homepage next to the case files: articles in a fixed list of 24 general-audience publications (`coverage.outlets` in `pipeline/config.json`) whose main subject is whether AI systems are or could become conscious, sentient, have feelings, or deserve moral consideration. Text only (publication, headline, date, link). Nothing is scored for or against. Script: `pipeline/coverage.mjs`; output `content/coverage.json` (validated by `check-cases.mjs`); state `pipeline/state/coverage.json` (every judged URL, so nothing is judged twice).
+
+```
+parallel.ai Search (listed domains, after_date) ─► strict outlet match, NOT_ARTICLE, articleUrl() ─► Jev: main subject? (≥ 0.6)
+ ─► code: subject named in headline or address; headline and date from the URL, the page's own metadata, or extract; og:type article
+ ─► same publication + same headline within 45 days = one piece (earliest kept) ─► content/coverage.json
+```
+
+| Mode | What it does | Measured cost |
+|---|---|---|
+| Weekly (in `auto.mjs`, step "2c") | Outlets in groups of 4, `after_date` two weeks before the last run | 6 searches, $0.04 (dry run 2026-09-26: 56 results, 15 new, 1 kept); cap assumes $0.15 |
+| `--backfill [--outlets d1,d2]` | One search per outlet and year since `coverage.since` (2020), because the index favours recent pages | 168 searches, $1.62 (2026-09-26) |
+| `--revalidate [--retry]` | Applies the code rules to the stored articles again and reduces addresses and state keys to `articleUrl()`. `--retry` reads again every article the judge kept in an earlier run but the rules left out (needs the local run files in `pipeline/runs/_coverage/`) | $0.03 |
+
+Findings from the backfill (2026-09-26):
+- The judge alone lets through off-topic pages whose excerpt picked up a sidebar (a dementia article scored 0.92). Code therefore also requires the subject in the headline or the address (`SUBJECT_WORDS`).
+- Section, tag, author and newsletter pages and subdomains came back as results: `NOT_ARTICLE`, exact hosts, and og:type.
+- Tracking parameters (`?eafs_enabled=false`, `?syn-…=1`) made extract return no date, so 5 relevant articles were left out and the same article appeared twice. `articleUrl()` strips query, fragment and `/amp`; the retry added them.
+- Page fetches vary run to run (Time, FT): two retries added different articles. An article left out for "no date" can come back on a later retry.
+- Removed by hand: Wired's newsletter "Shopify Goes Soul-Searching" (one aside on sentience). Marked `removedBy` in the state so no run adds it again.
+
+Unknowns: recall. There was no ground truth to check it against (the Guardian's open API key returned 401; Wayback CDX needs authorisation), so the page says earlier years are likely undercounted. English-language publications only. AP returned no article.
+
+Adding an outlet: add it to the config, then `--backfill --outlets <domain>`, so every outlet is counted over the same years.
 
 ## Heat-map rows (source of truth: `QUESTIONS` in `pipeline/contract.mjs`)
 

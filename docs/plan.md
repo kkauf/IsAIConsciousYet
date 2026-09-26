@@ -9,7 +9,7 @@ Goal (Konstantin, 2026-09-25): the project maintains itself, is visually appeali
 | Adds value | 7 published (2026-09-26): 4 case files, 3 honorable mentions | Volume comes from the weekly run; readings per case are still thin (2 to 9) |
 | Maintains itself | CI on every push; the build refuses a malformed case file. Stage 2 built 2026-09-26 and ran live the same day (issue #8): weekly Action with detect, triage, auto-publish, updates to existing files, one retry of parked events, quote re-check, spend cap, Dependabot | Re-checking honorable mentions |
 | Usable by agents | `llms.txt`, sitemap, robots, Article JSON-LD, social cards, licence (MIT code, CC BY 4.0 content), case data as JSON, Atom feed, IndexNow ping after each automated publish (covers Bing) Google Search Console: domain property verified 2026-09-26 (DNS TXT on Cloudflare), sitemap submitted | |
-| Usable by humans | Design pass 2026-09-23; case files first, vote last; "Report an error" link on each case page | A case index that scales past a handful |
+| Usable by humans | Design pass 2026-09-23; case files first, vote last; "Report an error" link on each case page. `/timeline` (2026-09-26): press coverage in 24 publications since 2020, month by month, with the case files on the same axis; also on the homepage | A case index that scales past a handful. Recall of the press count is unknown (`docs/pipeline.md` § Press coverage) |
 
 ## Order
 
@@ -56,13 +56,14 @@ Status 2026-09-26: built (`.github/workflows/pipeline.yml`, `pipeline/auto.mjs`,
 | detect + triage | Built. One parallel.ai Task (`base`) with the fixed source list, then one Jev call. The parallel.ai monitor and polled feeds were replaced by the task. |
 | draft + gates | Built. Up to 3 queued events per run through `run-case.mjs`; build, then commit to `main`. |
 | re-check | Built. Marks `sourceChanged`, shown on the case page. |
-| notify | Built. Issue with label `pipeline-run` per run, another on failure. |
+| notify | Built. Every run's summary on the Actions run page. An issue labelled `pipeline-run`, assigned to Konstantin (so it emails him), only for errors, the spend cap, a Dependabot PR open for a week, or a failed run (2026-09-26: "Actionable/ failures only"). Vercel PR comments off (`vercel.json`). |
 | spend cap | Built. $10/month from `pipeline/config.json`, checked before every paid step. |
-| Dependabot | Built. npm weekly (minor and patch grouped), Actions monthly. `.github/workflows/dependabot-merge.yml` merges those after CI passes. npm major versions are not proposed (they need deliberate work). |
+| Dependabot | Built. npm monthly (minor and patch grouped), Actions monthly (grouped). `.github/workflows/dependabot-merge.yml` merges those after CI passes. npm major versions are not proposed (they need deliberate work). |
 | Updates to existing cases | Built 2026-09-26. One case per run is rerun with the new sources; additions only, logged on the page under Updates. |
 | Parked events | Retried once, 21 days after they parked. |
 | Mention re-checks | Not built. |
 | IndexNow on publish | Built. The workflow calls `pipeline/indexnow.mjs` once the first new page answers. |
+| Press coverage | Built 2026-09-26. Weekly search of 24 publications for `/timeline`, about $0.04 a run (`docs/pipeline.md` § Press coverage). |
 
 Kill switch: `status: withdrawn` in the case file's JSON, then one commit.
 

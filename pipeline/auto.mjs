@@ -13,6 +13,7 @@ import path from 'node:path';
 import { ledgerTotal, PRICES } from './lib.mjs';
 import { detect } from './detect.mjs';
 import { recheck, caseFiles, recheckUrls } from './recheck.mjs';
+import { coverage } from './coverage.mjs';
 import { root, loadConfig, loadSpend, saveSpend, monthToDate, addSpend, capCheck, loadCandidates, saveCandidates, monthKey } from './state.mjs';
 
 const SITE_URL = 'https://isaiconsciousyet.com'; // same as src/lib/cases/load.ts
@@ -34,7 +35,7 @@ let childCost = 0; // run-case children; in-process calls are in lib's ledger
 const runCost = () => ledgerTotal().total + childCost;
 const cap = (step, estimate) => capCheck({ config, spentBefore, spentThisRun: runCost(), estimate, step });
 
-const out = { capStops: [], errors: [], detected: [], published: [], mentions: [], parked: [], updated: [], recheck: null, processor: null };
+const out = { capStops: [], errors: [], detected: [], published: [], mentions: [], parked: [], updated: [], recheck: null, coverage: null, processor: null };
 const today = new Date().toISOString().slice(0, 10);
 const daysSince = (d) => (Date.parse(today) - Date.parse(d)) / 864e5;
 // A parked event is retried once, parkedRetryAfterDays later: new events are often parked only because nobody has commented yet.
@@ -159,6 +160,18 @@ if (!dryRun) {
   }
 }
 
+// ── 2c press coverage for /timeline (pipeline/coverage.mjs) ──────────────────
+if (!dryRun) {
+  const stop = cap('coverage', config.coverage.worstCaseUsd);
+  if (stop) { out.capStops.push(stop); log(stop); }
+  else {
+    try {
+      out.coverage = await coverage({ log });
+      out.errors.push(...out.coverage.errors.map((e) => `coverage: ${e}`));
+    } catch (e) { out.errors.push(`coverage: ${String(e.message ?? e).slice(0, 300)}`); }
+  }
+}
+
 // ── 3 weekly re-check of every live quote ────────────────────────────────────
 if (!dryRun) {
   const files = caseFiles();
@@ -179,6 +192,7 @@ if (!dryRun) {
 }
 const mtd = Number((spentBefore + cost).toFixed(4));
 const newUrls = [...out.published, ...out.mentions, ...out.updated].map((p) => p.url).filter(Boolean);
+if (out.coverage?.added.length) newUrls.push(`${SITE_URL}/timeline`);
 if (newUrlsPath) writeFileSync(newUrlsPath, newUrls.join('\n') + (newUrls.length ? '\n' : ''));
 
 // ── 5 summary ────────────────────────────────────────────────────────────────
@@ -192,6 +206,7 @@ section('Honorable mentions', out.mentions.map((p) => `- [${p.title}](${p.url}):
 section('Parked', out.parked.map((p) => `- \`${p.slug}\` ${p.title}: ${p.reasons.join('; ')} ($${p.cost})`));
 section('Updates found', out.detected.filter((c) => c.route === 'update').map((c) => `- \`${c.case}\` ← [${c.title}](${c.url}), ${c.date}`));
 section('Updates applied', out.updated.map((u) => `- \`${u.slug}\` ${u.url ? `[${u.title}](${u.url})` : u.title}: ${u.change} ($${u.cost})`));
+section(`Press coverage (${out.coverage?.added.length ?? 0} new articles for /timeline)`, (out.coverage?.added ?? []).map((a) => `- ${a.date} ${a.publication}: [${a.headline.replace(/[[\]]/g, '')}](${a.url})`));
 section('Errors', out.errors.map((e) => `- ${e}`));
 if (out.detected.length) {
   md.push(`## Detected (${out.processor ?? 'no'} task, lookback ${config.lookbackDays} days)`, '', '| Route | Date | Candidate | Reason |', '|---|---|---|---|');

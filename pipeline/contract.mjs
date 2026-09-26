@@ -69,6 +69,20 @@ export const CASE_FILE_SCHEMA = {
   },
 };
 
+// content/coverage.json, written by pipeline/coverage.mjs and drawn on /timeline.
+export const COVERAGE_SCHEMA = {
+  type: 'object',
+  required: ['since', 'outlets', 'articles'],
+  properties: {
+    since: str({ isoDate: true }),
+    outlets: { type: 'array', minItems: 1, items: str() },
+    articles: {
+      type: 'array',
+      items: { type: 'object', required: ['date', 'publication', 'headline', 'url'], properties: { date: str({ isoDate: true }), publication: str(), headline: str(), url: str(), foundAt: str() } },
+    },
+  },
+};
+
 // Returns a list of error strings; empty means valid.
 export function validate(schema, value, path = '$') {
   const errs = [];

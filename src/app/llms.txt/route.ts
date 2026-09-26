@@ -19,6 +19,7 @@ export function GET() {
     `- [All case files as JSON](${SITE_URL}/cases.json)`,
     `- One case file as JSON: ${SITE_URL}/cases/<slug>.json`,
     `- [Atom feed of new case files](${SITE_URL}/feed.xml)`,
+    `- [Timeline](${SITE_URL}/timeline): articles in 24 major publications about whether AI could be conscious, month by month since 2020, with the case files. Data: ${"https://github.com/kkauf/IsAIConsciousYet/blob/main/content/coverage.json"}`,
     "",
     "## About",
     "",

@@ -3,7 +3,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import VoteSection from "@/components/VoteSection";
 import SeamEye from "@/components/eye/SeamEye";
+import Timeline from "@/components/Timeline";
 import { allCases, dateRange, DATA_LINKS, SITE_URL } from "@/lib/cases/load";
+import { loadCoverage, months, takeaway } from "@/lib/coverage";
 import { QUESTIONS } from "../../pipeline/contract.mjs";
 
 export const metadata: Metadata = { alternates: { canonical: SITE_URL, types: DATA_LINKS }, openGraph: { url: SITE_URL } };
@@ -17,6 +19,8 @@ export default function Home() {
   const latest = sorted.find((c) => c.tier === "case-file" && c.readings.filter((r) => r.aboutNature).length >= 2) ?? sorted[0];
   const earlier = sorted.filter((c) => c !== latest);
   const pair = latest?.readings.filter((r) => r.aboutNature).slice(0, 2) ?? [];
+  const coverage = loadCoverage();
+  const ms = months(coverage, sorted);
 
   return (
     <div className="w-full max-w-6xl mx-auto px-6">
@@ -75,6 +79,19 @@ export default function Home() {
               Read the case file: {latest.readings.length} readings, the first-hand sources, and what would settle it
             </Link>
           </p>
+        </section>
+      )}
+
+      {coverage.articles.length > 0 && (
+        <section aria-labelledby="over-time" className="mt-20 md:mt-28">
+          <div className="flex items-baseline justify-between gap-6 border-t border-rule pt-6">
+            <h2 id="over-time" className="text-ash">The question, over time</h2>
+            <Link href="/timeline" className={`text-ash ${link}`}>The timeline</Link>
+          </div>
+          <p className="mt-8 max-w-4xl font-serif text-2xl md:text-3xl leading-snug">{takeaway(ms, coverage.outlets.length)}</p>
+          <div className="mt-10">
+            <Timeline ms={ms} linkBase="/timeline" />
+          </div>
         </section>
       )}
 

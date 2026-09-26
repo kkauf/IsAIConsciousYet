@@ -10,6 +10,8 @@ export const PRICES = {
   jev: { model: 'jev-latest', inPerM: 0.042 },
   parallelTask: { lite: 0.005, base: 0.01, core: 0.025, core2x: 0.05, pro: 0.1, ultra: 0.3 },
   parallelExtractPerUrl: 0.001,
+  // Search bills one search plus one charge per result excerpt (the `usage` array of each response).
+  parallelSearch: { search: 0.005, excerpt: 0.001 },
 };
 
 export const ledger = [];
@@ -94,6 +96,24 @@ export async function parallelExtract(step, urls) {
     charge(step, 'parallel', { kind: 'extract', urls: okCount }, okCount * PRICES.parallelExtractPerUrl);
   }
   return out;
+}
+
+// Search restricted to a list of domains; used for press coverage (pipeline/coverage.mjs).
+export async function parallelSearch(step, { objective, queries, domains, afterDate, maxResults = 20 }) {
+  const r = await http('https://api.parallel.ai/v1beta/search', {
+    method: 'POST',
+    headers: { 'x-api-key': need('PARALLEL_API_KEY'), 'content-type': 'application/json', 'parallel-beta': 'search-extract-2025-10-10' },
+    body: JSON.stringify({
+      objective, search_queries: queries, max_results: maxResults,
+      excerpts: { max_chars_per_result: 1200 },
+      source_policy: { include_domains: domains, ...(afterDate ? { after_date: afterDate } : {}) },
+    }),
+  });
+  if (!r.ok) throw new Error(`parallel search ${r.status}: ${r.text.slice(0, 300)}`);
+  const n = (sku) => (r.json.usage ?? []).find((u) => u.name === sku)?.count ?? 0;
+  const P = PRICES.parallelSearch;
+  charge(step, 'parallel', { kind: 'search' }, n('sku_search') * P.search + n('sku_extract_excerpts') * P.excerpt);
+  return (r.json.results ?? []).map((x) => ({ url: x.url, title: x.title ?? '', published: x.publish_date ?? null, excerpt: (x.excerpts ?? []).join('\n').slice(0, 1500) }));
 }
 
 // Fallback when extract returns no text (seen on NBC, BBC, The Verge, Ars Technica):

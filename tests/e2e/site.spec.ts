@@ -52,3 +52,18 @@ test("machine-readable routes list every case file", async ({ request }) => {
   expect((await request.get("/robots.txt")).ok()).toBe(true);
   expect((await request.get("/opengraph-image")).headers()["content-type"]).toContain("image/png");
 });
+
+test("timeline draws every article and case file, and the filter hides the other kind", async ({ page, request }) => {
+  const coverage = JSON.parse(readFileSync("content/coverage.json", "utf8"));
+  await page.goto("/timeline");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText("The question, over time");
+  await expect(page.locator(".tl-sq")).toHaveCount(coverage.articles.length);
+  await expect(page.locator(".tl-case, .tl-mention")).toHaveCount(cases.length);
+  await expect(page.locator('[data-kind="article"]')).toHaveCount(coverage.articles.length);
+  await page.locator("label", { hasText: "Case files" }).click();
+  await expect(page.locator('[data-kind="article"]:visible')).toHaveCount(0);
+  await expect(page.locator('[data-kind="case"]:visible')).toHaveCount(cases.length);
+  await page.goto("/");
+  await expect(page.locator('.tl-chart a[href^="/timeline#m-"]').first()).toBeVisible();
+  expect((await request.get("/timeline/opengraph-image")).headers()["content-type"]).toContain("image/png");
+});

@@ -84,3 +84,59 @@
   from { stroke-dasharray: 1; stroke-dashoffset: 1; }
   to { stroke-dasharray: 1; stroke-dashoffset: 0; }
 }
+
+/* The timeline (src/components/Timeline.tsx): a square per article above the line, a dot per case file below. */
+.tl-sq {
+  fill: var(--color-ash);
+  opacity: 0.7;
+}
+.tl-now .tl-sq {
+  fill: var(--color-bone);
+  opacity: 1;
+}
+.tl-case {
+  fill: var(--color-bone);
+}
+.tl-mention {
+  fill: var(--color-mention);
+}
+.tl-stem {
+  stroke: var(--color-dim);
+  stroke-width: 1;
+}
+.tl-base {
+  stroke: var(--color-bone);
+  stroke-width: 1;
+  opacity: 0.4;
+}
+.tl-year {
+  stroke: var(--color-rule);
+  stroke-width: 1;
+}
+.tl-hit {
+  fill: transparent;
+}
+.tl-col:hover .tl-hit,
+.tl-col:focus-visible .tl-hit {
+  fill: rgb(236 232 225 / 0.1);
+}
+.tl-col:hover .tl-sq,
+.tl-col:focus-visible .tl-sq {
+  fill: var(--color-bone);
+  opacity: 1;
+}
+.tl-col:focus-visible {
+  outline: none;
+}
+
+/* The filter on /timeline: radio buttons, no script. It dims the other band and hides the other rows. */
+.tl-page:has(#show-cases:checked) .tl-sq,
+.tl-page:has(#show-articles:checked) :is(.tl-case, .tl-mention, .tl-stem) {
+  opacity: 0.15;
+}
+.tl-page:has(#show-cases:checked) [data-kind="article"],
+.tl-page:has(#show-articles:checked) [data-kind="case"],
+.tl-page:has(#show-cases:checked) [data-month]:not(:has([data-kind="case"])),
+.tl-page:has(#show-articles:checked) [data-month]:not(:has([data-kind="article"])) {
+  display: none;
+}

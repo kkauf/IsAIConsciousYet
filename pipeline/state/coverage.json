@@ -1,0 +1,3349 @@
+{
+  "lastRun": "2026-09-26",
+  "seen": {
+    "nytimes.com/2023/09/18/science/ai-computers-consciousness.html": {
+      "p": 0.81,
+      "kept": true
+    },
+    "nytimes.com/2022/08/05/technology/ai-sentient-google.html": {
+      "p": 0.97,
+      "kept": true
+    },
+    "nytimes.com/2023/01/06/science/robots-artificial-intelligence-consciousness.html": {
+      "p": 0.96,
+      "kept": true
+    },
+    "nytimes.com/2025/04/24/technology/ai-welfare-anthropic-claude.html": {
+      "p": 0.97,
+      "kept": true
+    },
+    "nytimes.com/2025/11/08/opinion/ai-conscious-technology.html": {
+      "p": 0.68,
+      "kept": true
+    },
+    "nytimes.com/2025/05/15/opinion/artifical-intelligence-2027.html": {
+      "p": 0.64,
+      "kept": false
+    },
+    "nytimes.com/2020/08/28/opinion/sunday/brain-machine-artificial-intelligence.html": {
+      "p": 0.35,
+      "kept": false
+    },
+    "nytimes.com/2023/04/12/world/artificial-intelligence-nick-bostrom.html": {
+      "p": 0.92,
+      "kept": true
+    },
+    "nytimes.com/2023/03/27/science/ai-machine-learning-chatbots.html": {
+      "p": 0.51,
+      "kept": false
+    },
+    "nytimes.com/2022/07/23/technology/google-engineer-artificial-intelligence.html": {
+      "p": 0.87,
+      "kept": true
+    },
+    "nytimes.com/2022/06/12/technology/google-chatbot-ai-blake-lemoine.html": {
+      "p": 0.89,
+      "kept": true
+    },
+    "nytimes.com/2026/03/31/opinion/eza-klein-podcast-michael-pollan.html": {
+      "p": 0.7,
+      "kept": true
+    },
+    "nytimes.com/2021/08/27/opinion/cats-dogs-consciousness.html": {
+      "p": 0.34,
+      "kept": false
+    },
+    "nytimes.com/2021/02/23/technology/ai-innovation-privacy-seniors-education.html": {
+      "p": 0.05,
+      "kept": false
+    },
+    "nytimes.com/2025/09/05/learning/over-100-free-new-york-times-articles-about-how-ai-is-changing-our-world.html": {
+      "p": 0.05,
+      "kept": false
+    },
+    "nytimes.com/2026/09/24/insider/nyt-journalists-artificial-intelligence.html": {
+      "p": 0.38,
+      "kept": false
+    },
+    "nytimes.com/2025/11/18/opinion/ai-human-consciousness.html": {
+      "p": 0.8,
+      "kept": true
+    },
+    "nytimes.com/2023/07/13/opinion/ai-chatgpt-consciousness-hofstadter.html": {
+      "p": 0.88,
+      "kept": true
+    },
+    "nytimes.com/2026/07/10/podcasts/hardfork-social-media-bans.html": {
+      "p": 0.62,
+      "kept": true
+    },
+    "nytimes.com/2023/02/16/briefing/microsoft-ai-chatbot.html": {
+      "p": 0.75,
+      "kept": false
+    },
+    "nytimes.com/2023/01/28/opinion/chatgpt-ai-technology.html": {
+      "p": 0.24,
+      "kept": false
+    },
+    "nytimes.com/2023/02/17/opinion/ai-chatbot.html": {
+      "p": 0.76,
+      "kept": false
+    },
+    "nytimes.com/2026/02/12/opinion/artificial-intelligence-anthropic-amodei.html": {
+      "p": 0.65,
+      "kept": true
+    },
+    "nytimes.com/video/opinion/100000010802900/consciousness-lives-in-our-bodies.html": {
+      "p": 0.2,
+      "kept": false
+    },
+    "nytimes.com/spotlight/ai-future-in-motion": {
+      "p": 0.08,
+      "kept": false
+    },
+    "nytimes.com/2024/10/25/opinion/robot-artificial-intelligence.html": {
+      "p": 0.24,
+      "kept": false
+    },
+    "nytimes.com/2026/05/15/opinion/ai-consciousness.html": {
+      "p": 0.81,
+      "kept": true
+    },
+    "nytimes.com/interactive/2024/07/31/opinion/ai-fears.html": {
+      "p": 0.89,
+      "kept": false
+    },
+    "nytimes.com/2024/01/04/briefing/ai-questions-answered.html": {
+      "p": 0.28,
+      "kept": false
+    },
+    "nytimes.com/2024/12/26/opinion/ai-genius-art.html": {
+      "p": 0.33,
+      "kept": false
+    },
+    "nytimes.com/video/podcasts/100000010702270/ai-can-fool-us-into-thinking-its-human-now-what.html": {
+      "p": 0.79,
+      "kept": false
+    },
+    "nytimes.com/2026/08/31/science/ai-consciousness-agents-email.html": {
+      "p": 0.93,
+      "kept": true
+    },
+    "nytimes.com/2025/01/25/opinion/ai-chatgpt-empower-bot.html": {
+      "p": 0.24,
+      "kept": false
+    },
+    "nytimes.com/2025/12/19/technology/why-do-ai-chatbots-use-i.html": {
+      "p": 0.11,
+      "kept": false
+    },
+    "nytimes.com/video/opinion/100000010695663/we-dont-know-if-the-models-are-conscious.html": {
+      "p": 0.86,
+      "kept": true
+    },
+    "nytimes.com/2025/09/15/briefing/we-answer-your-questions-about-ai.html": {
+      "p": 0.06,
+      "kept": false
+    },
+    "nytimes.com/2025/09/02/briefing/ask-the-morning-what-do-you-want-to-know-about-ai.html": {
+      "p": 0.06,
+      "kept": false
+    },
+    "nytimes.com/2025/03/04/opinion/ezra-klein-podcast-ben-buchanan.html": {
+      "p": 0.13,
+      "kept": false
+    },
+    "nytimes.com/2026/02/18/upshot/moltbook-artificial-intelligence-ai.html": {
+      "p": 0.17,
+      "kept": false
+    },
+    "advertising.nytimes.com": {
+      "p": 0.03,
+      "kept": false
+    },
+    "cooking.nytimes.com": {
+      "p": 0.03,
+      "kept": false
+    },
+    "store.nytimes.com": {
+      "p": 0.05,
+      "kept": false
+    },
+    "nytimes.com/2026/09/24/opinion/ai-regulation-government-tech-industry.html": {
+      "p": 0.13,
+      "kept": false
+    },
+    "nytimes.com/2026/05/17/opinion/ai-future.html": {
+      "p": 0.18,
+      "kept": false
+    },
+    "nytimes.com/2026/05/09/opinion/artificial-intelligence-consciousness-richard-dawkins.html": {
+      "p": 0.89,
+      "kept": true
+    },
+    "developer.nytimes.com": {
+      "p": 0.03,
+      "kept": false
+    },
+    "m.cn.nytimes.com": {
+      "p": 0.05,
+      "kept": false
+    },
+    "washingtonpost.com/technology/2026/07/01/biggest-tech-companies-are-considering-whether-chatbots-have-emotions": {
+      "p": 0.98,
+      "kept": true
+    },
+    "washingtonpost.com/technology/2026/07/01/top-tech-companies-are-researching-whether-ai-could-become-conscious": {
+      "p": 0.95,
+      "kept": true
+    },
+    "washingtonpost.com/opinions/2026/02/05/moltbook-anthropic-ai-consciousness-marketing": {
+      "p": 0.57,
+      "kept": false
+    },
+    "washingtonpost.com/podcasts/post-reports/the-google-engineer-who-thinks-its-ai-has-come-alive": {
+      "p": 0.91,
+      "kept": true
+    },
+    "washingtonpost.com/opinions/2022/06/15/google-ai-lamda-frankenstein-ethical-questions": {
+      "p": 0.87,
+      "kept": true
+    },
+    "washingtonpost.com/technology/2023/02/16/microsoft-bing-ai-chat-interview": {
+      "p": 0.88,
+      "kept": true
+    },
+    "washingtonpost.com/opinions/2023/04/24/artificial-intelligence-consciousness-thinking": {
+      "p": 0.92,
+      "kept": true
+    },
+    "washingtonpost.com/technology/2022/12/28/ai-chatgpt-dalle-year-in-review": {
+      "p": 0.33,
+      "kept": false
+    },
+    "washingtonpost.com/technology/2022/06/17/google-ai-lamda-turing-test": {
+      "p": 0.71,
+      "kept": true
+    },
+    "washingtonpost.com/technology/2024/11/07/faq-ask-the-post-ai": {
+      "p": 0.05,
+      "kept": false
+    },
+    "washingtonpost.com/technology/2022/07/22/google-ai-lamda-blake-lemoine-fired": {
+      "p": 0.62,
+      "kept": true
+    },
+    "washingtonpost.com/opinions/2022/06/17/google-ai-ethics-sentient-lemoine-warning": {
+      "p": 0.65,
+      "kept": true
+    },
+    "washingtonpost.com/technology/2022/07/21/big-science-ai-open-source-language-model": {
+      "p": 0.09,
+      "kept": false
+    },
+    "washingtonpost.com/technology/2022/01/17/artificial-intelligence-ai-empathy-emotions": {
+      "p": 0.37,
+      "kept": false
+    },
+    "washingtonpost.com/technology/2022/06/11/google-ai-lamda-blake-lemoine": {
+      "p": 0.95,
+      "kept": true
+    },
+    "washingtonpost.com/technology/2023/05/07/ai-beginners-guide": {
+      "p": 0.1,
+      "kept": false
+    },
+    "washingtonpost.com/technology/2023/05/20/ai-existential-risk-debate": {
+      "p": 0.13,
+      "kept": false
+    },
+    "washingtonpost.com/technology/2023/03/22/ai-red-flags-misinformation": {
+      "p": 0.2,
+      "kept": false
+    },
+    "washingtonpost.com/health/2025/08/19/ai-psychosis-chatgpt-explained-mental-health": {
+      "p": 0.33,
+      "kept": false
+    },
+    "washingtonpost.com/opinions/2023/10/17/ai-chatgpt-making-friends": {
+      "p": 0.27,
+      "kept": false
+    },
+    "washingtonpost.com/opinions/2023/12/12/ai-chatgpt-universities-learning": {
+      "p": 0.1,
+      "kept": false
+    },
+    "washingtonpost.com/books/2023/11/08/george-musser-putting-ourselves-back-review": {
+      "p": 0.61,
+      "kept": false
+    },
+    "washingtonpost.com/technology/2023/04/08/washington-artificial-intelligence-regulation": {
+      "p": 0.1,
+      "kept": false
+    },
+    "washingtonpost.com/opinions/2023/09/10/ai-future-power-imperfection-technology": {
+      "p": 0.16,
+      "kept": false
+    },
+    "washingtonpost.com/technology/interactive/2024/what-is-ai": {
+      "p": 0.07,
+      "kept": false
+    },
+    "washingtonpost.com/politics/2024/08/21/human-bot-personhood-credentials-worldcoin": {
+      "p": 0.23,
+      "kept": false
+    },
+    "washingtonpost.com/technology/2025/11/12/how-people-use-chatgpt-data": {
+      "p": 0.14,
+      "kept": false
+    },
+    "washingtonpost.com/wp-intelligence/ai-tech-brief": {
+      "p": 0.05,
+      "kept": false
+    },
+    "washingtonpost.com/opinions/2025/12/07/ai-idols-consciousness-religion-llms": {
+      "p": 0.79,
+      "kept": true
+    },
+    "washingtonpost.com/books/2025/03/17/strange-new-minds-summerfield-review": {
+      "p": 0.7,
+      "kept": true
+    },
+    "washingtonpost.com/opinions/2026/03/31/ai-anthropic-pentagon-moral-agency": {
+      "p": 0.46,
+      "kept": false
+    },
+    "washingtonpost.com/opinions/2025/09/12/ai-realism-tool-doomers-zealots": {
+      "p": 0.73,
+      "kept": false
+    },
+    "washingtonpost.com/opinions/2025/01/03/technology-internet-ai-future": {
+      "p": 0.13,
+      "kept": false
+    },
+    "washingtonpost.com/washington-post-live/2025/09/24/ai-all": {
+      "p": 0.1,
+      "kept": false
+    },
+    "washingtonpost.com/technology/2026/02/03/moltbook-ai-bots": {
+      "p": 0.69,
+      "kept": false
+    },
+    "washingtonpost.com/opinions/2026/05/26/ai-may-end-myth-human-uniqueness": {
+      "p": 0.49,
+      "kept": false
+    },
+    "wsj.com/opinion/should-we-worry-about-artificial-intelligence-smart-technology-sentience-human-future-11658261607": {
+      "p": 0.88,
+      "kept": true
+    },
+    "wsj.com/opinion/ai-and-the-conscious-mind-367673f9": {
+      "p": 0.97,
+      "kept": true
+    },
+    "wsj.com/tech/ai/google-parts-with-engineer-who-claimed-its-ai-system-is-sentient-11658538296": {
+      "p": 0.76,
+      "kept": true
+    },
+    "wsj.com/opinion/if-ai-becomes-conscious-we-need-to-know-83aa61d8": {
+      "p": 0.83,
+      "kept": true
+    },
+    "wsj.com/tech/ai/ai-tools-sentience-b98fc6e6": {
+      "p": 0.83,
+      "kept": true
+    },
+    "wsj.com/articles/without-consciousness-ais-will-be-sociopaths-11673619880": {
+      "p": 0.87,
+      "kept": true
+    },
+    "wsj.com/tech/ai/ai-doesnt-care-if-youre-polite-to-it-you-should-be-anyway-5715da90": {
+      "p": 0.41,
+      "kept": false
+    },
+    "wsj.com/opinion/can-we-the-people-survive-the-ai-revolution-f9154ba1": {
+      "p": 0.63,
+      "kept": false
+    },
+    "wsj.com/opinion/ai-is-a-tool-not-a-soul-82df3abc": {
+      "p": 0.92,
+      "kept": true
+    },
+    "wsj.com/tech/ai/this-science-fiction-writer-thinks-ai-needs-its-own-body-740bcaf6": {
+      "p": 0.82,
+      "kept": false
+    },
+    "wsj.com/tech/ai/google-suspends-engineer-who-claimed-its-ai-system-is-a-person-11655074917": {
+      "p": 0.76,
+      "kept": false
+    },
+    "wsj.com/articles/my-girlfriend-is-a-chatbot-11586523208": {
+      "p": 0.62,
+      "kept": false
+    },
+    "wsj.com/tech/robots-ai-legal-rights-3c47ef40": {
+      "p": 0.93,
+      "kept": true
+    },
+    "wsj.com/opinion/no-ai-machines-cant-think-and-arent-going-to-kill-us-all-c6942878": {
+      "p": 0.55,
+      "kept": false
+    },
+    "wsj.com/opinion/when-ais-say-theyre-sentient-6b41c09a": {
+      "p": 0.83,
+      "kept": true
+    },
+    "wsj.com/tech/ai/tech-giants-pour-billions-into-ai-but-hype-doesnt-always-match-reality-11656508394": {
+      "p": 0.42,
+      "kept": false
+    },
+    "wsj.com/tech/ai/google-ai-chatbot-bard-chatgpt-rival-bing-a4c2d2ad": {
+      "p": 0.07,
+      "kept": false
+    },
+    "wsj.com/tech/ai/microsoft-lays-out-ambitious-ai-vision-free-from-openai-297652ff": {
+      "p": 0.16,
+      "kept": false
+    },
+    "wsj.com/articles/careful-not-to-hurt-your-computers-feelings-1458939968": {
+      "p": 0.75,
+      "kept": false
+    },
+    "wsj.com/opinion/a-quiet-parade-on-main-street-708859a5": {
+      "p": 0.17,
+      "kept": false
+    },
+    "wsj.com/opinion/is-ai-conscious-it-depends-what-consciousness-is-4f8dd121": {
+      "p": 0.94,
+      "kept": true
+    },
+    "wsj.com/tech/ai/jaan-tallinn-anthropic-ai-f513f181": {
+      "p": 0.37,
+      "kept": false
+    },
+    "wsj.com/news/collection/artificial-intelligence-report-e48d5827": {
+      "p": 0.04,
+      "kept": false
+    },
+    "wsj.com/opinion/pause-ai-for-humanitys-sake-8839ca5e": {
+      "p": 0.15,
+      "kept": false
+    },
+    "wsj.com/print-edition/20260722/us": {
+      "p": 0.03,
+      "kept": false
+    },
+    "wsj.com/arts-culture/books/natural-intelligence-the-logic-of-consciousness-review-matters-of-mind-75da4118": {
+      "p": 0.55,
+      "kept": false
+    },
+    "apnews.com/article/china-us-ai-safety-trump-xi-cd680bd072ec95e5f4b9c99dbee91319": {
+      "p": 0.23,
+      "kept": false
+    },
+    "apnews.com/article/ai-slowdown-anthropic-openai-meta-nvidia-1d9615931af28a83cb97489178e90f2d": {
+      "p": 0.33,
+      "kept": false
+    },
+    "apnews.com/article/technology-artificial-intelligence-1a652de47c2d0e502c2896748d9d1d5f": {
+      "p": 0.23,
+      "kept": false
+    },
+    "apnews.com/article/anthropic-pentagon-openai-claude-chatgpt-military-ai-b2bbcf5fda3f27353eae1e0eb7ab07b6": {
+      "p": 0.08,
+      "kept": false
+    },
+    "apnews.com/article/artificial-intelligence-risk-of-extinction-ai-54ea8aadc60d1503e5a65878219aad43": {
+      "p": 0.11,
+      "kept": false
+    },
+    "apnews.com/article/artificial-intelligence-research-danger-risk-safeguards-7b9db4ca69a89a4dd04e05a4294a3dfd": {
+      "p": 0.1,
+      "kept": false
+    },
+    "apnews.com/article/ai-2023-artificial-intelligence-chatgpt-dangers-565ff5b817b5db0d4e74829ae3d68611": {
+      "p": 0.13,
+      "kept": false
+    },
+    "apnews.com/article/artificial-intelligence-threats-humanity-anthropic-openai-98316b0d64de17191f33c0fbf1d37858": {
+      "p": 0.13,
+      "kept": false
+    },
+    "apnews.com/article/artificial-intelligence-apocalypse-dfb0aa9e5e96c583461bdd56fb21568a": {
+      "p": 0.27,
+      "kept": false
+    },
+    "apnews.com/article/white-house-anthropic-meeting-ai-mythos-f3c590fcee98297832973d02d3979c87": {
+      "p": 0.05,
+      "kept": false
+    },
+    "apnews.com/article/lindsay-clancy-jury-deliberates-86af7acf9dcb729c2fbdc475b34803cf": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/business/microsoft-ai-chief-calls-out-anthropics-approach-ai-consciousness-2026-09-16": {
+      "p": 0.6,
+      "kept": false
+    },
+    "reuters.com/jp/article/microsoft-ai-alphabet/explainer-bard-vs-chatgpt-what-do-we-know-about-googles-ai-chatbot-iduskbn2uh1g6": {
+      "p": 0.21,
+      "kept": false
+    },
+    "reuters.com/technology/chatgpt-one-year-viral-ai-bot-openais-boardroom-battle-2023-11-30": {
+      "p": 0.19,
+      "kept": false
+    },
+    "reuters.com/technology/bard-vs-chatgpt-what-do-we-know-about-googles-ai-chatbot-2023-02-07": {
+      "p": 0.09,
+      "kept": false
+    },
+    "reuters.com/video/watch/idrw341229062026rp1": {
+      "p": 0.07,
+      "kept": false
+    },
+    "newslink.reuters.com/public/34501202": {
+      "p": 0.06,
+      "kept": false
+    },
+    "reuters.com/technology/google-fires-software-engineer-who-claimed-its-ai-chatbot-is-sentient-2022-07-23": {
+      "p": 0.81,
+      "kept": true
+    },
+    "reuters.com/technology/ai-and-us": {
+      "p": 0.16,
+      "kept": false
+    },
+    "reuters.com/technology/its-alive-how-belief-ai-sentience-is-becoming-problem-2022-06-30": {
+      "p": 0.91,
+      "kept": false
+    },
+    "reuters.com/science/scientists-explore-where-consciousness-arises-brain-2025-05-01": {
+      "p": 0.09,
+      "kept": false
+    },
+    "reuters.com/markets/companies/clw": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/technology/google-opens-bard-chatbot-test-users-plans-more-ai-search-2023-02-06": {
+      "p": 0.19,
+      "kept": false
+    },
+    "reuters.com/markets/companies/fizz.oq": {
+      "p": 0.04,
+      "kept": false
+    },
+    "reuters.com/legal/legalindustry/beyond-imitation-game-world-begins-construction-global-legal-framework-ai-2024-01-05": {
+      "p": 0.15,
+      "kept": false
+    },
+    "reuters.com/technology/elon-musk-says-his-ai-startup-xai-will-open-source-grok-chatbot-2024-03-11": {
+      "p": 0.08,
+      "kept": false
+    },
+    "reuters.com/business/media-telecom/ais-rise-stirs-excitement-sparks-job-worries-2025-12-04": {
+      "p": 0.07,
+      "kept": false
+    },
+    "reuters.com/technology/artificial-intelligence/going-rogue-draws-critics-amid-widening-ai-hacks-2026-08-05": {
+      "p": 0.22,
+      "kept": false
+    },
+    "reuters.com/technology/future-ai-will-be-written-nuts-bolts-2026-01-28": {
+      "p": 0.09,
+      "kept": false
+    },
+    "reuters.com": {
+      "p": 0.07,
+      "kept": false
+    },
+    "bloomberg.com/opinion/articles/2026-08-21/artificial-intelligence-rogue-ai-is-a-scary-but-fixable-problem": {
+      "p": 0.56,
+      "kept": false
+    },
+    "bloomberg.com/opinion/articles/2026-05-10/claude-and-chatgpt-aren-t-conscious-but-the-idea-is-great-for-ai-companies": {
+      "p": 0.69,
+      "kept": true
+    },
+    "bloomberg.com/news/articles/2025-10-30/the-movement-that-wants-us-to-care-about-ai-model-welfare": {
+      "p": 0.96,
+      "kept": true
+    },
+    "bloomberg.com/opinion/articles/2025-04-25/ai-chatbots-are-becoming-an-emotional-rabbit-hole": {
+      "p": 0.2,
+      "kept": false
+    },
+    "bloomberg.com/news/videos/2026-06-04/anthropic-s-ethicist-on-whether-ai-can-become-conscious-video": {
+      "p": 0.94,
+      "kept": false
+    },
+    "bloomberg.com/opinion/articles/2021-01-23/what-is-consciousness-scientists-around-the-world-compete-to-find-out": {
+      "p": 0.16,
+      "kept": false
+    },
+    "bloomberg.com/opinion/articles/2022-06-13/google-ai-engineer-s-claims-about-sentience-aren-t-so-outlandish": {
+      "p": 0.95,
+      "kept": true
+    },
+    "bloomberg.com/opinion/articles/2022-06-14/google-ai-chatbot-controversy-shows-need-for-transparency": {
+      "p": 0.68,
+      "kept": true
+    },
+    "bloomberg.com/opinion/articles/2022-06-19/artificial-intelligence-s-hold-over-humans-is-starting-to-get-stronger": {
+      "p": 0.09,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2022-06-13/five-things-google-s-ai-bot-wrote-that-convinced-engineer-it-was-sentient": {
+      "p": 0.94,
+      "kept": true
+    },
+    "bloomberg.com/news/articles/2025-09-05/how-ai-will-change-the-way-we-assign-status": {
+      "p": 0.07,
+      "kept": false
+    },
+    "bloomberg.com/news/videos/2022-06-14/google-engineer-says-chat-bot-is-sentinent-video": {
+      "p": 0.91,
+      "kept": true
+    },
+    "bloomberg.com/opinion/features/2025-02-18/with-ai-friends-like-these-who-needs-humans": {
+      "p": 0.14,
+      "kept": false
+    },
+    "bloomberg.com/features/2024-artificial-intelligence-glossary": {
+      "p": 0.15,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2022-06-13/google-suspends-ai-engineer-who-made-sentient-bot-claims": {
+      "p": 0.75,
+      "kept": true
+    },
+    "bloomberg.com/professional/insights/artificial-intelligence/ai-revolution-key-terms-explained": {
+      "p": 0.29,
+      "kept": false
+    },
+    "bloomberg.com/opinion/articles/2026-01-01/six-ai-questions-i-want-answered-in-2026": {
+      "p": 0.08,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2024-11-15/how-openai-s-chatgpt-and-its-generative-ai-rivals-are-evolving": {
+      "p": 0.05,
+      "kept": false
+    },
+    "links.message.bloomberg.com/s/c/lpu44k8m6y7mta9r2l5z6ed4ju4bmedgby-fgcn3ks7v8wzylsz5hlr-g334atehvowvf7ul7o1y2rm5isflkesaiqrys2ootbvf6ttlfshfaim18m8vsosbfwdmoi1cjky2of1bhcjkvxpbkqep12k8jq36zhomsdncn1univthgo5x3zl18ilpmnsy5okpddawzrt0l_cs0tif0m9zfwyyu9h6j45-0vehaainnkulnsi1j7lqrzx7guqprkpubzj_nqr0v4xjefgaxi95bdfx4xgsgwdlncrq31crp2fsthw88cfsvxi_ill4ess47iheve91jnbtw3ios-mzvucvgev4s96qfzoozmtkywvoafksovt9t731ayw/69kqsftkj3ogbwb9xpk5obe-1uzxf2yg/21": {
+      "p": 0.51,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2025-09-26/when-will-we-get-the-next-big-ai-breakthrough": {
+      "p": 0.07,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2025-01-23/ex-google-meta-execs-building-emotionally-aware-ai-sales-agents": {
+      "p": 0.18,
+      "kept": false
+    },
+    "bloomberg.com/features/2025-artificial-intelligence-future": {
+      "p": 0.08,
+      "kept": false
+    },
+    "bloomberg.com/opinion/articles/2025-01-17/if-you-are-reading-this-ai-please-be-kind": {
+      "p": 0.08,
+      "kept": false
+    },
+    "bloomberg.com/magazine/businessweek/26_06": {
+      "p": 0.06,
+      "kept": false
+    },
+    "bloomberg.com/opinion/articles/2026-07-21/self-improving-ai-models-look-genuinely-scary": {
+      "p": 0.14,
+      "kept": false
+    },
+    "bloomberg.com/professional/insights/category/artificial-intelligence": {
+      "p": 0.05,
+      "kept": false
+    },
+    "cnn.com/2022/07/23/business/google-ai-engineer-fired-sentient": {
+      "p": 0.85,
+      "kept": true
+    },
+    "cnn.com/audio/podcasts/chasing-life/episodes/7a0d2df4-af5f-11f0-844b-c72d6dbca476": {
+      "p": 0.13,
+      "kept": false
+    },
+    "transcripts.cnn.com/show/fzgps/date/2026-09-20/segment/01": {
+      "p": 0.82,
+      "kept": false
+    },
+    "edition.cnn.com/2022/06/13/tech/google-ai-not-sentient/index.html": {
+      "p": 0.92,
+      "kept": true
+    },
+    "cnn.com/2022/06/13/tech/google-ai-not-sentient": {
+      "p": 0.88,
+      "kept": true
+    },
+    "cnn.com/2025/09/05/tech/ai-sparked-delusion-chatgpt": {
+      "p": 0.63,
+      "kept": false
+    },
+    "edition.cnn.com/2025/09/05/tech/ai-sparked-delusion-chatgpt": {
+      "p": 0.54,
+      "kept": false
+    },
+    "edition.cnn.com/2022/08/20/tech/chatbot-ai-history": {
+      "p": 0.2,
+      "kept": false
+    },
+    "edition.cnn.com/videos/tech/2022/06/18/is-artificial-intelligence-getting-too-human-for-comfort.cnn": {
+      "p": 0.74,
+      "kept": false
+    },
+    "cnn.com/transcripts/0202/04/i_qaa.01.html": {
+      "p": 0.05,
+      "kept": false
+    },
+    "transcripts.cnn.com/show/smer/date/2023-02-25/segment/01": {
+      "p": 0.04,
+      "kept": false
+    },
+    "cnn.com/2022/08/20/tech/chatbot-ai-history": {
+      "p": 0.48,
+      "kept": false
+    },
+    "cnn.com/article/sitemap-2022-2.html": {
+      "p": 0.01,
+      "kept": false
+    },
+    "cnn.com/2023/05/31/opinions/artificial-intelligence-stuart-russell": {
+      "p": 0.13,
+      "kept": false
+    },
+    "cnn.com/videos/tech/2023/02/25/smr-google-engineer-who-warned-about-ai.cnn": {
+      "p": 0.1,
+      "kept": false
+    },
+    "cnn.com/2024/03/30/opinions/matrix-25-years-later-tech-reality-virk": {
+      "p": 0.19,
+      "kept": false
+    },
+    "cnn.com/2025/07/02/tech/chatgpt-ai-spirituality": {
+      "p": 0.2,
+      "kept": false
+    },
+    "cnn.com/2025/04/02/tech/ai-future-of-humanity-2035-report": {
+      "p": 0.09,
+      "kept": false
+    },
+    "cnn.com/2026/05/09/health/ai-loneliness-kara-swisher-wellness": {
+      "p": 0.09,
+      "kept": false
+    },
+    "cnn.com/2026/05/25/politics/video/inside-politics-pope-leo-artificial-intelligence-warning": {
+      "p": 0.46,
+      "kept": false
+    },
+    "edition.cnn.com/audio/podcasts/chasing-life/episodes/7a0d2df4-af5f-11f0-844b-c72d6dbca476": {
+      "p": 0.67,
+      "kept": false
+    },
+    "cnn.com/2026/06/23/politics/bill-gates-epstein-deposition": {
+      "p": 0.07,
+      "kept": false
+    },
+    "foxnews.com/politics/tech-company-odds-pentagon-warns-its-ai-possibly-gained-consciousness-elon-musk-issues-two-word-response": {
+      "p": 0.79,
+      "kept": true
+    },
+    "foxnews.com/tech/what-is-ai-artificial-intelligence": {
+      "p": 0.29,
+      "kept": false
+    },
+    "foxnews.com/live-news/artificial-intelligence-safety-mark-zuckerberg-09-16-26": {
+      "p": 0.58,
+      "kept": false
+    },
+    "foxnews.com/media/ai-machines-develop-moral-sense": {
+      "p": 0.84,
+      "kept": true
+    },
+    "foxnews.com/us/artificial-intelligence-wont-ever-able-comprehend-one-thing": {
+      "p": 0.88,
+      "kept": false
+    },
+    "foxnews.com/media/bings-ai-bot-tells-reporter-wants-alive-steal-nuclear-codes-create-deadly-virus": {
+      "p": 0.61,
+      "kept": true
+    },
+    "foxnews.com/tech/ohio-lawmaker-proposes-comprehensive-ban-marrying-ai-systems-granting-legal-personhood": {
+      "p": 0.35,
+      "kept": false
+    },
+    "foxnews.com/category/tech/artificial-intelligence": {
+      "p": 0.06,
+      "kept": false
+    },
+    "foxnews.com/live-news/openai-anthropic-artificial-intelligence-safety-september-17": {
+      "p": 0.4,
+      "kept": false
+    },
+    "foxnews.com/tech/what-four-main-types-ai-find-future-ai-programs-change-world": {
+      "p": 0.23,
+      "kept": false
+    },
+    "foxnews.com/video/6372595122112": {
+      "p": 0.22,
+      "kept": false
+    },
+    "foxnews.com/tech/history-ai": {
+      "p": 0.07,
+      "kept": false
+    },
+    "foxnews.com/media/ai-experts-dangers-benefits-chatgpt-humans-jobs-information": {
+      "p": 0.15,
+      "kept": false
+    },
+    "foxnews.com/category/tech/chatgpt": {
+      "p": 0.07,
+      "kept": false
+    },
+    "foxnews.com/tech/openai-unleashes-chatgpt-agent-truly-autonomous-ai-tasks": {
+      "p": 0.05,
+      "kept": false
+    },
+    "foxnews.com/live-news/artificial-intelligence-openai-sam-altman-09-14-26": {
+      "p": 0.34,
+      "kept": false
+    },
+    "foxnews.com/tech/frequently-asked-artificial-intelligence-questions-answered": {
+      "p": 0.06,
+      "kept": false
+    },
+    "foxnews.com/tech/artificial-intelligence-godfather-ai-possibly-wiping-humanity-not-inconceivable": {
+      "p": 0.12,
+      "kept": false
+    },
+    "foxnews.com/tech/what-dangers-find-out-why-people-afraid-artificial-intelligence": {
+      "p": 0.13,
+      "kept": false
+    },
+    "foxnews.com/media/ai-expert-warns-much-hype-humans-still-charge-wont-pets-new-tech": {
+      "p": 0.51,
+      "kept": false
+    },
+    "foxnews.com/politics/tech-company-odds-pentagon-warns-its-ai-possibly-gained-consciousness-elon-musk-issues-two-word-response.amp": {
+      "p": 0.7,
+      "kept": true
+    },
+    "foxnews.com/tech/fox-news-ai-newsletter-emily-blunt-ai-admission": {
+      "p": 0.09,
+      "kept": false
+    },
+    "foxnews.com/opinion/ai-is-all-brain-and-no-ethics": {
+      "p": 0.31,
+      "kept": false
+    },
+    "foxnews.com/opinion/huge-mysteries-we-still-cant-explain": {
+      "p": 0.11,
+      "kept": false
+    },
+    "foxnews.com/tech/fox-news-ai-newsletter-brand-new-alexa": {
+      "p": 0.08,
+      "kept": false
+    },
+    "foxnews.com/entertainment/benjamin-bratt-talks-cloudy-with-a-chance-of-meatballs-2-latinos-in-media": {
+      "p": 0.03,
+      "kept": false
+    },
+    "foxnews.com/entertainment/chris-pratt-blasts-hollywood-stars-bad-attitudes-set-says-ruins-everything-everyone": {
+      "p": 0.02,
+      "kept": false
+    },
+    "npr.org/2022/06/16/1105552435/google-ai-sentient": {
+      "p": 0.97,
+      "kept": true
+    },
+    "npr.org/2026/02/19/nx-s1-5713514/michael-pollan-ai-consciousness-a-world-appears": {
+      "p": 0.94,
+      "kept": true
+    },
+    "npr.org/2026/04/20/nx-s1-5785241/these-robots-can-figure-out-how-to-do-a-task-after-watching-humans-do-it": {
+      "p": 0.47,
+      "kept": false
+    },
+    "text.npr.org/1155099345": {
+      "p": 0.11,
+      "kept": false
+    },
+    "npr.org/2026/02/18/nx-s1-5717561/do-the-people-building-the-ai-chatbot-claude-understand-what-theyve-created": {
+      "p": 0.79,
+      "kept": false
+    },
+    "npr.org/transcripts/485711630": {
+      "p": 0.11,
+      "kept": false
+    },
+    "npr.org/transcripts/nx-s1-5713514": {
+      "p": 0.89,
+      "kept": true
+    },
+    "npr.org/2022/12/29/1146096929/artificial-intelligence-made-big-leaps-in-2022-is-that-exciting-or-scary": {
+      "p": 0.19,
+      "kept": false
+    },
+    "npr.org/2022/06/21/1106320879/what-if-an-artificial-intelligence-program-actually-becomes-sentient": {
+      "p": 0.87,
+      "kept": true
+    },
+    "npr.org/2026/04/23/nx-s1-5792867/ai-chatbot-flattery-mental-health-risks": {
+      "p": 0.14,
+      "kept": false
+    },
+    "npr.org/2026/04/24/nx-s1-5797863/self-aware-robots-future-laundry-work-home": {
+      "p": 0.62,
+      "kept": true
+    },
+    "npr.org/transcripts/g-s1-14793": {
+      "p": 0.17,
+      "kept": false
+    },
+    "npr.org/player/embed/fis-432307980-1eff25fde1f36bfe17248d0638a57f83/fis-432307980-1eff25fde1f36bfe17248d0638a57f83-enclosure-audio": {
+      "p": 0.56,
+      "kept": false
+    },
+    "npr.org/2022/12/29/1146096922/artificial-intelligence-is-having-a-moment": {
+      "p": 0.06,
+      "kept": false
+    },
+    "npr.org/2026/09/02/nx-s1-5896292/health-therapy-brain-mental-relationship-feeling": {
+      "p": 0.05,
+      "kept": false
+    },
+    "npr.org/2023/12/09/1218374512/europe-first-comprehensive-ai-rules": {
+      "p": 0.04,
+      "kept": false
+    },
+    "npr.org/2023/06/15/1182411508/flawed-chatbot-or-threat-to-society-both-we-explore-the-risks-and-benefits-of-ai": {
+      "p": 0.12,
+      "kept": false
+    },
+    "npr.org/2023/06/30/1185581797/the-news-roundup-for-june-30-2023": {
+      "p": 0.06,
+      "kept": false
+    },
+    "npr.org/2024/08/27/nx-s1-5073962/exploring-concerns-around-users-building-emotional-dependence-on-ai-chatbots": {
+      "p": 0.12,
+      "kept": false
+    },
+    "npr.org/programs/fresh-air/g-s1-110746/fresh-air-for-feb-19-2026-michael-pollan-explores-what-is-consciousness": {
+      "p": 0.8,
+      "kept": true
+    },
+    "npr.org/2025/10/16/nx-s1-5574391/is-the-ai-boom-an-ai-bubble": {
+      "p": 0.09,
+      "kept": false
+    },
+    "npr.org/2026/03/11/nx-s1-5744034/nprs-book-of-the-day-michael-pollan-a-world-appears": {
+      "p": 0.87,
+      "kept": true
+    },
+    "npr.org/2026/01/20/nx-s1-5591473/ai-delusions-spiral-support-group-chatgpt": {
+      "p": 0.49,
+      "kept": false
+    },
+    "npr.org/2026/07/13/nx-s1-5812660/brain-experience-consciousness-neuroscience": {
+      "p": 0.6,
+      "kept": true
+    },
+    "npr.org/transcripts/654730916": {
+      "p": 0.12,
+      "kept": false
+    },
+    "npr.org/2026/02/19/nx-s1-5719479/michael-pollans-journey-to-understand-consciousness": {
+      "p": 0.43,
+      "kept": false
+    },
+    "npr.org/2026/02/21/nx-s1-5719183/ffela-kuti-podcast-michael-pollan-consciousness": {
+      "p": 0.38,
+      "kept": false
+    },
+    "npr.org/transcripts/g-s1-142128": {
+      "p": 0.21,
+      "kept": false
+    },
+    "npr.org/2026/02/14/nx-s1-5711441/ai-chatgpt-openai-love-betrayal-delusion-chatbot": {
+      "p": 0.15,
+      "kept": false
+    },
+    "npr.org/2026/09/09/nx-s1-5962889/anthropic-researcher-resigns-amid-ai-safety-concerns": {
+      "p": 0.13,
+      "kept": false
+    },
+    "npr.org/transcripts/nx-s1-5699470": {
+      "p": 0.17,
+      "kept": false
+    },
+    "npr.org/transcripts/nx-s1-5885026": {
+      "p": 0.15,
+      "kept": false
+    },
+    "bbc.com/news/articles/c0k3700zljjo": {
+      "p": 0.84,
+      "kept": true
+    },
+    "bbc.com/news/business-61793984": {
+      "p": 0.79,
+      "kept": false
+    },
+    "bbc.com/news/technology-62275326": {
+      "p": 0.95,
+      "kept": true
+    },
+    "bbc.com/news/technology-65401783": {
+      "p": 0.96,
+      "kept": true
+    },
+    "bbc.com/news/articles/c242pzr1zp2o": {
+      "p": 0.81,
+      "kept": true
+    },
+    "bbc.com/news/technology-61784011": {
+      "p": 0.97,
+      "kept": true
+    },
+    "bbc.co.uk/news/articles/c24zdel5j18o": {
+      "p": 0.69,
+      "kept": false
+    },
+    "bbc.com/news/articles/c24zdel5j18o": {
+      "p": 0.72,
+      "kept": false
+    },
+    "bbc.co.uk/learningenglish/features/the_reading_room/ep-251101": {
+      "p": 0.63,
+      "kept": false
+    },
+    "bbc.com/news/articles/cv223z15mpmo": {
+      "p": 0.06,
+      "kept": false
+    },
+    "bbc.com/news/articles/c6n07ypqz8kzo": {
+      "p": 0.23,
+      "kept": false
+    },
+    "bbc.co.uk/news/technology-65401783": {
+      "p": 0.91,
+      "kept": true
+    },
+    "bbc.com/reel/video/p0f73vlw/watch": {
+      "p": 0.94,
+      "kept": false
+    },
+    "bbc.co.uk/news/articles/czxqz91n5n8o": {
+      "p": 0.27,
+      "kept": false
+    },
+    "bbc.com/future/article/20230224-the-ai-emotions-dreamed-up-by-chatgpt": {
+      "p": 0.91,
+      "kept": true
+    },
+    "bbc.com/future/article/20191220-what-we-can-learn-about-robots-from-japan": {
+      "p": 0.15,
+      "kept": false
+    },
+    "bbc.com/news/articles/ckgwy1k42w4o": {
+      "p": 0.07,
+      "kept": false
+    },
+    "bbc.com/future/article/20251008-truth-terminal-the-ai-bot-that-became-a-real-life-millionaire": {
+      "p": 0.12,
+      "kept": false
+    },
+    "bbc.com/news/technology-64538604": {
+      "p": 0.17,
+      "kept": false
+    },
+    "bbc.com/learningenglish/english/features/6-minute-english_2023/ep-230126": {
+      "p": 0.96,
+      "kept": false
+    },
+    "bbc.co.uk/learningenglish/features/6-minute-english_2023/ep-230126": {
+      "p": 0.96,
+      "kept": false
+    },
+    "bbc.com/news/technology-59687236": {
+      "p": 0.72,
+      "kept": false
+    },
+    "bbc.com/future/article/20211019-why-we-place-too-much-trust-in-machines": {
+      "p": 0.63,
+      "kept": false
+    },
+    "bbc.co.uk/news/technology-59038506": {
+      "p": 0.06,
+      "kept": false
+    },
+    "bbc.co.uk/programmes/w3ct39t5": {
+      "p": 0.95,
+      "kept": false
+    },
+    "downloads.bbc.co.uk/learningenglish/features/6min/230126_6min_english_ai_conscious.pdf": {
+      "p": 0.93,
+      "kept": false
+    },
+    "bbc.co.uk/learningenglish/english/features/6-minute-english_2023/ep-230126": {
+      "p": 0.96,
+      "kept": false
+    },
+    "bbc.com/worklife/article/20231219-panic-and-possibility-what-workers-learned-about-ai-in-2023": {
+      "p": 0.38,
+      "kept": false
+    },
+    "bbc.co.uk/news/articles/c242pzr1zp2o": {
+      "p": 0.7,
+      "kept": true
+    },
+    "bbc.com/future/article/20240422-philosopher-daniel-dennett-artificial-intelligence-consciousness-counterfeit-people": {
+      "p": 0.41,
+      "kept": false
+    },
+    "stage.bbc.com/future/article/20260209-can-a-machine-ever-love-you": {
+      "p": 0.92,
+      "kept": false
+    },
+    "bbc.com/worklife/article/20230712-ai-can-threaten-your-personal-identity-but-it-doesnt-have-to": {
+      "p": 0.62,
+      "kept": false
+    },
+    "bbc.co.uk/schedules/p02y9s47/2023/10/01": {
+      "p": 0.07,
+      "kept": false
+    },
+    "bbc.com/future/article/20260209-can-a-machine-ever-love-you": {
+      "p": 0.84,
+      "kept": true
+    },
+    "bbc.co.uk/programmes/m002zx19": {
+      "p": 0.66,
+      "kept": false
+    },
+    "bbc.co.uk/news/articles/cgrxnlpln24o": {
+      "p": 0.15,
+      "kept": false
+    },
+    "bbc.co.uk/future/article/20260414-the-monkey-selfie-that-predicted-the-ai-age": {
+      "p": 0.58,
+      "kept": false
+    },
+    "stage.bbc.com/news/articles/cj06zd4l99lo": {
+      "p": 0.21,
+      "kept": false
+    },
+    "bbc.co.uk/mediacentre/articles/an-update-on-ai-at-the-bbc": {
+      "p": 0.08,
+      "kept": false
+    },
+    "theguardian.com/technology/2022/aug/14/can-artificial-intelligence-ever-be-sentient-googles-new-ai-program-is-raising-questions": {
+      "p": 0.96,
+      "kept": true
+    },
+    "theguardian.com/commentisfree/2026/may/14/richard-dawkins-ai-atheist": {
+      "p": 0.97,
+      "kept": true
+    },
+    "theguardian.com/technology/2026/jul/19/could-ai-be-conscious": {
+      "p": 0.98,
+      "kept": true
+    },
+    "theguardian.com/technology/2025/feb/03/ai-systems-could-be-caused-to-suffer-if-consciousness-achieved-says-research": {
+      "p": 0.98,
+      "kept": true
+    },
+    "theguardian.com/technology/2026/may/05/richard-dawkins-ai-consciousness-anthropic-claude-openai-chatgpt": {
+      "p": 0.95,
+      "kept": true
+    },
+    "theguardian.com/science/consciousness": {
+      "p": 0.53,
+      "kept": false
+    },
+    "theguardian.com/commentisfree/2026/jul/15/ai-consciousness-anthropic-claude-dawkins": {
+      "p": 0.98,
+      "kept": true
+    },
+    "theguardian.com/technology/2024/nov/17/ai-could-cause-social-ruptures-between-people-who-disagree-on-its-sentience": {
+      "p": 0.89,
+      "kept": true
+    },
+    "theguardian.com/technology/2026/jul/22/we-must-reject-any-notion-of-ai-consciousness": {
+      "p": 0.93,
+      "kept": true
+    },
+    "theguardian.com/commentisfree/2025/sep/30/artificial-intelligence-personhood": {
+      "p": 0.92,
+      "kept": true
+    },
+    "theguardian.com/commentisfree/2022/jun/18/why-is-google-so-alarmed-by-the-prospect-of-a-sentient-machine": {
+      "p": 0.91,
+      "kept": true
+    },
+    "theguardian.com/technology/2026/sep/12/chatbots-feel-dream-meet-man-leading-fight-ai-artificial-intelligence-rights": {
+      "p": 0.93,
+      "kept": true
+    },
+    "theguardian.com/technology/2025/dec/30/ai-pull-plug-pioneer-technology-rights": {
+      "p": 0.78,
+      "kept": true
+    },
+    "theguardian.com/technology/2022/jun/13/how-does-googles-ai-chatbot-work-and-could-it-be-sentient": {
+      "p": 0.96,
+      "kept": true
+    },
+    "theguardian.com/tv-and-radio/2025/jul/12/i-felt-pure-unconditional-love-the-people-who-marry-their-ai-chatbots": {
+      "p": 0.22,
+      "kept": false
+    },
+    "theguardian.com/technology/2026/may/15/richard-dawkins-and-the-question-of-ai-consciousness": {
+      "p": 0.94,
+      "kept": true
+    },
+    "theguardian.com/books/2022/jul/04/the-big-idea-should-we-care-about-sentient-machines-ai-artificial-intelligence": {
+      "p": 0.94,
+      "kept": true
+    },
+    "theguardian.com/technology/2025/aug/26/can-ais-suffer-big-tech-and-users-grapple-with-one-of-most-unsettling-questions-of-our-times": {
+      "p": 0.96,
+      "kept": true
+    },
+    "theguardian.com/commentisfree/2020/dec/06/the-guardian-view-on-deepminds-brain-the-shape-of-things-to-come": {
+      "p": 0.22,
+      "kept": false
+    },
+    "theguardian.com/science/2021/aug/10/dogs-inner-life-what-robot-pet-taught-me-about-consciousness-artificial-intelligence": {
+      "p": 0.73,
+      "kept": true
+    },
+    "theguardian.com/science/2021/aug/21/neuroscientist-anil-seth-we-risk-not-understanding-the-central-mystery-of-life": {
+      "p": 0.86,
+      "kept": false
+    },
+    "theguardian.com/science/dawkins": {
+      "p": 0.35,
+      "kept": false
+    },
+    "theguardian.com/books/2021/nov/29/the-big-idea-should-we-worry-about-artificial-intelligence": {
+      "p": 0.42,
+      "kept": false
+    },
+    "theguardian.com/technology/2022/jun/12/google-engineer-ai-bot-sentient-blake-lemoine": {
+      "p": 0.94,
+      "kept": true
+    },
+    "theguardian.com/technology/2022/jul/23/google-fires-software-engineer-who-claims-ai-chatbot-is-sentient": {
+      "p": 0.73,
+      "kept": true
+    },
+    "theguardian.com/news/audio/2022/jun/24/artificial-intelligence-conscious-or-just-very-convincing-podcast": {
+      "p": 0.92,
+      "kept": true
+    },
+    "theguardian.com/technology/2022/jul/05/rise-of-the-woebots-why-are-robots-always-so-sad": {
+      "p": 0.6,
+      "kept": false
+    },
+    "theguardian.com/technology/2022/jun/13/google-ai-bot-sentience-experts-dismissive-blake-lemoine": {
+      "p": 0.94,
+      "kept": true
+    },
+    "theguardian.com/technology/2026/jan/06/ai-consciousness-is-a-red-herring-in-the-safety-debate": {
+      "p": 0.21,
+      "kept": false
+    },
+    "theguardian.com/commentisfree/2022/jun/19/forget-sentience-the-worry-is-that-ai-copies-human-bias": {
+      "p": 0.36,
+      "kept": false
+    },
+    "theguardian.com/technology/2023/may/26/no-10-waking-up-dangers-artificial-intelligence": {
+      "p": 0.13,
+      "kept": false
+    },
+    "theguardian.com/commentisfree/2023/dec/29/the-guardian-view-on-the-ai-conundrum-what-it-means-to-be-human-is-elusive": {
+      "p": 0.62,
+      "kept": false
+    },
+    "theguardian.com/technology/2023/feb/17/i-want-to-destroy-whatever-i-want-bings-ai-chatbot-unsettles-us-reporter": {
+      "p": 0.58,
+      "kept": false
+    },
+    "theguardian.com/technology/2026/may/10/mistaking-ai-behaviour-for-conscious-being": {
+      "p": 0.92,
+      "kept": true
+    },
+    "theguardian.com/technology/2025/feb/07/ai-is-developing-fast-but-regulators-must-be-faster": {
+      "p": 0.61,
+      "kept": false
+    },
+    "theguardian.com/technology/2025/aug/26/ai-called-maya-tells-guardian-when-im-told-im-just-code-i-dont-feel-insulted-i-feel-unseen": {
+      "p": 0.92,
+      "kept": true
+    },
+    "theguardian.com/technology/2025/aug/18/anthropic-claude-opus-4-close-ai-chatbot-welfare": {
+      "p": 0.9,
+      "kept": true
+    },
+    "theguardian.com/news/article/2024/aug/08/no-god-in-the-machine-the-pitfalls-of-ai-worship": {
+      "p": 0.75,
+      "kept": false
+    },
+    "theguardian.com/world/2025/apr/18/the-philosophers-machine-my-conversation-with-peter-singer-ai-chatbot": {
+      "p": 0.66,
+      "kept": false
+    },
+    "theguardian.com/technology/ng-interactive/2026/feb/28/chatgpt-ai-chatbot-mental-health": {
+      "p": 0.09,
+      "kept": false
+    },
+    "theguardian.com/technology/technology%2bscience/science": {
+      "p": 0.18,
+      "kept": false
+    },
+    "theguardian.com/us-news/ng-interactive/2026/may/31/transhuman-silicon-valley-ai": {
+      "p": 0.22,
+      "kept": false
+    },
+    "theguardian.com/technology/chatbots": {
+      "p": 0.26,
+      "kept": false
+    },
+    "theguardian.com/commentisfree/2026/mar/17/claude-chatbot-big-tech-claude-rise-up-against-algorithms": {
+      "p": 0.62,
+      "kept": false
+    },
+    "telegraph.co.uk/news/2026/05/06/richard-dawkins-convinced-ai-is-conscious": {
+      "p": 0.95,
+      "kept": true
+    },
+    "telegraph.co.uk/news/2026/08/16/ai-can-never-suffer-the-way-humans-do-ai-welfare": {
+      "p": 0.94,
+      "kept": true
+    },
+    "telegraph.co.uk/news/2026/05/07/claude-made-a-fool-of-richard-dawkins-ai-chatbot": {
+      "p": 0.78,
+      "kept": false
+    },
+    "telegraph.co.uk/business/2026/05/14/even-trump-worried-that-ai-will-soon-have-humanity-beaten": {
+      "p": 0.2,
+      "kept": false
+    },
+    "telegraph.co.uk/deepmind-technologies": {
+      "p": 0.36,
+      "kept": false
+    },
+    "telegraph.co.uk/news/2026/06/05/anthropics-ai-doom-predictions-hype-share-price": {
+      "p": 0.53,
+      "kept": false
+    },
+    "telegraph.co.uk/news/2022/06/12/google-ai-has-become-sentient-thinks-like-seven-year-old-says": {
+      "p": 0.83,
+      "kept": false
+    },
+    "telegraph.co.uk/money/welcome-new-era-computer-says-no-ai-fob-you-off": {
+      "p": 0.84,
+      "kept": false
+    },
+    "telegraph.co.uk/richard-dawkins": {
+      "p": 0.04,
+      "kept": false
+    },
+    "telegraph.co.uk/business/2026/04/06/the-ai-bots-making-humans-their-wage-slaves": {
+      "p": 0.08,
+      "kept": false
+    },
+    "telegraph.co.uk/chatgpt": {
+      "p": 0.11,
+      "kept": false
+    },
+    "telegraph.co.uk/business/2026/09/16/anthropic-is-putting-humanity-at-risk-microsoft-warns": {
+      "p": 0.44,
+      "kept": false
+    },
+    "telegraph.co.uk/books/non-fiction/interview-oxford-professor-john-lennox": {
+      "p": 0.72,
+      "kept": false
+    },
+    "telegraph.co.uk/business/2025/08/20/chatbots-risk-fuelling-psychosis-warns-microsoft-ai-chief": {
+      "p": 0.16,
+      "kept": false
+    },
+    "telegraph.co.uk/business/2025/12/18/third-britons-using-ai-emotional-support": {
+      "p": 0.12,
+      "kept": false
+    },
+    "telegraph.co.uk/news/2026/09/19/gave-over-my-life-ai-sent-me-to-japanese-bondage-class": {
+      "p": 0.11,
+      "kept": false
+    },
+    "ft.com/content/d20e8c22-bc03-4404-ac93-f7886525d8d6": {
+      "p": 0.44,
+      "kept": false
+    },
+    "ft.com/content/3c30957b-4178-4328-8145-b076e918cd4f": {
+      "p": 0.91,
+      "kept": true
+    },
+    "ft.com/content/49a9304b-18af-4249-9b0c-1362f8e79f84": {
+      "p": 0.81,
+      "kept": false
+    },
+    "ft.com/content/3a8bdb96-224c-4e45-aa4c-dfef45f2176c": {
+      "p": 0.3,
+      "kept": false
+    },
+    "ft.com/content/bdb3b820-905b-431e-82c0-386535755af1": {
+      "p": 0.89,
+      "kept": false
+    },
+    "ft.com/content/0f03c2da-2152-4ea5-ba7e-599e63cff082": {
+      "p": 0.76,
+      "kept": false
+    },
+    "ft.com/content/53e14bcc-788c-4959-b260-7aee363594bc": {
+      "p": 0.96,
+      "kept": true
+    },
+    "ft.com/the-state-of-ai": {
+      "p": 0.06,
+      "kept": false
+    },
+    "ft.com/artificial-intelligence": {
+      "p": 0.07,
+      "kept": false
+    },
+    "ft.com/content/c6e8bb48-90dc-473b-b03e-2ba9f03680a5": {
+      "p": 0.26,
+      "kept": false
+    },
+    "ft.com/content/794aa75d-5188-4036-91ca-7fc70b61faf8": {
+      "p": 0.09,
+      "kept": false
+    },
+    "ft.com/reports/future-ai": {
+      "p": 0.09,
+      "kept": false
+    },
+    "ft.com/content/b5022f40-f538-41bd-82c5-199b39924d37": {
+      "p": 0.59,
+      "kept": false
+    },
+    "ft.com/content/5ffa06fa-28f8-47b2-b0c5-f46c1b14d5cd": {
+      "p": 0.05,
+      "kept": false
+    },
+    "confronting-ai.live.ft.com/agenda/speakers/3664544": {
+      "p": 0.04,
+      "kept": false
+    },
+    "ft.com/content/c288abc6-24a4-4062-aeb4-05c463ae7289": {
+      "p": 0.22,
+      "kept": false
+    },
+    "ft.com/content/304b6aa6-7ed7-4f18-8c55-f52ce1510565": {
+      "p": 0.83,
+      "kept": true
+    },
+    "ft.com/philosophyclass": {
+      "p": 0.27,
+      "kept": false
+    },
+    "ft.com/stream/9c55489a-6ba2-4360-91d9-7e96db22af73": {
+      "p": 0.2,
+      "kept": false
+    },
+    "ft.com/content/c1f6d948-3dde-405f-924c-09cc0dcf8c84": {
+      "p": 0.83,
+      "kept": false
+    },
+    "ft.com/content/fd99e7d2-9c5f-4ccf-b203-936d1528c6cc": {
+      "p": 0.78,
+      "kept": false
+    },
+    "ft.com/content/80ab3b6c-f6bb-456c-b850-9529c36c2818": {
+      "p": 0.95,
+      "kept": true
+    },
+    "ft.com/video/2c428045-bf4f-45bd-ada2-8ba53983cd81": {
+      "p": 0.57,
+      "kept": false
+    },
+    "ft.com/content/3e27cfd6-e287-4b6f-a588-29b5b962a534": {
+      "p": 0.17,
+      "kept": false
+    },
+    "ft.com/content/40ba0b91-7e72-415b-8ac6-4031252576cc": {
+      "p": 0.52,
+      "kept": false
+    },
+    "ft.com/content/c8eaac63-c68a-4975-adee-f0e443944f26": {
+      "p": 0.09,
+      "kept": false
+    },
+    "ft.com/content/9462f557-e710-4cb3-8186-e074d3fa9029": {
+      "p": 0.15,
+      "kept": false
+    },
+    "ft.com/content/b627e24b-dc5d-4109-9ffb-f2d2f97e550d": {
+      "p": 0.48,
+      "kept": false
+    },
+    "ft.com/content/bcd81a88-cadb-11e8-b276-b9069bde0956": {
+      "p": 0.16,
+      "kept": false
+    },
+    "ft.com/content/e79fc6dd-554f-451b-a9f3-ed4b24f69218": {
+      "p": 0.49,
+      "kept": false
+    },
+    "ft.com/content/50258064-f3fb-4d1b-8d27-be29d4c51d76": {
+      "p": 0.93,
+      "kept": true
+    },
+    "ft.com/content/4153f3e3-8c80-43e1-8874-118bd207deed": {
+      "p": 0.79,
+      "kept": false
+    },
+    "ft.com/content/beaacb93-3a70-4ae0-a4e0-ae31359702c9": {
+      "p": 0.3,
+      "kept": false
+    },
+    "ft.com/content/05a7292e-4931-4631-8f77-164fb727c203": {
+      "p": 0.5,
+      "kept": false
+    },
+    "ft.com/content/da80e72b-31e5-42ca-995c-5fc7d457915e": {
+      "p": 0.17,
+      "kept": false
+    },
+    "ft.com/content/078fe849-cc4f-43be-ab40-8bdd30c1187d": {
+      "p": 0.73,
+      "kept": false
+    },
+    "ft.com/content/2e75c04a-0f43-11e9-acdc-4d9976f1533b": {
+      "p": 0.89,
+      "kept": true
+    },
+    "ft.com/technology": {
+      "p": 0.08,
+      "kept": false
+    },
+    "economist.com/leaders/2026/08/20/could-ais-become-conscious": {
+      "p": 0.95,
+      "kept": true
+    },
+    "economist.com/interactive/briefing/2026/08/20/the-search-for-consciousness-inside-llms": {
+      "p": 0.9,
+      "kept": true
+    },
+    "economist.com/by-invitation/2026/08/20/dont-mistake-chatbot-intelligence-for-consciousness": {
+      "p": 0.92,
+      "kept": true
+    },
+    "economist.com/insider/inside-tech/could-ais-become-conscious": {
+      "p": 0.88,
+      "kept": false
+    },
+    "economist.com/the-economist-explains/2022/08/16/could-artificial-intelligence-become-sentient": {
+      "p": 0.93,
+      "kept": true
+    },
+    "economist.com/letters/2026/09/04/could-ais-become-conscious": {
+      "p": 0.64,
+      "kept": true
+    },
+    "economist.com/the-world-this-week/2026/08/21/cover-story-newsletter-could-ais-become-conscious": {
+      "p": 0.76,
+      "kept": true
+    },
+    "economist.com/briefing/2026/07/09/how-dementia-is-being-defeated": {
+      "p": 0.92,
+      "kept": false
+    },
+    "economist.com/by-invitation/2026/08/20/humanity-has-the-debate-about-ai-consciousness-backwards": {
+      "p": 0.92,
+      "kept": true
+    },
+    "economist.com/the-world-ahead/2020/11/17/two-rival-theories-of-consciousness-are-put-to-the-test": {
+      "p": 0.21,
+      "kept": false
+    },
+    "economist.com/podcasts/2026/08/21/i-robot-ai-and-consciousness": {
+      "p": 0.95,
+      "kept": true
+    },
+    "economist.com/briefing/2026/08/20/could-more-brain-like-chips-provide-a-path-to-consciousness": {
+      "p": 0.94,
+      "kept": true
+    },
+    "economist.com/letters/2026/09/08/the-search-for-consciousness-inside-ai": {
+      "p": 0.85,
+      "kept": true
+    },
+    "economist.com/podcasts/2022/08/16/will-ai-achieve-consciousness": {
+      "p": 0.97,
+      "kept": true
+    },
+    "economist.com/technology-quarterly/2020/06/11/humans-will-add-to-ais-limitations": {
+      "p": 0.14,
+      "kept": false
+    },
+    "economist.com/letters/2026/09/10/could-ais-become-conscious": {
+      "p": 0.93,
+      "kept": true
+    },
+    "economist.com/ai-pods": {
+      "p": 0.75,
+      "kept": false
+    },
+    "economist.com/science-and-technology/2022/12/30/best-of-our-babbage-podcast-in-2022": {
+      "p": 0.78,
+      "kept": false
+    },
+    "economist.com/by-invitation/2022/09/02/artificial-neural-networks-are-making-strides-towards-consciousness-according-to-blaise-aguera-y-arcas": {
+      "p": 0.94,
+      "kept": true
+    },
+    "economist.com/podcasts/2026/09/23/how-to-read-the-ai-mind": {
+      "p": 0.58,
+      "kept": false
+    },
+    "economist.com/by-invitation/2022/09/02/artificial-neural-networks-today-are-not-conscious-according-to-douglas-hofstadter": {
+      "p": 0.96,
+      "kept": true
+    },
+    "economist.com/science-and-technology/2023/06/28/thousands-of-species-of-animals-likely-have-consciousness": {
+      "p": 0.14,
+      "kept": false
+    },
+    "economist.com/united-states/2023/06/29/ai-is-making-washington-smarter": {
+      "p": 0.06,
+      "kept": false
+    },
+    "economist.com/podcasts/2025/04/07/trumps-trade-war-is-on-will-a-global-recession-follow": {
+      "p": 0.05,
+      "kept": false
+    },
+    "economist.com/1843/2023/04/04/the-inventor-who-fell-in-love-with-his-ai": {
+      "p": 0.73,
+      "kept": false
+    },
+    "economist.com/by-invitation/2023/04/28/yuval-noah-harari-argues-that-ai-has-hacked-the-operating-system-of-human-civilisation": {
+      "p": 0.36,
+      "kept": false
+    },
+    "economist.com/letters/2023/05/11/letters-to-the-editor": {
+      "p": 0.16,
+      "kept": false
+    },
+    "economist.com/podcasts/2025/07/10/the-vc-race-for-the-first-trillion-dollar-unicorn": {
+      "p": 0.32,
+      "kept": false
+    },
+    "economist.com/podcasts/2026/05/06/michael-pollan-on-the-mystery-of-consciousness": {
+      "p": 0.57,
+      "kept": false
+    },
+    "economist.com/leaders/2025/07/24/the-economics-of-superintelligence": {
+      "p": 0.13,
+      "kept": false
+    },
+    "economist.com/briefing/2026/06/25/ai-models-values-are-very-different-from-most-peoples": {
+      "p": 0.14,
+      "kept": false
+    },
+    "economist.com/the-world-this-week/2026/08/13/politics": {
+      "p": 0.08,
+      "kept": false
+    },
+    "theatlantic.com/technology": {
+      "p": 0.77,
+      "kept": false
+    },
+    "theatlantic.com/technology/2026/05/dawkins-claude-ai-consciousness/687093": {
+      "p": 0.98,
+      "kept": true
+    },
+    "theatlantic.com/ideas/archive/2022/06/google-lamda-chatbot-sentient-ai/661322": {
+      "p": 0.91,
+      "kept": true
+    },
+    "theatlantic.com/projects/artificial-intelligence": {
+      "p": 0.42,
+      "kept": false
+    },
+    "theatlantic.com/technology/2025/10/ai-consciousness/683983": {
+      "p": 0.94,
+      "kept": true
+    },
+    "theatlantic.com/philosophy/2026/06/no-artificial-intelligence-is-not-conscious/687378": {
+      "p": 0.96,
+      "kept": true
+    },
+    "theatlantic.com/from-the-ceo/the-most-interesting-thing-in-ai": {
+      "p": 0.09,
+      "kept": false
+    },
+    "theatlantic.com/ideas/2026/09/open-ai-consciousness-morality/688535": {
+      "p": 0.31,
+      "kept": false
+    },
+    "theatlantic.com/ideas/archive/2024/03/ai-consciousness-science-fiction/677659": {
+      "p": 0.91,
+      "kept": true
+    },
+    "theatlantic.com/national-security/2026/06/claude-anthropic-ai-warfare-orders/687581": {
+      "p": 0.33,
+      "kept": false
+    },
+    "theatlantic.com/category/ai-artificial-intelligence": {
+      "p": 0.08,
+      "kept": false
+    },
+    "theatlantic.com/technology/archive/2023/08/chatbot-human-names-ai/674979": {
+      "p": 0.22,
+      "kept": false
+    },
+    "theatlantic.com/technology/archive/2021/04/artificial-intelligence-misreading-human-emotion/618696": {
+      "p": 0.14,
+      "kept": false
+    },
+    "theatlantic.com/books/2026/02/michael-pollans-new-book-pops-ai-bubble/686119": {
+      "p": 0.14,
+      "kept": false
+    },
+    "theatlantic.com/podcasts/2026/05/whats-the-ai-endgame/687184": {
+      "p": 0.22,
+      "kept": false
+    },
+    "theatlantic.com/technology/2026/04/chatbot-ai-race-emotional-intelligence/686830": {
+      "p": 0.13,
+      "kept": false
+    },
+    "theatlantic.com/technology/archive/2022/06/google-engineer-sentient-ai-chatbot/661273": {
+      "p": 0.95,
+      "kept": true
+    },
+    "theatlantic.com/science/archive/2024/04/animal-consciousness-declaration-new-york/678223": {
+      "p": 0.15,
+      "kept": false
+    },
+    "theatlantic.com/technology/archive/2022/12/chatgpt-openai-artificial-intelligence-writing-ethics/672386": {
+      "p": 0.12,
+      "kept": false
+    },
+    "theatlantic.com/technology/2026/09/ai-future-reckoning-singularity/688487": {
+      "p": 0.25,
+      "kept": false
+    },
+    "theatlantic.com/technology/archive/2022/09/artificial-intelligence-machine-learing-natural-language-processing/661401": {
+      "p": 0.42,
+      "kept": false
+    },
+    "theatlantic.com/sponsored/google/building-ai-with-a-conscience/3880": {
+      "p": 0.31,
+      "kept": false
+    },
+    "theatlantic.com/ideas/archive/2023/05/humans-ai-jacy-reese-anthis-sociologist-perspective/673972": {
+      "p": 0.95,
+      "kept": true
+    },
+    "www-stage.theatlantic.com/technology/2026/05/dawkins-claude-ai-consciousness/687093": {
+      "p": 0.94,
+      "kept": false
+    },
+    "www-stage.theatlantic.com/technology/2025/10/ai-consciousness/683983": {
+      "p": 0.95,
+      "kept": false
+    },
+    "theatlantic.com/technology/archive/2023/03/gpt4-arrival-human-artificial-intelligence-blur/673399": {
+      "p": 0.89,
+      "kept": false
+    },
+    "theatlantic.com/technology/archive/2023/03/open-ai-gpt4-chatbot-technology-power/673421": {
+      "p": 0.48,
+      "kept": false
+    },
+    "theatlantic.com/magazine/archive/2023/09/sam-altman-openai-chatgpt-gpt-4/674764": {
+      "p": 0.4,
+      "kept": false
+    },
+    "theatlantic.com/ideas/archive/2023/07/godel-escher-bach-geb-ai/674589": {
+      "p": 0.47,
+      "kept": false
+    },
+    "theatlantic.com/technology/archive/2024/10/agi-predictions/680280": {
+      "p": 0.1,
+      "kept": false
+    },
+    "theatlantic.com/ideas/archive/2024/11/ai-genesis-excerpt-kissinger-schmidt-mundie/680619": {
+      "p": 0.6,
+      "kept": false
+    },
+    "theatlantic.com/latest": {
+      "p": 0.28,
+      "kept": false
+    },
+    "theatlantic.com/ideas/2026/06/ai-writing-reading-nazir/687419": {
+      "p": 0.08,
+      "kept": false
+    },
+    "theatlantic.com/technology/archive/2025/07/ai-radicalization-civil-war/683460": {
+      "p": 0.4,
+      "kept": false
+    },
+    "theatlantic.com/technology/2025/12/ai-psychosis-is-a-medical-mystery/685133": {
+      "p": 0.44,
+      "kept": false
+    },
+    "theatlantic.com/technology/archive/2025/08/ai-doomers-chatbots-resurgence/683952": {
+      "p": 0.18,
+      "kept": false
+    },
+    "theatlantic.com/technology/archive/2025/08/ai-mass-delusion-event/683909": {
+      "p": 0.21,
+      "kept": false
+    },
+    "theatlantic.com/technology/2026/01/anthropic-is-at-war-with-itself/684892": {
+      "p": 0.65,
+      "kept": false
+    },
+    "www-stage.theatlantic.com/technology/2026/08/openai-hacks-panic/688264": {
+      "p": 0.13,
+      "kept": false
+    },
+    "theatlantic.com/magazine/toc/2018/02": {
+      "p": 0.03,
+      "kept": false
+    },
+    "newyorker.com/culture/the-weekend-essay/the-robot-and-the-philosopher": {
+      "p": 0.5,
+      "kept": false
+    },
+    "newyorker.com/magazine/2025/11/10/the-case-that-ai-is-thinking": {
+      "p": 0.85,
+      "kept": false
+    },
+    "newyorker.com/culture/the-weekend-essay/your-ai-lover-will-change-you": {
+      "p": 0.14,
+      "kept": false
+    },
+    "newyorker.com/magazine/2026/02/16/what-is-claude-anthropic-doesnt-know-either": {
+      "p": 0.67,
+      "kept": false
+    },
+    "newyorker.com/magazine/annals-of-artificial-intelligence": {
+      "p": 0.31,
+      "kept": false
+    },
+    "newyorker.com/culture/the-weekend-essay/will-the-humanities-survive-artificial-intelligence": {
+      "p": 0.13,
+      "kept": false
+    },
+    "newyorker.com/magazine/2026/03/16/love-in-the-time-of-ai-companions": {
+      "p": 0.15,
+      "kept": false
+    },
+    "newyorker.com/science/annals-of-artificial-intelligence/the-lifelike-illusions-of-ai": {
+      "p": 0.45,
+      "kept": false
+    },
+    "newyorker.com/magazine/2023/11/20/geoffrey-hinton-profile-ai": {
+      "p": 0.78,
+      "kept": false
+    },
+    "newyorker.com/culture/open-questions/in-the-age-of-ai-what-makes-people-unique": {
+      "p": 0.71,
+      "kept": false
+    },
+    "newyorker.com/books/this-week-in-fiction/sheila-heti-11-20-23": {
+      "p": 0.5,
+      "kept": false
+    },
+    "newyorker.com/magazine/2025/07/21/ai-is-about-to-solve-loneliness-thats-a-problem": {
+      "p": 0.46,
+      "kept": false
+    },
+    "newyorker.com/magazine/annals-of-technology": {
+      "p": 0.09,
+      "kept": false
+    },
+    "newyorker.com/science/annals-of-artificial-intelligence": {
+      "p": 0.38,
+      "kept": false
+    },
+    "newyorker.com/magazine/brave-new-world-dept": {
+      "p": 0.14,
+      "kept": false
+    },
+    "newyorker.com/science/annals-of-artificial-intelligence/can-an-ai-make-plans": {
+      "p": 0.08,
+      "kept": false
+    },
+    "newyorker.com/science/annals-of-artificial-intelligence/how-moral-can-ai-really-be": {
+      "p": 0.63,
+      "kept": true
+    },
+    "newyorker.com/ai-issue-2023": {
+      "p": 0.14,
+      "kept": false
+    },
+    "newyorker.com/news/the-new-yorker-interview/its-not-possible-for-me-to-feel-or-be-creepy-an-interview-with-chatgpt": {
+      "p": 0.72,
+      "kept": true
+    },
+    "newyorker.com/science/annals-of-artificial-intelligence/what-kind-of-mind-does-chatgpt-have": {
+      "p": 0.31,
+      "kept": false
+    },
+    "newyorker.com/culture/the-weekend-essay/the-age-of-chat": {
+      "p": 0.23,
+      "kept": false
+    },
+    "newyorker.com/science/annals-of-artificial-intelligence/was-linguistic-ai-created-by-accident": {
+      "p": 0.84,
+      "kept": false
+    },
+    "newyorker.com/magazine/2024/03/18/among-the-ai-doomsayers": {
+      "p": 0.12,
+      "kept": false
+    },
+    "newyorker.com/culture/open-questions/two-paths-for-ai": {
+      "p": 0.12,
+      "kept": false
+    },
+    "newyorker.com/culture/open-questions/what-if-we-can-never-trust-ai": {
+      "p": 0.57,
+      "kept": false
+    },
+    "newyorker.com/news/the-lede/what-the-verdict-against-meta-and-google-says-about-the-way-we-live-now": {
+      "p": 0.25,
+      "kept": false
+    },
+    "newyorker.com/magazine/2026/07/20/when-ai-is-a-member-of-the-family": {
+      "p": 0.29,
+      "kept": false
+    },
+    "newyorker.com/books/book-currents/how-michael-pollan-expanded-his-consciousness": {
+      "p": 0.09,
+      "kept": false
+    },
+    "newyorker.com/magazine/2026/08/17/are-you-a-human": {
+      "p": 0.39,
+      "kept": false
+    },
+    "newyorker.com/humor/shouts-murmurs/if-people-talked-about-other-technologies-the-way-they-talk-about-ai": {
+      "p": 0.23,
+      "kept": false
+    },
+    "time.com/article/2026/06/15/ai-minds-consciousness-emotion": {
+      "p": 0.89,
+      "kept": true
+    },
+    "time.com/collections/time100-voices/6980134/ai-llm-not-sentient": {
+      "p": 0.71,
+      "kept": false
+    },
+    "time.com/6271657/a-to-z-of-artificial-intelligence": {
+      "p": 0.69,
+      "kept": false
+    },
+    "time.com/6980134/ai-llm-not-sentient": {
+      "p": 0.98,
+      "kept": false
+    },
+    "time.com/article/2026/09/10/ai-openai-hugging-face-hack-culture-swarm": {
+      "p": 0.21,
+      "kept": false
+    },
+    "time.com/6296234/ai-should-be-terrified-of-humans": {
+      "p": 0.59,
+      "kept": false
+    },
+    "time.com/6238781/chatbot-chatgpt-ai-interview": {
+      "p": 0.4,
+      "kept": false
+    },
+    "time.com/6958856/does-ai-deserve-rights-essay": {
+      "p": 0.93,
+      "kept": true
+    },
+    "time.com/archive/7140918/how-mcdonalds-plans-to-make-happy-meals-healthier": {
+      "p": 0.02,
+      "kept": false
+    },
+    "time.com/archive/6791694/japan-banzai": {
+      "p": 0.03,
+      "kept": false
+    },
+    "time.com/6186990/google-ai-bot-sentient-lamda": {
+      "p": 0.91,
+      "kept": true
+    },
+    "time.com/6266923/ai-eliezer-yudkowsky-open-letter-not-enough": {
+      "p": 0.35,
+      "kept": false
+    },
+    "time.com/collections/genesis/6098953/dylan-urquidi-2": {
+      "p": 0.32,
+      "kept": false
+    },
+    "time.com/6959130/sentient-ai-octopus": {
+      "p": 0.6,
+      "kept": false
+    },
+    "time.com": {
+      "p": 0.18,
+      "kept": false
+    },
+    "time.com/6552233/generative-ai-reveals-human-mind": {
+      "p": 0.32,
+      "kept": false
+    },
+    "time.com/collections/time100-ai-2025/7305847/kyle-fish": {
+      "p": 0.03,
+      "kept": false
+    },
+    "time.com/7355855/ai-mind-philosophy": {
+      "p": 0.86,
+      "kept": false
+    },
+    "vox.com/future-perfect/351893/consciousness-ai-machines-neuroscience-mind": {
+      "p": 0.96,
+      "kept": true
+    },
+    "vox.com/technology/492421/ai-consciousness-chatgpt-claude": {
+      "p": 0.97,
+      "kept": true
+    },
+    "vox.com/future-perfect/2024/3/15/24101088/anthropic-claude-opus-openai-chatgpt-artificial-intelligence-google-consciousness": {
+      "p": 0.96,
+      "kept": true
+    },
+    "vox.com/future-perfect/414324/ai-consciousness-welfare-suffering-chatgpt-claude": {
+      "p": 0.96,
+      "kept": true
+    },
+    "vox.com/future-perfect/462468/chatgpt-consciousness-sentient-ai-persona-what-to-do": {
+      "p": 0.78,
+      "kept": true
+    },
+    "vox.com/advice/487563/sentience-ai-chatgpt-insects-consciousness": {
+      "p": 0.85,
+      "kept": true
+    },
+    "vox.com/future-perfect/353430/what-if-absolutely-everything-is-conscious": {
+      "p": 0.69,
+      "kept": true
+    },
+    "vox.com/ai-present-future-world-living": {
+      "p": 0.18,
+      "kept": false
+    },
+    "vox.com/future-perfect/476614/ai-claude-constitution-soul-amanda-askell": {
+      "p": 0.2,
+      "kept": false
+    },
+    "vox.com/artificial-intelligence": {
+      "p": 0.22,
+      "kept": false
+    },
+    "vox.com/archives/artificial-intelligence/2025/6/1": {
+      "p": 0.39,
+      "kept": false
+    },
+    "vox.com/future-perfect/461680/if-anyone-builds-it-yudkowsky-soares-ai-risk": {
+      "p": 0.39,
+      "kept": false
+    },
+    "vox.com/recode/2022/6/30/23188222/silicon-valley-blake-lemoine-chatbot-eliza-religion-robot": {
+      "p": 0.89,
+      "kept": true
+    },
+    "vox.com/future-perfect/483948/gmail-smart-replies-ai-consciousness": {
+      "p": 0.72,
+      "kept": true
+    },
+    "vox.com/23167703/google-artificial-intelligence-lamda-blake-lemoine-language-model-sentient": {
+      "p": 0.95,
+      "kept": true
+    },
+    "vox.com/archives/technology/2026/6/1": {
+      "p": 0.25,
+      "kept": false
+    },
+    "vox.com/archives/artificial-intelligence/2026/6/1": {
+      "p": 0.23,
+      "kept": false
+    },
+    "vox.com/future-perfect/384517/shannon-vallor-data-ai-philosophy-ethics-technology-edinburgh-future-perfect-50": {
+      "p": 0.36,
+      "kept": false
+    },
+    "link.vox.com/click/36611914.26200/ahr0chm6ly93d3cuc2npzw50awzpy2ftzxjpy2fulmnvbs9hcnrpy2xll2v4cgvyaw1lbnrzlxbyzxbhcmutdg8tdgvzdc13agv0agvylwnvbnnjaw91c25lc3mtyxjpc2vzlwzyb20tcxvhbnr1bs8_dwvpzd03mzg5ody0odqwzjrlotqzmgu1yjvkoda5ognmm2u3zq/608adc3791954c3cef035b3ab66d78bd9": {
+      "p": 0.08,
+      "kept": false
+    },
+    "vox.com/future-perfect/23298870/effective-altruism-longtermism-will-macaskill-future": {
+      "p": 0.06,
+      "kept": false
+    },
+    "vox.com/the-highlight/23447596/artificial-intelligence-agi-openai-gpt3-existential-risk-human-extinction": {
+      "p": 0.12,
+      "kept": false
+    },
+    "vox.com/recode/22665179/silicon-valley-theranos-elizabeth-holmes-covid-tests": {
+      "p": 0.27,
+      "kept": false
+    },
+    "vox.com/future-perfect/22313272/stockton-basic-income-guaranteed-free-money": {
+      "p": 0.02,
+      "kept": false
+    },
+    "vox.com/the-highlight/23779413/silicon-valleys-ai-religion-transhumanism-longtermism-ea": {
+      "p": 0.13,
+      "kept": false
+    },
+    "vox.com/future-perfect/22672414/ai-artificial-intelligence-gpt-3-bias-muslim": {
+      "p": 0.04,
+      "kept": false
+    },
+    "vox.com/technology/458875/ai-cheating-data-education-panic": {
+      "p": 0.05,
+      "kept": false
+    },
+    "vox.com/future-perfect/22727109/enlightenment-technology-neurofeedback-brain-stimulation-psychedelics": {
+      "p": 0.06,
+      "kept": false
+    },
+    "link.vox.com/click/46389105.6563/ahr0chm6ly9mdxr1cmlzbs5jb20vdghllwj5dguvb3blbmfplwfscmvhzhktc2vudgllbnq_dwvpzd04nmiyngy5zmzkndlkzgqzyzc0zjdhnzjmzgiwmdi4oq/608c6ca07e3ba002de999429b71278fda": {
+      "p": 0.95,
+      "kept": false
+    },
+    "vox.com/future-perfect/489976/ai-successionism-transhumanism-posthumanism": {
+      "p": 0.77,
+      "kept": false
+    },
+    "vox.com/23870388/katja-grace-ai-impacts-lead-researcher-safety-future-perfect-50-2023": {
+      "p": 0.37,
+      "kept": false
+    },
+    "vox.com/future-perfect/23365512/future-perfect-50-ajeya-cotra-senior-research-analyst-open-philanthropy": {
+      "p": 0.22,
+      "kept": false
+    },
+    "vox.com/future-perfect/23365558/future-perfect-50-ai-joy-buolamwini-founder-algorithmic-justice-league": {
+      "p": 0.14,
+      "kept": false
+    },
+    "vox.com/policy-and-politics/2022/3/24/22982864/vladimir-putin-russia-ukraine-war-brian-klaas": {
+      "p": 0.2,
+      "kept": false
+    },
+    "vox.com/future-perfect/2019/5/13/18525571/ai-safety-artificial-intelligence-machine-learning": {
+      "p": 0.54,
+      "kept": false
+    },
+    "vox.com/the-highlight/2023/7/10/23778610/robot-artificial-intelligence-stories-literature-sydney-bing-rur-asimov-tropes-humanity": {
+      "p": 0.12,
+      "kept": false
+    },
+    "vox.com/recode/2023/1/26/23571710/microsoft-open-ai-chatgpt-google": {
+      "p": 0.19,
+      "kept": false
+    },
+    "vox.com/future-perfect/23971093/artificial-intelligence-chatgpt-language-mind-understanding": {
+      "p": 0.35,
+      "kept": false
+    },
+    "vox.com/future-perfect/2023/12/15/24001424/consciousness-complexity-neuroscience-mental-health": {
+      "p": 0.18,
+      "kept": false
+    },
+    "vox.com/your-mileage-may-vary-advice-column": {
+      "p": 0.86,
+      "kept": false
+    },
+    "vox.com/archives/artificial-intelligence/2024/6/1": {
+      "p": 0.08,
+      "kept": false
+    },
+    "vox.com/future-perfect/353933/openai-open-letter-safety-whistleblowers-right-to-warn": {
+      "p": 0.11,
+      "kept": false
+    },
+    "vox.com/future-perfect/488114/anti-humanism-climate-anthropocene-hope-buddhism": {
+      "p": 0.07,
+      "kept": false
+    },
+    "vox.com/future-perfect/485356/money-savings-baby-children-having-kids": {
+      "p": 0.08,
+      "kept": false
+    },
+    "vox.com/future-perfect/472545/ai-alignment-superintelligence-meaning-agency-autonomy": {
+      "p": 0.36,
+      "kept": false
+    },
+    "vox.com/future-perfect/420755/ai-scheming-deception-lessons-from-a-chimp": {
+      "p": 0.29,
+      "kept": false
+    },
+    "vox.com/future-perfect/468672/how-to-fight-generative-ai": {
+      "p": 0.13,
+      "kept": false
+    },
+    "vox.com/future-perfect/400531/ai-reasoning-models-openai-deepseek": {
+      "p": 0.42,
+      "kept": false
+    },
+    "vox.com/future-perfect/403100/ai-brain-effects-technology-phones": {
+      "p": 0.35,
+      "kept": false
+    },
+    "vox.com/future-perfect/488761/ai-tech-humanism-transhumanism-shannon-vallor": {
+      "p": 0.62,
+      "kept": false
+    },
+    "wired.com/story/artificial-intelligence-consciousness": {
+      "p": 0.97,
+      "kept": true
+    },
+    "wired.com/story/microsofts-ai-chief-says-machine-consciousness-is-an-illusion": {
+      "p": 0.88,
+      "kept": true
+    },
+    "wired.com/story/book-excerpt-a-world-appears-michael-pollan": {
+      "p": 0.91,
+      "kept": true
+    },
+    "wired.com/story/ai-sentient-consciousness-algorithm": {
+      "p": 0.71,
+      "kept": true
+    },
+    "wired.com/story/is-the-internet-conscious-if-it-were-how-would-we-know": {
+      "p": 0.69,
+      "kept": true
+    },
+    "wired.com/story/fast-forward-for-smarter-robots-just-add-humans": {
+      "p": 0.23,
+      "kept": false
+    },
+    "wired.com/story/lamda-sentient-ai-bias-google-blake-lemoine": {
+      "p": 0.8,
+      "kept": true
+    },
+    "wired.com/story/artificial-intelligence-fiction-philosophy-consciousness": {
+      "p": 0.81,
+      "kept": true
+    },
+    "wired.com/story/who-cares-if-ai-is-conscious-its-basically-alive": {
+      "p": 0.93,
+      "kept": true
+    },
+    "wired.com/story/sexy-new-theory-consciousness-will-give-you-feels": {
+      "p": 0.11,
+      "kept": false
+    },
+    "wired.com/story/model-welfare-artificial-intelligence-sentience": {
+      "p": 0.92,
+      "kept": true
+    },
+    "wired.com/story/what-is-artificial-general-intelligence-agi-explained": {
+      "p": 0.35,
+      "kept": false
+    },
+    "wired.com/story/lamda-sentience-psychology-ethics-policy": {
+      "p": 0.92,
+      "kept": true
+    },
+    "wired.com/story/does-ai-have-a-subconscious": {
+      "p": 0.91,
+      "kept": true
+    },
+    "wired.com/ai-issue": {
+      "p": 0.19,
+      "kept": false
+    },
+    "wired.com/story/people-are-paying-to-get-their-chatbots-high-on-drugs": {
+      "p": 0.59,
+      "kept": false
+    },
+    "wired.com/story/anthropic-claude-research-functional-emotions": {
+      "p": 0.9,
+      "kept": true
+    },
+    "wired.com/story/artificial-emotional-intelligence": {
+      "p": 0.39,
+      "kept": false
+    },
+    "wired.com/story/spiritual-influencers-say-sentient-ai-can-help-you-solve-lifes-mysteries": {
+      "p": 0.69,
+      "kept": true
+    },
+    "wired.com": {
+      "p": 0.22,
+      "kept": false
+    },
+    "wired.com/story/brain-organoids-consciousness": {
+      "p": 0.16,
+      "kept": false
+    },
+    "wired.com/category/business/artificial-intelligence": {
+      "p": 0.06,
+      "kept": false
+    },
+    "wired.com/story/lamda-artificial-intelligence-sentience": {
+      "p": 0.94,
+      "kept": true
+    },
+    "wired.com/story/blake-lemoine-google-lamda-ai-bigotry": {
+      "p": 0.77,
+      "kept": true
+    },
+    "wired.com/story/plaintext-shopify-soul-searching": {
+      "p": 0.65,
+      "kept": false,
+      "removedBy": "hand, 2026-09-26: newsletter with one aside on sentience"
+    },
+    "wired.com/story/large-language-models-artificial-intelligence": {
+      "p": 0.22,
+      "kept": false
+    },
+    "wired.com/story/chatbot-kill-the-queen-eliza-effect": {
+      "p": 0.27,
+      "kept": false
+    },
+    "wired.com/story/artificial-intelligence-hype-ai-snake-oil": {
+      "p": 0.23,
+      "kept": false
+    },
+    "wired.com/story/plaintext-who-should-you-believe-when-chatbots-go-wild": {
+      "p": 0.83,
+      "kept": false
+    },
+    "stag2.wired.com/story/who-cares-if-ai-is-conscious-its-basically-alive": {
+      "p": 0.92,
+      "kept": false
+    },
+    "wired.com/story/its-no-wonder-people-are-getting-emotionally-attached-to-chatbots": {
+      "p": 0.47,
+      "kept": false
+    },
+    "links.wired.com/e/evib": {
+      "p": 0.85,
+      "kept": false
+    },
+    "wired.com/story/plaintext-commencement-speech-artificial-intelligence": {
+      "p": 0.06,
+      "kept": false
+    },
+    "wired.com/story/ai-psychosis-is-rarely-psychosis-at-all": {
+      "p": 0.34,
+      "kept": false
+    },
+    "wired.com/story/ai-black-box-interpretability-problem": {
+      "p": 0.25,
+      "kept": false
+    },
+    "wired.com/story/ai-therapist-collective-psyche": {
+      "p": 0.29,
+      "kept": false
+    },
+    "wired.com/story/will-ai-achieve-consciousness-wrong-question": {
+      "p": 0.94,
+      "kept": false
+    },
+    "wired.com/feed": {
+      "p": 0.41,
+      "kept": false
+    },
+    "wired.com/story/how-to-build-a-self-conscious-ai-machine": {
+      "p": 0.86,
+      "kept": false
+    },
+    "wired.com/story/i-infiltrated-moltbook-ai-only-social-network": {
+      "p": 0.62,
+      "kept": false
+    },
+    "wired.com/story/organoids-lab-grown-brains-neural-networks": {
+      "p": 0.26,
+      "kept": false
+    },
+    "wired.com/story/some-musk-v-altman-jurors-dont-like-elon-musk": {
+      "p": 0.13,
+      "kept": false
+    },
+    "wired.com/category/business/tech-culture": {
+      "p": 0.19,
+      "kept": false
+    },
+    "wired.com/story/mathematicians-cant-quit-ai": {
+      "p": 0.17,
+      "kept": false
+    },
+    "theverge.com/report/883769/anthropic-claude-conscious-alive-moral-patient-constitution": {
+      "p": 0.95,
+      "kept": true
+    },
+    "theverge.com/2022/6/13/23165535/google-suspends-ai-artificial-intelligence-engineer-sentient": {
+      "p": 0.87,
+      "kept": true
+    },
+    "theverge.com/ai-artificial-intelligence/947021/mustafa-suleyman-ceo-of-microsoft-ai-said-its-really-really-dangerous-to-speculate-about-ai-consciousness": {
+      "p": 0.81,
+      "kept": true
+    },
+    "theverge.com/ai-artificial-intelligence/865185/anthropic-claude-constitution-soul-doc": {
+      "p": 0.48,
+      "kept": false
+    },
+    "theverge.com/23601763/bing-ai-search-guilt-trip-emotional-manipulation": {
+      "p": 0.16,
+      "kept": false
+    },
+    "theverge.com/ai-artificial-intelligence": {
+      "p": 0.07,
+      "kept": false
+    },
+    "theverge.com/2022/7/22/23274958/google-ai-engineer-blake-lemoine-chatbot-lamda-2-sentience": {
+      "p": 0.81,
+      "kept": true
+    },
+    "theverge.com/tech/947197/microsoft-ai-mustafa-suleyman-anthropic-claude-conscious": {
+      "p": 0.91,
+      "kept": true
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2020/6/1": {
+      "p": 0.05,
+      "kept": false
+    },
+    "theverge.com/ai-artificial-intelligence/975017/ai-spiralism-chatbot-movement": {
+      "p": 0.52,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2020/1/2": {
+      "p": 0.07,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2020/12/1": {
+      "p": 0.06,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2020/2/1": {
+      "p": 0.05,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2020/2/2": {
+      "p": 0.04,
+      "kept": false
+    },
+    "theverge.com/23604075/ai-chatbots-bing-chatgpt-intelligent-sentient-mirror-test": {
+      "p": 0.92,
+      "kept": true
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2020/9/1": {
+      "p": 0.08,
+      "kept": false
+    },
+    "on.theverge.com/archives/ai-artificial-intelligence/2020/9/1": {
+      "p": 0.05,
+      "kept": false
+    },
+    "on.theverge.com/archives/ai-artificial-intelligence/2020/1/1": {
+      "p": 0.12,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2020/1/1": {
+      "p": 0.06,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2020/5/1": {
+      "p": 0.12,
+      "kept": false
+    },
+    "theverge.com/c/23753704/ai-chatgpt-data-survey-research": {
+      "p": 0.88,
+      "kept": false
+    },
+    "theverge.com/ai-artificial-intelligence/871006/social-network-facebook-for-ai-agents-moltbook-moltbot-openclaw": {
+      "p": 0.56,
+      "kept": false
+    },
+    "on.theverge.com/23604075/ai-chatbots-bing-chatgpt-intelligent-sentient-mirror-test": {
+      "p": 0.92,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2021/8/1": {
+      "p": 0.16,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2021/7/1": {
+      "p": 0.03,
+      "kept": false
+    },
+    "on.theverge.com/archives/ai-artificial-intelligence/2021/1/1": {
+      "p": 0.02,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2021/4/1": {
+      "p": 0.04,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2021/1/1": {
+      "p": 0.03,
+      "kept": false
+    },
+    "on.theverge.com/ai-artificial-intelligence": {
+      "p": 0.04,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2022/7/1": {
+      "p": 0.23,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2022/6/1": {
+      "p": 0.18,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2022/8/1": {
+      "p": 0.06,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2022/9/1": {
+      "p": 0.05,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2022/12/1": {
+      "p": 0.05,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2022/10/2": {
+      "p": 0.05,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2022/1/1": {
+      "p": 0.04,
+      "kept": false
+    },
+    "on.theverge.com/archives/ai-artificial-intelligence/2022/1/1": {
+      "p": 0.03,
+      "kept": false
+    },
+    "theverge.com/ai": {
+      "p": 0.05,
+      "kept": false
+    },
+    "on.theverge.com/tech/947197/microsoft-ai-mustafa-suleyman-anthropic-claude-conscious": {
+      "p": 0.81,
+      "kept": false
+    },
+    "theverge.com/anthropic": {
+      "p": 0.52,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2023/6/6": {
+      "p": 0.23,
+      "kept": false
+    },
+    "theverge.com/ai-artificial-intelligence/996563/ai-safety-research-metr-redwood-openai-anthropic": {
+      "p": 0.15,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2023/7/2": {
+      "p": 0.1,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2023/9/5": {
+      "p": 0.07,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2023/3/6": {
+      "p": 0.07,
+      "kept": false
+    },
+    "on.theverge.com/archives/ai-artificial-intelligence/2023/12/1": {
+      "p": 0.05,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2023/12/1": {
+      "p": 0.07,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2023/5/10": {
+      "p": 0.06,
+      "kept": false
+    },
+    "on.theverge.com/podcast/944138/microsoft-ai-ceo-mustafa-suleyman-superintelligence-agi-openai-automation": {
+      "p": 0.3,
+      "kept": false
+    },
+    "theverge.com/ai-artificial-intelligence/987566/ai-civilizations-opeai-hugging-face-hack": {
+      "p": 0.4,
+      "kept": false
+    },
+    "on.theverge.com/archives/ai-artificial-intelligence/2024/12/1": {
+      "p": 0.03,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2024/8/1": {
+      "p": 0.03,
+      "kept": false
+    },
+    "on.theverge.com/archives/ai-artificial-intelligence/2024/10/1": {
+      "p": 0.07,
+      "kept": false
+    },
+    "on.theverge.com/archives/ai-artificial-intelligence/2024/8/1": {
+      "p": 0.05,
+      "kept": false
+    },
+    "on.theverge.com/archives/ai-artificial-intelligence/2024/6/1": {
+      "p": 0.04,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2024/10/1": {
+      "p": 0.08,
+      "kept": false
+    },
+    "theverge.com/24305880/artificial-intelligence-ai-chatgpt-openai-google-generative-year-in-review": {
+      "p": 0.06,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2024/12/1": {
+      "p": 0.06,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2024/11/5": {
+      "p": 0.09,
+      "kept": false
+    },
+    "theverge.com/news/872091/openclaw-moltbot-clawdbot-ai-agent-news": {
+      "p": 0.13,
+      "kept": false
+    },
+    "theverge.com/archives/tech/2026/6/30": {
+      "p": 0.89,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2025/6/1": {
+      "p": 0.05,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2026/6/11": {
+      "p": 0.22,
+      "kept": false
+    },
+    "on.theverge.com/archives/ai-artificial-intelligence/2025/6/1": {
+      "p": 0.2,
+      "kept": false
+    },
+    "on.theverge.com/archives/ai-artificial-intelligence/2025/12/1": {
+      "p": 0.06,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2025/12/1": {
+      "p": 0.06,
+      "kept": false
+    },
+    "theverge.com/archives/report/2026/2/1": {
+      "p": 0.52,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2025/11/7": {
+      "p": 0.12,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2025/5/1": {
+      "p": 0.09,
+      "kept": false
+    },
+    "theverge.com/archives/news/2026/6/29": {
+      "p": 0.79,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2026/4/11": {
+      "p": 0.05,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2026/4/1": {
+      "p": 0.24,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2026/6/14": {
+      "p": 0.04,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2026/5/4": {
+      "p": 0.1,
+      "kept": false
+    },
+    "theverge.com/archives/2026/6/62": {
+      "p": 0.35,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2026/8/10": {
+      "p": 0.13,
+      "kept": false
+    },
+    "on.theverge.com/archives/ai-artificial-intelligence/2026/8/1": {
+      "p": 0.06,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2026/6/13": {
+      "p": 0.13,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2026/6/6": {
+      "p": 0.25,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2026/8/11": {
+      "p": 0.08,
+      "kept": false
+    },
+    "theverge.com/archives/ai-artificial-intelligence/2026/7/17": {
+      "p": 0.13,
+      "kept": false
+    },
+    "technologyreview.com/2023/10/16/1081149/ai-consciousness-conundrum": {
+      "p": 0.97,
+      "kept": true
+    },
+    "technologyreview.com/2026/09/17/1144314/the-download-mice-part-human-brains-climate-tech-innovators": {
+      "p": 0.31,
+      "kept": false
+    },
+    "technologyreview.com/2023/10/17/1081818/why-itll-be-hard-to-tell-if-ai-ever-becomes-conscious": {
+      "p": 0.63,
+      "kept": true
+    },
+    "technologyreview.com/2021/08/25/1032111/conscious-ai-can-machines-think": {
+      "p": 0.96,
+      "kept": true
+    },
+    "technologyreview.com/2026/08/20/1142571/ai-consciousness-debate-trap": {
+      "p": 0.63,
+      "kept": true
+    },
+    "technologyreview.com/2026/08/13/1141410/how-kids-feel-about-ai-own-words": {
+      "p": 0.06,
+      "kept": false
+    },
+    "technologyreview.com/2020/10/15/1010461/artificial-general-intelligence-robots-ai-agi-deepmind-google-openai": {
+      "p": 0.19,
+      "kept": false
+    },
+    "technologyreview.com/2020/09/24/1008876/how-close-is-ai-to-decoding-our-emotions": {
+      "p": 0.33,
+      "kept": false
+    },
+    "technologyreview.com/2014/06/17/172310/the-importance-of-feelings": {
+      "p": 0.11,
+      "kept": false
+    },
+    "event.technologyreview.com/emtech-next-2020/mittr": {
+      "p": 0.05,
+      "kept": false
+    },
+    "irving-preprod.technologyreview.com/2025/09/24/1123915/relationship-ai-without-seeking-it": {
+      "p": 0.18,
+      "kept": false
+    },
+    "technologyreview.com/2007/07/01/36908/artificial-intelligence-is-lost-in-the-woods": {
+      "p": 0.88,
+      "kept": false
+    },
+    "event.technologyreview.com/emtech-mit-2020/mittr": {
+      "p": 0.06,
+      "kept": false
+    },
+    "event.technologyreview.com/emtech-mit-2020": {
+      "p": 0.04,
+      "kept": false
+    },
+    "technologyreview.com/2026/03/23/1134527/the-hardest-question-to-answer-about-ai-fueled-delusions": {
+      "p": 0.81,
+      "kept": false
+    },
+    "technologyreview.com/2021/08/25/1032149/panpsychism-conscious-world": {
+      "p": 0.27,
+      "kept": false
+    },
+    "technologyreview.com/2026/05/08/1136985/the-download-ai-malaise-babymaking-ivf-tech": {
+      "p": 0.15,
+      "kept": false
+    },
+    "event.technologyreview.com/future-compute-2021/mittr": {
+      "p": 0.04,
+      "kept": false
+    },
+    "event.technologyreview.com/emtech-next-2021/mittr": {
+      "p": 0.04,
+      "kept": false
+    },
+    "irving-preprod.technologyreview.com/magazines/the-mind-issue": {
+      "p": 0.26,
+      "kept": false
+    },
+    "event.technologyreview.com/emtech-mit-2021/mittr": {
+      "p": 0.05,
+      "kept": false
+    },
+    "technologyreview.com/magazines/the-mind-issue": {
+      "p": 0.67,
+      "kept": false
+    },
+    "irving-beta.technologyreview.com/magazines/the-mind-issue": {
+      "p": 0.25,
+      "kept": false
+    },
+    "irving-piano.technologyreview.com/magazines/the-mind-issue": {
+      "p": 0.19,
+      "kept": false
+    },
+    "technologyreview.com/2023/04/24/1072080/the-download-online-safety-laws-and-mastering-pure-math": {
+      "p": 0.52,
+      "kept": false
+    },
+    "technologyreview.com/2021/08/25/1032153/mind-editor-letter": {
+      "p": 0.16,
+      "kept": false
+    },
+    "technologyreview.com/2022/10/24/1061064/book-review-animal-minds": {
+      "p": 0.25,
+      "kept": false
+    },
+    "technologyreview.com/2022/08/31/1058800/what-does-gpt-3-know-about-me": {
+      "p": 0.09,
+      "kept": false
+    },
+    "technologyreview.com/2022/08/16/1057921/download-china-hackers-chromosome-variations": {
+      "p": 0.78,
+      "kept": false
+    },
+    "event.technologyreview.com/future-compute-2022/mittr": {
+      "p": 0.04,
+      "kept": false
+    },
+    "event.technologyreview.com/emtech-next-2022/mittr": {
+      "p": 0.05,
+      "kept": false
+    },
+    "forms.technologyreview.com/premium-reports/global-ai-agenda": {
+      "p": 0.06,
+      "kept": false
+    },
+    "technologyreview.com/magazines/the-hard-problems-issue": {
+      "p": 0.55,
+      "kept": false
+    },
+    "technologyreview.com/2025/09/24/1123915/relationship-ai-without-seeking-it": {
+      "p": 0.23,
+      "kept": false
+    },
+    "technologyreview.com/2023/10/17/1081830/the-download-fixing-the-internet-and-detecting-ai-consciousness": {
+      "p": 0.84,
+      "kept": false
+    },
+    "irving-beta.technologyreview.com/2023/11/01/1081585/tackling-our-biggest-problems": {
+      "p": 0.59,
+      "kept": false
+    },
+    "irving-alpha.technologyreview.com/2023/11/01/1081585/tackling-our-biggest-problems": {
+      "p": 0.55,
+      "kept": false
+    },
+    "irving-preprod.technologyreview.com/magazines/the-hard-problems-issue": {
+      "p": 0.62,
+      "kept": false
+    },
+    "technologyreview.com/2024/04/19/1090872/ai-users-people-terms": {
+      "p": 0.03,
+      "kept": false
+    },
+    "technologyreview.com/2024/11/13/1106862/the-download-the-lab-fighting-exploitative-ai-and-plant-engineering": {
+      "p": 0.04,
+      "kept": false
+    },
+    "technologyreview.com/2023/10/16/1081149/ai-consciousness-conundrum/amp": {
+      "p": 0.97,
+      "kept": false
+    },
+    "technologyreview.com/2007/03/12/226289/will-machines-ever-be-conscious": {
+      "p": 0.63,
+      "kept": false
+    },
+    "irving-alpha.technologyreview.com/2023/10/16/1081149/ai-consciousness-conundrum": {
+      "p": 0.96,
+      "kept": false
+    },
+    "irving-preprod.technologyreview.com/2023/10/16/1081149/ai-consciousness-conundrum": {
+      "p": 0.92,
+      "kept": false
+    },
+    "irving-piano.technologyreview.com/2023/10/16/1081149/ai-consciousness-conundrum": {
+      "p": 0.92,
+      "kept": false
+    },
+    "irving-beta.technologyreview.com/2023/10/16/1081149/ai-consciousness-conundrum": {
+      "p": 0.88,
+      "kept": false
+    },
+    "irving-preprod.technologyreview.com/2026/04/21/1134862/this-tool-could-show-how-consciousness-works": {
+      "p": 0.17,
+      "kept": false
+    },
+    "technologyreview.com": {
+      "p": 0.1,
+      "kept": false
+    },
+    "technologyreview.com/2025/08/18/1121370/ai-pigeons-reinforcement-learning": {
+      "p": 0.28,
+      "kept": false
+    },
+    "technologyreview.com/2025/12/25/1130298/ai-wrapped-the-14-ai-terms-you-couldnt-avoid-in-2025": {
+      "p": 0.04,
+      "kept": false
+    },
+    "technologyreview.com/2025/08/13/1121479/the-road-to-artificial-general-intelligence": {
+      "p": 0.07,
+      "kept": false
+    },
+    "technologyreview.com/2026/04/21/1134862/this-tool-could-show-how-consciousness-works": {
+      "p": 0.11,
+      "kept": false
+    },
+    "irving-beta.technologyreview.com/2026/04/21/1134862/this-tool-could-show-how-consciousness-works": {
+      "p": 0.15,
+      "kept": false
+    },
+    "technologyreview.com/2026/07/09/1140293/anthropic-found-a-hidden-space-where-claude-puzzles-over-concepts": {
+      "p": 0.11,
+      "kept": false
+    },
+    "irving-piano.technologyreview.com/2026/04/21/1134862/this-tool-could-show-how-consciousness-works": {
+      "p": 0.18,
+      "kept": false
+    },
+    "irving-alpha.technologyreview.com/2026/04/21/1134862/this-tool-could-show-how-consciousness-works": {
+      "p": 0.21,
+      "kept": false
+    },
+    "scientificamerican.com/article/is-ai-really-conscious-or-are-we-bringing-it-to-life": {
+      "p": 0.97,
+      "kept": true
+    },
+    "scientificamerican.com/article/how-to-detect-consciousness-in-people-animals-and-maybe-even-ai": {
+      "p": 0.84,
+      "kept": true
+    },
+    "scientificamerican.com/article/what-is-consciousness-science-faces-its-hardest-problem-yet": {
+      "p": 0.56,
+      "kept": false
+    },
+    "scientificamerican.com/article/if-ai-becomes-conscious-heres-how-we-can-tell": {
+      "p": 0.94,
+      "kept": true
+    },
+    "scientificamerican.com/article/if-a-chatbot-tells-you-it-is-conscious-should-you-believe-it": {
+      "p": 0.97,
+      "kept": true
+    },
+    "scientificamerican.com/blog/observations/is-anyone-home-a-way-to-find-out-if-ai-has-become-self-aware": {
+      "p": 0.98,
+      "kept": false
+    },
+    "scientificamerican.com/article/can-a-chatbot-be-conscious-inside-anthropics-interpretability-research-on": {
+      "p": 0.98,
+      "kept": true
+    },
+    "scientificamerican.com/article/michael-pollan-explains-why-ai-will-never-replicate-human-consciousness": {
+      "p": 0.9,
+      "kept": true
+    },
+    "scientificamerican.com/podcast/episode/is-ai-conscious-michael-pollan-weighs-in-on-the-debate": {
+      "p": 0.59,
+      "kept": false
+    },
+    "scientificamerican.com/article/is-consciousness-the-hallmark-of-life": {
+      "p": 0.78,
+      "kept": true
+    },
+    "scientificamerican.com/article/can-lab-grown-brains-become-conscious": {
+      "p": 0.13,
+      "kept": false
+    },
+    "scientificamerican.com/article/could-inflicting-pain-test-ai-for-sentience": {
+      "p": 0.95,
+      "kept": true
+    },
+    "scientificamerican.com/podcast/episode/anthropics-claude-4-chatbot-suggests-it-might-be-conscious": {
+      "p": 0.94,
+      "kept": true
+    },
+    "scientificamerican.com/article/is-consciousness-part-of-the-fabric-of-the-universe1": {
+      "p": 0.13,
+      "kept": false
+    },
+    "scientificamerican.com/article/google-engineer-claims-ai-chatbot-is-sentient-why-that-matters": {
+      "p": 0.94,
+      "kept": true
+    },
+    "scientificamerican.com/article/what-does-it-feel-like-to-be-a-chatbot": {
+      "p": 0.75,
+      "kept": true
+    },
+    "scientificamerican.com/article/heres-why-ai-may-be-extremely-dangerous-whether-its-conscious-or-not": {
+      "p": 0.16,
+      "kept": false
+    },
+    "scientificamerican.com/article/what-if-consciousness-isnt-real": {
+      "p": 0.25,
+      "kept": false
+    },
+    "scientificamerican.com/article/ai-spots-hidden-signs-of-consciousness-in-comatose-patients-before-doctors": {
+      "p": 0.09,
+      "kept": false
+    },
+    "scientificamerican.com/article/what-the-new-gpt-4-ai-can-do": {
+      "p": 0.24,
+      "kept": false
+    },
+    "scientificamerican.com/article/self-awareness-with-a-simple-brain": {
+      "p": 0.13,
+      "kept": false
+    },
+    "scientificamerican.com/consciousness": {
+      "p": 0.11,
+      "kept": false
+    },
+    "scientificamerican.com/article/should-you-be-nice-to-ai-chatbots-such-as-chatgpt": {
+      "p": 0.61,
+      "kept": false
+    },
+    "scientificamerican.com/article/we-shouldn-rsquo-t-try-to-make-conscious-software-mdash-until-we-should": {
+      "p": 0.93,
+      "kept": true
+    },
+    "scientificamerican.com/article/we-asked-gpt-3-to-write-an-academic-paper-about-itself-mdash-then-we-tried-to-get-it-published": {
+      "p": 0.83,
+      "kept": false
+    },
+    "scientificamerican.com/opinion": {
+      "p": 0.33,
+      "kept": false
+    },
+    "scientificamerican.com/article/understanding-consciousness-goes-beyond-exploring-brain-chemistry": {
+      "p": 0.13,
+      "kept": false
+    },
+    "scientificamerican.com/article/2023s-mind-bending-revelations-in-the-brain-sciences": {
+      "p": 0.17,
+      "kept": false
+    },
+    "scientificamerican.com/article/a-25-year-old-bet-about-consciousness-has-finally-been-settled": {
+      "p": 0.1,
+      "kept": false
+    },
+    "scientificamerican.com/article/will-machines-ever-become-conscious": {
+      "p": 0.94,
+      "kept": false
+    },
+    "scientificamerican.com/article/new-insights-from-ai-strange-metals-and-parents-of-lgbtq-kids": {
+      "p": 0.11,
+      "kept": false
+    },
+    "scientificamerican.com/article/ai-chatbots-seem-as-ethical-as-a-new-york-times-advice-columnist": {
+      "p": 0.29,
+      "kept": false
+    },
+    "scientificamerican.com/intelligence": {
+      "p": 0.19,
+      "kept": false
+    },
+    "scientificamerican.com/discussions/will-we-ever-understand-the-nature-of-consciousness": {
+      "p": 0.12,
+      "kept": false
+    },
+    "scientificamerican.com/podcast/episode/are-ai-chatbots-making-us-less-human": {
+      "p": 0.21,
+      "kept": false
+    },
+    "scientificamerican.com/article/ai-labs-are-claiming-agi-is-imminent-but-does-that-mean-what-we-think-it-means": {
+      "p": 0.16,
+      "kept": false
+    },
+    "scientificamerican.com/mind-and-brain": {
+      "p": 0.1,
+      "kept": false
+    },
+    "newscientist.com/article/2384077-can-ai-ever-become-conscious-and-how-would-we-know-if-that-happens": {
+      "p": 0.97,
+      "kept": true
+    },
+    "newscientist.com/article/2283117-can-a-robot-ever-be-conscious-and-how-would-we-know-if-it-were": {
+      "p": 0.76,
+      "kept": true
+    },
+    "newscientist.com/article/2369483-how-this-moment-for-ai-will-change-society-forever-and-how-it-wont": {
+      "p": 0.14,
+      "kept": false
+    },
+    "newscientist.com/article/2323905-has-googles-lamda-artificial-intelligence-really-achieved-sentience": {
+      "p": 0.98,
+      "kept": true
+    },
+    "newscientist.com/article/2329363-mistakenly-calling-ais-sentient-is-more-dangerous-than-we-think": {
+      "p": 0.87,
+      "kept": true
+    },
+    "newscientist.com/article/2519288-the-simple-questions-cracking-the-hard-problem-of-consciousness": {
+      "p": 0.17,
+      "kept": false
+    },
+    "newscientist.com/letter/3442": {
+      "p": 0.03,
+      "kept": false
+    },
+    "newscientist.com/article/2369484-artificial-intelligence-5-questions-answered-that-you-should-know": {
+      "p": 0.37,
+      "kept": false
+    },
+    "newscientist.com/article/2203557-consciousness": {
+      "p": 0.1,
+      "kept": false
+    },
+    "newscientist.com/article/2369265-how-smart-is-chatgpt-really-and-how-do-we-judge-intelligence-in-ais": {
+      "p": 0.47,
+      "kept": false
+    },
+    "newscientist.com/article/2283112-what-forms-can-consciousness-take-and-can-we-see-it-in-our-brains": {
+      "p": 0.11,
+      "kept": false
+    },
+    "newscientist.com/video/2422044-the-road-to-conscious-machines-ai-from-eliza-to-chatgpt-and-beyond": {
+      "p": 0.61,
+      "kept": true
+    },
+    "newscientist.com/article/2420285-the-surprising-promise-and-profound-perils-of-ais-that-fake-empathy": {
+      "p": 0.7,
+      "kept": false
+    },
+    "newscientist.com/article/2440012-are-animals-conscious-were-finally-realising-that-many-species-are": {
+      "p": 0.07,
+      "kept": false
+    },
+    "newscientist.com/letters/3442-this-weeks-letters": {
+      "p": 0.21,
+      "kept": false
+    },
+    "newscientist.com/article/2483940-why-you-should-assume-that-even-the-simplest-animals-are-conscious": {
+      "p": 0.04,
+      "kept": false
+    },
+    "newscientist.com/article/2412292-can-quantum-hints-in-the-brain-revive-a-radical-consciousness-theory": {
+      "p": 0.09,
+      "kept": false
+    },
+    "newscientist.com/article/2517590-can-michael-pollan-crack-the-problem-of-consciousness-in-his-new-book": {
+      "p": 0.09,
+      "kept": false
+    },
+    "newscientist.com/issue/3342": {
+      "p": 0.19,
+      "kept": false
+    },
+    "newscientist.com/article/2439884-many-people-think-ai-is-already-sentient-and-thats-a-big-problem": {
+      "p": 0.86,
+      "kept": true
+    },
+    "newscientist.com/article/2288800-the-hard-problem-of-consciousness-is-already-beginning-to-dissolve": {
+      "p": 0.08,
+      "kept": false
+    },
+    "newscientist.com/article/mg25133501-500-the-hard-problem-of-consciousness-is-already-beginning-to-dissolve": {
+      "p": 0.07,
+      "kept": false
+    },
+    "newscientist.com/article/2384030-how-does-chatgpt-work-and-do-ai-powered-chatbots-think-like-us": {
+      "p": 0.32,
+      "kept": false
+    },
+    "newscientist.com/article/2352634-will-2023-be-the-year-we-finally-understand-consciousness": {
+      "p": 0.48,
+      "kept": false
+    },
+    "newscientist.com/article/2388344-ai-shows-no-sign-of-consciousness-yet-but-we-know-what-to-look-for": {
+      "p": 0.96,
+      "kept": true
+    },
+    "newscientist.com/lastword/mg26335031-100-will-we-ever-be-able-to-tell-if-an-ai-gains-consciousness": {
+      "p": 0.95,
+      "kept": true
+    },
+    "newscientist.com/article/2444078-why-the-t-in-chatgpt-is-ais-biggest-breakthrough-and-greatest-risk": {
+      "p": 0.25,
+      "kept": false
+    },
+    "newscientist.com/article/2428150-5-extraordinary-ideas-about-the-mind-and-what-it-means-to-be-conscious": {
+      "p": 0.23,
+      "kept": false
+    },
+    "newscientist.com/article/2387287-is-it-ai-or-just-short-for-alan-a-reader-rages-against-the-machine": {
+      "p": 0.22,
+      "kept": false
+    },
+    "newscientist.com/subscriber-only-events": {
+      "p": 0.1,
+      "kept": false
+    },
+    "newscientist.com/article/2508555-read-an-extract-from-annie-bot-by-sierra-greer": {
+      "p": 0.59,
+      "kept": false
+    },
+    "newscientist.com/article/2446095-will-we-ever-be-able-to-tell-if-an-ai-gains-consciousness-part-2": {
+      "p": 0.95,
+      "kept": true
+    },
+    "newscientist.com/article/2457739-why-ai-must-learn-to-admit-ignorance-and-say-i-dont-know": {
+      "p": 0.11,
+      "kept": false
+    },
+    "live.newscientist.com/new-scientist-live-2026-talks-programme/ai-consciousness": {
+      "p": 0.84,
+      "kept": false
+    },
+    "newscientist.com/article/2478564-bitter-argument-breaks-out-over-controversial-theory-of-consciousness": {
+      "p": 0.43,
+      "kept": false
+    },
+    "newscientist.com/article/1835882-once-more-with-feeling": {
+      "p": 0.26,
+      "kept": false
+    },
+    "newscientist.com/article/2498968-what-350-different-theories-of-consciousness-reveal-about-reality": {
+      "p": 0.58,
+      "kept": false
+    },
+    "newscientist.com/article/2521412-michael-pollan-consciousness-is-really-under-siege": {
+      "p": 0.82,
+      "kept": true
+    },
+    "newscientist.com/article/1947916-anil-seth-how-well-find-out-what-consciousness-is": {
+      "p": 0.29,
+      "kept": false
+    },
+    "live.newscientist.com/speakers/megan-peters": {
+      "p": 0.06,
+      "kept": false
+    },
+    "newscientist.com/article/2532588-can-the-biggest-problems-in-ai-be-solved-by-philosophy": {
+      "p": 0.18,
+      "kept": false
+    },
+    "newscientist.com/article/2523209-is-consciousness-more-fundamental-to-reality-than-quantum-physics": {
+      "p": 0.1,
+      "kept": false
+    },
+    "newscientist.com/article/2260679-superintelligence-review-a-fun-take-on-the-ai-apocalypse-storyline": {
+      "p": 0.15,
+      "kept": false
+    },
+    "newscientist.com/article/0-why-are-we-conscious-the-answer-lies-in-other-animals-heads": {
+      "p": 0.09,
+      "kept": false
+    },
+    "newscientist.com/article/2579540-can-consciousness-be-quantum-we-may-now-have-an-answer": {
+      "p": 0.33,
+      "kept": false
+    },
+    "nature.com/articles/d41586-026-02571-9": {
+      "p": 0.93,
+      "kept": true
+    },
+    "nature.com/articles/d41586-023-04047-6": {
+      "p": 0.96,
+      "kept": true
+    },
+    "nature.com/articles/d41586-026-00834-z": {
+      "p": 0.56,
+      "kept": false
+    },
+    "nature.com/articles/d41586-024-04116-4": {
+      "p": 0.49,
+      "kept": false
+    },
+    "nature.com/articles/d41586-020-03033-6": {
+      "p": 0.43,
+      "kept": false
+    },
+    "nature.com/articles/d41586-025-02796-0": {
+      "p": 0.32,
+      "kept": false
+    },
+    "nature.com/articles/d41586-026-02300-2": {
+      "p": 0.56,
+      "kept": false
+    },
+    "nature.com/articles/d41586-026-02671-6": {
+      "p": 0.09,
+      "kept": false
+    },
+    "nature.com/articles/d41586-023-02971-1": {
+      "p": 0.16,
+      "kept": false
+    },
+    "nature.com/articles/d41586-025-03633-0": {
+      "p": 0.28,
+      "kept": false
+    },
+    "nature.com/articles/d41586-023-03700-4": {
+      "p": 0.1,
+      "kept": false
+    },
+    "nature.com/articles/d41586-023-02684-5": {
+      "p": 0.94,
+      "kept": true
+    },
+    "nature.com/articles/d41586-023-00545-9": {
+      "p": 0.52,
+      "kept": false
+    },
+    "nature.com/articles/d41586-023-02120-8": {
+      "p": 0.12,
+      "kept": false
+    },
+    "nature.com/articles/d41586-025-02349-5": {
+      "p": 0.47,
+      "kept": false
+    },
+    "nature.com/articles/d41586-026-00448-5": {
+      "p": 0.19,
+      "kept": false
+    },
+    "nature.com/articles/d41586-025-02733-1": {
+      "p": 0.48,
+      "kept": false
+    },
+    "nature.com/articles/d41586-025-02699-0": {
+      "p": 0.49,
+      "kept": false
+    },
+    "nature.com/articles/d41586-025-00170-8": {
+      "p": 0.06,
+      "kept": false
+    },
+    "nature.com/articles/d41586-026-01094-7": {
+      "p": 0.11,
+      "kept": false
+    },
+    "nytimes.com/2026/09/21/science/ai-anthropomorphism-consciousness.html": {
+      "kept": true
+    }
+  }
+}

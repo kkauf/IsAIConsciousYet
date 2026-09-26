@@ -85,8 +85,8 @@ Live at https://isaiconsciousyet.com (Vercel project "iaicy"). Push to `main` = 
 
 | Part | Where |
 |---|---|
-| Pages | `src/app/`: `/` (latest case file, then the vote), `/cases`, `/cases/[slug]`, `/why` |
-| Case files | JSON in `content/cases/`, written by `pipeline/` (contract: `pipeline/contract.mjs`), read by `src/lib/cases/load.ts` |
+| Pages | `src/app/`: `/` (latest case file, the timeline, then the vote), `/cases`, `/cases/[slug]`, `/timeline` (press coverage and case files by month, `src/components/Timeline.tsx`), `/why` |
+| Case files | JSON in `content/cases/`, written by `pipeline/` (contract: `pipeline/contract.mjs`), read by `src/lib/cases/load.ts`. Press coverage: `content/coverage.json`, written by `pipeline/coverage.mjs`, read by `src/lib/coverage.ts` |
 | Pipeline | `pipeline/run-case.mjs` (one seed), `pipeline/auto.mjs` (weekly run: detect, research, re-check), config `pipeline/config.json`, state `pipeline/state/`, Action `.github/workflows/pipeline.yml`, run summaries on the Actions run page; an issue labelled `pipeline-run`, assigned to Konstantin, only when a run needs a person |
 | Machine-readable | `sitemap.ts`, `robots.ts`, `llms.txt/route.ts`, JSON-LD on each case page, social cards in `opengraph-image.tsx` (fonts in `src/assets/`); data at `/cases.json`, `/cases/<slug>.json` (rewrite in `next.config.ts` to `cases-json/[slug]/route.ts`) and the Atom feed `/feed.xml`; IndexNow ping `pipeline/indexnow.mjs` (key file in `public/`) |
 | Vote | `src/lib/votes.ts` → `/api/votes/*` proxy → Cloudflare Worker `votes.kgm-839.workers.dev` (`docs/votes-worker.md`) |

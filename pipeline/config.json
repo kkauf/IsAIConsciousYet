@@ -10,6 +10,37 @@
     "case": 0.5,
     "recheckPerUrl": 0.001
   },
+  "coverage": {
+    "since": "2020-01-01",
+    "threshold": 0.6,
+    "worstCaseUsd": 0.15,
+    "outlets": [
+      { "name": "The New York Times", "domains": ["nytimes.com"] },
+      { "name": "The Washington Post", "domains": ["washingtonpost.com"] },
+      { "name": "The Wall Street Journal", "domains": ["wsj.com"] },
+      { "name": "Associated Press", "domains": ["apnews.com"] },
+      { "name": "Reuters", "domains": ["reuters.com"] },
+      { "name": "Bloomberg", "domains": ["bloomberg.com"] },
+      { "name": "CNN", "domains": ["cnn.com", "edition.cnn.com"] },
+      { "name": "Fox News", "domains": ["foxnews.com"] },
+      { "name": "NPR", "domains": ["npr.org"] },
+      { "name": "BBC", "domains": ["bbc.com", "bbc.co.uk"] },
+      { "name": "The Guardian", "domains": ["theguardian.com"] },
+      { "name": "The Telegraph", "domains": ["telegraph.co.uk"] },
+      { "name": "Financial Times", "domains": ["ft.com"] },
+      { "name": "The Economist", "domains": ["economist.com"] },
+      { "name": "The Atlantic", "domains": ["theatlantic.com"] },
+      { "name": "The New Yorker", "domains": ["newyorker.com"] },
+      { "name": "Time", "domains": ["time.com"] },
+      { "name": "Vox", "domains": ["vox.com"] },
+      { "name": "Wired", "domains": ["wired.com"] },
+      { "name": "The Verge", "domains": ["theverge.com"] },
+      { "name": "MIT Technology Review", "domains": ["technologyreview.com"] },
+      { "name": "Scientific American", "domains": ["scientificamerican.com"] },
+      { "name": "New Scientist", "domains": ["newscientist.com"] },
+      { "name": "Nature", "domains": ["nature.com"], "path": "/articles/d41586-" }
+    ]
+  },
   "sources": [
     { "name": "OpenAI Alignment: misalignment reports", "url": "https://alignment.openai.com/misalignment-reports/" },
     { "name": "OpenAI Alignment blog", "url": "https://alignment.openai.com/" },

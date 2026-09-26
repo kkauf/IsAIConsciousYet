@@ -6,6 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: SITE_URL, changeFrequency: "daily" },
     { url: `${SITE_URL}/why`, changeFrequency: "monthly" },
     { url: `${SITE_URL}/cases`, changeFrequency: "daily" },
+    { url: `${SITE_URL}/timeline`, changeFrequency: "weekly" },
     ...allCases().map((c) => ({ url: `${SITE_URL}/cases/${c.slug}`, lastModified: c.provenance.checkedAt, changeFrequency: "weekly" as const })),
   ];
 }

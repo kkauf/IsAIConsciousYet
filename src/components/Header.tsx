@@ -182,6 +182,7 @@ export default function Header() {
           </Link>
           <nav className="pointer-events-auto flex gap-6 text-[0.9375rem] text-ash">
             <Link href="/cases" className="hover:text-bone transition-colors">Case files</Link>
+            <Link href="/timeline" className="hover:text-bone transition-colors">Timeline</Link>
             <Link href="/why" className="hover:text-bone transition-colors">Why this exists</Link>
           </nav>
         </div>
