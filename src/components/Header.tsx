@@ -7,8 +7,21 @@ import { approach, attending, bindInput, blinker, clamp, input, lerp, onFrame, r
 
 const SLOT = 32; // the logo's resting size in the header, px
 
-// The almond of the eye; open = 1 is the logo's shape, open = 0 is a closed lid (a line).
-const almond = (open: number) => `M 4 18 Q 18 ${18 - 11 * open}, 32 18 Q 18 ${18 + 11 * open}, 4 18 Z`;
+// The almond of the eye; open = 1 is the logo's shape. Closing, the upper lid comes down to meet the
+// lower one, which gives a little, so the closed eye is a curve bowed downwards, not a flat line.
+const almond = (open: number) => {
+  const lower = 0.55 + 0.45 * open;
+  const upper = lerp(-lower, 1, open);
+  return `M 4 18 Q 18 ${18 - 11 * upper}, 32 18 Q 18 ${18 + 11 * lower}, 4 18 Z`;
+};
+
+// Iris fibres from the pupil to the iris ring, uneven like a real iris (they also read as aperture blades).
+// Drawn only as the eye grows; at logo size the mark stays as it was.
+const FIBRES = Array.from({ length: 56 }, (_, i) => {
+  const a = (i / 56) * Math.PI * 2 + Math.sin(i * 7.3) * 0.04;
+  const outer = 5.1 - ((i * 5) % 3) * 0.55;
+  return { x1: 18 + Math.cos(a) * 2, y1: 18 + Math.sin(a) * 2, x2: 18 + Math.cos(a) * outer, y2: 18 + Math.sin(a) * outer };
+});
 
 // On the homepage the eye starts large in the hero (the #hero-eye placeholder), and scrolling carries it
 // into the header. It spins with the scroll and lands upright at the bottom of the page, but its gaze
@@ -22,6 +35,9 @@ export default function Header() {
   const clip = useRef<SVGPathElement>(null);
   const iris = useRef<SVGGElement>(null);
   const pupil = useRef<SVGCircleElement>(null);
+  const hole = useRef<SVGCircleElement>(null);
+  const glint = useRef<SVGCircleElement>(null);
+  const detail = useRef<SVGGElement>(null);
   // Survives route changes, so the eye glides between pages instead of jumping.
   const state = useRef({ x: 0, y: 0, size: SLOT, gx: 0, gy: 0, pupil: 2, placed: false });
 
@@ -99,6 +115,16 @@ export default function Header() {
       clip.current?.setAttribute('d', d);
       iris.current?.setAttribute('transform', `translate(${(s.gx * 3.6).toFixed(2)} ${(s.gy * 2.6).toFixed(2)})`);
       pupil.current?.setAttribute('r', s.pupil.toFixed(2));
+      hole.current?.setAttribute('r', (s.pupil + 0.15).toFixed(2));
+      // Large, the eye gets fibres, a dark pupil and a catchlight; the flat logo pupil fades out.
+      const lod = smoothstep(56, 220, s.size);
+      detail.current?.setAttribute('opacity', lod.toFixed(3));
+      pupil.current?.setAttribute('opacity', (1 - lod).toFixed(3));
+      // The catchlight belongs to a light above left of the screen, so it stays put while the ring turns.
+      const lx = -1.15, ly = -1.25;
+      const cx = lx * Math.cos(rad) - ly * Math.sin(rad), cy = lx * Math.sin(rad) + ly * Math.cos(rad);
+      glint.current?.setAttribute('cx', (18 + cx * (s.pupil / 2)).toFixed(2));
+      glint.current?.setAttribute('cy', (18 + cy * (s.pupil / 2)).toFixed(2));
     });
 
     return () => {
@@ -136,6 +162,14 @@ export default function Header() {
                   <path pathLength={1} ref={lid} d={almond(1)} stroke="currentColor" className="eye-line eye-draw" />
                   <g clipPath={`url(#${clipId})`}>
                     <g ref={iris} className="eye-iris">
+                      <g ref={detail} opacity={0}>
+                        <circle cx="18" cy="18" r="5.5" fill="currentColor" fillOpacity={0.05} />
+                        {FIBRES.map((f, i) => (
+                          <line key={i} {...f} stroke="currentColor" strokeOpacity={0.5} className="eye-line fibre" />
+                        ))}
+                        <circle ref={hole} cx="18" cy="18" r="2.15" fill="#000" stroke="currentColor" strokeOpacity={0.6} className="eye-line fibre" />
+                        <circle ref={glint} cx="16.8" cy="16.7" r="0.42" className="fill-bone" />
+                      </g>
                       {/* Iris ring */}
                       <circle cx="18" cy="18" r="5.5" stroke="currentColor" className="eye-line thin" />
                       {/* Pupil — the "I" in AI */}

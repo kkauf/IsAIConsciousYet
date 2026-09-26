@@ -59,13 +59,16 @@
 .eye-line.thin {
   stroke-width: calc(1px * var(--k, 1));
 }
+.eye-line.fibre {
+  stroke-width: calc(0.7px * var(--k, 1));
+}
 @media (prefers-reduced-motion: no-preference) {
   .eye-fly:not([data-ready]) {
     opacity: 0;
   }
+  /* backwards, not both: the dash is dropped once drawn, or it leaves a notch where the path closes */
   .eye-fly[data-ready] .eye-draw {
-    stroke-dasharray: 1;
-    animation: eye-draw 1.6s cubic-bezier(.6, 0, .2, 1) both;
+    animation: eye-draw 1.6s cubic-bezier(.6, 0, .2, 1) backwards;
   }
   .eye-fly[data-ready] .eye-draw + .eye-draw {
     animation-delay: 0.35s;
@@ -78,6 +81,6 @@
   from { opacity: 0; }
 }
 @keyframes eye-draw {
-  from { stroke-dashoffset: 1; }
-  to { stroke-dashoffset: 0; }
+  from { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  to { stroke-dasharray: 1; stroke-dashoffset: 0; }
 }
