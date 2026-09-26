@@ -152,6 +152,9 @@ const readingResults = await pool(research.readings, 4, async (r) => {
   return tries.length > 1 ? { ...last, dropped: `${last.dropped} (also tried ${tries.length - 1} other page)` } : last;
 });
 
+// A primary source's own site (e.g. a lab's research domain) speaks for its publisher.
+function primaryPublisher(url) { return research.primary_sources.find((s) => s.url === url)?.publisher; }
+
 async function checkReading(r, url) {
   const rec = { kind: 'reading', party: r.party_name, partyType: r.party_type, url, date: r.date };
   if (!readable(url)) return { ...rec, dropped: `page not readable: ${pages[url]?.error ?? 'too short'}` };
@@ -160,8 +163,8 @@ async function checkReading(r, url) {
   rec.quote = cleanQuote(sel.quote); rec.stanceLabel = sel.stance_label; rec.speakerOnPage = sel.speaker_on_page;
   const hit = findQuote(pages[url].text, rec.quote);
   if (!hit) return { ...rec, dropped: 'gate 2: quote not found literally on the page' };
-  const a = await jev('gate3-speaker', { page_title: pages[url].title, page_url: url, page_host: new URL(url).hostname, passage: hit.window, quote: rec.quote, claimed_party: r.party_name, stance_label: rec.stanceLabel, event: research.title }, {
-    speaker: { type: 'noul', instructions: 'Are the words in `quote` said or written by `claimed_party`, either as the author of the page or as someone the page quotes directly?', criteria: { true: '`claimed_party` is the author of the page (for example `page_host` is their own site or account) and the words are not inside a quotation of someone else, or the page quotes `claimed_party` directly saying these words', false: 'The words sit inside a blockquote or quotation of another person, or the page only describes what `claimed_party` thinks' } },
+  const a = await jev('gate3-speaker', { page_title: pages[url].title, page_url: url, page_host: new URL(url).hostname, passage: hit.window, quote: rec.quote, claimed_party: r.party_name, stance_label: rec.stanceLabel, event: research.title, ...(primaryPublisher(url) ? { page_published_by: primaryPublisher(url) } : {}) }, {
+    speaker: { type: 'noul', instructions: 'Are the words in `quote` said or written by `claimed_party`, either as the author of the page or as someone the page quotes directly?', criteria: { true: '`claimed_party` is the author or one of the co-authors of the page or of the section containing the words (for example `page_host` is their own site or account, or `page_published_by` names them), and the words are not inside a quotation of someone else; or the page quotes `claimed_party` directly saying these words', false: 'The words sit inside a blockquote or quotation of another person, or the page only describes what `claimed_party` thinks' } },
     ownView: { type: 'noul', instructions: "Does `quote` give `claimed_party`'s own interpretation of `event`, rather than reporting another party's view or unrelated background?" },
     stanceFair: { type: 'noul', instructions: 'Is `stance_label` an accurate and neutral short name for the position taken in `quote`?' },
   });
@@ -201,7 +204,13 @@ report.sources = [...readingResults, ...primaryResults];
 
 // One reading per party: first that survived.
 const readings = [];
-for (const r of readingResults) if (!r.dropped && !r.error && !readings.some((x) => x.party.toLowerCase() === r.party.toLowerCase())) readings.push(r);
+for (const r of readingResults) {
+  if (r.dropped || r.error || readings.some((x) => x.party.toLowerCase() === r.party.toLowerCase())) continue;
+  // Co-authors researched as separate parties share one passage: keep one reading, named as the page names them.
+  const same = readings.find((x) => x.quote === r.quote && x.url === r.url);
+  if (same) { if (same.speakerOnPage && same.speakerOnPage.includes(r.party)) same.party = same.speakerOnPage; continue; }
+  readings.push(r);
+}
 const primaries = primaryResults.filter((p) => !p.dropped && !p.error);
 log(`verified: ${readings.length} readings, ${primaries.length} primary sources`);
 
@@ -211,7 +220,7 @@ const DRAFT_SCHEMA = {
   type: 'object', required: ['title', 'summary_sentences', 'unasked_behaviour', 'agency_note', 'what_would_settle_it'],
   properties: {
     title: { type: 'string', description: 'Neutral, under 12 words.' },
-    summary_sentences: { type: 'array', description: '5 to 7 short sentences, 120 words in total at most. One claim per sentence. Every number, date and name in a sentence must appear inside its support_quote.', items: { type: 'object', required: ['sentence', 'support_quote', 'source_url'], properties: { sentence: { type: 'string' }, support_quote: { type: 'string', description: 'Contiguous passage copied character for character from the SOURCE that backs the sentence.' }, source_url: { type: 'string' } } } },
+    summary_sentences: { type: 'array', description: '5 to 7 short sentences, 120 words in total at most. The first sentence states the central event or finding the way the primary source itself headlines it; details follow. One claim per sentence. Every number, date and name in a sentence must appear inside its support_quote.', items: { type: 'object', required: ['sentence', 'support_quote', 'source_url'], properties: { sentence: { type: 'string' }, support_quote: { type: 'string', description: 'Contiguous passage copied character for character from the SOURCE that backs the sentence.' }, source_url: { type: 'string' } } } },
     unasked_behaviour: { type: 'string', description: 'One sentence: what does not fit the story of a machine doing the work we ask (what the system did that nobody asked for, or what was observed about its inner workings or self-description).' },
     agency_note: { type: 'string', description: 'One or two sentences: what this event is evidence about regarding goal-directed behaviour, stated without taking a side.' },
     what_would_settle_it: { type: 'array', description: '2 to 4 items: evidence that, if obtained, would separate the READINGS from each other.', items: { type: 'string' } },
@@ -245,7 +254,7 @@ async function neutralityLint(d, summary) {
 }
 
 async function bearsOn(summary) {
-  const state = { event: summary, readings: readings.map((r) => ({ party: r.party, quote: r.quote })) };
+  const state = { event: `${summary}\n\n${research.what_happened}`, readings: readings.map((r) => ({ party: r.party, quote: r.quote })) };
   const q = Object.fromEntries(Object.entries(QUESTIONS).map(([k, v]) => [k, { type: 'noul', instructions: { open_question: v, question: 'Do `event` or the `readings` of it speak directly to `open_question`?' } }]));
   const a = await jev('bears-on', state, q);
   const ranked = Object.keys(QUESTIONS).map((k) => [k, a[k].noul]).sort((x, y) => y[1] - x[1]);
