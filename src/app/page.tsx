@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import VoteSection from "@/components/VoteSection";
+import SeamEye from "@/components/eye/SeamEye";
 import { allCases, dateRange, DATA_LINKS, SITE_URL } from "@/lib/cases/load";
 import { QUESTIONS } from "../../pipeline/contract.mjs";
 
@@ -19,7 +20,9 @@ export default function Home() {
 
   return (
     <div className="w-full max-w-6xl mx-auto px-6">
-      <section className="pt-12 md:pt-24">
+      <section className="relative pt-12 md:pt-24">
+        {/* Where the eye starts; scrolling carries it into the header (src/components/Header.tsx). */}
+        <div id="hero-eye" aria-hidden className="mb-6 size-[38vw] max-w-44 md:absolute md:right-0 md:top-[calc(6rem+min(7vw,6rem))] md:mb-0 md:size-[clamp(13rem,25vw,22rem)] md:max-w-none motion-reduce:hidden" />
         <h1 className="font-serif font-light text-[clamp(3.25rem,10.5vw,9rem)] leading-[0.92] tracking-[-0.02em]">
           Is AI Conscious Yet?
         </h1>
@@ -54,8 +57,8 @@ export default function Home() {
                   <Fragment key={r.partyName}>
                     {i === 1 && (
                       <>
-                        <div aria-hidden className="h-px bg-rule md:hidden" />
-                        <div aria-hidden className="seam hidden md:block" />
+                        <SeamEye orientation="horizontal" className="relative h-px md:hidden" />
+                        <SeamEye className="relative hidden w-px md:block" />
                       </>
                     )}
                     <figure>

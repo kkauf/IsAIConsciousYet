@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useVote } from "@/lib/votes";
 import { trackVote } from "@/lib/analytics";
+import SeamEye from "@/components/eye/SeamEye";
 
 const SIDES = ["yes", "no"] as const;
 const LABEL = { yes: "Yes", no: "No" };
@@ -61,9 +62,11 @@ export default function VoteSection() {
             </button>
           );
         })}
-        <span
-          aria-hidden
-          className="seam absolute inset-y-0 transition-[left] duration-[1400ms] ease-[cubic-bezier(.2,.8,.1,1)] motion-reduce:transition-none"
+        {/* It watches you choose, then closes once your vote is on the record. */}
+        <SeamEye
+          size="vote"
+          closed={!!results}
+          className="pointer-events-none absolute inset-y-0 w-px transition-[left] duration-[1400ms] ease-[cubic-bezier(.2,.8,.1,1)] motion-reduce:transition-none"
           style={{ left: `${seamAt}%` }}
         />
       </div>

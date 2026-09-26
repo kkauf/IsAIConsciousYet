@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { allCases, getCase, dateRange, shortDate, isIsoDate, SITE_URL, type Reading, type Source } from "@/lib/cases/load";
+import SeamEye from "@/components/eye/SeamEye";
 import { QUESTIONS } from "../../../../pipeline/contract.mjs";
 
 export const dynamicParams = false;
@@ -120,7 +121,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
           <div className={`mt-14 grid gap-12 ${faceOff ? "md:grid-cols-[1fr_1px_1fr] md:gap-12" : "md:grid-cols-2"}`}>
             {nature.map((r, i) => (
               <Fragment key={r.partyName}>
-                {faceOff && i === 1 && <><div aria-hidden className="h-px bg-rule md:hidden" /><div aria-hidden className="seam hidden md:block" /></>}
+                {faceOff && i === 1 && <><SeamEye orientation="horizontal" className="relative h-px md:hidden" /><SeamEye className="relative hidden w-px md:block" /></>}
                 <figure className="flex flex-col">
                   <p className="mb-4 text-ash first-letter:uppercase">{r.stanceLabel}</p>
                   <blockquote className="font-serif text-2xl md:text-[1.875rem] leading-[1.35]">
