@@ -31,7 +31,7 @@ jobs:
       - run: npm ci
 
       - name: Detect, research, re-check
-        run: node pipeline/auto.mjs --summary summary.md --new-urls new-urls.txt
+        run: node pipeline/auto.mjs --summary summary.md --actionable actionable.txt --new-urls new-urls.txt
         env:
           PARALLEL_API_KEY: ${{ secrets.PARALLEL_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
@@ -65,11 +65,20 @@ jobs:
           done
           node pipeline/indexnow.mjs $(cat new-urls.txt) || echo "IndexNow ping failed (not a gate)"
 
-      - name: Open run summary issue
+      # Every run's summary goes to the run page. An issue, assigned to the owner so it emails him,
+      # opens only when something needs a person: errors, the spend cap, or Dependabot PRs that CI
+      # kept from merging for a week (Konstantin, 2026-09-26: failures and actionable items only).
+      - name: Run summary, and an issue if something needs a person
         run: |
+          cat summary.md >> "$GITHUB_STEP_SUMMARY"
+          stuck=$(gh pr list --author "app/dependabot" --state open --json createdAt --jq '[.[] | select((now - (.createdAt | fromdateiso8601)) > 604800)] | length')
+          if [ "$stuck" -gt 0 ]; then
+            echo "- $stuck Dependabot PR(s) open for more than a week: CI failed on them, so they were not merged. $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/pulls" >> actionable.txt
+          fi
+          [ -s actionable.txt ] || { echo "nothing needs a person"; exit 0; }
           gh label create pipeline-run --color 5319e7 --description "Weekly pipeline run summary" 2>/dev/null || true
-          printf '\n\n[Workflow run](%s)\n' "$RUN_URL" >> summary.md
-          gh issue create --title "Pipeline run $(date -u +%F)" --label pipeline-run --body-file summary.md
+          { echo "## Needs action"; echo; cat actionable.txt; echo; echo "---"; echo; cat summary.md; printf '\n\n[Workflow run](%s)\n' "$RUN_URL"; } > issue.md
+          gh issue create --title "Pipeline run $(date -u +%F): needs action" --label pipeline-run --assignee "$GITHUB_REPOSITORY_OWNER" --body-file issue.md
 
       # Spend and dedupe state must survive a failed run, or the cap undercounts and the same
       # events are researched again next week. Only pipeline/state and the seeds it points to are
@@ -96,4 +105,4 @@ jobs:
             echo "Nothing was published by this run. pipeline/state (spend, candidates) and new seeds were committed if they changed."
             if [ -f summary.md ]; then echo; echo "---"; echo; cat summary.md; fi
           } > failure.md
-          gh issue create --title "Pipeline run failed $(date -u +%F)" --label pipeline-run --body-file failure.md
+          gh issue create --title "Pipeline run failed $(date -u +%F)" --label pipeline-run --assignee "$GITHUB_REPOSITORY_OWNER" --body-file failure.md

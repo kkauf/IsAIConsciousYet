@@ -1,6 +1,7 @@
 // Scheduled run: cap check → detect + triage → run-case on queued seeds → recheck → state → summary.
 // Design: docs/pipeline.md. Runs weekly in .github/workflows/pipeline.yml; by hand: pipeline/run.sh auto.mjs …
-// Usage: node pipeline/auto.mjs [--summary summary.md] [--new-urls new-urls.txt] [--dry-run] [--detect-from <file>]
+// Usage: node pipeline/auto.mjs [--summary summary.md] [--actionable actionable.txt] [--new-urls new-urls.txt] [--dry-run] [--detect-from <file>]
+// --actionable gets one line per thing a person has to act on (errors, spend cap); empty file = nothing to do.
 // --dry-run stops after detect + triage and writes no seeds and no state (the summary is still written).
 // --detect-from reuses the events of an earlier detect run (pipeline/runs/_detect/*.json), no detect charge.
 //
@@ -20,6 +21,7 @@ const args = process.argv.slice(2);
 const opt = (k) => (args.includes(k) ? args[args.indexOf(k) + 1] : undefined);
 const dryRun = args.includes('--dry-run');
 const summaryPath = opt('--summary');
+const actionablePath = opt('--actionable');
 const newUrlsPath = opt('--new-urls');
 const detectFrom = opt('--detect-from');
 const log = (...m) => console.log(new Date().toISOString().slice(11, 19), ...m);
@@ -206,4 +208,7 @@ md.push('## Spend', '', '| | USD |', '|---|---|', `| This run | ${cost.toFixed(4
 md.push(`Cap status: ${out.capStops.length ? 'reached, steps skipped' : `ok, $${(config.monthlyCapUsd - mtd).toFixed(2)} left this month`}.`, '');
 const summary = md.join('\n');
 if (summaryPath) writeFileSync(summaryPath, summary);
+// Konstantin is emailed only for runs that need him (pipeline.yml opens an issue assigned to him then).
+const actionable = [...out.errors.map((e) => `- Error: ${e}`), ...out.capStops.map((s) => `- Spend cap: ${s}`)];
+if (actionablePath) writeFileSync(actionablePath, actionable.join('\n') + (actionable.length ? '\n' : ''));
 console.log('\n' + summary);

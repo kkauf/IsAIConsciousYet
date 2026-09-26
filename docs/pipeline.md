@@ -106,7 +106,7 @@ Paywalled or unfetchable page → the quote cannot be checked → the reading st
 ## After publish
 
 - Built: every page carries a provenance line: drafting model, pipeline version, check timestamp, "no human reviewed this before publication".
-- Built: a GitHub issue (label `pipeline-run`) after every scheduled run, and one when a run fails. GitHub emails Konstantin. Not a gate.
+- Built: every run's summary on its Actions run page. A GitHub issue (label `pipeline-run`, assigned to Konstantin, so GitHub emails him) opens only when a person is needed: errors, the spend cap, Dependabot PRs stuck for a week, or a failed run (Konstantin, 2026-09-26: no mail for successes). Not a gate.
 - Built: weekly re-run of gate 2 on all live files (`pipeline/recheck.mjs`). A page that was fetched, is readable and no longer holds the quote sets `sourceChanged: "<date>"` on that reading, primary source or summary sentence; the case page shows "The source page changed after this quote was checked." with the archived copy. Found again → the mark is cleared. Unreachable page → nothing changes.
 - Built: "Report an error" on every case page → prefilled public GitHub issue.
 - Works: kill switch, `status: withdrawn` in the JSON, one commit, doable from a phone.
@@ -151,7 +151,7 @@ cap check ─► DETECT (1 parallel.ai task) ─► TRIAGE (1 Jev call per batch
                                                                                  │ up to maxNewCasesPerRun, oldest first
 cap check ─► run-case.mjs per seed (child process) ─► content/cases/<slug>.json if it passes
 cap check ─► RECHECK every live quote ─► state files ─► summary.md
-Action: npm run build (validates case files) ─► commit to main ─► IndexNow (if pipeline/indexnow.mjs exists) ─► issue
+Action: npm run build (validates case files) ─► commit to main ─► IndexNow (if pipeline/indexnow.mjs exists) ─► run summary (issue only if actionable)
 ```
 
 | Step | What it does | Measured cost |

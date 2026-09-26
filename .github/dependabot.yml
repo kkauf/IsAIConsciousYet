@@ -1,4 +1,5 @@
-# Weekly npm updates, minor and patch grouped into one PR so CI tests them together.
+# Monthly npm updates, minor and patch grouped into one PR so CI tests them together; monthly keeps
+# the notification mail to about two PRs a month (Konstantin, 2026-09-26: actionable mail only).
 # Major versions are not proposed: they need deliberate work (TypeScript 7 and ESLint 10 failed CI on 2026-09-26).
 # GitHub security updates are separate and still arrive.
 version: 2
@@ -6,7 +7,7 @@ updates:
   - package-ecosystem: npm
     directory: /
     schedule:
-      interval: weekly
+      interval: monthly
     groups:
       minor-and-patch:
         update-types: [minor, patch]
@@ -17,3 +18,6 @@ updates:
     directory: /
     schedule:
       interval: monthly
+    groups:
+      actions:
+        patterns: ["*"]

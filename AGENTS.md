@@ -87,7 +87,7 @@ Live at https://isaiconsciousyet.com (Vercel project "iaicy"). Push to `main` = 
 |---|---|
 | Pages | `src/app/`: `/` (latest case file, then the vote), `/cases`, `/cases/[slug]`, `/why` |
 | Case files | JSON in `content/cases/`, written by `pipeline/` (contract: `pipeline/contract.mjs`), read by `src/lib/cases/load.ts` |
-| Pipeline | `pipeline/run-case.mjs` (one seed), `pipeline/auto.mjs` (weekly run: detect, research, re-check), config `pipeline/config.json`, state `pipeline/state/`, Action `.github/workflows/pipeline.yml`, run summaries as issues labelled `pipeline-run` |
+| Pipeline | `pipeline/run-case.mjs` (one seed), `pipeline/auto.mjs` (weekly run: detect, research, re-check), config `pipeline/config.json`, state `pipeline/state/`, Action `.github/workflows/pipeline.yml`, run summaries on the Actions run page; an issue labelled `pipeline-run`, assigned to Konstantin, only when a run needs a person |
 | Machine-readable | `sitemap.ts`, `robots.ts`, `llms.txt/route.ts`, JSON-LD on each case page, social cards in `opengraph-image.tsx` (fonts in `src/assets/`); data at `/cases.json`, `/cases/<slug>.json` (rewrite in `next.config.ts` to `cases-json/[slug]/route.ts`) and the Atom feed `/feed.xml`; IndexNow ping `pipeline/indexnow.mjs` (key file in `public/`) |
 | Vote | `src/lib/votes.ts` → `/api/votes/*` proxy → Cloudflare Worker `votes.kgm-839.workers.dev` (`docs/votes-worker.md`) |
 | Design | Tokens and the seam in `src/app/globals.css`; the eye (logo in the header, eyes in the seams) in `src/components/eye/`; Newsreader + Public Sans via `next/font` in `src/app/layout.tsx` |
