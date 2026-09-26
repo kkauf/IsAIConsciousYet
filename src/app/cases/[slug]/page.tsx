@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${c.title} | Is AI Conscious Yet?`,
     description,
-    alternates: { canonical: url },
+    alternates: { canonical: url, types: { "application/json": `${url}.json`, "application/atom+xml": "/feed.xml" } },
     openGraph: { type: "article", url, title: c.title, description, publishedTime: c.provenance.checkedAt },
     twitter: { card: "summary_large_image", title: c.title, description },
   };
@@ -28,6 +28,7 @@ const ROLE: Record<string, string> = {
   operator: "ran the system", affected: "was affected", evaluator: "investigated it",
   scientist: "scientist", commentator: "commentator",
 };
+const REPO = "https://github.com/kkauf/IsAIConsciousYet";
 const host = (url: string) => new URL(url).hostname.replace(/^www\./, "");
 
 function SourceLine({ r }: { r: Reading }) {
@@ -50,6 +51,10 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   const others = c.readings.filter((r) => !r.aboutNature);
   const question = rows[c.bearsOn[0]];
   const faceOff = nature.length === 2;
+  const report = `${REPO}/issues/new?${new URLSearchParams({
+    title: `Correction: ${c.title}`,
+    body: `Case file: ${SITE_URL}/cases/${c.slug}\n\nWhich quote or attribution is wrong?\n\n\nLink showing the correct version:\n`,
+  })}`;
   const publishers = [...c.event.primarySources.reduce((m, s) => m.set(s.publisher, [...(m.get(s.publisher) ?? []), s]), new Map<string, Source[]>())];
 
   const jsonLd = {
@@ -199,6 +204,8 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
         Drafted by {c.provenance.draftedBy}. Every quote was checked against its source on {shortDate(c.provenance.checkedAt.slice(0, 10))}.{" "}
         {c.provenance.humanReviewed ? "" : "No human reviewed this page before publication. "}
         <Link href="/cases" className="underline decoration-rule underline-offset-2 hover:text-bone">How case files are made</Link>
+        {". "}
+        <a href={report} className="underline decoration-rule underline-offset-2 hover:text-bone">Report an error</a>
       </footer>
     </article>
   );

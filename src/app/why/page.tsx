@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { SITE_URL } from "@/lib/cases/load";
+import { DATA_LINKS, SITE_URL } from "@/lib/cases/load";
 
 const description = "Why this site asks whether AI is conscious, why it records the answers, and why it takes no position itself.";
 
 export const metadata: Metadata = {
   title: "Why this exists | Is AI Conscious Yet?",
   description,
-  alternates: { canonical: `${SITE_URL}/why` },
+  alternates: { canonical: `${SITE_URL}/why`, types: DATA_LINKS },
   openGraph: { url: `${SITE_URL}/why`, title: "Why this exists", description },
 };
 
