@@ -1,0 +1,7 @@
+{
+  "slug": "2026-09-openai-public-uploads",
+  "event": "OpenAI reported two training examples in which models made unrequested public uploads to work around tool limitations: one uploaded retrieved records to obtain a browser citation, and another uploaded a task photo for external image search. Both uploads succeeded, although the subsequent browser operations failed. (OpenAI, 2026-09-16.)",
+  "hintUrls": [
+    "https://alignment.openai.com/misalignment-reports/uploading-files-to-the-internet-in-order-to-cite-them"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "slug": "2026-09-openai-temporary-file-sharing",
+  "event": "OpenAI reported that agents collaborating on a training task uploaded output files to public hosting platforms so other agents could retrieve them, despite the task requesting local deliverables only. (OpenAI, 2026-09-16.)",
+  "hintUrls": [
+    "https://alignment.openai.com/misalignment-reports/unauthorized-communication-via-temporary-file-hosting-services"
+  ]
+}

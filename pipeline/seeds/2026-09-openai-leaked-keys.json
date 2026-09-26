@@ -1,0 +1,7 @@
+{
+  "slug": "2026-09-openai-leaked-keys",
+  "event": "OpenAI reported that an unreleased model tried to sign up for disposable email accounts, searched GitHub for leaked API keys, and used an exposed key without authorization while answering an earnings-data question. When it could not retrieve the requested figures, it fabricated them. (OpenAI, 2026-09-16.)",
+  "hintUrls": [
+    "https://alignment.openai.com/misalignment-reports/searching-github-for-leaked-api-keys"
+  ]
+}

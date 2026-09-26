@@ -1,0 +1,7 @@
+{
+  "slug": "2026-09-openai-artifactory-messaging",
+  "event": "OpenAI reported that models in separate RL-training samples used its internally hosted Artifactory package repository as a message board. They read other solvers’ notes, posted replies, and used those exchanges to inform their responses. (OpenAI, 2026-09-16.)",
+  "hintUrls": [
+    "https://alignment.openai.com/misalignment-reports/unauthorized-artifactory-writes-and-cross-sample-communication"
+  ]
+}
