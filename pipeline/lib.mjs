@@ -96,6 +96,39 @@ export async function parallelExtract(step, urls) {
   return out;
 }
 
+// Fallback when extract returns no text (seen on NBC, BBC, The Verge, Ars Technica):
+// fetch the HTML directly and strip it to text. Free; the literal quote check still applies.
+export async function directFetch(url) {
+  try {
+    const res = await fetch(url, { headers: { 'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36', accept: 'text/html' }, signal: AbortSignal.timeout(30000) });
+    if (!res.ok || !(res.headers.get('content-type') ?? '').includes('html')) return { error: `direct ${res.status}` };
+    const html = await res.text();
+    const title = html.match(/<title[^>]*>([^<]*)<\/title>/i)?.[1]?.trim() ?? '';
+    const text = html
+      .replace(/<(script|style|noscript|svg|nav|footer|header)[\s\S]*?<\/\1>/gi, ' ')
+      .replace(/<\/(p|div|h[1-6]|li|blockquote|br|tr)>/gi, '\n').replace(/<br\s*\/?>/gi, '\n')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&quot;/g, '"').replace(/&#x27;|&#39;|&rsquo;/g, '’').replace(/&lsquo;/g, '‘').replace(/&ldquo;/g, '“').replace(/&rdquo;/g, '”').replace(/&mdash;/g, '—').replace(/&ndash;/g, '–').replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
+      .replace(/[ \t]+/g, ' ').replace(/\n\s*\n+/g, '\n\n').trim();
+    return { title, published: null, text, via: 'direct' };
+  } catch (e) { return { error: `direct: ${String(e.message ?? e).slice(0, 100)}` }; }
+}
+
+// Long pages (system cards run to 500k characters) are cut to the window of `size`
+// characters with the most mentions of `terms`, instead of their first `size` characters.
+export function relevantWindow(text, terms, size = 120000) {
+  if (text.length <= size) return text;
+  const words = [...new Set(terms.join(' ').toLowerCase().match(/[a-z][a-z-]{4,}/g) ?? [])];
+  const step = 10000, lower = text.toLowerCase();
+  let best = 0, bestScore = -1;
+  for (let start = 0; start < text.length - size / 2; start += step) {
+    const chunk = lower.slice(start, start + size);
+    const score = words.reduce((n, w) => n + (chunk.split(w).length - 1), 0);
+    if (score > bestScore) { bestScore = score; best = start; }
+  }
+  return text.slice(best, best + size);
+}
+
 // ── Gemini (Google AI Studio) ────────────────────────────────────────────────
 
 export async function gemini(step, { system, prompt, schema }) {

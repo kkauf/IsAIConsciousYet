@@ -31,6 +31,8 @@ export const SITE_URL = "https://isaiconsciousyet.com";
 // <link rel="alternate"> discovery. A page that sets its own `alternates` replaces the layout's, so each repeats these.
 export const DATA_LINKS = { "application/atom+xml": "/feed.xml", "application/json": "/cases.json" };
 
+export const isIsoDate = (d?: string): d is string => /^\d{4}-\d{2}-\d{2}$/.test(d ?? "");
+
 const MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 const parts = (d: string) => { const [y, m, day] = d.split("-").map(Number); return { y, m: MONTHS[m - 1], day }; };
 

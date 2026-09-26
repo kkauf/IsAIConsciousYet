@@ -11,7 +11,10 @@ const rows = QUESTIONS as Record<string, string>;
 const link = "underline decoration-rule underline-offset-4 hover:text-bone hover:decoration-ash";
 
 export default function Home() {
-  const [latest, ...earlier] = allCases().sort((a, b) => b.event.dateStart.localeCompare(a.event.dateStart));
+  const sorted = allCases().sort((a, b) => b.event.dateStart.localeCompare(a.event.dateStart));
+  // The lead is the newest full case file with two readings about the system; honorable mentions never lead.
+  const latest = sorted.find((c) => c.tier === "case-file" && c.readings.filter((r) => r.aboutNature).length >= 2) ?? sorted[0];
+  const earlier = sorted.filter((c) => c !== latest);
   const pair = latest?.readings.filter((r) => r.aboutNature).slice(0, 2) ?? [];
 
   return (
@@ -74,12 +77,15 @@ export default function Home() {
 
       {earlier.length > 0 && (
         <section aria-labelledby="earlier" className="mt-20 md:mt-28 border-t border-rule pt-6">
-          <h2 id="earlier" className="text-ash">Earlier case files</h2>
+          <h2 id="earlier" className="text-ash">More case files</h2>
           <ul className="mt-4 divide-y divide-rule">
-            {earlier.slice(0, 5).map((c) => (
+            {earlier.slice(0, 6).map((c) => (
               <li key={c.slug}>
                 <Link href={`/cases/${c.slug}`} className="group grid gap-1 py-5 md:grid-cols-[14rem_1fr] md:gap-8">
-                  <span className="text-dim">{dateRange(c.event.dateStart, c.event.dateEnd)}</span>
+                  <span className="text-dim">
+                    {dateRange(c.event.dateStart, c.event.dateEnd)}
+                    {c.tier === "mention" && <span className="block text-mention">Honorable mention</span>}
+                  </span>
                   <span className="font-serif text-2xl leading-tight group-hover:underline decoration-rule decoration-1 underline-offset-[5px]">{c.title}</span>
                 </Link>
               </li>

@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { allCases, getCase, dateRange, shortDate, SITE_URL, type Reading, type Source } from "@/lib/cases/load";
+import { allCases, getCase, dateRange, shortDate, isIsoDate, SITE_URL, type Reading, type Source } from "@/lib/cases/load";
 import { QUESTIONS } from "../../../../pipeline/contract.mjs";
 
 export const dynamicParams = false;
@@ -35,7 +35,7 @@ function SourceLine({ r }: { r: Reading }) {
   return (
     <p className="text-sm text-dim mt-3">
       <a href={r.url} className="underline decoration-rule underline-offset-2 hover:text-bone">{host(r.url)}</a>
-      {r.date && <>, {shortDate(r.date)}</>}
+      {isIsoDate(r.date) && <>, {shortDate(r.date)}</>}
       {r.archivedUrl && (
         <>, <a href={r.archivedUrl} className="underline decoration-rule underline-offset-2 hover:text-bone">archived copy</a></>
       )}
@@ -107,6 +107,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
               <Fragment key={r.partyName}>
                 {faceOff && i === 1 && <><div aria-hidden className="h-px bg-rule md:hidden" /><div aria-hidden className="seam hidden md:block" /></>}
                 <figure className="flex flex-col">
+                  <p className="mb-4 text-ash first-letter:uppercase">{r.stanceLabel}</p>
                   <blockquote className="font-serif text-2xl md:text-[1.875rem] leading-[1.35]">
                     “{r.quote}”
                   </blockquote>
@@ -142,7 +143,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
                     <Fragment key={s.url}>
                       {i > 0 && ", "}
                       <a href={s.url} className="underline decoration-rule underline-offset-2 hover:text-bone">
-                        {s.published ? shortDate(s.published) : host(s.url)}
+                        {isIsoDate(s.published) ? shortDate(s.published) : host(s.url)}
                       </a>
                     </Fragment>
                   ))}

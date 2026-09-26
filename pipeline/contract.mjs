@@ -21,14 +21,14 @@ const str = (extra = {}) => ({ type: 'string', ...extra });
 const source = {
   type: 'object',
   required: ['url', 'publisher', 'quote'],
-  properties: { url: str(), archivedUrl: str(), publisher: str(), published: str(), quote: str() },
+  properties: { url: str(), archivedUrl: str(), publisher: str(), published: str({ isoDate: true }), quote: str() },
 };
 const reading = {
   type: 'object',
   required: ['partyName', 'partyType', 'stanceLabel', 'quote', 'url', 'speakerCheck'],
   properties: {
     partyName: str(), partyType: str({ enum: PARTY_TYPES }), stanceLabel: str({ maxWords: 8 }),
-    quote: str(), url: str(), archivedUrl: str(), date: str(), speakerCheck: str({ enum: ['pass'] }),
+    quote: str(), url: str(), archivedUrl: str(), date: str({ isoDate: true }), speakerCheck: str({ enum: ['pass'] }),
     // true = the quote says what the system is, not only what happened or how dangerous it was.
     aboutNature: { type: 'boolean' },
   },
@@ -46,7 +46,7 @@ export const CASE_FILE_SCHEMA = {
       type: 'object',
       required: ['dateStart', 'operator', 'affectedParties', 'summary', 'summaryBasis', 'unaskedBehaviour', 'primarySources'],
       properties: {
-        dateStart: str(), dateEnd: str(), operator: str(),
+        dateStart: str({ isoDate: true }), dateEnd: str({ isoDate: true }), operator: str(),
         affectedParties: { type: 'array', items: str() },
         summary: str({ maxWords: 120 }),
         summaryBasis: { type: 'array', minItems: 1, items: { type: 'object', required: ['sentence', 'quote', 'url'], properties: { sentence: str(), quote: str(), url: str() } } },
@@ -76,6 +76,8 @@ export function validate(schema, value, path = '$') {
   if (schema.type === 'string') {
     if (!value.trim()) errs.push(`${path}: empty`);
     if (schema.maxWords && value.trim().split(/\s+/).length > schema.maxWords) errs.push(`${path}: over ${schema.maxWords} words`);
+    // The site formats these as day, month and year, so a partial date cannot pass.
+    if (schema.isoDate && !/^\d{4}-\d{2}-\d{2}$/.test(value)) errs.push(`${path}: "${value}" is not a YYYY-MM-DD date`);
   }
   if (schema.type === 'array') {
     if (schema.minItems && value.length < schema.minItems) errs.push(`${path}: needs at least ${schema.minItems} items, has ${value.length}`);
