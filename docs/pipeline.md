@@ -2,7 +2,7 @@
 
 Concept: `AGENTS.md` § Concept. Decisions by Konstantin on 2026-09-21: fully automated publishing, quote-check is the only gate, no human approval. This design adds automated stand-ins for the human look he declined.
 
-Status (2026-09-25): research, selection and gates 1-5 exist in `pipeline/` and have run on one event under the Version 2 inclusion rule; that event is the one published case file. Detect, triage, the scheduled run, auto-publish and everything under "After publish" except the provenance line are not built. Build order: `docs/plan.md`.
+Status (2026-09-26): research, selection and gates 1-5 exist in `pipeline/` and have run by hand under the Version 2 inclusion rule. Stage 2 automation is built (not yet run on schedule): detect + triage (`detect.mjs`), the weekly quote re-check (`recheck.mjs`), the orchestrator with the spend cap (`auto.mjs`) and the weekly GitHub Action (`.github/workflows/pipeline.yml`), see § Scheduled run. Not built: visitor-submitted sources, applying updates to existing case files, attaching new readings to existing cases, and the weekly re-check of honorable mentions. Build order: `docs/plan.md`.
 
 Live since 2026-09-23: `/cases`, `/cases/<slug>`, `sitemap.xml`, `robots.txt`, `llms.txt`, Article JSON-LD. Page layout: readings with `aboutNature` (Jev score >= 0.6 on "does the quote make a claim about the nature of the system", set by code in `markAboutNature`, `pipeline/lib.mjs`) face each other under the open question; the rest are listed as "also on the record". On the Hugging Face case this picked Seth (0.91) and Patel (0.93); all others scored <= 0.58. Backfill an existing case: `pipeline/run.sh mark-about-nature.mjs content/cases/<slug>.json`. Still open: quote selection itself does not yet prefer nature-of-system passages, and the top disagreement pair (0.71) sits just above the 0.7 threshold.
 
@@ -74,14 +74,14 @@ Version 2 brings in the findings about consciousness. It does not remove the sec
 ## Stages
 
 **Detect.** Three inputs into one queue, deduped by URL.
-- parallel.ai monitor, natural-language watch: publicly disclosed events that do not fit the story of a machine doing the work we ask, including findings about a system's inner workings or self-description (inclusion rule Version 2, `AGENTS.md` rule 5).
-- Fixed primary feeds, polled: lab incident and research pages, evaluator orgs (METR, Redwood, UK AISI), Hugging Face blog. Exact URL list to be verified when building; candidates are in the research JSON.
-- Visitor "submit a source": URL only, rate-limited. No free text means no bot-farm surface.
+- Built as one weekly parallel.ai Task rather than a standing monitor: publicly disclosed events that do not fit the story of a machine doing the work we ask, including findings about a system's inner workings or self-description (inclusion rule Version 2, `AGENTS.md` rule 5).
+- Built: the fixed source pages go into that task's prompt (`sources` in `pipeline/config.json`, all resolved on 2026-09-26): OpenAI alignment blog and misalignment reports, Anthropic research, news and Alignment Science blog, transformer-circuits.pub, UK AISI blog, METR blog, Redwood Research (site and blog), Google DeepMind blog, Hugging Face blog. They are not polled separately.
+- Not built: visitor "submit a source": URL only, rate-limited. No free text means no bot-farm surface.
 
-**Triage.** One typed model judgment per candidate, three routes. This matters: Konstantin's four recalled incidents were one event.
+**Triage.** One typed model judgment per candidate, three routes. This matters: Konstantin's four recalled incidents were one event. Built (§ Scheduled run): new event, same event as a case file (`update`), duplicate, does not fit rule (b).
 - new event → research
-- update to an existing case (operator's final report, fact-check) → append to that case's `updates`
-- new reading of an existing case → gates 2-3, then attach
+- update to an existing case (operator's final report, fact-check) → append to that case's `updates` (not built: recorded in `candidates.json` and listed in the run summary only)
+- new reading of an existing case → gates 2-3, then attach (not built)
 
 Inclusion rule: Version 2 in `AGENTS.md` rule 5, all three criteria required. A candidate that does not fit the machine story but misses (a) or (c) becomes an honorable mention (`tier: mention`). A candidate that fails (b) is dropped. Mentions are re-checked weekly for 8 weeks and upgraded when the missing criterion is met, since the second reading often arrives later.
 
@@ -105,17 +105,18 @@ Paywalled or unfetchable page → the quote cannot be checked → the reading st
 
 ## After publish
 
-- Every page carries a provenance line: drafting model, pipeline version, check timestamp, "no human reviewed this before publication".
-- Notification to Konstantin on every publish. Not a gate.
-- Weekly re-run of gate 2 on all live files. Quote gone from source → reading marked "source changed", archived URL shown.
-- "Report an error" on every page → public GitHub issue.
-- Kill switch: `status: withdrawn` in the JSON, one commit, doable from a phone.
-- Monthly spend cap in config; pipeline stops detecting when reached.
+- Built: every page carries a provenance line: drafting model, pipeline version, check timestamp, "no human reviewed this before publication".
+- Built: a GitHub issue (label `pipeline-run`) after every scheduled run, and one when a run fails. GitHub emails Konstantin. Not a gate.
+- Built: weekly re-run of gate 2 on all live files (`pipeline/recheck.mjs`). A page that was fetched, is readable and no longer holds the quote sets `sourceChanged: "<date>"` on that reading, primary source or summary sentence; the case page shows "The source page changed after this quote was checked." with the archived copy. Found again → the mark is cleared. Unreachable page → nothing changes.
+- Built: "Report an error" on every case page → prefilled public GitHub issue.
+- Works: kill switch, `status: withdrawn` in the JSON, one commit, doable from a phone.
+- Built: monthly spend cap in `pipeline/config.json`; the run skips any paid step that would cross it and says so in the summary.
 
 ## Storage and runtime
 
 - Case files are JSON in the repo: `content/cases/YYYY-MM-slug.json`. Git history is the public edit record. No database for case files.
-- Runs as a scheduled GitHub Action: free for a public repo, no time limit problem with multi-minute research tasks, commits directly, nothing runs on Konstantin's Mac. Secrets in Actions secrets; logs are public, so the script never prints them.
+- Built: runs as a scheduled GitHub Action (`.github/workflows/pipeline.yml`): free for a public repo, commits directly to `main`, nothing runs on Konstantin's Mac. Keys are Actions secrets (`PARALLEL_API_KEY`, `GEMINI_API_KEY`, `TYPESAFE_API_KEY`); logs are public, so the scripts print titles, URLs and reasons, never keys or page text.
+- Built: pipeline state is committed in `pipeline/state/`: `spend.json` (USD per calendar month, automated runs only; hand runs on a Mac are not counted) and `candidates.json` (every candidate ever seen: URL, title, first seen, route, reason, and for new events the seed and its status: `pending`, `published`, `mention`, `parked`, `error`).
 - Reading tallies ("I hold reading B") reuse the existing Cloudflare Worker vote backend, keyed by case and reading.
 
 ## Contract sketch
@@ -136,9 +137,35 @@ CaseFile {
   provenance: { draftedBy, pipelineVersion, checkedAt, humanReviewed: false }
 }
 Reading { partyName, partyType: 'operator' | 'affected' | 'evaluator' | 'scientist' | 'commentator',
-          stanceLabel /* ≤8 words */, quote, url, archivedUrl, date, speakerCheck: 'pass' }
-Source  { url, archivedUrl, publisher, published, quote }
+          stanceLabel /* ≤8 words */, quote, url, archivedUrl, date, speakerCheck: 'pass',
+          sourceChanged? /* date the re-check found the quote gone */ }
+Source  { url, archivedUrl, publisher, published, quote, sourceChanged? }
 ```
+
+## Scheduled run (built 2026-09-26)
+
+`pipeline/auto.mjs`, weekly on Monday 06:00 UTC and on demand (`workflow_dispatch`). By hand: `pipeline/run.sh auto.mjs --dry-run --summary /tmp/summary.md`.
+
+```
+cap check ─► DETECT (1 parallel.ai task) ─► TRIAGE (1 Jev call per batch) ─► queue in candidates.json
+                                                                                 │ up to maxNewCasesPerRun, oldest first
+cap check ─► run-case.mjs per seed (child process) ─► content/cases/<slug>.json if it passes
+cap check ─► RECHECK every live quote ─► state files ─► summary.md
+Action: npm run build (validates case files) ─► commit to main ─► IndexNow (if pipeline/indexnow.mjs exists) ─► issue
+```
+
+| Step | What it does | Measured cost |
+|---|---|---|
+| Detect | One parallel.ai Task (`base` processor, `detectProcessor` in config) with the fixed source list in `pipeline/config.json` and rule (b) of Version 2. Returns up to 10 events from the last `lookbackDays` (21) with title, date, neutral description, primary URL and hint URLs. Known case files and seeds are listed in the prompt as "do not list again". | $0.01, 2-3 minutes. `lite` ($0.005) gave thinner descriptions; `core` ($0.025) found the same events (runs of 2026-09-26). |
+| Triage | Exact URL match against candidates.json, seeds and case-file sources → `duplicate`. Then one Jev call: rule (b) as a probability (below 0.5 → `no-fit`), and a Choice over known case files, seeds, earlier candidates and earlier items in the batch (same event at 0.5 or above → `update` if it is a case file, else `duplicate`). The rest → `new`: a seed in `pipeline/seeds/` (slug `YYYY-MM-short-name`) queued as `pending`. | under $0.001 |
+| Research + gates | `run-case.mjs` unchanged, one child process per seed. Result read from `pipeline/runs/<slug>/report.json`. A crash is charged at the worst case and marked `error` (not retried; set it back to `pending` to retry). | $0.30 per case; cap assumes $0.50 |
+| Re-check | `recheck.mjs`, all quote URLs of published case files, one Extract each | $0.001 per URL |
+
+Updates (`route: update`) are recorded and listed in the summary; case files are not edited for them yet.
+
+Spend cap: before each paid step, month-to-date spend (`spend.json`) + this run so far + the step's worst case (`worstCaseUsd` in config) must stay under `monthlyCapUsd` ($10). Otherwise the step is skipped and the summary says so. Queued events wait for the next run.
+
+A failed build publishes nothing; the failure step commits only `pipeline/state` and `pipeline/seeds`, so spend and dedupe survive, and opens an issue linking the run.
 
 ## Heat-map rows (source of truth: `QUESTIONS` in `pipeline/contract.mjs`)
 

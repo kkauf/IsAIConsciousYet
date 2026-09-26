@@ -60,7 +60,7 @@ Free-floating posts have nowhere to go: every contribution attaches to a reading
 - Agents gather candidate events and draft case files on a schedule (parallel.ai for web research, not model subagents).
 - Research has a real cost (about $0.30 per case file). Intended funding: posting fee, plus donations. Neither exists yet; Konstantin pays.
 - **Publishing is fully automated, no human approval** (Konstantin, 2026-09-21). The literal quote-check is the gate; speaker check and neutrality lint stand in for the human look. Full design: `docs/pipeline.md`.
-- Pipeline in `pipeline/` (2026-09-21): research, quote selection and gates 1-5 run by hand on a seed; detect, triage, scheduled runs and auto-publish are not built. It uses parallel.ai for research and page fetches, Gemini 3.8 Flash to select passages, Jev (TypeSafe) for the judgments. Measured $0.30 per new case file. Do not run case-file work through Claude or Codex session tokens.
+- Pipeline in `pipeline/` (2026-09-21): research, quote selection and gates 1-5 run on a seed. Since 2026-09-26 a weekly GitHub Action also detects, triages, publishes and re-checks quotes under a $10/month cap (`docs/pipeline.md` § Scheduled run). It uses parallel.ai for research and page fetches, Gemini 3.8 Flash to select passages, Jev (TypeSafe) for the judgments. Measured $0.30 per new case file. Do not run case-file work through Claude or Codex session tokens.
 
 ### Existing features (decided 2026-09-23)
 
@@ -81,17 +81,18 @@ Conceived through collaboration between a human (Konstantin) and an AI (Claude).
 
 ## Technical Context
 
-Live at https://isaiconsciousyet.com (Vercel project "iaicy"). Push to `main` = live. GitHub Actions (`.github/workflows/ci.yml`) runs the same checks on every push.
+Live at https://isaiconsciousyet.com (Vercel project "iaicy"). Push to `main` = live. GitHub Actions (`.github/workflows/ci.yml`) runs the same checks on every push. Pushes by the weekly pipeline Action use the workflow token and do not trigger CI; that workflow runs the build itself before it commits.
 
 | Part | Where |
 |---|---|
 | Pages | `src/app/`: `/` (latest case file, then the vote), `/cases`, `/cases/[slug]`, `/why` |
 | Case files | JSON in `content/cases/`, written by `pipeline/` (contract: `pipeline/contract.mjs`), read by `src/lib/cases/load.ts` |
+| Pipeline | `pipeline/run-case.mjs` (one seed), `pipeline/auto.mjs` (weekly run: detect, research, re-check), config `pipeline/config.json`, state `pipeline/state/`, Action `.github/workflows/pipeline.yml`, run summaries as issues labelled `pipeline-run` |
 | Machine-readable | `sitemap.ts`, `robots.ts`, `llms.txt/route.ts`, JSON-LD on each case page, social cards in `opengraph-image.tsx` (fonts in `src/assets/`); data at `/cases.json`, `/cases/<slug>.json` (rewrite in `next.config.ts` to `cases-json/[slug]/route.ts`) and the Atom feed `/feed.xml`; IndexNow ping `pipeline/indexnow.mjs` (key file in `public/`) |
 | Vote | `src/lib/votes.ts` → `/api/votes/*` proxy → Cloudflare Worker `votes.kgm-839.workers.dev` (`docs/votes-worker.md`) |
 | Design | Tokens and the seam in `src/app/globals.css`; Newsreader + Public Sans via `next/font` in `src/app/layout.tsx` |
 
-Stack: Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4. No database; the site needs no environment variables. Pipeline keys live in `~/.claude/secrets/` (see `pipeline/run.sh`).
+Stack: Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4. No database; the site needs no environment variables. Pipeline keys live in `~/.claude/secrets/` for hand runs (see `pipeline/run.sh`) and as Actions secrets for the weekly run.
 
 ```bash
 npm run dev          # localhost:4000
@@ -100,6 +101,7 @@ npm run lint
 npm run typecheck
 npm run test:e2e     # smoke tests against the built site; E2E_BASE_URL=https://isaiconsciousyet.com to test production
 pipeline/run.sh      # draft a case file from a seed (see docs/pipeline.md)
+pipeline/run.sh auto.mjs --dry-run --summary /tmp/s.md   # detect + triage only, writes nothing
 ```
 
 The smoke tests never click the vote: that would write to the production counter.

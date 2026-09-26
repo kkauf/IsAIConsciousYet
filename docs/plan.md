@@ -6,9 +6,9 @@ Goal (Konstantin, 2026-09-25): the project maintains itself, is visually appeali
 
 | Goal | Done | Missing |
 |---|---|---|
-| Adds value | 1 published case file (OpenAI–Hugging Face) | More case files. With one, the site is a single article. |
-| Maintains itself | CI on every push; the build refuses a malformed case file | Detect, triage, a scheduled run, auto-publish, the weekly quote re-check, a spend cap. The pipeline runs only by hand. No API keys in Actions secrets. |
-| Usable by agents | `llms.txt`, sitemap, robots, Article JSON-LD, social cards, licence (MIT code, CC BY 4.0 content), case data as JSON, Atom feed, IndexNow script | Search Console and Bing Webmaster submission; IndexNow is not yet called on publish |
+| Adds value | 7 published (2026-09-26): 4 case files, 3 honorable mentions | Volume comes from the weekly run; readings per case are still thin (2 to 9) |
+| Maintains itself | CI on every push; the build refuses a malformed case file. Stage 2 built 2026-09-26: weekly Action with detect, triage, auto-publish, quote re-check, spend cap, Dependabot; API keys are Actions secrets | First scheduled run. Applying updates to existing case files, re-checking honorable mentions |
+| Usable by agents | `llms.txt`, sitemap, robots, Article JSON-LD, social cards, licence (MIT code, CC BY 4.0 content), case data as JSON, Atom feed, IndexNow ping after each automated publish (covers Bing) | Google Search Console: the domain is not a property on Konstantin's account, and adding one needs his Google login |
 | Usable by humans | Design pass 2026-09-23; case files first, vote last; "Report an error" link on each case page | A case index that scales past a handful |
 
 ## Order
@@ -26,41 +26,52 @@ Content goes first because the pipeline has only seen one kind of event (an inci
 
 ## 1. Content by hand
 
-Run `pipeline/run.sh` on the candidates already researched: the source intakes for Anthropic J-space and Hoel/Hossenfelder, and the Version 2 case files from the rule preview (`docs/research/rule-preview.html`: 7 case files and 3 honorable mentions predicted). About $0.30 each.
+Status 2026-09-26: done. Nine seeds in `pipeline/seeds/` ran through the pipeline, at about $0.30 for a first run and $0.05 to $0.20 for a rerun on cached research. Seven were published: 4 case files and 3 honorable mentions. Two were parked by the gates: the Claude Mythos psychiatric assessment (neutrality lint, twice) and Google Gemini CTF access (no exact event date). Hoel and Hossenfelder did not survive as readings of the J-space case.
 
-While running them, fix the open items from `docs/pipeline.md`:
-- Quote selection should prefer passages about the nature of the system. Today it selects them only by chance: 2 of 11 readings on case 1.
-- Ask research for a second URL per party, so that a paywalled page (Gary Marcus) does not cost the reading.
-- Save a Wayback snapshot at drafting time. `waybackSnapshot` in `pipeline/lib.mjs` only looks up an existing snapshot.
-- Summary sentences that carry numbers fail the support check.
-- Replace the fixed 0.7 disagreement threshold with a rule measured across several cases.
+Pipeline changes from these runs (`pipeline/run-case.mjs`, `lib.mjs`, version 0.2):
 
-Done when: 5 or more case files are live and every run's drops are explained in its `report.json`.
+| Observed | Change |
+|---|---|
+| Quotes about the nature of the system were picked by chance | Selection asks for them first. 15 of 21 readings on the six new files qualify, against 2 of 11 on case 1 |
+| A paywalled or empty page cost the reading | Research returns a second URL per party; empty pages are fetched directly |
+| Wayback lookups returned old snapshots | A fresh snapshot is saved at drafting time |
+| An operator's paper on its own research domain failed the speaker check | Primary pages count as written by their publisher; co-authored passages merge |
+| A quote about Anthropic's incidents was attached to the AISI incident | Gate 3 also checks the quote is about this event (0.8) and the party is identifiable (0.6), which drops anonymised and bare-handle parties |
+| System cards run past 120k characters | The page is windowed around the event |
+| Research returned dates like "2026-07; exact day not confirmed" | Only YYYY-MM-DD dates are kept; the contract rejects others |
+
+Still open:
+- Runs are not reproducible: rerunning the same research can drop a reading that passed before (Anthropic's own reading in the J-space case came and went). The published Hugging Face file was kept from its first run for this reason.
+- The disagreement threshold (0.7) and the summary number check are unchanged.
+- Parties are checked for being identifiable, not for standing; small outlets (AlpacaX, Hyrax, GovKM) can be readings.
 
 ## 2. Self-maintaining
 
 One scheduled GitHub Action. Nothing runs on Konstantin's Mac, and Actions are free for a public repo.
 
-| Job | Cadence | Does |
-|---|---|---|
-| detect + triage | weekly | parallel.ai monitor plus fixed feeds → Jev routes each candidate: new event, update to a case file, new reading, drop |
-| draft + gates | per candidate | the existing `run-case.mjs`; a pass commits the JSON to `main`. The build validates it again, and the Vercel deploy publishes it. |
-| re-check | weekly | gate 2 on every live quote. A quote that is gone gets marked "source changed" and shows its archived URL. |
-| notify | on publish or failure | GitHub issue on this repo, which emails Konstantin. Not a gate. |
+Status 2026-09-26: built (`.github/workflows/pipeline.yml`, `pipeline/auto.mjs`, `detect.mjs`, `recheck.mjs`, `config.json`, `state/`; details in `docs/pipeline.md` § Scheduled run). Tested live with a dry run and on copies; not yet run on the schedule. Detect costs $0.01 a week.
 
-Also needed:
-- The API keys as Actions secrets.
-- A monthly spend cap read from config; when it is reached the job stops before research.
-- Dependabot for npm, so that CI tests the updates.
-- A kill switch, which already works: `status: withdrawn` in the case file's JSON, then one commit.
+| Part | Status |
+|---|---|
+| detect + triage | Built. One parallel.ai Task (`base`) with the fixed source list, then one Jev call. The parallel.ai monitor and polled feeds were replaced by the task. |
+| draft + gates | Built. Up to 3 queued events per run through `run-case.mjs`; build, then commit to `main`. |
+| re-check | Built. Marks `sourceChanged`, shown on the case page. |
+| notify | Built. Issue with label `pipeline-run` per run, another on failure. |
+| spend cap | Built. $10/month from `pipeline/config.json`, checked before every paid step. |
+| Dependabot | Built. npm weekly (minor and patch grouped), Actions monthly. |
+| Updates to existing cases | Not built. Found and listed in the summary; case files are not edited. |
+| New readings of existing cases, mention re-checks | Not built. |
+| IndexNow on publish | Built. The workflow calls `pipeline/indexnow.mjs` once the first new page answers. |
+
+Kill switch: `status: withdrawn` in the case file's JSON, then one commit.
 
 ## 3. Agents and search
 
 - Done: `/cases/<slug>.json` and `/cases.json`, the case files as data, served by the same loader. Linked from `llms.txt` and `<link rel="alternate">`.
 - Done: an Atom feed at `/feed.xml`, so people and agents can follow new case files.
 - Done: a "Report an error" link on each case page that opens a prefilled GitHub issue.
-- Built, not wired: `pipeline/indexnow.mjs` pings IndexNow (key file `public/<key>.txt`). The stage 2 publish job should call it after each deploy.
-- Open: submit the sitemap to Google Search Console and Bing Webmaster (needs Konstantin's accounts).
+- Done: `pipeline/indexnow.mjs` pings IndexNow (key file `public/<key>.txt`), which reaches Bing, Yandex and others; the weekly run calls it after publishing.
+- Open: Google Search Console. The domain has to be added as a property with Konstantin's Google login (DNS is on Cloudflare, so an agent can add the TXT record once he has the value), then the sitemap submitted.
 
 ## 4. Scale the index
 
@@ -73,7 +84,7 @@ Wait until there are 8 or more case files. Then `/cases` becomes the heat map fr
 | Order | Content by hand first (stage 1), then the automation |
 | Spend cap and cadence | Detect weekly; cap $10/month (about 30 case files) |
 | Licence | Done: MIT for the code (`LICENSE`); CC BY 4.0 for the site's own text and the case files, quotes excepted (`content/LICENSE.md`) |
-| Per-case reading tally | Decide once 5 or more case files are live |
+| Per-case reading tally | Decide once 5 or more case files are live (7 are live as of 2026-09-26) |
 | Konstantin's own reading | None. The makers host the conversation and are not readings; the `site-owner` party type is removed |
 
 ## Measuring value

@@ -1,0 +1,99 @@
+# Weekly case-file pipeline: detect + triage, research and gates on new events, re-check of
+# every live quote, then publish by pushing to main (Vercel deploys main). Design: docs/pipeline.md.
+# No human approval (Konstantin, 2026-09-21); the gates and `npm run build` are the check.
+# Logs are public: the scripts print titles, URLs and reasons, never keys or page text.
+name: Pipeline
+on:
+  schedule:
+    - cron: "0 6 * * 1" # Monday 06:00 UTC
+  workflow_dispatch:
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: pipeline
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    env:
+      GH_TOKEN: ${{ github.token }}
+      RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+
+      - name: Detect, research, re-check
+        run: node pipeline/auto.mjs --summary summary.md --new-urls new-urls.txt
+        env:
+          PARALLEL_API_KEY: ${{ secrets.PARALLEL_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          TYPESAFE_API_KEY: ${{ secrets.TYPESAFE_API_KEY }}
+
+      # Validates every case file (pipeline/check-cases.mjs), then builds the site. A failure here publishes nothing.
+      - name: Build
+        id: build
+        run: npm run build
+
+      - name: Commit and push to main
+        id: publish
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add content/cases pipeline/seeds pipeline/state
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "Pipeline run $(date -u +%F)" -m "$RUN_URL"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: IndexNow ping for new case files
+        if: hashFiles('pipeline/indexnow.mjs') != ''
+        run: |
+          [ -s new-urls.txt ] || { echo "no new case files"; exit 0; }
+          # Wait for the Vercel deploy: ping once the first new page answers 200, at most 10 minutes.
+          first=$(head -n 1 new-urls.txt)
+          for i in $(seq 1 40); do
+            [ "$(curl -s -o /dev/null -w '%{http_code}' "$first")" = "200" ] && break
+            sleep 15
+          done
+          node pipeline/indexnow.mjs $(cat new-urls.txt) || echo "IndexNow ping failed (not a gate)"
+
+      - name: Open run summary issue
+        run: |
+          gh label create pipeline-run --color 5319e7 --description "Weekly pipeline run summary" 2>/dev/null || true
+          printf '\n\n[Workflow run](%s)\n' "$RUN_URL" >> summary.md
+          gh issue create --title "Pipeline run $(date -u +%F)" --label pipeline-run --body-file summary.md
+
+      # Spend and dedupe state must survive a failed run, or the cap undercounts and the same
+      # events are researched again next week. Only pipeline/state and the seeds it points to are
+      # committed here, never case files.
+      - name: Save state after a failure
+        if: failure()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git reset -q
+          git add pipeline/state pipeline/seeds
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Pipeline state after failed run $(date -u +%F)" -m "$RUN_URL"
+          git stash -u -q || true
+          git pull --rebase origin main && git push origin HEAD:main || echo "could not push state"
+
+      - name: Open failure issue
+        if: failure()
+        run: |
+          gh label create pipeline-run --color 5319e7 --description "Weekly pipeline run summary" 2>/dev/null || true
+          {
+            echo "The pipeline run failed: $RUN_URL"
+            echo
+            echo "Nothing was published by this run. pipeline/state (spend, candidates) and new seeds were committed if they changed."
+            if [ -f summary.md ]; then echo; echo "---"; echo; cat summary.md; fi
+          } > failure.md
+          gh issue create --title "Pipeline run failed $(date -u +%F)" --label pipeline-run --body-file failure.md

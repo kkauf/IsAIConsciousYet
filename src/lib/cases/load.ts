@@ -5,8 +5,9 @@ import path from "node:path";
 export type Reading = {
   partyName: string; partyType: string; stanceLabel: string; quote: string;
   url: string; archivedUrl?: string; date?: string; aboutNature?: boolean;
+  sourceChanged?: string; // set by pipeline/recheck.mjs when the page no longer holds the quote
 };
-export type Source = { url: string; archivedUrl?: string; publisher: string; published?: string; quote: string };
+export type Source = { url: string; archivedUrl?: string; publisher: string; published?: string; quote: string; sourceChanged?: string };
 export type CaseFile = {
   slug: string; title: string; status: "published" | "parked" | "withdrawn";
   tier: "case-file" | "mention"; missingCriterion?: string;

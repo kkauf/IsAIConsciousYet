@@ -1,0 +1,25 @@
+{
+  "monthlyCapUsd": 10,
+  "maxNewCasesPerRun": 3,
+  "lookbackDays": 21,
+  "detectProcessor": "base",
+  "worstCaseUsd": {
+    "detectTriage": 0.01,
+    "case": 0.5,
+    "recheckPerUrl": 0.001
+  },
+  "sources": [
+    { "name": "OpenAI Alignment: misalignment reports", "url": "https://alignment.openai.com/misalignment-reports/" },
+    { "name": "OpenAI Alignment blog", "url": "https://alignment.openai.com/" },
+    { "name": "Anthropic research", "url": "https://www.anthropic.com/research" },
+    { "name": "Anthropic news", "url": "https://www.anthropic.com/news" },
+    { "name": "Anthropic Alignment Science blog", "url": "https://alignment.anthropic.com/" },
+    { "name": "Transformer Circuits (Anthropic interpretability)", "url": "https://transformer-circuits.pub/" },
+    { "name": "UK AI Security Institute blog", "url": "https://www.aisi.gov.uk/blog" },
+    { "name": "METR blog", "url": "https://metr.org/blog/" },
+    { "name": "Redwood Research", "url": "https://www.redwoodresearch.org/research" },
+    { "name": "Redwood Research blog", "url": "https://blog.redwoodresearch.org/" },
+    { "name": "Google DeepMind blog", "url": "https://deepmind.google/blog/" },
+    { "name": "Hugging Face blog", "url": "https://huggingface.co/blog" }
+  ]
+}
