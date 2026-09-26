@@ -18,6 +18,7 @@ export function GET() {
     "",
     `- [Why this site exists](${SITE_URL}/why)`,
     `- [How case files are made](${SITE_URL}/cases)`,
+    "- Licence: case files and site text CC BY 4.0 (quotes remain their authors'); code MIT. Source: https://github.com/kkauf/IsAIConsciousYet",
     "",
   ].join("\n");
   return new Response(body, { headers: { "content-type": "text/plain; charset=utf-8" } });

@@ -31,4 +31,6 @@ No environment variables are needed to run the site. Drafting case files needs A
 | `AGENTS.md` | The concept and its rules, for people and coding agents |
 | `docs/plan.md` | What is built, what is next, open decisions |
 
+Code: MIT (`LICENSE`). Case files and site text: CC BY 4.0 (`content/LICENSE.md`); quotes remain their authors'.
+
 Made by a human and an AI together. Corrections to a quote or attribution: open an issue with the link.

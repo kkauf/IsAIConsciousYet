@@ -108,6 +108,6 @@ The smoke tests never click the vote: that would write to the production counter
 
 ## Project Constraints
 
-- Public code and case files, so the conversation about AI consciousness stays transparent. The repo has no licence file yet (`docs/plan.md`).
+- Public code and case files, so the conversation about AI consciousness stays transparent. Code MIT (`LICENSE`); case files and site text CC BY 4.0, quotes excepted (`content/LICENSE.md`), decided 2026-09-25.
 - The site is live — your changes will be seen
 - Lean: automated gathering, no editorial staff, no approval click (decided 2026-09-21), no authoring by hand. The one exception is Konstantin's own labelled reading.

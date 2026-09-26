@@ -153,9 +153,6 @@ Source  { url, archivedUrl, publisher, published, quote }
 9. Are personhood-exclusion laws a guardrail or a foreclosure?
 10. Why does the public believe what it believes?
 
-## Not yet decided
+## Decisions
 
-- Monthly spend cap amount. Measure real cost on case file #1 before setting it.
-- Cadence. Default proposed: detect daily, publish when gates pass.
-- How Konstantin adds his own reading (`site-owner` slot). Default proposed: he edits the JSON or tells an agent; it skips gates 2-3 and is labelled as his.
-- Build order. Proposed: gates 1, 2, 5 and the contract first, run by hand on the OpenAI–Hugging Face event; then detect and triage; gates 3-4 before the first unattended run.
+Spend cap ($10/month), cadence (detect weekly), build order and the open `site-owner` question: `docs/plan.md` § Decisions.

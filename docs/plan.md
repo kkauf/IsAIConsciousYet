@@ -8,7 +8,7 @@ Goal (Konstantin, 2026-09-25): the project maintains itself, is visually appeali
 |---|---|---|
 | Adds value | 1 published case file (OpenAI–Hugging Face) | More case files. With one, the site is a single article. |
 | Maintains itself | CI on every push; the build refuses a malformed case file | Detect, triage, a scheduled run, auto-publish, the weekly quote re-check, a spend cap. The pipeline runs only by hand. No API keys in Actions secrets. |
-| Usable by agents | `llms.txt`, sitemap, robots, Article JSON-LD, social cards | Case data as JSON, a feed, search-engine submission, a licence |
+| Usable by agents | `llms.txt`, sitemap, robots, Article JSON-LD, social cards, licence (MIT code, CC BY 4.0 content) | Case data as JSON, a feed, search-engine submission |
 | Usable by humans | Design pass 2026-09-23; case files first, vote last | "Report an error" link (promised in `docs/pipeline.md`), a case index that scales past a handful |
 
 ## Order
@@ -60,21 +60,20 @@ Also needed:
 - An Atom feed at `/feed.xml`, so people and agents can follow new case files.
 - Submit the sitemap to Google Search Console and Bing Webmaster, and ping IndexNow on every publish.
 - A "Report an error" link on each case page that opens a prefilled GitHub issue.
-- A licence file (decision below). A public repo without one is "all rights reserved", which contradicts "public code and case files".
 
 ## 4. Scale the index
 
 Wait until there are 8 or more case files. Then `/cases` becomes the heat map from `AGENTS.md`: a timeline of events grouped by the open question each bears on. Honorable mentions get their own treatment in the list. The homepage keeps leading with the latest case file.
 
-## Open decisions
+## Decisions (Konstantin, 2026-09-25)
 
-| Decision | Proposed |
+| Decision | Outcome |
 |---|---|
-| Order | Content by hand first (stage 1) |
-| Spend cap and cadence | Detect weekly; cap $10/month, about 30 case files |
-| Licence | MIT for the code; CC BY 4.0 for the site's own text and the case-file structure. Quotes remain their authors'. |
-| Per-case reading tally ("which reading do you hold") | Decide after stage 1. The first contribution phase in `AGENTS.md` asks for it, but only 2 readings per case face each other today. |
-| Konstantin's own reading (`site-owner`) | He tells an agent, and it is labelled as his. It skips gates 2-3. |
+| Order | Content by hand first (stage 1), then the automation |
+| Spend cap and cadence | Detect weekly; cap $10/month (about 30 case files) |
+| Licence | Done: MIT for the code (`LICENSE`); CC BY 4.0 for the site's own text and the case files, quotes excepted (`content/LICENSE.md`) |
+| Per-case reading tally | Decide once 5 or more case files are live |
+| Konstantin's own reading (`site-owner`) | Still open. Proposed: he tells an agent, it is labelled as his and skips gates 2-3 |
 
 ## Measuring value
 

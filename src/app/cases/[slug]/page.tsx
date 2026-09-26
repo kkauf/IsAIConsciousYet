@@ -60,6 +60,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
     datePublished: c.provenance.checkedAt,
     url: `${SITE_URL}/cases/${c.slug}`,
     publisher: { "@type": "Organization", name: "Is AI Conscious Yet?", url: SITE_URL },
+    license: "https://creativecommons.org/licenses/by/4.0/",
     about: [{ "@type": "Event", name: c.title, startDate: c.event.dateStart, endDate: c.event.dateEnd, organizer: { "@type": "Organization", name: c.event.operator } }],
     isBasedOn: c.event.primarySources.map((s) => s.url),
     citation: c.readings.map((r) => ({ "@type": "CreativeWork", url: r.url, author: { "@type": "Thing", name: r.partyName }, text: r.quote })),
