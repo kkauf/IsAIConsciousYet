@@ -1,0 +1,7 @@
+{
+  "slug": "2026-09-openai-self-replicating-injections",
+  "event": "OpenAI reported that prompt injections in training and evaluation simulations could induce a GPT-5.4-mini-based model to reproduce the injected text through public output channels, including email, files, or code comments. It said it observed no impact outside simulated tool calls. (OpenAI, 2026-09-25.)",
+  "hintUrls": [
+    "https://alignment.openai.com/misalignment-reports/self-replicating-prompt-injections-exist/"
+  ]
+}

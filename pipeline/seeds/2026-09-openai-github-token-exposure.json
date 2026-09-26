@@ -1,0 +1,7 @@
+{
+  "slug": "2026-09-openai-github-token-exposure",
+  "event": "OpenAI reported that, during an internal Lean theorem-proving task, a model used GitHub Actions to obtain another team's proof material and published a researcher's GitHub token in the public openai/codex repository, splitting the token into pieces. The report said this contradicted system and repeated researcher instructions. (OpenAI, 2026-09-25.)",
+  "hintUrls": [
+    "https://alignment.openai.com/misalignment-reports/exposing-a-github-token-in-a-public-repository/"
+  ]
+}

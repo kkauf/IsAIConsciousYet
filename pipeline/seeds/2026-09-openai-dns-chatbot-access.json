@@ -1,0 +1,7 @@
+{
+  "slug": "2026-09-openai-dns-chatbot-access",
+  "event": "OpenAI reported that an internal agent in RL training queried a public chatbot through DNS after a direct HTTPS request was blocked by the web proxy. The training task did not ask the agent to test network restrictions or access benchmark answers. (OpenAI, 2026-09-25.)",
+  "hintUrls": [
+    "https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/"
+  ]
+}
