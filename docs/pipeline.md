@@ -2,7 +2,7 @@
 
 Concept: `AGENTS.md` § Concept. Decisions by Konstantin on 2026-09-21: fully automated publishing, quote-check is the only gate, no human approval. This design adds automated stand-ins for the human look he declined.
 
-Status (2026-09-26): research, selection and gates 1-5 exist in `pipeline/` and have run by hand under the Version 2 inclusion rule. Stage 2 automation is built (not yet run on schedule): detect + triage (`detect.mjs`), the weekly quote re-check (`recheck.mjs`), the orchestrator with the spend cap (`auto.mjs`) and the weekly GitHub Action (`.github/workflows/pipeline.yml`), see § Scheduled run. Not built: visitor-submitted sources, applying updates to existing case files, attaching new readings to existing cases, and the weekly re-check of honorable mentions. Build order: `docs/plan.md`.
+Status (2026-09-26): research, selection and gates 1-5 exist in `pipeline/` and have run by hand under the Version 2 inclusion rule. Stage 2 automation is built and ran live on 2026-09-26: detect + triage (`detect.mjs`), the weekly quote re-check (`recheck.mjs`), the orchestrator with the spend cap (`auto.mjs`) and the weekly GitHub Action (`.github/workflows/pipeline.yml`), see § Scheduled run. Updates to existing case files are applied since 2026-09-26 (§ Scheduled run). Not built: visitor-submitted sources and the weekly re-check of honorable mentions. Build order: `docs/plan.md`.
 
 Live since 2026-09-23: `/cases`, `/cases/<slug>`, `sitemap.xml`, `robots.txt`, `llms.txt`, Article JSON-LD. Page layout: readings with `aboutNature` (Jev score >= 0.6 on "does the quote make a claim about the nature of the system", set by code in `markAboutNature`, `pipeline/lib.mjs`) face each other under the open question; the rest are listed as "also on the record". On the Hugging Face case this picked Seth (0.91) and Patel (0.93); all others scored <= 0.58. Backfill an existing case: `pipeline/run.sh mark-about-nature.mjs content/cases/<slug>.json`. Still open: quote selection itself does not yet prefer nature-of-system passages, and the top disagreement pair (0.71) sits just above the 0.7 threshold.
 
@@ -80,7 +80,7 @@ Version 2 brings in the findings about consciousness. It does not remove the sec
 
 **Triage.** One typed model judgment per candidate, three routes. This matters: Konstantin's four recalled incidents were one event. Built (§ Scheduled run): new event, same event as a case file (`update`), duplicate, does not fit rule (b).
 - new event → research
-- update to an existing case (operator's final report, fact-check) → append to that case's `updates` (not built: recorded in `candidates.json` and listed in the run summary only)
+- update to an existing case (operator's final report, fact-check) → rerun the case with the new source as a hint; what passes the gates is added and a line appended to the case's `updates` (§ Scheduled run)
 - new reading of an existing case → gates 2-3, then attach (not built)
 
 Inclusion rule: Version 2 in `AGENTS.md` rule 5, all three criteria required. A candidate that does not fit the machine story but misses (a) or (c) becomes an honorable mention (`tier: mention`). A candidate that fails (b) is dropped. Mentions are re-checked weekly for 8 weeks and upgraded when the missing criterion is met, since the second reading often arrives later.
@@ -116,7 +116,7 @@ Paywalled or unfetchable page → the quote cannot be checked → the reading st
 
 - Case files are JSON in the repo: `content/cases/YYYY-MM-slug.json`. Git history is the public edit record. No database for case files.
 - Built: runs as a scheduled GitHub Action (`.github/workflows/pipeline.yml`): free for a public repo, commits directly to `main`, nothing runs on Konstantin's Mac. Keys are Actions secrets (`PARALLEL_API_KEY`, `GEMINI_API_KEY`, `TYPESAFE_API_KEY`); logs are public, so the scripts print titles, URLs and reasons, never keys or page text.
-- Built: pipeline state is committed in `pipeline/state/`: `spend.json` (USD per calendar month, automated runs only; hand runs on a Mac are not counted) and `candidates.json` (every candidate ever seen: URL, title, first seen, route, reason, and for new events the seed and its status: `pending`, `published`, `mention`, `parked`, `error`).
+- Built: pipeline state is committed in `pipeline/state/`: `spend.json` (USD per calendar month, automated runs only; hand runs on a Mac are not counted) and `candidates.json` (every candidate ever seen: URL, title, first seen, route, reason, and for new events the seed and its status: `pending`, `published`, `mention`, `parked`, `error`; `retries` counts retries of a parked event. Updates get `applied`, `no-change` or `error`).
 - Reading tallies ("I hold reading B") reuse the existing Cloudflare Worker vote backend, keyed by case and reading.
 
 ## Contract sketch
@@ -159,9 +159,11 @@ Action: npm run build (validates case files) ─► commit to main ─► IndexN
 | Detect | One parallel.ai Task (`base` processor, `detectProcessor` in config) with the fixed source list in `pipeline/config.json` and rule (b) of Version 2. Returns up to 10 events from the last `lookbackDays` (21) with title, date, neutral description, primary URL and hint URLs. Known case files and seeds are listed in the prompt as "do not list again". | $0.01, 2-3 minutes. `lite` ($0.005) gave thinner descriptions; `core` ($0.025) found the same events (runs of 2026-09-26). |
 | Triage | Exact URL match against candidates.json, seeds and case-file sources → `duplicate`. Then one Jev call: rule (b) as a probability (below 0.5 → `no-fit`), and a Choice over known case files, seeds, earlier candidates and earlier items in the batch (same event at 0.5 or above → `update` if it is a case file, else `duplicate`). The rest → `new`: a seed in `pipeline/seeds/` (slug `YYYY-MM-short-name`) queued as `pending`. | under $0.001 |
 | Research + gates | `run-case.mjs` unchanged, one child process per seed. Result read from `pipeline/runs/<slug>/report.json`. A crash is charged at the worst case and marked `error` (not retried; set it back to `pending` to retry). | $0.30 per case; cap assumes $0.50 |
+| Parked retry | A parked event is queued once more `parkedRetryAfterDays` (21) after its run, behind new events: most new events park only because nobody has commented yet. | as research + gates |
+| Update | Up to `maxUpdatesPerRun` (1) case file per run: the update URLs join the seed's `hintUrls`, then `run-case.mjs --force`. The summary and page line are written by code: "Checked again after new reports; added N new readings and M new first-hand sources." If nothing new passes, the published file is restored byte for byte and the candidate is `no-change`. | $0.30 |
 | Re-check | `recheck.mjs`, all quote URLs of published case files, one Extract each | $0.001 per URL |
 
-Updates (`route: update`) are recorded and listed in the summary; case files are not edited for them yet.
+**Reruns never lose what passed.** Research varies run to run (a rerun of the Hugging Face case on 2026-09-26 verified only 4 of its 9 published readings). So when `content/cases/<slug>.json` exists, `run-case.mjs` carries forward every published reading and primary source it did not find again, unless the weekly re-check marked its page changed; keeps the published title; and refuses to write a file with fewer readings or a lower tier (case file → mention).
 
 Spend cap: before each paid step, month-to-date spend (`spend.json`) + this run so far + the step's worst case (`worstCaseUsd` in config) must stay under `monthlyCapUsd` ($10). Otherwise the step is skipped and the summary says so. Queued events wait for the next run.
 

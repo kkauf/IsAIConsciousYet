@@ -1,6 +1,8 @@
 {
   "monthlyCapUsd": 10,
   "maxNewCasesPerRun": 3,
+  "maxUpdatesPerRun": 1,
+  "parkedRetryAfterDays": 21,
   "lookbackDays": 21,
   "detectProcessor": "base",
   "worstCaseUsd": {

@@ -219,6 +219,21 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
         </div>
       </section>
 
+      {/* Written by the weekly run (pipeline/auto.mjs) when a rerun added readings or sources */}
+      {c.updates.length > 0 && (
+        <section aria-labelledby="updates" className="mt-24 border-t border-rule pt-6 grid gap-4 md:grid-cols-[14rem_1fr] md:gap-8">
+          <h2 id="updates" className="text-ash">Updates</h2>
+          <ul className="space-y-3 text-bone/75 max-w-2xl">
+            {c.updates.map((u) => (
+              <li key={`${u.date}${u.sourceUrl}`}>
+                <span className="text-dim">{shortDate(u.date)}</span> {u.change}{" "}
+                <a href={u.sourceUrl} className="underline decoration-rule underline-offset-2 hover:text-bone">{host(u.sourceUrl)}</a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
       <footer className="mt-24 pt-6 border-t border-rule text-sm text-dim">
         Drafted by {c.provenance.draftedBy}. Every quote was checked against its source on {shortDate(c.provenance.checkedAt.slice(0, 10))}.{" "}
         {c.provenance.humanReviewed ? "" : "No human reviewed this page before publication. "}

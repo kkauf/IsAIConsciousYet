@@ -13,7 +13,7 @@ export type CaseFile = {
   tier: "case-file" | "mention"; missingCriterion?: string;
   event: { dateStart: string; dateEnd?: string; operator: string; affectedParties: string[]; summary: string; unaskedBehaviour: string; primarySources: Source[] };
   bearsOn: string[]; agencyNote: string; consciousnessNote: string;
-  readings: Reading[]; whatWouldSettleIt: string[];
+  readings: Reading[]; whatWouldSettleIt: string[]; updates: { date: string; change: string; sourceUrl: string }[];
   provenance: { draftedBy: string; pipelineVersion: string; checkedAt: string; humanReviewed: boolean };
 };
 

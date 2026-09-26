@@ -30,6 +30,9 @@ const force = args.includes('--force');
 if (!seedPath) { console.error('usage: run-case.mjs <seed.json> [--processor pro] [--reuse-research] [--force]'); process.exit(2); }
 
 const seed = JSON.parse(await readFile(seedPath, 'utf8'));
+const previousPath = path.join(root, 'content', 'cases', `${seed.slug}.json`);
+const previous = existsSync(previousPath) ? JSON.parse(await readFile(previousPath, 'utf8')) : null;
+if (previous && previous.status !== 'published') { console.error(`${seed.slug} is ${previous.status}; not rerun`); process.exit(2); }
 const runDir = path.join(root, 'pipeline', 'runs', seed.slug);
 await mkdir(path.join(runDir, 'pages'), { recursive: true });
 const report = { slug: seed.slug, startedAt: new Date().toISOString(), pipelineVersion: PIPELINE_VERSION, processor, sources: [], gates: {} };
@@ -226,6 +229,16 @@ for (const r of readingResults) {
 const primaries = primaryResults.filter((p) => !p.dropped && !p.error);
 log(`verified: ${readings.length} readings, ${primaries.length} primary sources`);
 
+// Rerun of a published file (update, or a manual rerun): research varies run to run, so a reading
+// verified before and still on its page (weekly re-check) is carried forward, never lost.
+const carried = [];
+for (const r of previous?.readings ?? []) {
+  if (r.sourceChanged || readings.some((x) => x.party.toLowerCase() === r.partyName.toLowerCase() || (x.url === r.url && x.quote === r.quote))) continue;
+  carried.push({ kind: 'reading', party: r.partyName, partyType: r.partyType, stanceLabel: r.stanceLabel, quote: r.quote, url: r.url, archivedUrl: r.archivedUrl, date: r.date, carried: true });
+}
+readings.push(...carried);
+if (previous) { report.gates.carriedReadings = carried.map((r) => r.party); log(`carried forward from the published file: ${carried.length} readings`); }
+
 // ── 4 Draft site-voice text (Gemini), every summary sentence anchored ────────
 
 const DRAFT_SCHEMA = {
@@ -305,16 +318,21 @@ if (readings.length >= 2 && primaries.length >= 1) {
     // Research returns dates like "2026-07; exact day not confirmed"; only a full ISO date is kept.
     const iso = (d) => (/^\d{4}-\d{2}-\d{2}$/.test(d ?? '') ? d : '');
     caseFile = {
-      slug: seed.slug, title: d.title, status: 'published',
+      // A published title stays put on reruns; links and search results point at it.
+      slug: seed.slug, title: previous?.title ?? d.title, status: 'published',
       event: {
         dateStart: iso(research.date_start) || earliestPrimaryDate(), ...opt('dateEnd', iso(research.date_end)), operator: research.operator, affectedParties: research.affected_parties,
         summary, summaryBasis: kept, unaskedBehaviour: d.unasked_behaviour,
-        primarySources: primaries.map((p) => ({ url: p.url, ...opt('archivedUrl', p.archivedUrl), publisher: p.party, ...opt('published', iso(p.published)), quote: p.quote })),
+        primarySources: [
+          ...primaries.map((p) => ({ url: p.url, ...opt('archivedUrl', p.archivedUrl), publisher: p.party, ...opt('published', iso(p.published)), quote: p.quote })),
+          // Primary sources of the published file that this run did not find again, unless their page changed.
+          ...(previous?.event.primarySources ?? []).filter((s) => !s.sourceChanged && !primaries.some((p) => p.url === s.url)),
+        ],
       },
       tier: 'case-file',
       bearsOn: await bearsOn(summary || d.unasked_behaviour), agencyNote: d.agency_note, consciousnessNote: CONSCIOUSNESS_NOTE,
       readings: readings.map((r) => ({ partyName: r.party, partyType: r.partyType, stanceLabel: r.stanceLabel, quote: r.quote, url: r.url, ...opt('archivedUrl', r.archivedUrl), ...opt('date', iso(r.date)), speakerCheck: 'pass' })),
-      whatWouldSettleIt: d.what_would_settle_it, updates: [],
+      whatWouldSettleIt: d.what_would_settle_it, updates: previous?.updates ?? [],
       provenance: { draftedBy: PRICES.gemini.model, pipelineVersion: PIPELINE_VERSION, checkedAt: new Date().toISOString(), humanReviewed: false },
     };
     report.gates.neutralityPass = lint.flagged.length === 0;
@@ -360,9 +378,13 @@ await writeFile(path.join(runDir, 'report.json'), JSON.stringify(report, null, 2
 if (caseFile) {
   await writeFile(path.join(runDir, 'case-file.json'), JSON.stringify(caseFile, null, 2));
   if (caseFile.status === 'published') {
-    const target = path.join(root, 'content', 'cases', `${seed.slug}.json`);
-    if (existsSync(target) && !force) log(`publish: skipped, ${path.relative(root, target)} exists (use --force)`);
-    else { await writeFile(target, JSON.stringify(caseFile, null, 2) + '\n'); log(`publish: wrote ${path.relative(root, target)}`); }
+    const target = path.relative(root, previousPath);
+    // A rerun never downgrades a published file: a full case file does not become a mention, and nothing is lost.
+    const downgrade = previous && ((previous.tier === 'case-file' && caseFile.tier === 'mention') || caseFile.readings.length < previous.readings.length);
+    report.overwrote = false;
+    if (previous && !force) log(`publish: skipped, ${target} exists (use --force)`);
+    else if (downgrade) log(`publish: kept ${target}, this run would downgrade it (${previous.tier} → ${caseFile.tier}, ${previous.readings.length} → ${caseFile.readings.length} readings)`);
+    else { await writeFile(previousPath, JSON.stringify(caseFile, null, 2) + '\n'); report.overwrote = !!previous; log(`publish: wrote ${target}`); }
   }
 }
 

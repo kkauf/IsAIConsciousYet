@@ -32,7 +32,11 @@ let childCost = 0; // run-case children; in-process calls are in lib's ledger
 const runCost = () => ledgerTotal().total + childCost;
 const cap = (step, estimate) => capCheck({ config, spentBefore, spentThisRun: runCost(), estimate, step });
 
-const out = { capStops: [], errors: [], detected: [], published: [], mentions: [], parked: [], recheck: null, processor: null };
+const out = { capStops: [], errors: [], detected: [], published: [], mentions: [], parked: [], updated: [], recheck: null, processor: null };
+const today = new Date().toISOString().slice(0, 10);
+const daysSince = (d) => (Date.parse(today) - Date.parse(d)) / 864e5;
+// A parked event is retried once, parkedRetryAfterDays later: new events are often parked only because nobody has commented yet.
+const retryDue = (c) => c.status === 'parked' && (c.retries ?? 0) < 1 && c.lastRun && daysSince(c.lastRun) >= (config.parkedRetryAfterDays ?? 21);
 
 // ── 1 detect + triage ────────────────────────────────────────────────────────
 const processor = config.detectProcessor ?? 'base';
@@ -48,9 +52,9 @@ else {
 }
 
 // ── 2 research + gates on queued seeds (oldest first) ────────────────────────
-function runCase(seedFile) {
+function runCase(seedFile, extra = []) {
   return new Promise((resolve) => {
-    const child = spawn(process.execPath, [path.join(root, 'pipeline', 'run-case.mjs'), seedFile], { cwd: root, stdio: 'inherit', env: process.env });
+    const child = spawn(process.execPath, [path.join(root, 'pipeline', 'run-case.mjs'), seedFile, ...extra], { cwd: root, stdio: 'inherit', env: process.env });
     child.on('close', (code) => resolve(code));
     child.on('error', () => resolve(-1));
   });
@@ -58,8 +62,12 @@ function runCase(seedFile) {
 
 if (!dryRun) {
   const state = loadCandidates();
-  const queue = state.candidates.filter((c) => c.route === 'new' && c.status === 'pending');
+  const queue = [
+    ...state.candidates.filter((c) => c.route === 'new' && c.status === 'pending'),
+    ...state.candidates.filter((c) => c.route === 'new' && retryDue(c)),
+  ];
   for (const c of queue.slice(0, config.maxNewCasesPerRun)) {
+    if (c.status === 'parked') { c.retries = (c.retries ?? 0) + 1; log(`retry of parked ${c.seed} (parked ${c.lastRun})`); }
     const stop = cap(`research for ${c.seed}`, config.worstCaseUsd.case);
     if (stop) { out.capStops.push(stop); log(stop); break; }
     const seedFile = path.join('pipeline', 'seeds', `${c.seed}.json`);
@@ -97,6 +105,56 @@ if (!dryRun) {
   out.queueLeft = loadCandidates().candidates.filter((c) => c.route === 'new' && c.status === 'pending').length;
 }
 
+// ── 2b updates to existing case files: rerun the case with the new source as a hint ──
+// run-case carries every verified reading and primary source forward and never downgrades the file,
+// so an update can only add. The update line on the page is written by code, not by a model.
+function readJsonIf(f) { return existsSync(f) ? JSON.parse(readFileSync(f, 'utf8')) : null; }
+if (!dryRun) {
+  const state = loadCandidates();
+  const byCase = new Map();
+  for (const c of state.candidates.filter((c) => c.route === 'update' && !c.status)) byCase.set(c.case, [...(byCase.get(c.case) ?? []), c]);
+  for (const [slug, cands] of [...byCase].slice(0, config.maxUpdatesPerRun ?? 1)) {
+    const stop = cap(`update of ${slug}`, config.worstCaseUsd.case);
+    if (stop) { out.capStops.push(stop); log(stop); break; }
+    const seedFile = path.join(root, 'pipeline', 'seeds', `${slug}.json`);
+    const target = path.join(root, 'content', 'cases', `${slug}.json`);
+    const before = readJsonIf(target);
+    const seed = readJsonIf(seedFile);
+    if (!seed || !before) { for (const c of cands) c.status = 'error'; out.errors.push(`update ${slug}: no seed or case file`); saveCandidates(state); continue; }
+    seed.hintUrls = [...new Set([...(seed.hintUrls ?? []), ...cands.map((c) => c.url)])];
+    writeFileSync(seedFile, JSON.stringify(seed, null, 2) + '\n');
+    const started = new Date().toISOString();
+    log(`update: ${slug} ← ${cands.length} new source(s) …`);
+    const code = await runCase(path.relative(root, seedFile), ['--force']);
+    const report = readJsonIf(path.join(root, 'pipeline', 'runs', slug, 'report.json'));
+    const fresh = report && report.startedAt >= started;
+    childCost += fresh ? report.cost.total : config.worstCaseUsd.case;
+    for (const c of cands) c.lastRun = today;
+    if (code !== 0 || !fresh) {
+      for (const c of cands) c.status = 'error';
+      out.errors.push(`update ${slug}: exit ${code}${fresh ? '' : ', no report'}`);
+      saveCandidates(state); continue;
+    }
+    const after = report.overwrote ? readJsonIf(target) : null;
+    const urls = (f) => new Set([...f.readings.map((r) => r.url), ...f.event.primarySources.map((s) => s.url)]);
+    const added = after ? { readings: after.readings.filter((r) => !before.readings.some((b) => b.partyName === r.partyName)).length, sources: after.event.primarySources.filter((s) => !urls(before).has(s.url)).length } : null;
+    if (after && (added.readings || added.sources)) {
+      const parts = [added.readings && `${added.readings} new reading${added.readings > 1 ? 's' : ''}`, added.sources && `${added.sources} new first-hand source${added.sources > 1 ? 's' : ''}`].filter(Boolean);
+      const cited = cands.find((c) => urls(after).has(c.url)) ?? cands[0];
+      after.updates = [...(after.updates ?? []), { date: today, change: `Checked again after new reports; added ${parts.join(' and ')}.`, sourceUrl: cited.url }];
+      writeFileSync(target, JSON.stringify(after, null, 2) + '\n');
+      for (const c of cands) c.status = 'applied';
+      out.updated.push({ slug, title: after.title, url: `${SITE_URL}/cases/${slug}`, change: parts.join(', '), cost: report.cost.total });
+    } else {
+      // Nothing new passed the checks: the published file is restored byte for byte.
+      if (report.overwrote) writeFileSync(target, JSON.stringify(before, null, 2) + '\n');
+      for (const c of cands) c.status = 'no-change';
+      out.updated.push({ slug, title: before.title, url: null, change: report.parkReasons.length ? `rerun parked (${report.parkReasons.join('; ')}), file kept` : 'nothing new passed the checks, file kept', cost: report.cost.total });
+    }
+    saveCandidates(state);
+  }
+}
+
 // ── 3 weekly re-check of every live quote ────────────────────────────────────
 if (!dryRun) {
   const files = caseFiles();
@@ -116,12 +174,11 @@ if (!dryRun) {
   saveSpend(spend);
 }
 const mtd = Number((spentBefore + cost).toFixed(4));
-const newUrls = [...out.published, ...out.mentions].map((p) => p.url);
+const newUrls = [...out.published, ...out.mentions, ...out.updated].map((p) => p.url).filter(Boolean);
 if (newUrlsPath) writeFileSync(newUrlsPath, newUrls.join('\n') + (newUrls.length ? '\n' : ''));
 
 // ── 5 summary ────────────────────────────────────────────────────────────────
 const md = [];
-const today = new Date().toISOString().slice(0, 10);
 md.push(`# Pipeline run ${today}${dryRun ? ' (dry run)' : ''}`, '');
 md.push(`Published ${out.published.length}, honorable mentions ${out.mentions.length}, parked ${out.parked.length}, updates found ${out.detected.filter((c) => c.route === 'update').length}, source changes ${out.recheck?.changed.length ?? 0}, errors ${out.errors.length}.`, '');
 if (out.capStops.length) md.push('**Spend cap reached.** ' + out.capStops.join('; ') + '.', '');
@@ -129,7 +186,8 @@ const section = (title, lines) => { if (lines.length) md.push(`## ${title}`, '',
 section('Published', out.published.map((p) => `- [${p.title}](${p.url}) (${p.readings} readings, $${p.cost})`));
 section('Honorable mentions', out.mentions.map((p) => `- [${p.title}](${p.url}): ${p.missing ?? ''} ($${p.cost})`));
 section('Parked', out.parked.map((p) => `- \`${p.slug}\` ${p.title}: ${p.reasons.join('; ')} ($${p.cost})`));
-section('Updates to existing case files (recorded, not applied)', out.detected.filter((c) => c.route === 'update').map((c) => `- \`${c.case}\` ← [${c.title}](${c.url}), ${c.date}`));
+section('Updates found', out.detected.filter((c) => c.route === 'update').map((c) => `- \`${c.case}\` ← [${c.title}](${c.url}), ${c.date}`));
+section('Updates applied', out.updated.map((u) => `- \`${u.slug}\` ${u.url ? `[${u.title}](${u.url})` : u.title}: ${u.change} ($${u.cost})`));
 section('Errors', out.errors.map((e) => `- ${e}`));
 if (out.detected.length) {
   md.push(`## Detected (${out.processor ?? 'no'} task, lookback ${config.lookbackDays} days)`, '', '| Route | Date | Candidate | Reason |', '|---|---|---|---|');

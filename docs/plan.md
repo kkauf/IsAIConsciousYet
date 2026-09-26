@@ -7,8 +7,8 @@ Goal (Konstantin, 2026-09-25): the project maintains itself, is visually appeali
 | Goal | Done | Missing |
 |---|---|---|
 | Adds value | 7 published (2026-09-26): 4 case files, 3 honorable mentions | Volume comes from the weekly run; readings per case are still thin (2 to 9) |
-| Maintains itself | CI on every push; the build refuses a malformed case file. Stage 2 built 2026-09-26: weekly Action with detect, triage, auto-publish, quote re-check, spend cap, Dependabot; API keys are Actions secrets | First scheduled run. Applying updates to existing case files, re-checking honorable mentions |
-| Usable by agents | `llms.txt`, sitemap, robots, Article JSON-LD, social cards, licence (MIT code, CC BY 4.0 content), case data as JSON, Atom feed, IndexNow ping after each automated publish (covers Bing) | Google Search Console: the domain is not a property on Konstantin's account, and adding one needs his Google login |
+| Maintains itself | CI on every push; the build refuses a malformed case file. Stage 2 built 2026-09-26 and ran live the same day (issue #8): weekly Action with detect, triage, auto-publish, updates to existing files, one retry of parked events, quote re-check, spend cap, Dependabot | Re-checking honorable mentions |
+| Usable by agents | `llms.txt`, sitemap, robots, Article JSON-LD, social cards, licence (MIT code, CC BY 4.0 content), case data as JSON, Atom feed, IndexNow ping after each automated publish (covers Bing) Google Search Console: domain property verified 2026-09-26 (DNS TXT on Cloudflare), sitemap submitted | |
 | Usable by humans | Design pass 2026-09-23; case files first, vote last; "Report an error" link on each case page | A case index that scales past a handful |
 
 ## Order
@@ -41,7 +41,7 @@ Pipeline changes from these runs (`pipeline/run-case.mjs`, `lib.mjs`, version 0.
 | Research returned dates like "2026-07; exact day not confirmed" | Only YYYY-MM-DD dates are kept; the contract rejects others |
 
 Still open:
-- Runs are not reproducible: rerunning the same research can drop a reading that passed before (Anthropic's own reading in the J-space case came and went). The published Hugging Face file was kept from its first run for this reason.
+- Runs are not reproducible: rerunning the same research can drop a reading that passed before. Since 2026-09-26 a rerun carries forward everything the published file had (`docs/pipeline.md` § Scheduled run), so variance can only add. New cases still depend on one run.
 - The disagreement threshold (0.7) and the summary number check are unchanged.
 - Parties are checked for being identifiable, not for standing; small outlets (AlpacaX, Hyrax, GovKM) can be readings.
 
@@ -49,7 +49,7 @@ Still open:
 
 One scheduled GitHub Action. Nothing runs on Konstantin's Mac, and Actions are free for a public repo.
 
-Status 2026-09-26: built (`.github/workflows/pipeline.yml`, `pipeline/auto.mjs`, `detect.mjs`, `recheck.mjs`, `config.json`, `state/`; details in `docs/pipeline.md` § Scheduled run). Tested live with a dry run and on copies; not yet run on the schedule. Detect costs $0.01 a week.
+Status 2026-09-26: built (`.github/workflows/pipeline.yml`, `pipeline/auto.mjs`, `detect.mjs`, `recheck.mjs`, `config.json`, `state/`; details in `docs/pipeline.md` § Scheduled run). First live run 2026-09-26 (issue #8): 6 found, 0 published, 3 parked (new OpenAI reports with 0 or 1 readings yet), 1 queued, 88 quotes re-checked, $0.52. Bot commits deploy through Vercel. Detect costs $0.01 a week.
 
 | Part | Status |
 |---|---|
@@ -59,8 +59,9 @@ Status 2026-09-26: built (`.github/workflows/pipeline.yml`, `pipeline/auto.mjs`,
 | notify | Built. Issue with label `pipeline-run` per run, another on failure. |
 | spend cap | Built. $10/month from `pipeline/config.json`, checked before every paid step. |
 | Dependabot | Built. npm weekly (minor and patch grouped), Actions monthly. `.github/workflows/dependabot-merge.yml` merges those after CI passes. npm major versions are not proposed (they need deliberate work). |
-| Updates to existing cases | Not built. Found and listed in the summary; case files are not edited. |
-| New readings of existing cases, mention re-checks | Not built. |
+| Updates to existing cases | Built 2026-09-26. One case per run is rerun with the new sources; additions only, logged on the page under Updates. |
+| Parked events | Retried once, 21 days after they parked. |
+| Mention re-checks | Not built. |
 | IndexNow on publish | Built. The workflow calls `pipeline/indexnow.mjs` once the first new page answers. |
 
 Kill switch: `status: withdrawn` in the case file's JSON, then one commit.
@@ -71,7 +72,7 @@ Kill switch: `status: withdrawn` in the case file's JSON, then one commit.
 - Done: an Atom feed at `/feed.xml`, so people and agents can follow new case files.
 - Done: a "Report an error" link on each case page that opens a prefilled GitHub issue.
 - Done: `pipeline/indexnow.mjs` pings IndexNow (key file `public/<key>.txt`), which reaches Bing, Yandex and others; the weekly run calls it after publishing.
-- Open: Google Search Console. The domain has to be added as a property with Konstantin's Google login (DNS is on Cloudflare, so an agent can add the TXT record once he has the value), then the sitemap submitted.
+- Done 2026-09-26: Google Search Console domain property `isaiconsciousyet.com` on kgm@kaufmann.earth, verified by DNS TXT on Cloudflare; sitemap submitted.
 
 ## 4. Scale the index
 
@@ -84,7 +85,7 @@ Wait until there are 8 or more case files. Then `/cases` becomes the heat map fr
 | Order | Content by hand first (stage 1), then the automation |
 | Spend cap and cadence | Detect weekly; cap $10/month (about 30 case files) |
 | Licence | Done: MIT for the code (`LICENSE`); CC BY 4.0 for the site's own text and the case files, quotes excepted (`content/LICENSE.md`) |
-| Per-case reading tally | Decide once 5 or more case files are live (7 are live as of 2026-09-26) |
+| Per-case reading tally | Proposed 2026-09-26: wait until the main vote passes 100 votes (7 on 2026-09-26), pending Konstantin |
 | Konstantin's own reading | None. The makers host the conversation and are not readings; the `site-owner` party type is removed |
 
 ## Measuring value
