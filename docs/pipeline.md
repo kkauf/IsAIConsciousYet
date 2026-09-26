@@ -135,7 +135,7 @@ CaseFile {
   updates: { date, change, sourceUrl }[]
   provenance: { draftedBy, pipelineVersion, checkedAt, humanReviewed: false }
 }
-Reading { partyName, partyType: 'operator' | 'affected' | 'evaluator' | 'scientist' | 'commentator' | 'site-owner',
+Reading { partyName, partyType: 'operator' | 'affected' | 'evaluator' | 'scientist' | 'commentator',
           stanceLabel /* ≤8 words */, quote, url, archivedUrl, date, speakerCheck: 'pass' }
 Source  { url, archivedUrl, publisher, published, quote }
 ```
@@ -155,4 +155,4 @@ Source  { url, archivedUrl, publisher, published, quote }
 
 ## Decisions
 
-Spend cap ($10/month), cadence (detect weekly), build order and the open `site-owner` question: `docs/plan.md` § Decisions.
+Spend cap ($10/month), cadence (detect weekly), build order, and the removed `site-owner` slot: `docs/plan.md` § Decisions.

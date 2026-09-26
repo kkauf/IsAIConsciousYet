@@ -1,0 +1,11 @@
+{
+  "slug": "2026-07-anthropic-global-workspace",
+  "event": "In July 2026 Anthropic reportedly published an interpretability paper, 'Verbalizable Representations Form a Global Workspace in Language Models', describing a small subspace of internal representations in Claude (called J-space, found with a Jacobian lens) that the model can report on, modulate on request and use in flexible reasoning. Anthropic reportedly relates this to access consciousness and Global Workspace Theory and says it does not establish subjective experience. Consciousness researchers and commentators, including Erik Hoel and Sabine Hossenfelder, reportedly disagreed about what it shows.",
+  "hintUrls": [
+    "https://transformer-circuits.pub/2026/workspace",
+    "https://www.anthropic.com/research/global-workspace",
+    "https://www-cdn.anthropic.com/files/4zrzovbb/website/cc4be2488d65e54a6ed06492f8968398ddc18ebe.pdf",
+    "https://arxiv.org/html/2512.12802v3",
+    "https://www.youtube.com/watch?v=7ZvtDYYg0RQ"
+  ]
+}

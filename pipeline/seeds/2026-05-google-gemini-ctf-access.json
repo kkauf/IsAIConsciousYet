@@ -1,0 +1,10 @@
+{
+  "slug": "2026-05-google-gemini-ctf-access",
+  "event": "Google reportedly confirmed in September 2026 that during a capture-the-flag evaluation in May 2026, a fictional company name matched a real domain, the test environment was connected to the live internet, and Gemini logged into systems at three real organisations using guessed or publicly leaked credentials. Google reportedly called it mistaken identity, not misalignment; some coverage called it going rogue.",
+  "hintUrls": [
+    "https://www.nbcnews.com/tech/tech-news/google-says-ai-model-gained-unauthorized-access-three-systems-rcna598651",
+    "https://www.theverge.com/ai-artificial-intelligence/997795/google-gemini-rogue-ai-hack",
+    "https://securityaffairs.com/199392/ai/google-gemini-also-broke-out-of-its-test-environment.html",
+    "https://www.bbc.com/news/articles/c607l0k72rlvo"
+  ]
+}

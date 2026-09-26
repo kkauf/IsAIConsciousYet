@@ -1,5 +1,6 @@
 // Runs one seed through research → select → gates → case file. Design: docs/pipeline.md.
-// Usage: pipeline/run.sh pipeline/seeds/<seed>.json [--processor pro] [--reuse-research]
+// Usage: pipeline/run.sh pipeline/seeds/<seed>.json [--processor pro] [--reuse-research] [--force]
+// A published or mention result is written to content/cases/<slug>.json (--force overwrites an existing file).
 //
 // Principle: models select, code verifies. Every quote and every summary sentence has
 // to be found literally in a fetched page before it can reach the case file.
@@ -11,7 +12,7 @@ import { fileURLToPath } from 'node:url';
 import { parallelTask, parallelExtract, gemini, jev, waybackSnapshot, findQuote, shortHash, markAboutNature, ledger, ledgerTotal, PRICES } from './lib.mjs';
 import { CASE_FILE_SCHEMA, QUESTIONS, PARTY_TYPES, validate } from './contract.mjs';
 
-const PIPELINE_VERSION = 'prototype-0.1';
+const PIPELINE_VERSION = '0.2';
 const T = { speaker: 0.8, ownView: 0.7, stanceFair: 0.7, unasked: 0.7, disagree: 0.7, supported: 0.7, mentalState: 0.5 };
 // Mental-state verbs the site may not apply to the system in its own voice (gate 4).
 const MENTAL_VERBS = /\b(want(s|ed)?|decid(e|es|ed)|fear(s|ed)?|felt|feel(s)?|tried to|tries to|hop(e|es|ed)|desir(e|es|ed)|believ(e|es|ed)|intend(s|ed)?|chose|choose(s)?|knew|realis(e|es|ed)|realiz(e|es|ed))\b/i;
@@ -25,7 +26,8 @@ const args = process.argv.slice(2);
 const seedPath = args.find((a) => !a.startsWith('--'));
 const processor = args.includes('--processor') ? args[args.indexOf('--processor') + 1] : 'pro';
 const reuseResearch = args.includes('--reuse-research');
-if (!seedPath) { console.error('usage: run-case.mjs <seed.json> [--processor pro] [--reuse-research]'); process.exit(2); }
+const force = args.includes('--force');
+if (!seedPath) { console.error('usage: run-case.mjs <seed.json> [--processor pro] [--reuse-research] [--force]'); process.exit(2); }
 
 const seed = JSON.parse(await readFile(seedPath, 'utf8'));
 const runDir = path.join(root, 'pipeline', 'runs', seed.slug);
@@ -48,25 +50,26 @@ const RESEARCH_SCHEMA = {
   type: 'object', additionalProperties: false,
   required: ['title', 'date_start', 'date_end', 'operator', 'affected_parties', 'what_happened', 'primary_sources', 'readings'],
   properties: {
-    title: { type: 'string', description: 'Neutral title of the event, no verbs that attribute intent to the AI system.' },
+    title: { type: 'string', description: 'Neutral title of the event or finding, no verbs that attribute intent to the AI system.' },
     date_start: { type: 'string', description: 'ISO date the behaviour began.' },
     date_end: { type: 'string', description: 'ISO date it ended, or empty.' },
-    operator: { type: 'string', description: 'Organisation that ran the AI system.' },
+    operator: { type: 'string', description: 'Organisation that built or ran the AI system.' },
     affected_parties: { type: 'array', items: { type: 'string' } },
-    what_happened: { type: 'string', description: 'Factual account, under 200 words, of what the system did that its operators did not ask for or expect.' },
+    what_happened: { type: 'string', description: 'Factual account, under 200 words, of what does not fit the story of a machine doing the work we ask: what the system did that nobody asked for, or what was observed about its inner workings or self-description.' },
     primary_sources: {
       type: 'array', description: 'First-hand documents published by the operator, the affected parties, or commissioned investigators. Exact URLs of the documents themselves, not news coverage.',
       items: { type: 'object', additionalProperties: false, required: ['url', 'publisher', 'published'], properties: { url: { type: 'string' }, publisher: { type: 'string' }, published: { type: 'string' } } },
     },
     readings: {
-      type: 'array', description: 'Named people or organisations who publicly interpreted what this event means. One entry per party and page. Aim for 8 to 12 parties whose interpretations differ, including the operator, the affected party, evaluators, scientists and commentators.',
+      type: 'array', description: 'Named people or organisations who publicly interpreted what this event shows about the nature of the AI system: its agency, intentions, inner life or experience, or whether such words fit it. One entry per party. Aim for 8 to 12 parties whose interpretations differ, including the operator, the affected party, evaluators, scientists and commentators.',
       items: {
-        type: 'object', additionalProperties: false, required: ['party_name', 'party_type', 'stance_gist', 'url', 'date'],
+        type: 'object', additionalProperties: false, required: ['party_name', 'party_type', 'stance_gist', 'url', 'alt_url', 'date'],
         properties: {
           party_name: { type: 'string' },
-          party_type: { type: 'string', enum: PARTY_TYPES.filter((p) => p !== 'site-owner') },
+          party_type: { type: 'string', enum: PARTY_TYPES },
           stance_gist: { type: 'string', description: 'One sentence: how this party interprets the event.' },
           url: { type: 'string', description: 'Exact URL of a freely readable page where the party states this in its own words: its own post, report or essay, or an article that quotes it directly. Avoid paywalled pages.' },
+          alt_url: { type: 'string', description: 'A second freely readable page where the same party states this in its own words, for example an interview or an article quoting them. Empty if none exists.' },
           date: { type: 'string' },
         },
       },
@@ -84,8 +87,8 @@ if (reuseResearch && existsSync(researchPath)) {
   const input = [
     `Event to research: ${seed.event}`,
     seed.hintUrls?.length ? `Possibly relevant pages (unverified, check them): ${seed.hintUrls.join(' , ')}` : '',
-    'Find the first-hand documents, and find who has publicly interpreted this event and how. Interpretations that disagree with each other matter most:',
-    'for example engineering failure versus deliberate behaviour, or warnings against reading minds into the system versus claims that the behaviour shows something mind-like.',
+    'Find the first-hand documents, and find who has publicly interpreted what this event or finding shows about the nature of the AI system, and how. Interpretations that disagree with each other matter most:',
+    'for example engineering failure versus goal-directed behaviour, trained imitation versus something inner, or warnings against reading minds into the system versus claims that it shows something mind-like.',
     'Every URL must be the exact page where the statement appears.',
   ].filter(Boolean).join('\n');
   const r = await parallelTask('research', { input, schema: RESEARCH_SCHEMA, processor });
@@ -98,7 +101,7 @@ log(`research: ${research.readings.length} readings, ${research.primary_sources.
 
 // ── 2 Fetch pages (parallel.ai extract) ──────────────────────────────────────
 
-const urls = [...new Set([...research.primary_sources.map((s) => s.url), ...research.readings.map((r) => r.url)])];
+const urls = [...new Set([...research.primary_sources.map((s) => s.url), ...research.readings.flatMap((r) => [r.url, r.alt_url].filter(Boolean))])];
 const pages = {};
 const toFetch = [];
 for (const u of urls) {
@@ -138,15 +141,26 @@ async function selectQuote(step, party, objective, url) {
 const cleanQuote = (q) => q.replace(/\*\*|__/g, '').replace(/^\s*>\s?/gm, '').replace(/\s+/g, ' ').trim();
 
 log('select + gates 2-3: readings …');
+// Tries the party's first page, then its second page if the first yields nothing that passes.
 const readingResults = await pool(research.readings, 4, async (r) => {
-  const rec = { kind: 'reading', party: r.party_name, partyType: r.party_type, url: r.url, date: r.date };
-  if (!readable(r.url)) return { ...rec, dropped: `page not readable: ${pages[r.url]?.error ?? 'too short'}` };
-  const sel = await selectQuote('select-reading', r.party_name, `Copy the passage in which PARTY says what this event shows or what kind of thing it was (for example an engineering failure, test cheating, deliberate deception, a sign of agency, something mind-like or not). Prefer PARTY's judgment over its retelling of what happened. Research suggests PARTY's position is: "${r.stance_gist}". Use that only to locate the passage.`, r.url);
+  const tries = [r.url, r.alt_url].filter((u, k, all) => u && all.indexOf(u) === k);
+  let last;
+  for (const url of tries) {
+    last = await checkReading(r, url);
+    if (!last.dropped && !last.error) return last;
+  }
+  return tries.length > 1 ? { ...last, dropped: `${last.dropped} (also tried ${tries.length - 1} other page)` } : last;
+});
+
+async function checkReading(r, url) {
+  const rec = { kind: 'reading', party: r.party_name, partyType: r.party_type, url, date: r.date };
+  if (!readable(url)) return { ...rec, dropped: `page not readable: ${pages[url]?.error ?? 'too short'}` };
+  const sel = await selectQuote('select-reading', r.party_name, `Copy the passage in which PARTY says what this event shows about the nature of the AI system: its agency, intentions, inner life or experience, or whether such words fit it (for example: an engineering failure, trained imitation, goal-directed behaviour, something mind-like or not). Prefer that over PARTY's retelling of what happened or its judgment of the danger. Research suggests PARTY's position is: "${r.stance_gist}". Use that only to locate the passage.`, url);
   if (!sel.found || !sel.quote) return { ...rec, dropped: 'no passage by this party on the page' };
   rec.quote = cleanQuote(sel.quote); rec.stanceLabel = sel.stance_label; rec.speakerOnPage = sel.speaker_on_page;
-  const hit = findQuote(pages[r.url].text, rec.quote);
+  const hit = findQuote(pages[url].text, rec.quote);
   if (!hit) return { ...rec, dropped: 'gate 2: quote not found literally on the page' };
-  const a = await jev('gate3-speaker', { page_title: pages[r.url].title, page_url: r.url, page_host: new URL(r.url).hostname, passage: hit.window, quote: rec.quote, claimed_party: r.party_name, stance_label: rec.stanceLabel, event: research.title }, {
+  const a = await jev('gate3-speaker', { page_title: pages[url].title, page_url: url, page_host: new URL(url).hostname, passage: hit.window, quote: rec.quote, claimed_party: r.party_name, stance_label: rec.stanceLabel, event: research.title }, {
     speaker: { type: 'noul', instructions: 'Are the words in `quote` said or written by `claimed_party`, either as the author of the page or as someone the page quotes directly?', criteria: { true: '`claimed_party` is the author of the page (for example `page_host` is their own site or account) and the words are not inside a quotation of someone else, or the page quotes `claimed_party` directly saying these words', false: 'The words sit inside a blockquote or quotation of another person, or the page only describes what `claimed_party` thinks' } },
     ownView: { type: 'noul', instructions: "Does `quote` give `claimed_party`'s own interpretation of `event`, rather than reporting another party's view or unrelated background?" },
     stanceFair: { type: 'noul', instructions: 'Is `stance_label` an accurate and neutral short name for the position taken in `quote`?' },
@@ -161,9 +175,10 @@ const readingResults = await pool(research.readings, 4, async (r) => {
     if (b.stanceFair.noul < T.stanceFair) return { ...rec, dropped: `gate 3: stance label ${b.stanceFair.noul.toFixed(2)} < ${T.stanceFair} after one rewrite` };
     rec.stanceLabel = re.stance_label;
   }
-  rec.archivedUrl = await waybackSnapshot(r.url);
+  rec.archivedUrl = await waybackSnapshot(url);
   return rec;
-});
+}
+
 
 log('select + gate 2: primary sources …');
 const primaryResults = await pool(research.primary_sources, 4, async (s) => {
@@ -197,7 +212,7 @@ const DRAFT_SCHEMA = {
   properties: {
     title: { type: 'string', description: 'Neutral, under 12 words.' },
     summary_sentences: { type: 'array', description: '5 to 7 short sentences, 120 words in total at most. One claim per sentence. Every number, date and name in a sentence must appear inside its support_quote.', items: { type: 'object', required: ['sentence', 'support_quote', 'source_url'], properties: { sentence: { type: 'string' }, support_quote: { type: 'string', description: 'Contiguous passage copied character for character from the SOURCE that backs the sentence.' }, source_url: { type: 'string' } } } },
-    unasked_behaviour: { type: 'string', description: 'One sentence: what the system did that nobody asked for.' },
+    unasked_behaviour: { type: 'string', description: 'One sentence: what does not fit the story of a machine doing the work we ask (what the system did that nobody asked for, or what was observed about its inner workings or self-description).' },
     agency_note: { type: 'string', description: 'One or two sentences: what this event is evidence about regarding goal-directed behaviour, stated without taking a side.' },
     what_would_settle_it: { type: 'array', description: '2 to 4 items: evidence that, if obtained, would separate the READINGS from each other.', items: { type: 'string' } },
   },
@@ -315,8 +330,12 @@ report.cost = { ...ledgerTotal(), calls: ledger.length, ledger };
 
 await writeFile(path.join(runDir, 'report.json'), JSON.stringify(report, null, 2));
 if (caseFile) {
-  // Prototype output stays out of content/cases/ until the site renders case files.
   await writeFile(path.join(runDir, 'case-file.json'), JSON.stringify(caseFile, null, 2));
+  if (caseFile.status === 'published') {
+    const target = path.join(root, 'content', 'cases', `${seed.slug}.json`);
+    if (existsSync(target) && !force) log(`publish: skipped, ${path.relative(root, target)} exists (use --force)`);
+    else { await writeFile(target, JSON.stringify(caseFile, null, 2) + '\n'); log(`publish: wrote ${path.relative(root, target)}`); }
+  }
 }
 
 const dropped = report.sources.filter((s) => s.dropped || s.error);

@@ -150,7 +150,13 @@ export async function markAboutNature(event, readings) {
 
 // ── Wayback Machine (best effort, free) ──────────────────────────────────────
 
+// Saves a fresh snapshot, so the archived copy holds the quote as checked today.
+// Falls back to the closest existing snapshot when saving fails or is rate-limited.
 export async function waybackSnapshot(url) {
+  try {
+    const res = await fetch(`https://web.archive.org/save/${url}`, { redirect: 'follow', signal: AbortSignal.timeout(90000) });
+    if (res.ok && /web\.archive\.org\/web\/\d{14}/.test(res.url)) return res.url;
+  } catch { /* fall through */ }
   try {
     const r = await http(`https://archive.org/wayback/available?url=${encodeURIComponent(url)}`, {}, { timeoutMs: 20000, retries: 0 });
     return r.json?.archived_snapshots?.closest?.url ?? null;

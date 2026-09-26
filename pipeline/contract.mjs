@@ -14,7 +14,8 @@ export const QUESTIONS = {
   'public-belief': 'Why does the public believe what it believes?',
 };
 
-export const PARTY_TYPES = ['operator', 'affected', 'evaluator', 'scientist', 'commentator', 'site-owner'];
+// No slot for the site's makers: they are not experts and their opinion is not a reading (Konstantin, 2026-09-25).
+export const PARTY_TYPES = ['operator', 'affected', 'evaluator', 'scientist', 'commentator'];
 
 const str = (extra = {}) => ({ type: 'string', ...extra });
 const source = {

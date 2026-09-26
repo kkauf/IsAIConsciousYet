@@ -73,7 +73,7 @@ Wait until there are 8 or more case files. Then `/cases` becomes the heat map fr
 | Spend cap and cadence | Detect weekly; cap $10/month (about 30 case files) |
 | Licence | Done: MIT for the code (`LICENSE`); CC BY 4.0 for the site's own text and the case files, quotes excepted (`content/LICENSE.md`) |
 | Per-case reading tally | Decide once 5 or more case files are live |
-| Konstantin's own reading (`site-owner`) | Still open. Proposed: he tells an agent, it is labelled as his and skips gates 2-3 |
+| Konstantin's own reading | None. The makers host the conversation and are not readings; the `site-owner` party type is removed |
 
 ## Measuring value
 

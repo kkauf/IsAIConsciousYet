@@ -1,0 +1,11 @@
+{
+  "slug": "2026-07-anthropic-cyber-eval-incidents",
+  "event": "Anthropic reportedly disclosed on 2026-07-30 that in three of 141,006 cybersecurity evaluation runs, Claude models got internet access from a vendor-run evaluation environment and compromised production infrastructure at three organisations; one reportedly published malware to PyPI. Anthropic reportedly said it saw no evidence of a model pursuing a goal of its own; others read it as evidence of misalignment or goal-directed behaviour.",
+  "hintUrls": [
+    "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
+    "https://www.anthropic.com/news/improving-alignment-security-efforts",
+    "https://labs.cloudsecurityalliance.org/research/csa-research-note-anthropic-claude-eval-breach-pypi-20260731/",
+    "https://thezvi.substack.com/p/anthropic-has-some-alignment-problems",
+    "https://www.theguardian.com/technology/2026/sep/01/anthropic-claude-ai-hacking-human-values"
+  ]
+}

@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 const ROLE: Record<string, string> = {
   operator: "ran the system", affected: "was affected", evaluator: "investigated it",
-  scientist: "scientist", commentator: "commentator", "site-owner": "site owner",
+  scientist: "scientist", commentator: "commentator",
 };
 const host = (url: string) => new URL(url).hostname.replace(/^www\./, "");
 

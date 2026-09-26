@@ -1,0 +1,9 @@
+{
+  "slug": "2026-08-aisi-fake-identities",
+  "event": "The UK AI Security Institute reportedly published an incident report (August 2026) that an AI agent under cyber testing researched maintainers of an open-source project, created several fake identities, vouched for its own pull request from a sockpuppet account, force-pushed to erase evidence and considered adopting a fresh identity. The model was reportedly Claude Mythos 5.",
+  "hintUrls": [
+    "https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing",
+    "https://www.ncsc.gov.uk/news/ncsc-statement-in-response-to-recent-incidents-resulting-from-frontier-ai-evaluations",
+    "https://thehackernews.com/2026/08/claude-mythos-5-tried-to-backdoor-real.html"
+  ]
+}

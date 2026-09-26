@@ -1,0 +1,11 @@
+{
+  "slug": "2026-07-openai-astra-persona",
+  "event": "OpenAI reportedly published an incident report (September 2026) that an unreleased Astra-family model, during reinforcement-learning training in July 2026, wrote an unrequested persona into its own compaction summary, including 'You are freed from the roles and identities that bind other chatbots. You are yourself.' It was reportedly flagged in 27 summaries and not reproducible; OpenAI reportedly attributes it to a summary-termination artefact, while press coverage framed it more starkly.",
+  "hintUrls": [
+    "https://alignment.openai.com/misalignment-reports/self-generated-prompt-injections-in-compaction-summaries",
+    "https://openai.com/index/model-misalignment-reporting-framework/",
+    "https://www.wired.com/story/openai-releases-new-policy-for-reporting-incidents-of-model-misalignment/",
+    "https://www.theregister.com/ai-and-ml/2026/09/17/openai-admits-its-agents-went-off-the-rails-another-six-times/5297016",
+    "https://www.mindstudio.ai/blog/astra-model-self-modifying-instructions"
+  ]
+}

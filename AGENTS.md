@@ -32,7 +32,7 @@ EVENT  (primary source, date, what the system did that nobody asked for)
 
 Rules:
 
-1. **The site takes no position.** Konstantin's own reading may be one slot among the others, labelled as his (`site-owner` party type; how he adds it is undecided, see `docs/plan.md`).
+1. **The site takes no position.** Its makers, Konstantin and the AI agents, are not readings: they are not experts, and they host the conversation rather than take part in it (Konstantin, 2026-09-25).
 2. **Agency is not consciousness.** Goal pursuit, coordination, deception and self-preservation-shaped behaviour are evidence about agency. Each case file keeps the two apart.
 3. **AI self-report is weak evidence.** Models say what they were trained to say, in either direction. Agent statements may be quoted as part of an event, never as testimony that settles anything.
 4. **Attribution accuracy.** A reading attributed to a named person needs a verbatim quote and a URL opened at drafting time. No paraphrase presented as a quote. This is the main legal and reputational risk of the project.
@@ -110,4 +110,4 @@ The smoke tests never click the vote: that would write to the production counter
 
 - Public code and case files, so the conversation about AI consciousness stays transparent. Code MIT (`LICENSE`); case files and site text CC BY 4.0, quotes excepted (`content/LICENSE.md`), decided 2026-09-25.
 - The site is live — your changes will be seen
-- Lean: automated gathering, no editorial staff, no approval click (decided 2026-09-21), no authoring by hand. The one exception is Konstantin's own labelled reading.
+- Lean: automated gathering, no editorial staff, no approval click (decided 2026-09-21), no authoring by hand.
