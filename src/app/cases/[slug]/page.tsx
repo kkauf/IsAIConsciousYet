@@ -30,15 +30,30 @@ const ROLE: Record<string, string> = {
 };
 const host = (url: string) => new URL(url).hostname.replace(/^www\./, "");
 
+// Set by the weekly re-check (pipeline/recheck.mjs) when the page is readable but no longer holds the quote.
+function ChangedLine({ archivedUrl, label }: { archivedUrl?: string; label?: string }) {
+  return (
+    <span className="block text-sm text-dim mt-1">
+      {label && <>{label}: </>}The source page changed after this quote was checked.
+      {archivedUrl && (
+        <> <a href={archivedUrl} className="underline decoration-rule underline-offset-2 hover:text-bone">archived copy</a></>
+      )}
+    </span>
+  );
+}
+
 function SourceLine({ r }: { r: Reading }) {
   return (
-    <p className="text-sm text-dim mt-3">
-      <a href={r.url} className="underline decoration-rule underline-offset-2 hover:text-bone">{host(r.url)}</a>
-      {r.date && <>, {shortDate(r.date)}</>}
-      {r.archivedUrl && (
-        <>, <a href={r.archivedUrl} className="underline decoration-rule underline-offset-2 hover:text-bone">archived copy</a></>
-      )}
-    </p>
+    <>
+      <p className="text-sm text-dim mt-3">
+        <a href={r.url} className="underline decoration-rule underline-offset-2 hover:text-bone">{host(r.url)}</a>
+        {r.date && <>, {shortDate(r.date)}</>}
+        {r.archivedUrl && (
+          <>, <a href={r.archivedUrl} className="underline decoration-rule underline-offset-2 hover:text-bone">archived copy</a></>
+        )}
+      </p>
+      {r.sourceChanged && <ChangedLine archivedUrl={r.archivedUrl} />}
+    </>
   );
 }
 
@@ -142,6 +157,9 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
                     </Fragment>
                   ))}
                 </span>
+                {docs.filter((s) => s.sourceChanged).map((s) => (
+                  <ChangedLine key={s.url} archivedUrl={s.archivedUrl} label={docs.length > 1 ? (s.published ? shortDate(s.published) : host(s.url)) : undefined} />
+                ))}
               </li>
             ))}
           </ul>

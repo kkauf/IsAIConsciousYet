@@ -21,7 +21,8 @@ const str = (extra = {}) => ({ type: 'string', ...extra });
 const source = {
   type: 'object',
   required: ['url', 'publisher', 'quote'],
-  properties: { url: str(), archivedUrl: str(), publisher: str(), published: str(), quote: str() },
+  // sourceChanged: date the weekly re-check (pipeline/recheck.mjs) found the page readable but the quote gone.
+  properties: { url: str(), archivedUrl: str(), publisher: str(), published: str(), quote: str(), sourceChanged: str() },
 };
 const reading = {
   type: 'object',
@@ -31,6 +32,7 @@ const reading = {
     quote: str(), url: str(), archivedUrl: str(), date: str(), speakerCheck: str({ enum: ['pass'] }),
     // true = the quote says what the system is, not only what happened or how dangerous it was.
     aboutNature: { type: 'boolean' },
+    sourceChanged: str(),
   },
 };
 
@@ -49,7 +51,7 @@ export const CASE_FILE_SCHEMA = {
         dateStart: str(), dateEnd: str(), operator: str(),
         affectedParties: { type: 'array', items: str() },
         summary: str({ maxWords: 120 }),
-        summaryBasis: { type: 'array', minItems: 1, items: { type: 'object', required: ['sentence', 'quote', 'url'], properties: { sentence: str(), quote: str(), url: str() } } },
+        summaryBasis: { type: 'array', minItems: 1, items: { type: 'object', required: ['sentence', 'quote', 'url'], properties: { sentence: str(), quote: str(), url: str(), sourceChanged: str() } } },
         unaskedBehaviour: str(),
         primarySources: { type: 'array', minItems: 1, items: source },
       },

@@ -7,7 +7,7 @@ Goal (Konstantin, 2026-09-25): the project maintains itself, is visually appeali
 | Goal | Done | Missing |
 |---|---|---|
 | Adds value | 1 published case file (OpenAI–Hugging Face) | More case files. With one, the site is a single article. |
-| Maintains itself | CI on every push; the build refuses a malformed case file | Detect, triage, a scheduled run, auto-publish, the weekly quote re-check, a spend cap. The pipeline runs only by hand. No API keys in Actions secrets. |
+| Maintains itself | CI on every push; the build refuses a malformed case file. Stage 2 built 2026-09-26: weekly Action with detect, triage, auto-publish, quote re-check, spend cap, Dependabot; API keys are Actions secrets | First scheduled run. Applying updates to existing case files, re-checking honorable mentions |
 | Usable by agents | `llms.txt`, sitemap, robots, Article JSON-LD, social cards, licence (MIT code, CC BY 4.0 content) | Case data as JSON, a feed, search-engine submission |
 | Usable by humans | Design pass 2026-09-23; case files first, vote last | "Report an error" link (promised in `docs/pipeline.md`), a case index that scales past a handful |
 
@@ -40,6 +40,22 @@ Done when: 5 or more case files are live and every run's drops are explained in 
 ## 2. Self-maintaining
 
 One scheduled GitHub Action. Nothing runs on Konstantin's Mac, and Actions are free for a public repo.
+
+Status 2026-09-26: built (`.github/workflows/pipeline.yml`, `pipeline/auto.mjs`, `detect.mjs`, `recheck.mjs`, `config.json`, `state/`; details in `docs/pipeline.md` § Scheduled run). Tested live with a dry run and on copies; not yet run on the schedule. Detect costs $0.01 a week.
+
+| Part | Status |
+|---|---|
+| detect + triage | Built. One parallel.ai Task (`base`) with the fixed source list, then one Jev call. The parallel.ai monitor and polled feeds were replaced by the task. |
+| draft + gates | Built. Up to 3 queued events per run through `run-case.mjs`; build, then commit to `main`. |
+| re-check | Built. Marks `sourceChanged`, shown on the case page. |
+| notify | Built. Issue with label `pipeline-run` per run, another on failure. |
+| spend cap | Built. $10/month from `pipeline/config.json`, checked before every paid step. |
+| Dependabot | Built. npm weekly (minor and patch grouped), Actions monthly. |
+| Updates to existing cases | Not built. Found and listed in the summary; case files are not edited. |
+| New readings of existing cases, mention re-checks | Not built. |
+| IndexNow on publish | Called by the workflow once `pipeline/indexnow.mjs` exists. |
+
+Design as planned:
 
 | Job | Cadence | Does |
 |---|---|---|

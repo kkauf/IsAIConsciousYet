@@ -1,0 +1,14 @@
+# Weekly npm updates, minor and patch grouped into one PR so CI tests them together; majors stay separate.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      minor-and-patch:
+        update-types: [minor, patch]
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
