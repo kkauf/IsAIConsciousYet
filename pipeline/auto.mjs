@@ -137,11 +137,13 @@ if (!dryRun) {
     }
     const after = report.overwrote ? readJsonIf(target) : null;
     const urls = (f) => new Set([...f.readings.map((r) => r.url), ...f.event.primarySources.map((s) => s.url)]);
-    const added = after ? { readings: after.readings.filter((r) => !before.readings.some((b) => b.partyName === r.partyName)).length, sources: after.event.primarySources.filter((s) => !urls(before).has(s.url)).length } : null;
+    const newR = after ? after.readings.filter((r) => !before.readings.some((b) => b.partyName === r.partyName)) : [];
+    const newS = after ? after.event.primarySources.filter((s) => !urls(before).has(s.url)) : [];
+    const added = { readings: newR.length, sources: newS.length };
     if (after && (added.readings || added.sources)) {
       const parts = [added.readings && `${added.readings} new reading${added.readings > 1 ? 's' : ''}`, added.sources && `${added.sources} new first-hand source${added.sources > 1 ? 's' : ''}`].filter(Boolean);
-      const cited = cands.find((c) => urls(after).has(c.url)) ?? cands[0];
-      after.updates = [...(after.updates ?? []), { date: today, change: `Checked again after new reports; added ${parts.join(' and ')}.`, sourceUrl: cited.url }];
+      // The line links what was added: the first new first-hand source, else the first new reading.
+      after.updates = [...(after.updates ?? []), { date: today, change: `Checked again after new reports; added ${parts.join(' and ')}.`, sourceUrl: (newS[0] ?? newR[0]).url }];
       writeFileSync(target, JSON.stringify(after, null, 2) + '\n');
       for (const c of cands) c.status = 'applied';
       out.updated.push({ slug, title: after.title, url: `${SITE_URL}/cases/${slug}`, change: parts.join(', '), cost: report.cost.total });

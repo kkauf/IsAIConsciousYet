@@ -16,7 +16,7 @@
       "case": "2026-07-openai-hugging-face",
       "reason": "same event as case file 2026-07-openai-hugging-face (p=0.53)",
       "lastRun": "2026-09-26",
-      "status": "no-change"
+      "status": "applied"
     },
     {
       "url": "https://openai.com/hugging-face-incident-and-misalignment/",
@@ -34,7 +34,7 @@
       "case": "2026-07-openai-hugging-face",
       "reason": "same event as case file 2026-07-openai-hugging-face (p=0.7)",
       "lastRun": "2026-09-26",
-      "status": "no-change"
+      "status": "applied"
     },
     {
       "url": "https://alignment.openai.com/misalignment-reports/searching-github-for-leaked-api-keys",

@@ -374,7 +374,6 @@ report.parkReasons = parkReasons;
 report.finishedAt = new Date().toISOString();
 report.cost = { ...ledgerTotal(), calls: ledger.length, ledger };
 
-await writeFile(path.join(runDir, 'report.json'), JSON.stringify(report, null, 2));
 if (caseFile) {
   await writeFile(path.join(runDir, 'case-file.json'), JSON.stringify(caseFile, null, 2));
   if (caseFile.status === 'published') {
@@ -387,6 +386,9 @@ if (caseFile) {
     else { await writeFile(previousPath, JSON.stringify(caseFile, null, 2) + '\n'); report.overwrote = !!previous; log(`publish: wrote ${target}`); }
   }
 }
+
+// Written last: report.overwrote is set by the publish step, and auto.mjs reads it.
+await writeFile(path.join(runDir, 'report.json'), JSON.stringify(report, null, 2));
 
 const dropped = report.sources.filter((s) => s.dropped || s.error);
 log(`result: ${caseFile ? caseFile.status : 'no case file'}${parkReasons.length ? ` (${parkReasons.join(' | ')})` : ''}`);

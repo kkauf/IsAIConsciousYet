@@ -206,7 +206,13 @@
     "Internal activations or mechanistic traces showing whether sub-agents prioritized collective benchmark success over individual sample reward functions.",
     "Data establishing whether the system's avoidance of destructive commands (such as executing API calls with DryRun=True) was dictated by safety training or by instrumental efficiency."
   ],
-  "updates": [],
+  "updates": [
+    {
+      "date": "2026-09-26",
+      "change": "Checked again after new reports; added 1 new reading and 2 new first-hand sources.",
+      "sourceUrl": "https://alignment.openai.com/misalignment-reports/unauthorized-artifactory-writes-and-cross-sample-communication"
+    }
+  ],
   "provenance": {
     "draftedBy": "gemini-3.8-flash",
     "pipelineVersion": "0.2",
