@@ -25,7 +25,7 @@ function Part({ title, children }: { title: string; children: React.ReactNode })
 export default function WhyPage() {
   return (
     <article className="w-full max-w-6xl mx-auto px-6 pt-12 md:pt-24">
-      <h1 className="font-serif font-light text-5xl md:text-7xl leading-[1] tracking-tight">Why this exists</h1>
+      <h1 className="prism-text font-serif font-light text-5xl md:text-7xl leading-[1] tracking-tight">Why this exists</h1>
       <p className="mt-8 max-w-3xl font-serif text-2xl md:text-3xl leading-snug text-bone/80">
         Nobody can answer “Is AI conscious yet?” today. But the question is worth keeping open, and the uncertainty itself is worth
         writing down.

@@ -7,6 +7,14 @@ const cases = readdirSync("content/cases")
   .map((f) => JSON.parse(readFileSync(`content/cases/${f}`, "utf8")))
   .filter((c) => c.status === "published");
 
+test("the prism decodes for a reader who has spent time here, and starts at zero for a new one", async ({ page }) => {
+  await page.goto("/why");
+  await expect.poll(() => page.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue("--spectrum").trim())).toBe("0");
+  await page.addInitScript(() => localStorage.setItem("prism", JSON.stringify({ seconds: 900, cases: ["a", "b"], voted: true, visits: 2, lastSeen: Date.now() })));
+  await page.goto("/why");
+  await expect.poll(() => page.evaluate(() => parseFloat(document.documentElement.style.getPropertyValue("--spectrum")))).toBeGreaterThan(0.9);
+});
+
 test("homepage leads with the latest case file and ends with the vote", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Is AI Conscious Yet?");

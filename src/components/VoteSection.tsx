@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useVote } from "@/lib/votes";
 import { trackVote } from "@/lib/analytics";
+import { record } from "@/lib/prism";
 import SeamEye from "@/components/eye/SeamEye";
 
 const SIDES = ["yes", "no"] as const;
@@ -27,6 +28,7 @@ export default function VoteSection() {
   const cast = (v: "yes" | "no") => {
     vote(v);
     trackVote(v);
+    record("vote");
   };
 
   return (
