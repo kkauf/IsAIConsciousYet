@@ -1,0 +1,94 @@
+.hero {
+  --ink: #172f55;
+  --muted: #4f6585;
+  --paper: #e6edf6;
+  --progress: 0;
+  background: var(--paper);
+  color: var(--ink);
+  position: relative;
+}
+
+.stage {
+  position: relative;
+  max-width: 1680px;
+  margin: auto;
+  padding: 112px 7vw 52px;
+  isolation: isolate;
+}
+
+.heading { position: relative; z-index: 2; }
+.heading h1 {
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(56px, 6.4vw, 100px);
+  line-height: 0.96;
+  letter-spacing: -0.055em;
+  margin: 0;
+}
+.credit { font-size: 13px; margin-top: 24px; color: var(--muted); }
+.credit span { display: block; margin-top: 2px; }
+.sculpture { width: min(65%, 850px); margin: -140px 0 0 auto; }
+.sculpture svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.objectCaption { font-size: 12px; color: var(--muted); text-align: center; }
+.passages { position: relative; z-index: 2; display: grid; gap: 32px; margin-top: 28px; }
+.passage p {
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-size: clamp(29px, 3vw, 46px);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+.caseLink { display: inline-flex; align-items: center; gap: 24px; font-size: 14px; margin-top: 24px; padding-bottom: 6px; border-bottom: 1px solid var(--ink); }
+.caseLink span { font-size: 20px; }
+.caseLink:hover { color: #295fb3; }
+.hero a:focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; }
+.bottom { display: flex; justify-content: space-between; align-items: center; margin-top: 48px; font-size: 12px; color: var(--muted); }
+.scrollHint, .track { display: none; }
+.skip { text-decoration: underline; text-underline-offset: 4px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero[data-motion="scroll"] { height: 330svh; min-height: 1800px; }
+  .hero[data-motion="scroll"] .stage { height: calc(100svh - 64px); min-height: 620px; position: sticky; top: 64px; overflow: clip; }
+  .hero[data-motion="scroll"] .sculpture { position: absolute; width: min(64vw, 880px); height: calc(100% - 84px); right: 1%; top: 16px; margin: 0; display: flex; flex-direction: column; justify-content: center; }
+  .hero[data-motion="scroll"] .sculpture svg { min-height: 0; flex: 1; }
+  .hero[data-motion="scroll"] .objectCaption { flex: 0 0 auto; margin-bottom: 50px; }
+  .hero[data-motion="scroll"] .passages { position: absolute; bottom: 123px; left: 7vw; width: 48%; display: grid; }
+  .hero[data-motion="scroll"] .passage { grid-area: 1 / 1; align-self: center; opacity: 0; visibility: hidden; transition: opacity 280ms ease, visibility 280ms; }
+  .hero[data-step="0"][data-motion="scroll"] [data-passage="0"],
+  .hero[data-step="1"][data-motion="scroll"] [data-passage="1"],
+  .hero[data-step="2"][data-motion="scroll"] [data-passage="2"] { opacity: 1; visibility: visible; }
+  .hero[data-motion="scroll"] .bottom { position: absolute; bottom: 30px; left: 7vw; right: 7vw; margin: 0; padding-bottom: 16px; }
+  .hero[data-motion="scroll"] .scrollHint { display: block; }
+  .scrollHint span { margin-left: 12px; }
+  .hero[data-motion="scroll"] .track { display: block; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: #bac8dd; }
+  .track span { display: block; height: 1px; background: var(--ink); transform: scaleX(var(--progress)); transform-origin: left; }
+}
+
+@media (min-width: 1680px) {
+  .hero[data-motion="scroll"] .passages { left: 118px; }
+}
+
+@media (max-width: 700px) {
+  .stage { padding: 100px 24px 32px; }
+  .heading h1 { font-size: clamp(48px, 13vw, 78px); }
+  .credit { font-size: 11px; margin-top: 16px; }
+  .credit span { display: inline; margin-left: 8px; }
+  .sculpture { width: 100%; margin: 16px auto 32px; }
+  .objectCaption { font-size: 10px; }
+  .passage p { font-size: clamp(28px, 7.4vw, 38px); }
+  .caseLink { font-size: 12px; margin-top: 16px; }
+  .bottom { font-size: 10px; }
+  .hero[data-motion="scroll"] .stage { min-height: 680px; padding-top: 88px; }
+  .hero[data-motion="scroll"] .sculpture { width: 100%; height: 46%; top: 27%; right: 0; }
+  .hero[data-motion="scroll"] .objectCaption { margin-bottom: 0; }
+  .hero[data-motion="scroll"] .passages { width: calc(100% - 48px); left: 24px; bottom: 86px; }
+  .hero[data-motion="scroll"] .bottom { left: 24px; right: 24px; bottom: 22px; }
+  .hero[data-motion="scroll"] .scrollHint { max-width: 180px; }
+}
+
+@media (max-height: 720px) and (min-width: 701px) {
+  .hero[data-motion="scroll"] .stage { padding-top: 85px; min-height: 540px; }
+  .heading h1 { font-size: 65px; }
+  .hero[data-motion="scroll"] .passages { bottom: 95px; }
+  .passage p { font-size: 32px; }
+}
