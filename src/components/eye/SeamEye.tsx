@@ -11,6 +11,8 @@ const SIZES = {
   // The vote sits at the foot of the page and never reaches the middle, so it opens further out.
   quote: { long: 168, wide: 22, iris: 11, pupil: 4.2, travel: 30, reach: 0.8 },
   vote: { long: 76, wide: 11, iris: 5.5, pupil: 2.2, travel: 10, reach: 1.1 },
+  // The timeline's base line divides the press from the case files. The eye lies in its quietest years.
+  chart: { long: 46, wide: 7, iris: 3.6, pupil: 1.5, travel: 7, reach: 0.8 },
 };
 
 type Props = {
@@ -18,11 +20,13 @@ type Props = {
   orientation?: 'vertical' | 'horizontal';
   // Closed for good, e.g. once the vote is cast.
   closed?: boolean;
+  // false: the line is already drawn by the page (the timeline's base line).
+  line?: boolean;
   className?: string;
   style?: CSSProperties;
 };
 
-export default function SeamEye({ size = 'quote', orientation = 'vertical', closed = false, className = '', style }: Props) {
+export default function SeamEye({ size = 'quote', orientation = 'vertical', closed = false, line = true, className = '', style }: Props) {
   const { long, wide, iris: irisR, pupil: pupilR, travel, reach } = SIZES[size];
   const vertical = orientation === 'vertical';
   const clipId = useId();
@@ -107,7 +111,7 @@ export default function SeamEye({ size = 'quote', orientation = 'vertical', clos
   const [ix, iy] = vertical ? [mid, long / 2] : [long / 2, mid];
   return (
     <div aria-hidden className={className} style={style}>
-      <div className={vertical ? 'seam absolute inset-0' : 'absolute inset-0 bg-rule'} />
+      {line && <div className={vertical ? 'seam absolute inset-0' : 'absolute inset-0 bg-rule'} />}
       <svg
         ref={svg}
         width={W}

@@ -63,7 +63,18 @@ test("timeline draws every article and case file, and the filter hides the other
   await page.locator("label", { hasText: "Case files" }).click();
   await expect(page.locator('[data-kind="article"]:visible')).toHaveCount(0);
   await expect(page.locator('[data-kind="case"]:visible')).toHaveCount(cases.length);
+  // Pointing at a square previews it; clicking it finds its row in the list.
+  await page.locator("label", { hasText: "Everything" }).click();
+  const square = page.locator(".tl-sq").last();
+  const id = await square.getAttribute("data-id");
+  await square.scrollIntoViewIfNeeded();
+  const box = (await square.boundingBox())!;
+  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
+  await expect(page.locator(".tl-card")).toContainText((await square.getAttribute("data-t"))!);
+  await page.mouse.click(box.x + box.width / 2, box.y + box.height / 2);
+  await expect(page.locator(`li#${id}`)).toHaveAttribute("data-found", "");
   await page.goto("/");
   await expect(page.locator('.tl-chart a[href^="/timeline#m-"]').first()).toBeVisible();
+  await expect(page.locator('.tl-chart [data-href^="/timeline#a-"]').first()).toBeAttached();
   expect((await request.get("/timeline/opengraph-image")).headers()["content-type"]).toContain("image/png");
 });

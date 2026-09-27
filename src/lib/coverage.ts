@@ -18,6 +18,13 @@ export const monthName = (ym: string) => `${MONTHS[Number(ym.slice(5, 7)) - 1]} 
 
 export type Month = { key: string; articles: Article[]; cases: CaseFile[] };
 
+// A short stable id for an article's row in the list on /timeline (#a-…), from its address.
+export function articleId(url: string) {
+  let h = 5381;
+  for (let i = 0; i < url.length; i++) h = ((h << 5) + h + url.charCodeAt(i)) >>> 0;
+  return `a-${h.toString(36)}`;
+}
+
 // Every month from `since` to the month of `now`, oldest first, with what happened in it.
 export function months(coverage: Coverage, cases: CaseFile[], now = new Date()): Month[] {
   const out: Month[] = [];

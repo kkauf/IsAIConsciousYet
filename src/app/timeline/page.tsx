@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Timeline from "@/components/Timeline";
 import { allCases, dateRange, shortDate, DATA_LINKS, SITE_URL } from "@/lib/cases/load";
-import { loadCoverage, monthName, months, takeaway } from "@/lib/coverage";
+import { articleId, loadCoverage, monthName, months, takeaway } from "@/lib/coverage";
 
 const description =
   "Every article in 24 major publications about whether AI could be conscious, month by month since 2020, on one timeline with the case files.";
@@ -47,8 +47,9 @@ export default function TimelinePage() {
       <h1 className="font-serif font-light text-5xl md:text-7xl leading-[1] tracking-tight">The question, over time</h1>
       <p className="mt-8 max-w-4xl font-serif text-2xl md:text-3xl leading-snug text-bone/80">{takeaway(ms, coverage.outlets.length)}</p>
       <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ash">
-        Each square is one of those articles. Each dot below the line is a case file: an event where an AI system did something that the
-        story of a machine doing what we ask does not explain. Amber dots are honorable mentions.
+        Each square is one of those articles; the band behind each year is as high as its average month. Each dot below the line is a
+        case file: an event where an AI system did something that the story of a machine doing what we ask does not explain. Amber dots
+        are honorable mentions.
       </p>
 
       <fieldset className="mt-16 flex flex-wrap gap-x-7 gap-y-3 border-t border-rule pt-6">
@@ -74,10 +75,10 @@ export default function TimelinePage() {
         <div className="max-w-2xl space-y-3 leading-relaxed">
           <p>
             Articles come from the {coverage.outlets.length} publications listed below, searched back to {monthName(coverage.since.slice(0, 7))}.
-            A model judged whether each article is mainly about whether AI systems are or could be conscious, sentient, have feelings, or
-            deserve moral consideration, and code kept the ones above its cutoff. Headlines and dates are read from the article page or its
-            address. Nothing is scored for or against. Search finds recent articles more easily than old ones, so earlier years are likely
-            undercounted.
+            A language model read each result and judged how likely it is that the article is mainly about whether AI systems are or could
+            be conscious, sentient, have feelings, or deserve moral consideration. Articles it judged at least 60% likely are listed.
+            Headlines and dates are read from the article page or its address. Nothing is scored for or against. Search finds recent
+            articles more easily than old ones, so earlier years are likely undercounted.
           </p>
           <p>
             {coverage.updatedAt && <>Searched weekly, last on {shortDate(coverage.updatedAt)}. </>}
@@ -103,7 +104,7 @@ export default function TimelinePage() {
               </h3>
               <ul className="space-y-5">
                 {m.cases.map((c) => (
-                  <li key={c.slug} data-kind="case">
+                  <li key={c.slug} id={`c-${c.slug}`} data-kind="case" className="scroll-mt-24">
                     <Link href={`/cases/${c.slug}`} className="font-serif text-2xl md:text-3xl leading-tight hover:underline decoration-rule decoration-1 underline-offset-[5px]">
                       {c.title}
                     </Link>
@@ -113,7 +114,7 @@ export default function TimelinePage() {
                   </li>
                 ))}
                 {m.articles.map((a) => (
-                  <li key={a.url} data-kind="article" className="grid gap-x-6 gap-y-0.5 sm:grid-cols-[13rem_1fr]">
+                  <li key={a.url} id={articleId(a.url)} data-kind="article" className="scroll-mt-24 grid gap-x-6 gap-y-0.5 sm:grid-cols-[13rem_1fr]">
                     <span className="text-[0.9375rem] text-ash">
                       {a.publication}
                       <span className="whitespace-nowrap text-dim">, {shortDate(a.date).replace(/ \d{4}$/, "")}</span>

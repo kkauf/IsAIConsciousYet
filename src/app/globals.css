@@ -122,15 +122,47 @@
 }
 .tl-col:hover .tl-sq,
 .tl-col:focus-visible .tl-sq {
+  opacity: 1;
+}
+/* A year's band: as high as its average month. */
+.tl-band rect {
+  fill: var(--color-bone);
+  opacity: 0.06;
+}
+.tl-band line {
+  stroke: var(--color-bone);
+  stroke-width: 1;
+  opacity: 0.3;
+}
+/* The square or dot under the pointer (TimelinePreview), and the one whose row was last found in the list. */
+.tl-chart .tl-sq:is([data-active], [data-found]) {
   fill: var(--color-bone);
   opacity: 1;
+}
+.tl-chart circle:is([data-active], [data-found]) {
+  stroke: var(--color-bone);
+  stroke-width: 2;
+}
+/* The row a square or dot leads to: a short flash, then a faint mark that stays. */
+[data-kind]:is(:target, [data-found]) {
+  animation: tl-found 2.4s ease-out forwards;
+}
+@keyframes tl-found {
+  from {
+    background-color: rgb(236 232 225 / 0.16);
+    box-shadow: 0 0 0 0.75rem rgb(236 232 225 / 0.16);
+  }
+  to {
+    background-color: rgb(236 232 225 / 0.05);
+    box-shadow: 0 0 0 0.75rem rgb(236 232 225 / 0.05);
+  }
 }
 .tl-col:focus-visible {
   outline: none;
 }
 
 /* The filter on /timeline: radio buttons, no script. It dims the other band and hides the other rows. */
-.tl-page:has(#show-cases:checked) .tl-sq,
+.tl-page:has(#show-cases:checked) :is(.tl-sq, .tl-band),
 .tl-page:has(#show-articles:checked) :is(.tl-case, .tl-mention, .tl-stem) {
   opacity: 0.15;
 }
