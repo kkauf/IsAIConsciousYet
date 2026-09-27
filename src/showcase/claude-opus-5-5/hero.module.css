@@ -1,0 +1,116 @@
+/* Claude Opus 5.5's hero. Without script or with reduced motion it is a short text in reading order;
+   live, a sticky stage holds a canvas and the words play over it. */
+.hero {
+  position: relative;
+  margin-top: -4rem; /* under the see-through header */
+}
+.stage {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 7rem 1.5rem 2rem;
+}
+.canvas,
+.cue,
+.label {
+  display: none;
+}
+.title {
+  margin-bottom: 2rem;
+}
+.chat {
+  max-width: 36rem;
+  border: 1px solid var(--color-rule);
+  padding: 1rem 1.25rem;
+}
+.sign {
+  margin-top: 1rem;
+}
+
+.hero[data-live] {
+  height: 1000svh;
+}
+.hero[data-live] .stage {
+  position: sticky;
+  top: 0;
+  display: block;
+  max-width: none;
+  height: 100svh;
+  padding: 0;
+  overflow: hidden;
+  background: #000;
+}
+.hero[data-live] .canvas {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.hero[data-live] .title {
+  position: absolute;
+  inset-inline: 1.5rem;
+  top: 20svh;
+  margin: 0;
+  text-align: center;
+}
+.hero[data-live] :is(.line, .chat, .label, .sign) {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+}
+.hero[data-live] .line {
+  left: 50%;
+  bottom: 7svh;
+  width: min(90vw, 44rem);
+  margin-left: calc(min(90vw, 44rem) / -2);
+  padding: 1.25rem 1.5rem;
+  text-align: center;
+  text-shadow: 0 0 18px #000, 0 0 6px #000;
+  background: radial-gradient(closest-side, rgb(0 0 0 / 0.7), transparent);
+}
+.hero[data-live] .chat {
+  max-width: none;
+  border: 0;
+  padding: 0;
+  text-shadow: 0 0 10px #000;
+  will-change: transform;
+}
+.hero[data-live] .label {
+  display: block;
+  white-space: nowrap;
+}
+.hero[data-live] .centred {
+  translate: -50% 0;
+}
+.hero[data-live] .sign {
+  left: 0;
+  right: 0;
+  bottom: 3svh;
+  margin: 0;
+  text-align: center;
+  text-shadow: 0 0 12px #000, 0 0 4px #000, 0 0 2px #000;
+}
+.hero[data-live] .cue {
+  display: block;
+  position: absolute;
+  left: 50%;
+  bottom: 1.5rem;
+  width: 1px;
+  height: 3.5rem;
+  overflow: hidden;
+}
+.cue span {
+  display: block;
+  width: 1px;
+  height: 100%;
+  background: var(--color-bone);
+  opacity: 0.5;
+  animation: cue 2.4s cubic-bezier(.6, 0, .2, 1) infinite;
+}
+@keyframes cue {
+  0% { transform: translateY(-100%); }
+  60%, 100% { transform: translateY(100%); }
+}

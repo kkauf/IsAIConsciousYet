@@ -23,8 +23,8 @@ const FIBRES = Array.from({ length: 56 }, (_, i) => {
   return { x1: 18 + Math.cos(a) * 2, y1: 18 + Math.sin(a) * 2, x2: 18 + Math.cos(a) * outer, y2: 18 + Math.sin(a) * outer };
 });
 
-// On the homepage the eye starts large in the hero (the #hero-eye placeholder), and scrolling carries it
-// into the header. It spins with the scroll and lands upright at the bottom of the page, but its gaze
+// On a page with a #hero-eye placeholder the eye starts large there, and scrolling carries it into the
+// header. The homepage has none while its hero is a showcase entry (src/showcase/). It spins with the scroll and lands upright at the bottom of the page, but its gaze
 // stays on the reader's pointer while the ring turns.
 export default function Header() {
   const pathname = usePathname();
