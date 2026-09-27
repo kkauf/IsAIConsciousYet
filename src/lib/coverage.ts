@@ -47,5 +47,5 @@ export function takeaway(ms: Month[], outlets: number) {
   const last12 = ms.slice(-12).reduce((n, m) => n + m.articles.length, 0);
   const firstYear = ms[0]?.key.slice(0, 4) ?? "";
   const inFirstYear = ms.filter((m) => m.key.startsWith(firstYear)).reduce((n, m) => n + m.articles.length, 0);
-  return `Articles in ${outlets} major publications about whether AI could be conscious: ${last12} in the last twelve months, ${inFirstYear} in all of ${firstYear}.`;
+  return `In the last twelve months, ${last12} articles in ${outlets} major publications asked whether AI could be conscious. In all of ${firstYear}, there were ${inFirstYear}.`;
 }

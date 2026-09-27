@@ -2,7 +2,7 @@
 
 https://isaiconsciousyet.com
 
-Nobody can answer that yet. But AI systems keep doing things that the story of a machine doing what we ask does not explain. Each **case file** on this site takes one such event and sets out:
+Nobody can answer that yet. But AI systems keep doing things that do not fit the picture of a machine doing what it is told. Each **case file** on this site takes one such event and sets out:
 
 - what happened, from first-hand sources;
 - how named people read it, quoted word for word with a link;

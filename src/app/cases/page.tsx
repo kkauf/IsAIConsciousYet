@@ -3,7 +3,7 @@ import Link from "next/link";
 import { allCases, dateRange, DATA_LINKS, SITE_URL } from "@/lib/cases/load";
 
 const description =
-  "Events where AI systems did something that does not fit the story of a machine doing the work we ask, with competing readings by named people, quoted word for word.";
+  "Events where an AI system did something that does not fit the picture of a machine doing what it is told, with competing readings by named people, quoted word for word.";
 
 export const metadata: Metadata = {
   title: "Case files | Is AI Conscious Yet?",
@@ -19,13 +19,14 @@ export default function CasesIndex() {
       <h1 className="font-serif font-light text-5xl md:text-7xl leading-[1] tracking-tight">Case files</h1>
       <div className="mt-8 max-w-3xl space-y-5">
         <p className="font-serif text-2xl md:text-3xl leading-snug text-bone/80">
-          Each case file starts from an event where an AI system did something that does not fit the story of a machine doing the work we
-          ask. Then it shows how named people read that event, in their own words, and what evidence would settle the question.
+          Each case file starts with an event: an AI system did something that does not fit the picture of a machine doing what it is
+          told. It then shows how named people read that event, in their own words, and what evidence would settle the question.
         </p>
         <p className="max-w-2xl text-lg leading-relaxed text-ash">
-          The site takes no position. Every quote is checked word for word against the page it came from, and a case is only published if
-          the operator or the affected party has described the event first-hand. Honorable mentions miss one of those criteria and say
-          which. Case files are drafted and checked by software and published without human review.
+          The site takes no position. Every quote is checked word for word against the page it came from. A case file is published only
+          if the company that ran the system, or the party it affected, has given its own account of the event, and at least two named
+          people read the event differently. An honorable mention misses one of those two conditions and says which. Software drafts
+          and checks each case file and publishes it without human review.
         </p>
       </div>
       <ul className="mt-20 border-t border-rule">

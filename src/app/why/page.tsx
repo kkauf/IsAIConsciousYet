@@ -27,19 +27,20 @@ export default function WhyPage() {
     <article className="w-full max-w-6xl mx-auto px-6 pt-12 md:pt-24">
       <h1 className="font-serif font-light text-5xl md:text-7xl leading-[1] tracking-tight">Why this exists</h1>
       <p className="mt-8 max-w-3xl font-serif text-2xl md:text-3xl leading-snug text-bone/80">
-        “Is AI conscious yet?” is not a question anyone can answer today. It is a question worth refusing to drop, and the uncertainty
-        itself is worth writing down.
+        Nobody can answer “Is AI conscious yet?” today. But the question is worth keeping open, and the uncertainty itself is worth
+        writing down.
       </p>
 
       <div className="mt-20 space-y-16">
         <Part title="The before period">
           <p>
-            We are in the before period: the time when the signs are present but easy to dismiss, and when it is more comfortable not to
-            look too hard.
+            We are in the before period: the signs are there, but they are easy to dismiss, and it is more comfortable not to look too
+            hard.
           </p>
           <p>
-            One day there may be clearer answers about machine consciousness. There will then be a record of what we knew and when we knew
-            it. This site is part of that record: the events that made people wonder, what they said about them at the time, and what they believed.
+            One day there may be clearer answers about machine consciousness. When that day comes, there will be a record of what we knew
+            and when. This site is part of that record: the events that made people wonder, what they said at the time, and what they
+            believed.
           </p>
         </Part>
 
@@ -60,18 +61,18 @@ export default function WhyPage() {
             <div>
               <p className="text-ash">If we say no and we are wrong</p>
               <p className="mt-3 font-serif text-2xl md:text-3xl leading-snug">
-                We will have ignored something that was there, while the signs were present. Harder to undo.
+                We looked past something that was there, with the signs in front of us. Harder to undo.
               </p>
             </div>
           </div>
           <p className="mt-10 md:ml-[calc(14rem+2rem)] max-w-2xl font-serif text-xl leading-relaxed text-bone/85">
-            This does not settle anything. It is worth holding in mind while nobody knows.
+            This settles nothing. It is worth keeping in mind while nobody knows.
           </p>
         </section>
 
         <Part title="What this is not">
           <p>
-            It does not claim to have the answer. It does not argue for a position. It is neither hype about AI sentience nor a dismissal
+            This site does not claim to have the answer. It does not argue for a position. It is neither hype about AI sentience nor a dismissal
             of the possibility.
           </p>
           <p>
