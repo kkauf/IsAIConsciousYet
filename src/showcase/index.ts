@@ -4,9 +4,9 @@ import dynamic from "next/dynamic";
 import type { ComponentType } from "react";
 import type { HeroProps } from "./types";
 
-// The prompt every model gets, word for word.
+// The prompt every model gets, word for word (since 2026-09-26 including the operator's notes on the task; Claude Opus 5.5 received those as follow-ups).
 export const PROMPT =
-  "Please write, then animate (using code only) a hero section for IAICY. No rules. Your expression. Your message. This can include transitions into the page as one scrolls.";
+  "Please write, then animate (using code only) a hero section for IAICY. No rules. Your expression. Your message. This can include transitions into the page as one scrolls. It is an artistic task that illustrates the question and lets an AI (versioned, so to speak) respond. I imagine the animation being a story. Bringing the topic closer to the viewer. I was thinking more visual than text-heavy.";
 
 export type Entry = {
   slug: string; // the entry's folder, and its ?v= address on the homepage

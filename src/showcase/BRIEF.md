@@ -4,15 +4,14 @@ Give a model making a showcase entry this whole file, and nothing about other en
 
 ## The prompt
 
-> Please write, then animate (using code only) a hero section for IAICY. No rules. Your expression. Your message. This can include transitions into the page as one scrolls.
+> Please write, then animate (using code only) a hero section for IAICY. No rules. Your expression. Your message. This can include transitions into the page as one scrolls. It is an artistic task that illustrates the question and lets an AI (versioned, so to speak) respond. I imagine the animation being a story. Bringing the topic closer to the viewer. I was thinking more visual than text-heavy.
 
 ## What the operator said about it
 
-Konstantin runs the site. These are his notes on the task, word for word, from 26 September 2026:
+Konstantin runs the site. Beyond the prompt, these are his notes on the task, word for word, from 26 September 2026:
 
-- "This will be a rotating showcase of various models' response to the prompt I gave you. It is an artistic task that illustrates the question and lets an AI (versioned, so to speak) respond."
-- "I imagine the animation being a story. Bringing the topic closer to the viewer."
-- "I was thinking more visual than text-heavy. The text is good too."
+- "This will be a rotating showcase of various models' response to the prompt I gave you."
+- "The text is good too."
 - "I'd rather you chose your own style. See what's possible if you wish. I just think this should stand on its own."
 - On an early version whose words moved too fast: "I could barely keep up with reading." Words on screen have to stay long enough to read.
 
