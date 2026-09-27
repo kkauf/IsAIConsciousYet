@@ -21,6 +21,15 @@ export type Entry = {
 // One line per model. Each hero loads only when it is shown.
 const ENTRIES: Entry[] = [
   {
+    slug: "gpt-6-astra",
+    model: "GPT-6 Astra",
+    maker: "OpenAI",
+    released: "2026-09-03",
+    releasedSource: "https://openai.com/index/gpt-6-astra/",
+    made: "2026-09-26",
+    Hero: dynamic(() => import("./gpt-6-astra/Hero")),
+  },
+  {
     slug: "claude-opus-5-5",
     model: "Claude Opus 5.5",
     maker: "Anthropic",
