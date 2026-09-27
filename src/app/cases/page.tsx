@@ -28,6 +28,10 @@ export default function CasesIndex() {
           people read the event differently. An honorable mention misses one of those two conditions and says which. Software drafts
           and checks each case file and publishes it without human review.
         </p>
+        <p className="max-w-2xl text-lg leading-relaxed text-ash">
+          The record holds only what breaks the picture of a machine doing what it is told. What AI systems do as expected never appears
+          here, whether or not anything lies behind it.
+        </p>
       </div>
       <ul className="mt-20 border-t border-rule">
         {cases.map((c) => (

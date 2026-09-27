@@ -11,7 +11,7 @@ import { spawn } from 'node:child_process';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { ledgerTotal, PRICES } from './lib.mjs';
-import { detect } from './detect.mjs';
+import { detect, SEARCHES } from './detect.mjs';
 import { recheck, caseFiles, recheckUrls } from './recheck.mjs';
 import { coverage } from './coverage.mjs';
 import { root, loadConfig, loadSpend, saveSpend, monthToDate, addSpend, capCheck, loadCandidates, saveCandidates, monthKey } from './state.mjs';
@@ -43,7 +43,7 @@ const retryDue = (c) => c.status === 'parked' && (c.retries ?? 0) < 1 && c.lastR
 
 // ── 1 detect + triage ────────────────────────────────────────────────────────
 const processor = config.detectProcessor ?? 'base';
-const detectStop = cap('detect', (detectFrom ? 0 : PRICES.parallelTask[processor] ?? 0.1) + config.worstCaseUsd.detectTriage);
+const detectStop = cap('detect', (detectFrom ? 0 : SEARCHES * (PRICES.parallelTask[processor] ?? 0.1)) + config.worstCaseUsd.detectTriage);
 if (detectStop) { out.capStops.push(detectStop); log(detectStop); }
 else {
   try {

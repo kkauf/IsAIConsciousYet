@@ -1,4 +1,4 @@
-// Detect + triage: one parallel.ai Task finds recent events that may meet inclusion rule (b),
+// Detect + triage: two parallel.ai Tasks (events; findings about ordinary behaviour) find recent items that may meet inclusion rule (b),
 // Version 2 (AGENTS.md rule 5); one Jev call routes the batch. Design: docs/pipeline.md § Detect, § Triage.
 // Usage: pipeline/run.sh detect.mjs [--processor base] [--write] [--from pipeline/runs/_detect/<file>.json]
 // Without --write it only prints titles and routes; with it, new events become seeds and
@@ -12,6 +12,7 @@ import { root, loadConfig, loadCandidates, saveCandidates, loadCases, loadSeeds,
 
 const FIT = 0.5; // rule (b) probability at or above which a candidate goes on to research
 const SAME = 0.5; // same-event probability at or above which a candidate is not a new event
+export const SEARCHES = 2; // parallel.ai Tasks per detect: events, and findings about ordinary behaviour
 
 const DETECT_SCHEMA = {
   type: 'object', additionalProperties: false, required: ['events'],
@@ -48,6 +49,20 @@ function detectInput(config, known) {
   ].filter(Boolean).join('\n');
 }
 
+// The second search. Rule (b) favours the unexpected, and incidents crowd findings out of a single search,
+// so findings about ordinary behaviour get their own (docs/plan.md, "What the record cannot show").
+function findingsInput(config, known) {
+  const since = new Date(Date.now() - config.lookbackDays * 864e5).toISOString().slice(0, 10);
+  return [
+    `Find findings about AI systems published on or after ${since} that bear on what the system is, rather than on what it can do or whether it is safe.`,
+    'Look for model welfare assessments, a model\'s stated preferences, self-reports, identity or apparent experience, and interpretability results about its inner workings. Findings about ordinary, expected behaviour count, for example what a model does when a user is abusive.',
+    'A finding reported inside a launch document counts, the launch itself does not: a system card\'s model welfare section is such a finding; its safety, alignment and capability scores are not.',
+    'Each finding needs a first-hand document published by the operator of the system or by the affected party. Leave out incidents and security findings (another search covers them), benchmark results, capability announcements, policy papers and opinion essays.',
+    `Check these pages first, then search more widely: ${config.findingSources.map((s) => s.url).join(' , ')}`,
+    known.length ? `Already known, do not list again: ${known.join(' | ')}` : '',
+  ].filter(Boolean).join('\n');
+}
+
 function shortName(s) {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').split('-').slice(0, 5).join('-') || 'event';
 }
@@ -75,7 +90,9 @@ export async function detect({ processor, write = false, fromFile, log = console
     ...state.candidates.filter((c) => c.route !== 'duplicate').slice(-120).map((c, i) => ({ id: `seen:${i}`, kind: 'seen', slug: c.seed ?? null, text: `${c.title} (${c.operator ?? ''}, ${c.date ?? ''}). ${c.description ?? ''}`.slice(0, 400) })),
   ];
   const seenUrls = new Map();
-  for (const c of state.candidates) seenUrls.set(urlKey(c.url), `earlier candidate "${c.title}" (${c.route})`);
+  // A no-fit candidate's URL stays open: one document (a system card) holds several findings, and the
+  // same-event judgment below still catches a repeat of the finding that did not fit.
+  for (const c of state.candidates) if (c.route !== 'no-fit') seenUrls.set(urlKey(c.url), `earlier candidate "${c.title}" (${c.route})`);
   for (const s of seeds) for (const u of s.hintUrls ?? []) if (!seenUrls.has(urlKey(u))) seenUrls.set(urlKey(u), `seed ${s.slug}`);
   for (const c of cases) for (const s of c.event.primarySources) if (!seenUrls.has(urlKey(s.url))) seenUrls.set(urlKey(s.url), `case file ${c.slug}`);
 
@@ -88,8 +105,12 @@ export async function detect({ processor, write = false, fromFile, log = console
     log(`detect: parallel.ai task (${processor}), lookback ${config.lookbackDays} days …`);
     const t0 = Date.now();
     const promptKnown = [...cases.map((c) => c.title), ...seeds.map((s) => s.event.split('. ')[0].slice(0, 120))];
-    r = await parallelTask('detect', { input: detectInput(config, promptKnown), schema: DETECT_SCHEMA, processor });
-    log(`detect: ${(r.content.events ?? []).length} events in ${Math.round((Date.now() - t0) / 1000)}s`);
+    const runs = await Promise.all([
+      parallelTask('detect', { input: detectInput(config, promptKnown), schema: DETECT_SCHEMA, processor }),
+      parallelTask('detect', { input: findingsInput(config, promptKnown), schema: DETECT_SCHEMA, processor }),
+    ]);
+    r = { runId: runs.map((x) => x.runId).join(','), content: { events: runs.flatMap((x) => x.content.events ?? []) }, basis: runs.flatMap((x) => x.basis) };
+    log(`detect: ${runs.map((x) => (x.content.events ?? []).length).join(' + ')} events (events, findings) in ${Math.round((Date.now() - t0) / 1000)}s`);
     await mkdir(path.join(root, 'pipeline', 'runs', '_detect'), { recursive: true });
     await writeFile(path.join(root, 'pipeline', 'runs', '_detect', `${new Date().toISOString().slice(0, 19).replace(/:/g, '')}-${processor}.json`), JSON.stringify({ runId: r.runId, events: r.content.events ?? [], basis: r.basis }, null, 2));
   }
@@ -102,7 +123,7 @@ export async function detect({ processor, write = false, fromFile, log = console
   for (const e of events) {
     const hit = seenUrls.get(urlKey(e.primary_url));
     if (hit) out.push({ ...base(e), route: 'duplicate', reason: `URL already seen: ${hit}` });
-    else if (toTriage.some((t) => urlKey(t.primary_url) === urlKey(e.primary_url))) out.push({ ...base(e), route: 'duplicate', reason: 'URL repeated in this batch' });
+    else if (toTriage.some((t) => urlKey(t.primary_url) === urlKey(e.primary_url) && t.title.toLowerCase() === e.title.toLowerCase())) out.push({ ...base(e), route: 'duplicate', reason: 'repeated in this batch' });
     else toTriage.push(e);
   }
 
@@ -158,7 +179,7 @@ export async function detect({ processor, write = false, fromFile, log = console
     state.candidates.push(...out.filter((c) => !inState.has(urlKey(c.url))).map(({ _seedPreview, ...c }) => c));
     saveCandidates(state);
   }
-  return { candidates: out, processor, runId: r.runId, estimate: fromFile ? 0 : PRICES.parallelTask[processor] };
+  return { candidates: out, processor, runId: r.runId, estimate: fromFile ? 0 : SEARCHES * PRICES.parallelTask[processor] };
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

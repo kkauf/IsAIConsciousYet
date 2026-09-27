@@ -8,7 +8,7 @@ export function GET() {
   const body = [
     "# Is AI Conscious Yet?",
     "",
-    "> Case files on events where an AI system did something that does not fit the picture of a machine doing what it is told. Each case file gives the event from first-hand sources, competing readings by named people quoted word for word with links, and the evidence that would settle the question. The site takes no position on whether AI is conscious.",
+    "> Case files on events where an AI system did something that does not fit the picture of a machine doing what it is told. Each case file gives the event from first-hand sources, competing readings by named people quoted word for word with links, and the evidence that would settle the question. The site takes no position on whether AI is conscious. The record holds only such events: what AI systems do as expected never appears, whether or not anything lies behind it.",
     "",
     "## Case files",
     "",
