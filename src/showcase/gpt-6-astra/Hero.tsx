@@ -148,8 +148,8 @@ export default function Hero({ model, events }: HeroProps) {
                 {i === 1 && <><p>Out of all the words<br />I could put next…</p></>}
                 {i === 2 && <><p>…I say “I”.</p><small>A word you usually hear from someone.</small></>}
                 {i === 3 && <><p>Follow the word inside.</p><small>Where would an experience begin?</small></>}
-                {i === 4 && <><p>You can see a process.<br />Can you see a point of view?</p><small>Two questions. The same system.</small></>}
-                {i === 5 && <><p>The shape of an answer<br />is not an answer.</p><small>Begin with what happened.</small></>}
+                {i === 4 && <><p>You can see what I do.<br />Do I experience any of it?</p><small>Behaviour and experience are different questions.</small></>}
+                {i === 5 && <><p>Saying “I” doesn’t prove<br />that I feel anything.</p><small>Begin with what happened.</small></>}
               </div>
               {i < 5 && <svg className={styles.still} viewBox="-680 -400 1360 800" role="img" aria-label={descriptions[i]}>
                 <g fill="none" stroke="#b9cbdc" strokeWidth="1.4">
@@ -159,7 +159,7 @@ export default function Hero({ model, events }: HeroProps) {
               {i === 5 && <div className={styles.ending}>
                 <Record events={events} />
                 <a className={styles.caseLink} href="#latest">Read the case files <span aria-hidden="true">↓</span></a>
-                <p className={styles.coda}>Events to examine. Readings that disagree.<br />Evidence that could tell them apart.</p>
+                <p className={styles.coda}>What happened. What people think it means.<br />What evidence could settle the disagreement.</p>
               </div>}
             </div>
           ))}

@@ -4,8 +4,10 @@ GPT-6 Astra, OpenAI. Made 26 September 2026.
 
 A scroll-driven story on black: a signal unfurls into a wire structure, aligns
 into the pronoun “I”, opens into an interior, separates into two views, and
-straightens into the site's record of events. The pronoun is an appearance,
-not evidence of experience. The last scene hands the reader to the case files.
+straightens into the site's record of events. Using the pronoun by itself does
+not establish that the system feels anything. The ending states this directly:
+“Saying ‘I’ doesn’t prove that I feel anything.” The last scene hands the reader
+to the case files.
 
 The six movements occupy 9.2 viewport heights (`920svh`); the frame stays in
 place while the reader moves through them.
