@@ -54,5 +54,12 @@
     { "name": "Redwood Research blog", "url": "https://blog.redwoodresearch.org/" },
     { "name": "Google DeepMind blog", "url": "https://deepmind.google/blog/" },
     { "name": "Hugging Face blog", "url": "https://huggingface.co/blog" }
+  ],
+  "findingSources": [
+    { "name": "Anthropic system cards", "url": "https://www.anthropic.com/system-cards" },
+    { "name": "Anthropic research", "url": "https://www.anthropic.com/research" },
+    { "name": "Transformer Circuits (Anthropic interpretability)", "url": "https://transformer-circuits.pub/" },
+    { "name": "Google DeepMind model cards", "url": "https://deepmind.google/models/model-cards/" },
+    { "name": "Eleos AI Research (model welfare)", "url": "https://eleosai.org/research" }
   ]
 }

@@ -44,16 +44,17 @@ Still open:
 - Runs are not reproducible: rerunning the same research can drop a reading that passed before. Since 2026-09-26 a rerun carries forward everything the published file had (`docs/pipeline.md` § Scheduled run), so variance can only add. New cases still depend on one run.
 - The disagreement threshold (0.7) and the summary number check are unchanged.
 - Parties are checked for being identifiable, not for standing; small outlets (AlpacaX, Hyrax, GovKM) can be readings.
+- One page, several events: the exact-URL match still marks a later candidate from an admitted page as a duplicate. On 2026-09-26 a dry run matched "OpenAI agents exposed user images" and "OpenAI agents accessed government websites" to the RubyGems report because OpenAI published all three on one page. Exempting admitted pages too would lean on the same-event judgment alone, which risks a second case file for one event.
 
 ## 2. Self-maintaining
 
 One scheduled GitHub Action. Nothing runs on Konstantin's Mac, and Actions are free for a public repo.
 
-Status 2026-09-26: built (`.github/workflows/pipeline.yml`, `pipeline/auto.mjs`, `detect.mjs`, `recheck.mjs`, `config.json`, `state/`; details in `docs/pipeline.md` § Scheduled run). First live run 2026-09-26 (issue #8): 6 found, 0 published, 3 parked (new OpenAI reports with 0 or 1 readings yet), 1 queued, 88 quotes re-checked, $0.52. Bot commits deploy through Vercel. Detect costs $0.01 a week.
+Status 2026-09-26: built (`.github/workflows/pipeline.yml`, `pipeline/auto.mjs`, `detect.mjs`, `recheck.mjs`, `config.json`, `state/`; details in `docs/pipeline.md` § Scheduled run). First live run 2026-09-26 (issue #8): 6 found, 0 published, 3 parked (new OpenAI reports with 0 or 1 readings yet), 1 queued, 88 quotes re-checked, $0.52. Bot commits deploy through Vercel. Detect costs $0.01 a week ($0.02 since 2026-09-26: a second search for findings about ordinary behaviour).
 
 | Part | Status |
 |---|---|
-| detect + triage | Built. One parallel.ai Task (`base`) with the fixed source list, then one Jev call. The parallel.ai monitor and polled feeds were replaced by the task. |
+| detect + triage | Built. Two parallel.ai Tasks (`base`) since 2026-09-26, events and findings about ordinary behaviour, each with its source list, then one Jev call. The parallel.ai monitor and polled feeds were replaced by the task. |
 | draft + gates | Built. Up to 3 queued events per run through `run-case.mjs`; build, then commit to `main`. |
 | re-check | Built. Marks `sourceChanged`, shown on the case page. |
 | notify | Built. Every run's summary on the Actions run page. An issue labelled `pipeline-run`, assigned to Konstantin (so it emails him), only for errors, the spend cap, a Dependabot PR open for a week, or a failed run (2026-09-26: "Actionable/ failures only"). Vercel PR comments off (`vercel.json`). |
@@ -88,7 +89,7 @@ Wait until there are 8 or more case files. Then `/cases` becomes the heat map fr
 | Licence | Done: MIT for the code (`LICENSE`); CC BY 4.0 for the site's own text and the case files, quotes excepted (`content/LICENSE.md`) |
 | Per-case reading tally | Proposed 2026-09-26: wait until the main vote passes 100 votes (7 on 2026-09-26), pending Konstantin |
 | Konstantin's own reading | None. The makers host the conversation and are not readings; the `site-owner` party type is removed |
-| What the record cannot show (raised by Konstantin 2026-09-27, open) | Rule (b) selects surprises, so a conscious system's ordinary, within-reason behaviour would leave no primary source and never appear: the record is asymmetric by construction. The contribution phase (submit a source, pick a reading) is the counterweight; a line on /why or /cases naming the selection effect is the cheap first step |
+| What the record cannot show (raised by Konstantin 2026-09-26) | Rules (a) and (b) select the unexpected: 6 of the 8 published records (2026-09-26) describe behaviour the operator did not want. Ordinary behaviour enters only when someone publishes a finding about it, which Version 2 admits (welfare assessments, self-reports). Done 2026-09-26: `/cases` and `llms.txt` name the effect; detection runs a second search for findings about what a system is, including welfare sections of system cards (`pipeline/detect.mjs`, `findingSources` in `config.json`). Its first dry run found the Claude Opus 5.5 welfare section, which the single search had missed twice. The contribution phase as designed is no counterweight: its sources attach to readings of events already admitted. A submitted source that names a new event could go to triage instead; decide that when the phase is built. Everyday behaviour nobody documented stays out under rule (a); letting it in would take a rule change, not proposed |
 
 ## Measuring value
 
