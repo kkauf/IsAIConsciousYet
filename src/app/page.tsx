@@ -31,8 +31,8 @@ export default function Home() {
           Is AI Conscious Yet?
         </h1>
         <p className="mt-8 max-w-3xl font-serif text-xl md:text-2xl leading-snug text-bone/80">
-          Nobody can answer that yet. But AI systems keep doing things that the story of a machine doing what we ask does not explain.
-          Each case file takes one such event and sets out how named people read it, in their own words.
+          Nobody can answer that yet. But AI systems keep doing things that do not fit the picture of a machine doing what it is told.
+          Each case file takes one such event and shows how named people read it, in their own words.
         </p>
       </section>
 
@@ -53,7 +53,7 @@ export default function Home() {
           {pair.length === 2 && (
             <>
               <p className="mt-14 max-w-3xl text-ash">
-                The open question it bears on
+                The question it raises
                 <span className="block mt-3 font-serif text-2xl md:text-3xl leading-tight text-bone">{rows[latest.bearsOn[0]]}</span>
               </p>
               <div className="mt-10 grid gap-10 md:grid-cols-[1fr_1px_1fr] md:gap-12">
@@ -76,7 +76,7 @@ export default function Home() {
           )}
           <p className="mt-10">
             <Link href={`/cases/${latest.slug}`} className={link}>
-              Read the case file: {latest.readings.length} readings, the first-hand sources, and what would settle it
+              Read the full case file: {latest.readings.length} readings, the first-hand sources, and what would settle the disagreement
             </Link>
           </p>
         </section>
@@ -118,11 +118,11 @@ export default function Home() {
         <h2 id="how" className="text-ash">How this works</h2>
         <div className="max-w-2xl space-y-5 font-serif text-xl leading-relaxed text-bone/85">
           <p>
-            The site takes no position. Every quote is checked word for word against the page it came from, and a case is published only
-            when the company that ran the system, or the party it affected, has described the event first-hand.
+            The site takes no position. Every quote is checked word for word against the page it came from. A case file is published only
+            when the company that ran the system, or the party it affected, has given its own account of the event.
           </p>
           <p>
-            Case files are drafted and checked by software, and published without human review. Each page says so.{" "}
+            Software drafts and checks each case file and publishes it without human review. Every page says so.{" "}
             <Link href="/why" className={link}>Why this site exists</Link>
           </p>
         </div>

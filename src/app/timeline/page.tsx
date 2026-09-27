@@ -47,8 +47,8 @@ export default function TimelinePage() {
       <h1 className="font-serif font-light text-5xl md:text-7xl leading-[1] tracking-tight">The question, over time</h1>
       <p className="mt-8 max-w-4xl font-serif text-2xl md:text-3xl leading-snug text-bone/80">{takeaway(ms, coverage.outlets.length)}</p>
       <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ash">
-        Each square is one of those articles; the band behind each year is as high as its average month. Each dot below the line is a
-        case file: an event where an AI system did something that the story of a machine doing what we ask does not explain. Amber dots
+        Each square is one article. The band behind each year shows that year’s monthly average. Each dot below the line is a case
+        file: an event where an AI system did something that does not fit the picture of a machine doing what it is told. Amber dots
         are honorable mentions.
       </p>
 
@@ -74,11 +74,11 @@ export default function TimelinePage() {
         <h2 className="text-ash">How this is counted</h2>
         <div className="max-w-2xl space-y-3 leading-relaxed">
           <p>
-            Articles come from the {coverage.outlets.length} publications listed below, searched back to {monthName(coverage.since.slice(0, 7))}.
-            A language model read each result and judged how likely it is that the article is mainly about whether AI systems are or could
-            be conscious, sentient, have feelings, or deserve moral consideration. Articles it judged at least 60% likely are listed.
-            Headlines and dates are read from the article page or its address. Nothing is scored for or against. Search finds recent
-            articles more easily than old ones, so earlier years are likely undercounted.
+            The articles come from the {coverage.outlets.length} publications listed below, searched back to {monthName(coverage.since.slice(0, 7))}.
+            A language model read each search result and judged how likely it is that the article is mainly about whether AI systems are
+            or could be conscious, sentient, able to feel, or owed moral consideration. Articles judged at least 60% likely are listed.
+            Headlines and dates come from the article page or its address. No article is scored for or against. Search finds recent
+            articles more easily than old ones, so earlier years are probably undercounted.
           </p>
           <p>
             {coverage.updatedAt && <>Searched weekly, last on {shortDate(coverage.updatedAt)}. </>}

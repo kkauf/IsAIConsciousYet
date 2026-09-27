@@ -115,7 +115,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
       {nature.length > 0 && (
         <section aria-labelledby="question" className="mt-20 md:mt-28 border-t border-rule pt-6">
           <h2 id="question" className="max-w-3xl text-ash">
-            The open question this bears on
+            The question this event raises
             <span className="block font-serif text-bone text-3xl md:text-4xl leading-tight mt-8">{question}</span>
           </h2>
           <div className={`mt-14 grid gap-12 ${faceOff ? "md:grid-cols-[1fr_1px_1fr] md:gap-12" : "md:grid-cols-2"}`}>
@@ -137,7 +137,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
             ))}
           </div>
           <p className="mt-10 text-sm text-dim max-w-3xl">
-            These readings make claims about the system itself. A model scored every reading for that, and code picked the ones above its cutoff. The site takes no position.
+            These readings say something about what the system is, not only about what it did. A language model scored each reading on that, and the ones above a fixed cutoff appear here. The site takes no position.
           </p>
         </section>
       )}
@@ -180,8 +180,8 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
             {nature.length ? "Also on the record" : `${others.length} readings of this event`}
           </h2>
           <p className="mt-6 font-serif text-xl leading-relaxed text-bone/85 max-w-2xl">
-            {nature.length ? "These readings describe what happened or judge the danger. " : ""}
-            Each quote was found word for word on the linked page.
+            {nature.length ? "These readings describe what happened or judge how dangerous it was. " : ""}
+            Each quote appears word for word on the linked page.
           </p>
           <ul className="mt-8 divide-y divide-rule border-t border-rule">
             {others.map((r) => (
