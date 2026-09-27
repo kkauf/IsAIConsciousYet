@@ -87,7 +87,7 @@ Inclusion rule: Version 2 in `AGENTS.md` rule 5, all three criteria required. A 
 
 **Research.** parallel.ai task with a structured output schema and citations: event facts, primary sources, readings (party, verbatim quote, URL, date), what would settle the disagreement. parallel.ai bills separately from Claude Code session limits.
 
-**Draft.** Model turns research into `CaseFile` JSON. Site-voice text is short: event summary ≤120 words, one agency note, one consciousness note. Templates render the page; the model never writes HTML.
+**Draft.** Model turns research into `CaseFile` JSON. Site-voice text is short: event summary ≤120 words, one agency note, one consciousness note. It is written in plain English (short sentences, everyday words, sentence-case titles); gate 4b sends long sentences and office words back to the drafter. Templates render the page; the model never writes HTML.
 
 ## Gates
 
@@ -97,6 +97,7 @@ Inclusion rule: Version 2 in `AGENTS.md` rule 5, all three criteria required. A 
 | 2 | Quote string literally present at URL after whitespace/quote-mark normalisation. Page snapshot saved to the Wayback Machine, archived URL stored. | deterministic | drop that reading |
 | 3 | Speaker check: a second model, not the drafter, names who says the string on that page. Must match `party_name`. | model | drop that reading |
 | 4 | Neutrality lint: site-voice text may not apply mental-state verbs (wanted, decided, feared, felt, tried to) to the system without attribution. Word list plus model check. | mixed | back to draft |
+| 4b | Plain-language lint: no sentence over 30 words in title, summary, unasked behaviour, agency note or what-would-settle-it; no office words (regarding, utilize, dispatch, demonstrate, subsequently, …). Added 2026-09-26, pipeline version 0.3. | deterministic | back to draft |
 | 5 | Inclusion rule re-evaluated after drops | deterministic | park |
 
 Gate 2 proves the words exist. It does not prove who said them; an article quoting Anil Seth passes gate 2 for any speaker. Gate 3 covers that. Gate 4 is the stand-in for a human reading the framing.
