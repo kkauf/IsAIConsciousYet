@@ -1,5 +1,5 @@
 {
-  "lastRun": "2026-09-26",
+  "lastRun": "2026-09-27",
   "seen": {
     "nytimes.com/2023/09/18/science/ai-computers-consciousness.html": {
       "p": 0.81,
@@ -883,7 +883,7 @@
     },
     "npr.org/transcripts/nx-s1-5713514": {
       "p": 0.89,
-      "kept": true
+      "kept": false
     },
     "npr.org/2022/12/29/1146096929/artificial-intelligence-made-big-leaps-in-2022-is-that-exciting-or-scary": {
       "p": 0.19,
@@ -935,7 +935,7 @@
     },
     "npr.org/programs/fresh-air/g-s1-110746/fresh-air-for-feb-19-2026-michael-pollan-explores-what-is-consciousness": {
       "p": 0.8,
-      "kept": true
+      "kept": false
     },
     "npr.org/2025/10/16/nx-s1-5574391/is-the-ai-boom-an-ai-bubble": {
       "p": 0.09,
@@ -3344,6 +3344,2702 @@
     },
     "nytimes.com/2026/09/21/science/ai-anthropomorphism-consciousness.html": {
       "kept": true
+    },
+    "nytimes.com/2020/04/24/well/mind/screen-life-balance-computers-phones-quarantine-shelter-social-distancing-virus.html": {
+      "p": 0.02,
+      "kept": false
+    },
+    "nytimes.com/2020/06/09/books/review-margot-affair-sanae-lemoine.html": {
+      "p": 0.01,
+      "kept": false
+    },
+    "nytimes.com/2021/01/22/books/review/individual-consciousness-lengthy-biographies-and-other-letters-to-the-editor.html": {
+      "p": 0.05,
+      "kept": false
+    },
+    "nytimes.com/athletic/2744628/2021/08/02/nfl-100-at-no-51-ladainian-tomlinson-was-the-chargers-heart-and-soul-and-a-touchdown-machine": {
+      "p": 0.01,
+      "kept": false
+    },
+    "nytimes.com/athletic/2564804/2021/09/23/twins-reliever-caleb-thielbar-no-longer-just-a-feel-good-story-has-turned-himself-into-a-strikeout-machine": {
+      "p": 0.02,
+      "kept": false
+    },
+    "nytimes.com/2021/09/16/opinion/psychology-consciousness-behavior.html": {
+      "p": 0.09,
+      "kept": false
+    },
+    "nytimes.com/2021/09/14/arts/design/global-consciousness-art.html": {
+      "p": 0.06,
+      "kept": false
+    },
+    "nytimes.com/2021/11/19/technology/can-a-machine-learn-morality.html": {
+      "p": 0.6,
+      "kept": true
+    },
+    "nytimes.com/2022/11/07/health/covid-patients-ventilators-consciousness.html": {
+      "p": 0.08,
+      "kept": false
+    },
+    "nytimes.com/2022/12/21/arts/music/steve-lacy-bad-habit-gemini-rights.html": {
+      "p": 0.07,
+      "kept": false
+    },
+    "nytimes.com/2023/05/28/opinion/artificial-intelligence-thinking-minds-concentration.html": {
+      "p": 0.25,
+      "kept": false
+    },
+    "nytimes.com/2023/05/03/technology/personaltech/ai-chatbot-pi-emotional-support.html": {
+      "p": 0.33,
+      "kept": false
+    },
+    "nytimes.com/2023/05/02/pageoneplus/quotation-of-the-day-ai-to-read-your-mind-is-up-next.html": {
+      "p": 0.22,
+      "kept": false
+    },
+    "nytimes.com/2023/06/19/special-series/chatgpt-and-morality.html": {
+      "p": 0.66,
+      "kept": true
+    },
+    "nytimes.com/2023/07/01/science/consciousness-theories.html": {
+      "p": 0.17,
+      "kept": false
+    },
+    "nytimes.com/2023/08/24/technology/how-teachers-and-students-feel-about-ai.html": {
+      "p": 0.09,
+      "kept": false
+    },
+    "nytimes.com/2023/10/11/learning/word-of-the-day-sentience.html": {
+      "p": 0.2,
+      "kept": false
+    },
+    "nytimes.com/2023/11/20/briefing/openai-sam-altman-voting-rights-act.html": {
+      "p": 0.08,
+      "kept": false
+    },
+    "nytimes.com/2024/08/14/health/brain-injuries-consciousness-awareness.html": {
+      "p": 0.04,
+      "kept": false
+    },
+    "nytimes.com/2024/11/21/well/mind/teens-ai-influencer-videos.html": {
+      "p": 0.08,
+      "kept": false
+    },
+    "nytimes.com/2025/01/11/opinion/covert-consciousness-unresponsive-brain.html": {
+      "p": 0.07,
+      "kept": false
+    },
+    "nytimes.com/2025/02/07/books/review/the-moral-circle-jeff-sebo-animals-robots-gods-webb-keane.html": {
+      "p": 0.5,
+      "kept": false
+    },
+    "nytimes.com/2025/04/30/science/two-theories-of-consciousness-faced-off-the-ref-took-a-beating.html": {
+      "p": 0.15,
+      "kept": false
+    },
+    "nytimes.com/athletic/6385762/2025/05/29/sydney-mclaughlin-levrone-inside-the-mind-of-a-serial-winner": {
+      "p": 0.03,
+      "kept": false
+    },
+    "nytimes.com/2025/07/31/well/mind/dementia-ai-companions.html": {
+      "p": 0.12,
+      "kept": false
+    },
+    "nytimes.com/2025/07/14/opinion/college-soul-ai-education.html": {
+      "p": 0.22,
+      "kept": false
+    },
+    "nytimes.com/2025/07/02/science/ai-psychology-mind.html": {
+      "p": 0.58,
+      "kept": false
+    },
+    "nytimes.com/2025/08/22/podcasts/is-this-an-ai-bubble-metas-missing-morals-tiktok-shock-slop.html": {
+      "p": 0.12,
+      "kept": false
+    },
+    "nytimes.com/2026/02/19/podcasts/the-headlines/ai-pentagon-transgender-rights.html": {
+      "p": 0.08,
+      "kept": false
+    },
+    "nytimes.com/2026/03/26/well/mind/ai-chatbots-relationships.html": {
+      "p": 0.13,
+      "kept": false
+    },
+    "nytimes.com/2026/04/20/opinion/ai-religion-morality.html": {
+      "p": 0.53,
+      "kept": false
+    },
+    "nytimes.com/2026/09/24/books/review/antonio-damasio-natural-intelligence-and-the-logic-of-consciousness.html": {
+      "p": 0.16,
+      "kept": false
+    },
+    "nytimes.com/2026/09/11/books/review/chess-garry-kasparov-deep-blue-mind-vs-machine-maurice-ashley-steve-sheinkin.html": {
+      "p": 0.11,
+      "kept": false
+    },
+    "washingtonpost.com/lifestyle/style/mavi-is-rapping-his-way-toward-the-center-of-human-consciousness/2020/01/17/4bd5c112-394f-11ea-bf30-ad313e4ec754_story.html": {
+      "p": 0.12,
+      "kept": false
+    },
+    "washingtonpost.com/local/soul-searching-and-car-shopping-whats-the-best-machine-for-our-needs/2020/01/05/8958f19a-2fcb-11ea-a053-dc6d944ba776_story.html": {
+      "p": 0.06,
+      "kept": false
+    },
+    "washingtonpost.com/national-security/compromised-encryption-machines-gave-cia-window-into-major-human-rights-abuses-in-south-america/2020/02/15/bbfa5e56-4f63-11ea-b721-9f4cdc90bc1c_story.html": {
+      "p": 0.03,
+      "kept": false
+    },
+    "washingtonpost.com/goingoutguide/music/whats-in-a-name-konshens-the-mc-talks-music-education-and-the-powerful-consciousness-that-drives-him/2020/07/17/d702c12a-c7db-11ea-8ffe-372be8d82298_story.html": {
+      "p": 0.01,
+      "kept": false
+    },
+    "washingtonpost.com/opinions/russia-hasnt-just-hacked-our-computer-systems-its-hacked-our-minds/2020/12/17/7ddd72a8-40a7-11eb-8bc0-ae155bee4aff_story.html": {
+      "p": 0.02,
+      "kept": false
+    },
+    "washingtonpost.com/opinions/2021/01/21/why-rights-machine-opposition-is-some-tough-times": {
+      "p": 0.01,
+      "kept": false
+    },
+    "washingtonpost.com/opinions/2021/02/16/rights-grift-machine-is-only-growing-stronger": {
+      "p": 0.02,
+      "kept": false
+    },
+    "washingtonpost.com/outlook/the-minds-behind-artificial-intelligence-and-the-bidding-war-for-them/2021/03/17/2df5f872-7528-11eb-8115-9ad5e9c02117_story.html": {
+      "p": 0.05,
+      "kept": false
+    },
+    "washingtonpost.com/world/europe/animal-welfare-sentient-uk-parliament/2021/07/04/44593460-d8df-11eb-8c87-ad6f27918c78_story.html": {
+      "p": 0.07,
+      "kept": false
+    },
+    "washingtonpost.com/tablet/2022/06/21/google-engineer-who-thinks-its-ai-has-come-alive": {
+      "p": 0.88,
+      "kept": false
+    },
+    "washingtonpost.com/opinions/2022/06/14/google-lamda-artificial-intelligence-sentient-wrong-question": {
+      "p": 0.94,
+      "kept": true
+    },
+    "washingtonpost.com/arts-entertainment/interactive/2022/marie-victoire-lemoine-interior-atelier-woman-painter": {
+      "p": 0.02,
+      "kept": false
+    },
+    "washingtonpost.com/technology/2022/10/07/characterai-google-lamda": {
+      "p": 0.07,
+      "kept": false
+    },
+    "washingtonpost.com/politics/2022/10/04/white-house-unveils-ai-bill-rights-call-action-rein-tool": {
+      "p": 0.07,
+      "kept": false
+    },
+    "washingtonpost.com/opinions/2023/10/15/ai-internet-freedom-human-rights": {
+      "p": 0.07,
+      "kept": false
+    },
+    "washingtonpost.com/wellness/2023/10/12/coma-cognitive-motor-dissociation-hidden-consciousness": {
+      "p": 0.02,
+      "kept": false
+    },
+    "washingtonpost.com/opinions/2023/11/07/artificial-intelligence-tools-hospital-patients-alive": {
+      "p": 0.03,
+      "kept": false
+    },
+    "washingtonpost.com/politics/2023/12/20/advocates-push-bring-civil-rights-act-into-ai-age": {
+      "p": 0.04,
+      "kept": false
+    },
+    "washingtonpost.com/world/2024/11/20/brazil-black-consciousness-awareness-day-holiday-national": {
+      "p": 0.01,
+      "kept": false
+    },
+    "washingtonpost.com/technology/2026/04/11/anthropic-christians-claude-morals": {
+      "p": 0.4,
+      "kept": false
+    },
+    "washingtonpost.com/opinions/2026/05/31/ai-fiction-is-fast-food-human-mind": {
+      "p": 0.05,
+      "kept": false
+    },
+    "washingtonpost.com/opinions/2026/07/17/people-are-turning-ai-moral-guidance-spiritual-advice": {
+      "p": 0.11,
+      "kept": false
+    },
+    "washingtonpost.com/technology/interactive/2026/09/02/27-us-adults-turn-ai-personal-emotional-social-queries": {
+      "p": 0.08,
+      "kept": false
+    },
+    "wsj.com/articles/homeland-stabs-bombs-and-machine-guns-its-stars-how-is-max-still-alive-11580748209": {
+      "p": 0.03,
+      "kept": false
+    },
+    "wsj.com/articles/covid-19-infects-the-american-consciousness-11583960376": {
+      "p": 0.04,
+      "kept": false
+    },
+    "wsj.com/world/russia/alexei-navalny-plans-to-return-to-russia-after-regaining-consciousness-11600191167": {
+      "p": 0.03,
+      "kept": false
+    },
+    "wsj.com/tech/four-woman-group-that-fought-u-k-algorithms-steps-up-for-tech-worker-rights-11621087200": {
+      "p": 0.05,
+      "kept": false
+    },
+    "wsj.com/tech/ai/could-ai-keep-people-alive-after-death-11625317200": {
+      "p": 0.27,
+      "kept": false
+    },
+    "wsj.com/us-news/education/how-to-detect-your-childs-emotional-distress-before-the-schools-ai-does-11631970002": {
+      "p": 0.06,
+      "kept": false
+    },
+    "wsj.com/business/autos/why-plug-in-hybrids-are-an-illusion-of-eco-consciousness-11630688831": {
+      "p": 0.02,
+      "kept": false
+    },
+    "wsj.com/opinion/being-human-artifical-intelligence-ai-chess-antibiotic-philosophy-ethics-bill-of-rights-11635795271": {
+      "p": 0.45,
+      "kept": false
+    },
+    "wsj.com/arts-culture/books/sentient-review-spookfish-vision-11645811920": {
+      "p": 0.12,
+      "kept": false
+    },
+    "wsj.com/arts-culture/music/steve-lacy-gemini-rights-review-kendrick-lamar-solange-vampire-weekend-the-internet-apollo-xxi-brittany-foushee-odd-future-wolf-gang-kill-them-all-tyler-the-creator-earl-sweatshirt-frank-ocean-thundercat-11657057668": {
+      "p": 0.04,
+      "kept": false
+    },
+    "wsj.com/articles/nineteen-ways-of-looking-at-consciousness-review-the-lying-brain-11666648703": {
+      "p": 0.35,
+      "kept": false
+    },
+    "wsj.com/articles/white-house-issues-blueprint-for-an-ai-bill-of-rights-11664921544": {
+      "p": 0.08,
+      "kept": false
+    },
+    "wsj.com/articles/how-do-students-feel-about-openais-chatgpt-education-openai-exams-testing-essay-learning-plagiarism-cheating-11672780587": {
+      "p": 0.08,
+      "kept": false
+    },
+    "wsj.com/articles/chatgpt-heralds-an-intellectual-revolution-enlightenment-artificial-intelligence-homo-technicus-technology-cognition-morality-philosophy-774331c6": {
+      "p": 0.24,
+      "kept": false
+    },
+    "wsj.com/articles/is-there-anything-chatgpt-kant-do-openai-artificial-intelligence-automation-morality-immanuel-kant-philosophy-91f306ca": {
+      "p": 0.31,
+      "kept": false
+    },
+    "wsj.com/articles/science-fiction-fantasy-book-review-machine-minds-meet-the-multiverse-6f04568": {
+      "p": 0.18,
+      "kept": false
+    },
+    "wsj.com/articles/chatbot-customer-service-emotion-7be68a42": {
+      "p": 0.65,
+      "kept": false
+    },
+    "wsj.com/articles/lay-off-chatbots-they-have-artificial-feelings-too-2ba079b2": {
+      "p": 0.84,
+      "kept": false
+    },
+    "wsj.com/opinion/gun-contorl-rights-violence-machine-tommy-gun-bd970179": {
+      "p": 0.03,
+      "kept": false
+    },
+    "wsj.com/science/mind-reading-computer-ai-brain-research-a643705f": {
+      "p": 0.13,
+      "kept": false
+    },
+    "wsj.com/tech/ai/amd-keeps-the-ai-dream-alive-enough-36f95a84": {
+      "p": 0.05,
+      "kept": false
+    },
+    "wsj.com/articles/cios-feel-heat-from-ceos-on-generative-ai-60fe0175": {
+      "p": 0.05,
+      "kept": false
+    },
+    "wsj.com/opinion/computers-will-soon-read-your-mind-eeg-als-parkinson-brainwaves-560e5951": {
+      "p": 0.11,
+      "kept": false
+    },
+    "wsj.com/opinion/science-soul-near-death-experience-consciousness-415b2043": {
+      "p": 0.16,
+      "kept": false
+    },
+    "wsj.com/tech/ai/think-ai-can-perceive-emotion-think-again-2b4c7d29": {
+      "p": 0.67,
+      "kept": true
+    },
+    "wsj.com/lifestyle/relationships/ai-ethics-morals-dead-people-grief-f8e3c7f7": {
+      "p": 0.54,
+      "kept": false
+    },
+    "wsj.com/articles/sap-share-surge-shows-companies-cloud-strategies-are-alive-and-well-in-ai-boom-7ffff935": {
+      "p": 0.06,
+      "kept": false
+    },
+    "wsj.com/opinion/why-we-should-thank-friedrich-hayek-for-ai-mind-sensory-order-8595dfb7": {
+      "p": 0.31,
+      "kept": false
+    },
+    "wsj.com/opinion/how-humanitarian-aid-feeds-war-machines-support-hunger-suffering-44a85d94": {
+      "p": 0.02,
+      "kept": false
+    },
+    "wsj.com/tech/ai/i-feel-like-im-going-crazy-chatgpt-fuels-delusional-spirals-ae5a51fc": {
+      "p": 0.08,
+      "kept": false
+    },
+    "wsj.com/tech/ai/these-strange-new-minds-and-the-scaling-era-analyzing-ais-future-3734b989": {
+      "p": 0.24,
+      "kept": false
+    },
+    "wsj.com/tech/ai/afraid-to-try-ai-these-tech-savvy-seniors-will-change-your-mind-2e3c5441": {
+      "p": 0.04,
+      "kept": false
+    },
+    "wsj.com/tech/ai/our-tech-columnists-annual-predictions-folding-iphones-mind-reading-tech-ev-supercars-d4e6541b": {
+      "p": 0.07,
+      "kept": false
+    },
+    "wsj.com/finance/banking/bank-stocks-suffer-another-plunge-on-credit-and-ai-fears-3f3d1876": {
+      "p": 0.03,
+      "kept": false
+    },
+    "wsj.com/tech/ai/meet-anthropics-ai-morality-teacher-b8010921": {
+      "p": 0.31,
+      "kept": false
+    },
+    "wsj.com/opinion/ai-doesnt-have-to-rot-your-mind-4516add0": {
+      "p": 0.1,
+      "kept": false
+    },
+    "wsj.com/tech/ai/publicis-sapient-ceo-sees-demand-for-consultant-ai-projects-picking-up-808e967e": {
+      "p": 0.06,
+      "kept": false
+    },
+    "wsj.com/arts-culture/books/a-world-appears-review-the-mystery-of-consciousness-e907580d": {
+      "p": 0.3,
+      "kept": false
+    },
+    "wsj.com/opinion/how-does-generation-z-feel-about-ai-e443f2ba": {
+      "p": 0.1,
+      "kept": false
+    },
+    "wsj.com/tech/ai/mind-blowing-growth-is-about-to-propel-anthropic-into-its-first-profitable-quarter-7edbf2f4": {
+      "p": 0.05,
+      "kept": false
+    },
+    "wsj.com/real-estate/commercial/the-ai-office-boom-feels-like-2000-all-over-again-41455a1e": {
+      "p": 0.03,
+      "kept": false
+    },
+    "wsj.com/opinion/ai-needs-old-school-minds-54f9e931": {
+      "p": 0.09,
+      "kept": false
+    },
+    "wsj.com/opinion/we-need-a-science-of-the-ai-mind-5b1047e4": {
+      "p": 0.59,
+      "kept": false
+    },
+    "wsj.com/tech/ai/anthropics-moral-conflict-is-playing-out-in-real-time-c503e0c1": {
+      "p": 0.3,
+      "kept": false
+    },
+    "reuters.com/article/lifestyle/the-wiggles-singer-page-suffers-cardiac-arrest-at-sydney-bushfire-relief-concert-iduskbn1zg2l2": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/lifestyle/the-wiggles-singer-page-suffers-cardiac-arrest-at-sydney-bushfire-relief-concert-iduskbn1zg2l5": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/lifestyle/the-wiggles-singer-page-suffers-cardiac-arrest-at-sydney-bushfire-relief-concert-iduskbn1zg2l6": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/lifestyle/the-wiggles-singer-page-suffers-cardiac-arrest-at-sydney-bushfire-relief-concert-iduskbn1zh060": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/lifestyle/the-wiggles-singer-page-suffers-cardiac-arrest-at-sydney-bushfire-relief-concert-iduskbn1zg2l3": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/lifestyle/the-wiggles-singer-page-suffers-cardiac-arrest-at-sydney-bushfire-relief-concert-iduskbn1zh05z": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/lifestyle/the-wiggles-singer-page-suffers-cardiac-arrest-at-sydney-bushfire-relief-concert-idusl4n29n02k": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/world/japan-s-former-emperor-akihito-recovers-from-brief-loss-of-consciousness-iduskbn1zt0bf": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/world/japan-s-former-emperor-akihito-recovers-from-brief-loss-of-consciousness-iduskbn1zt0bj": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/world/japan-s-former-emperor-akihito-recovers-from-brief-loss-of-consciousness-iduskbn1zt0bk": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/world/japan-s-former-emperor-akihito-recovers-from-brief-loss-of-consciousness-iduskbn1zt0bi": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/world/japan-s-former-emperor-akihito-recovers-from-brief-loss-of-consciousness-iduskbn1zt0bg": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/world/japan-s-former-emperor-akihito-recovers-from-brief-loss-of-consciousness-idusl4n29z1hf": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/world/japanese-libraries-hope-uv-machine-gives-visitors-peace-of-mind-iduskbn28j1bv": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/world/japanese-libraries-hope-uv-machine-gives-visitors-peace-of-mind-iduskbn28j17g": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/world/japanese-libraries-hope-uv-machine-gives-visitors-peace-of-mind-iduskbn28j1bw": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/world/japanese-libraries-hope-uv-machine-gives-visitors-peace-of-mind-iduskbn28j17j": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/world/japanese-libraries-hope-uv-machine-gives-visitors-peace-of-mind-iduskbn28j16g": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/world/japanese-libraries-hope-uv-machine-gives-visitors-peace-of-mind-idusl1n2ip0m3": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/world/japanese-libraries-hope-uv-machine-gives-visitors-peace-of-mind-iduskbn28j16e": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/business/eu-rights-watchdog-warns-of-pitfalls-in-use-of-ai-iduskbn28o0d8": {
+      "p": 0.03,
+      "kept": false
+    },
+    "reuters.com/article/technology/eu-rights-watchdog-warns-of-pitfalls-in-use-of-ai-iduskbn28o0db": {
+      "p": 0.03,
+      "kept": false
+    },
+    "reuters.com/article/technology/eu-rights-watchdog-warns-of-pitfalls-in-use-of-ai-iduskbn28o0d9": {
+      "p": 0.03,
+      "kept": false
+    },
+    "reuters.com/article/technology/eu-rights-watchdog-warns-of-pitfalls-in-use-of-ai-iduskbn28o0da": {
+      "p": 0.03,
+      "kept": false
+    },
+    "reuters.com/article/technology/eu-rights-watchdog-warns-of-pitfalls-in-use-of-ai-idusl1n2it0k9": {
+      "p": 0.03,
+      "kept": false
+    },
+    "reuters.com/article/world/cricket-india-players-allegedly-suffer-racial-abuse-from-crowd-in-sydney-test-re-iduskbn29e0iq": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/world/cricket-india-players-allegedly-suffer-racial-abuse-from-crowd-in-sydney-test-re-idusl4n2jk06q": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/world/cricket-india-players-allegedly-suffer-racial-abuse-from-crowd-in-sydney-test-re-iduskbn29e0ir": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/sports/horrible-feeling-paine-rues-missed-catches-in-sydney-draw-iduskbn29g0qq": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/sports/horrible-feeling-paine-rues-missed-catches-in-sydney-draw-iduskbn29g0qx": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/sports/horrible-feeling-paine-rues-missed-catches-in-sydney-draw-idusl4n2jm1lo": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/sports/horrible-feeling-paine-rues-missed-catches-in-sydney-draw-iduskbn29g0r0": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/world/us-politics/u-s-commission-cites-moral-imperative-to-explore-ai-weapons-iduskbn29v2m0": {
+      "p": 0.04,
+      "kept": false
+    },
+    "reuters.com/article/world/us-politics/u-s-commission-cites-moral-imperative-to-explore-ai-weapons-idusl1n2k12hn": {
+      "p": 0.04,
+      "kept": false
+    },
+    "reuters.com/article/world/us-politics/u-s-commission-cites-moral-imperative-to-explore-ai-weapons-iduskbn29v2lz": {
+      "p": 0.03,
+      "kept": false
+    },
+    "reuters.com/article/markets/greek-developer-lamda-lands-strong-interest-to-build-athens-towers-official-idusl5n2kz2uy": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/business/spanish-unions-to-get-access-to-app-algorithms-to-monitor-workers-rights-idusl8n2l94dl": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/world/eu-seeks-global-standards-for-ai-civil-rights-groups-fret-iduskbn2c81e2": {
+      "p": 0.03,
+      "kept": false
+    },
+    "reuters.com/article/business/eu-seeks-global-standards-for-ai-civil-rights-groups-fret-iduskbn2c81dz": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/business/eu-seeks-global-standards-for-ai-civil-rights-groups-fret-iduskbn2c81e3": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/business/eu-seeks-global-standards-for-ai-civil-rights-groups-fret-iduskbn2c81e0": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/business/eu-seeks-global-standards-for-ai-civil-rights-groups-fret-idusl8n2me3a0": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/markets/greece-s-lamda-eyes-autumn-start-for-airport-site-redevelopment-idusl8n2mz5tc": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/business/lamda-to-pay-first-tranche-for-former-athens-airport-project-next-week-iduskcn2ds1s6": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/business/lamda-to-pay-first-tranche-for-former-athens-airport-project-next-week-idusl5n2ny4en": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/business/lamda-to-pay-first-tranche-for-former-athens-airport-project-next-week-iduskcn2ds1s5": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/business/lamda-to-pay-first-tranche-for-former-athens-airport-project-next-week-idusnikcn2ds1s6": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/business/greece-s-lamda-acquires-rights-over-former-athens-airport-site-idusl5n2o72b8": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/technology/money-mimicry-and-mind-control-big-tech-slams-ethics-brakes-on-ai-idusnikbn2g40wl": {
+      "p": 0.09,
+      "kept": false
+    },
+    "reuters.com/article/technology/money-mimicry-and-mind-control-big-tech-slams-ethics-brakes-on-ai-iduskbn2g40wl": {
+      "p": 0.09,
+      "kept": false
+    },
+    "reuters.com/article/technology/money-mimicry-and-mind-control-big-tech-slams-ethics-brakes-on-ai-idusl1n2op0ef": {
+      "p": 0.09,
+      "kept": false
+    },
+    "reuters.com/article/technology/money-mimicry-and-mind-control-big-tech-slams-ethics-brakes-on-ai-iduskbn2g40wk": {
+      "p": 0.09,
+      "kept": false
+    },
+    "reuters.com/article/technology/feature-ai-bots-to-user-data-is-there-space-for-rights-in-the-metaverse-idusl8n2s34jz": {
+      "p": 0.28,
+      "kept": false
+    },
+    "reuters.com/article/sports/raducanu-suffers-crushing-defeat-by-rybakina-in-sydney-opener-iduskbn2jl0cy": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/sports/raducanu-suffers-crushing-defeat-by-rybakina-in-sydney-opener-idusl1n2tr0ps": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/sports/raducanu-suffers-crushing-defeat-by-rybakina-in-sydney-opener-iduskbn2jl0cx": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/world/europe/lamda-secures-partner-for-landmark-tower-in-former-athens-airport-revamp-idusl8n2ub1ja": {
+      "p": 0.01,
+      "kept": false
+    },
+    "reuters.com/article/world/europe/lamda-secures-partner-for-landmark-tower-in-former-athens-airport-revamp-iduskbn2k50iy": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/world/europe/lamda-secures-partner-for-landmark-tower-in-former-athens-airport-revamp-iduskbn2k50iz": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/world/europe/lamda-secures-partner-for-landmark-tower-in-former-athens-airport-revamp-idusnikbn2k50iz": {
+      "p": 0.03,
+      "kept": false
+    },
+    "reuters.com/article/sports/pieters-regains-consciousness-four-months-after-training-crash-iduskcn2mk1zq": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/sports/pieters-regains-consciousness-four-months-after-training-crash-idusl2n2wq2j2": {
+      "p": 0.03,
+      "kept": false
+    },
+    "reuters.com/article/sports/pieters-regains-consciousness-four-months-after-training-crash-iduskcn2mk1zp": {
+      "p": 0.03,
+      "kept": false
+    },
+    "reuters.com/article/business/media-telecom/zoom-urged-by-rights-groups-to-rule-out-creepy-ai-emotion-tech-idusl5n2x21uw": {
+      "p": 0.19,
+      "kept": false
+    },
+    "reuters.com/article/technology/it-s-alive-how-belief-in-ai-sentience-is-becoming-a-problem-iduskbn2ob0sl": {
+      "p": 0.94,
+      "kept": false
+    },
+    "reuters.com/article/technology/it-s-alive-how-belief-in-ai-sentience-is-becoming-a-problem-iduskbn2ob0sk": {
+      "p": 0.93,
+      "kept": false
+    },
+    "reuters.com/article/technology/it-s-alive-how-belief-in-ai-sentience-is-becoming-a-problem-idusl1n2y10e8": {
+      "p": 0.94,
+      "kept": false
+    },
+    "reuters.com/article/technology/it-s-alive-how-belief-in-ai-sentience-is-becoming-a-problem-idusnikbn2ob0sl": {
+      "p": 0.93,
+      "kept": false
+    },
+    "reuters.com/article/technology/google-fires-software-engineer-who-claimed-its-ai-chatbot-is-sentient-iduskbn2oy012": {
+      "p": 0.51,
+      "kept": false
+    },
+    "reuters.com/article/technology/google-fires-software-engineer-who-claimed-its-ai-chatbot-is-sentient-idusnikbn2oy012": {
+      "p": 0.58,
+      "kept": false
+    },
+    "reuters.com/article/technology/google-fires-software-engineer-who-claimed-its-ai-chatbot-is-sentient-idusl4n2z401k": {
+      "p": 0.72,
+      "kept": false
+    },
+    "reuters.com/article/technology/google-fires-software-engineer-who-claimed-its-ai-chatbot-is-sentient-iduskbn2oy011": {
+      "p": 0.62,
+      "kept": false
+    },
+    "reuters.com/article/business/australia-home-prices-slide-sydney-suffers-worse-month-in-40-years-iduskbn2p60i0": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/business/australia-home-prices-slide-sydney-suffers-worse-month-in-40-years-idusl4n2zc0jf": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/business/australia-home-prices-slide-sydney-suffers-worse-month-in-40-years-idusnikbn2p60i1": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/business/australia-home-prices-slide-sydney-suffers-worse-month-in-40-years-iduskbn2p60i1": {
+      "p": 0.04,
+      "kept": false
+    },
+    "reuters.com/article/lifestyle/science/although-not-alive-i-can-still-create-art-robot-ai-da-tells-uk-lawmakers-iduskbn2r61v1": {
+      "p": 0.36,
+      "kept": false
+    },
+    "reuters.com/article/lifestyle/science/although-not-alive-i-can-still-create-art-robot-ai-da-tells-uk-lawmakers-iduskbn2r61v0": {
+      "p": 0.38,
+      "kept": false
+    },
+    "reuters.com/article/lifestyle/science/although-not-alive-i-can-still-create-art-robot-ai-da-tells-uk-lawmakers-idusl1n31c0qx": {
+      "p": 0.39,
+      "kept": false
+    },
+    "reuters.com/article/world/eu-rights-watchdog-warns-of-bias-in-ai-based-detection-of-crime-hate-speech-idusl8n32y2q5": {
+      "p": 0.06,
+      "kept": false
+    },
+    "reuters.com/article/world/holocaust-survivors-use-ai-imagery-to-keep-stories-alive-iduskbn2u50u7": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/world/holocaust-survivors-use-ai-imagery-to-keep-stories-alive-iduskbn2u50u6": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/world/holocaust-survivors-use-ai-imagery-to-keep-stories-alive-idusl8n34a21b": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/technology/us-ftc-leaders-will-target-ai-that-violates-civil-rights-or-is-deceptive-iduskbn2wf1hu": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/technology/us-ftc-leaders-will-target-ai-that-violates-civil-rights-or-is-deceptive-idusnikbn2wf1hu": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/technology/us-ftc-leaders-will-target-ai-that-violates-civil-rights-or-is-deceptive-idusl1n36l1yo": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/technology/us-ftc-leaders-will-target-ai-that-violates-civil-rights-or-is-deceptive-iduskbn2wf1ht": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/business/u-s-policing-ai-at-companies-to-make-sure-it-doesn-t-violate-civil-rights-iduskbn2wm1mq": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/business/u-s-policing-ai-at-companies-to-make-sure-it-doesn-t-violate-civil-rights-iduskbn2wm1mr": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/business/u-s-policing-ai-at-companies-to-make-sure-it-doesn-t-violate-civil-rights-idusl1n36s228": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/business/u-s-policing-ai-at-companies-to-make-sure-it-doesn-t-violate-civil-rights-idusnikbn2wm1mr": {
+      "p": 0.04,
+      "kept": false
+    },
+    "reuters.com/article/technology/alphabet-backed-anthropic-outlines-the-moral-values-behind-its-ai-bot-iduskbn2x01c8": {
+      "p": 0.11,
+      "kept": false
+    },
+    "reuters.com/article/technology/alphabet-backed-anthropic-outlines-the-moral-values-behind-its-ai-bot-iduskbn2x01c7": {
+      "p": 0.17,
+      "kept": false
+    },
+    "reuters.com/article/technology/alphabet-backed-anthropic-outlines-the-moral-values-behind-its-ai-bot-idusl1n3752tc": {
+      "p": 0.15,
+      "kept": false
+    },
+    "reuters.com/article/business/media-telecom/feature-my-perfect-girlfriend-are-ai-partners-a-threat-to-women-s-rights-idusl8n38p498": {
+      "p": 0.08,
+      "kept": false
+    },
+    "reuters.com/article/sports/cricket/six-hitting-machine-rohit-brings-playstation-like-feel-to-batting-idusl4n3bl04o": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/world/india/six-hitting-machine-rohit-brings-playstation-like-feel-to-batting-iduskbn31f046": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/article/world/india/six-hitting-machine-rohit-brings-playstation-like-feel-to-batting-iduskbn31f047": {
+      "p": 0.03,
+      "kept": false
+    },
+    "reuters.com/article/business/media-telecom/universal-music-bandlab-team-up-to-protect-artist-rights-amid-rising-ai-use-idusl4n3bo2ru": {
+      "p": 0.04,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2022-05-11/zoom-s-new-ai-tool-spurs-criticism-from-privacy-rights-groups": {
+      "p": 0.07,
+      "kept": false
+    },
+    "bloomberg.com/opinion/articles/2022-06-14/even-if-an-ai-robot-isn-t-sentient-you-can-still-marry-it": {
+      "p": 0.46,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2022-06-17/can-ai-gain-sentience-maybe-but-probably-not-yet-quicktake": {
+      "p": 0.95,
+      "kept": true
+    },
+    "bloomberg.com/news/articles/2022-06-14/google-has-more-pressing-ai-problems-than-sentient-bots": {
+      "p": 0.27,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2022-07-23/google-fires-software-engineer-who-says-he-talked-to-sentient-ai": {
+      "p": 0.67,
+      "kept": true
+    },
+    "bloomberg.com/news/articles/2022-09-28/tesla-ai-day-offers-glimpse-of-just-how-sentient-its-bots-have-become": {
+      "p": 0.82,
+      "kept": true
+    },
+    "bloomberg.com/news/articles/2022-12-02/chatgpt-openai-s-new-essay-writing-chatbot-is-blowing-people-s-minds": {
+      "p": 0.1,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2023-02-22/microsoft-s-bing-ai-chatbot-ends-conversation-when-prompted-about-feelings": {
+      "p": 0.61,
+      "kept": true
+    },
+    "bloomberg.com/news/articles/2023-03-02/emotional-ai-can-artificial-intelligence-accurately-detect-human-feelings": {
+      "p": 0.23,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2023-04-21/alphabet-s-search-dominance-feels-heat-from-chatgpt-tech-watch": {
+      "p": 0.04,
+      "kept": false
+    },
+    "bloomberg.com/opinion/articles/2023-04-26/openai-s-chatgpt-google-bard-are-better-for-emotional-support-than-search": {
+      "p": 0.17,
+      "kept": false
+    },
+    "bloomberg.com/opinion/articles/2023-05-05/ai-can-read-our-minds-as-well-as-steal-our-jobs-lhap9x59": {
+      "p": 0.17,
+      "kept": false
+    },
+    "bloomberg.com/opinion/articles/2023-05-05/ai-is-helping-us-read-minds-but-should-we": {
+      "p": 0.18,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2023-06-01/broadcom-suffers-sales-slowdown-even-as-it-points-to-ai-gains": {
+      "p": 0.03,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2023-07-12/white-house-to-host-civil-rights-leaders-at-meeting-on-ai": {
+      "p": 0.05,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2023-10-17/ai-startup-mind-foundry-helps-insurers-spot-cognitive-decline-in-older-drivers": {
+      "p": 0.04,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2023-11-20/uk-says-ai-hit-squad-could-speed-up-asylum-welfare-processing": {
+      "p": 0.04,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2023-11-29/video-sam-altman-s-firing-rehiring-and-the-battle-over-openai-s-soul": {
+      "p": 0.04,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2023-11-20/the-coding-savant-thrust-into-the-battle-to-save-ai-s-soul": {
+      "p": 0.07,
+      "kept": false
+    },
+    "bloomberg.com/opinion/articles/2023-12-11/europe-s-ai-act-chatgpt-fomo-is-alive-and-well-in-paris-and-berlin": {
+      "p": 0.03,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2023-12-20/transcript-does-musk-s-ai-chatbot-have-the-woke-mind-virus": {
+      "p": 0.07,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2023-12-18/google-funds-artificial-intelligence-center-at-civil-rights-group": {
+      "p": 0.03,
+      "kept": false
+    },
+    "bloomberg.com/en/news/thp/2024-04-02/miranda-lambert-billie-eilish-nicki-minaj-submit-letter-to-ai-developers-to-honor-artists-rights": {
+      "p": 0.03,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2024-06-05/chatgpt-openai-sam-altman-and-the-most-silicon-valley-man-alive": {
+      "p": 0.05,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2024-07-02/peter-thiel-s-fund-invests-in-ai-crypto-startup-sentient-labs": {
+      "p": 0.07,
+      "kept": false
+    },
+    "bloomberg.com/opinion/articles/2024-08-01/europe-s-new-ai-rules-have-us-tech-in-mind-they-might-miss": {
+      "p": 0.03,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2024-10-30/microsoft-meta-to-feel-ai-scrutiny-as-investors-wait-for-payoff": {
+      "p": 0.03,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2024-12-09/google-unveils-new-quantum-computer-with-mind-boggling-speed": {
+      "p": 0.04,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2025-03-12/alibaba-releases-emotional-intelligence-model-to-rival-chatgpt": {
+      "p": 0.26,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2025-04-07/google-ai-search-shift-leaves-website-makers-feeling-betrayed": {
+      "p": 0.02,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2025-08-07/musk-s-grok-4-takes-on-altman-s-openai-for-chess-bragging-rights": {
+      "p": 0.03,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2025-09-24/meituan-backed-ai-robotics-firm-mech-mind-is-said-to-plan-hk-ipo": {
+      "p": 0.02,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2025-09-03/rba-staff-feeling-the-weight-of-ai-tech-shift-governor-says": {
+      "p": 0.03,
+      "kept": false
+    },
+    "bloomberg.com/news/features/2025-11-13/big-tech-s-climate-strategists-feel-strain-from-escalating-ai-power-demands": {
+      "p": 0.03,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2026-01-12/nvidia-and-mercedes-ai-team-up-makes-other-cars-feel-dumb": {
+      "p": 0.03,
+      "kept": false
+    },
+    "bloomberg.com/opinion/articles/2026-02-05/why-do-we-feel-empathy-for-robots": {
+      "p": 0.41,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2026-02-27/in-michael-pollan-s-a-world-appears-consciousness-is-the-final-frontier": {
+      "p": 0.8,
+      "kept": true
+    },
+    "bloomberg.com/news/articles/2026-03-18/ai-crypto-suffer-surprise-defeats-in-illinois-primary-fights": {
+      "p": 0.05,
+      "kept": false
+    },
+    "bloomberg.com/news/features/2026-03-06/will-ai-disruption-force-xi-jinping-to-turn-china-into-a-welfare-state": {
+      "p": 0.05,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2026-04-03/why-ai-is-making-people-feel-like-they-re-falling-behind": {
+      "p": 0.05,
+      "kept": false
+    },
+    "bloomberg.com/opinion/articles/2026-05-19/ai-job-cuts-even-top-bankers-must-listen-to-their-inner-human": {
+      "p": 0.05,
+      "kept": false
+    },
+    "bloomberg.com/news/features/2026-06-16/openai-s-executive-coach-says-emotional-clarity-will-matter-most-in-ai": {
+      "p": 0.13,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2026-06-17/estonia-to-grant-ai-bots-legal-rights-with-personal-id-numbers": {
+      "p": 0.12,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2026-06-11/ai-wave-sparks-alarm-in-china-with-call-to-protect-worker-rights": {
+      "p": 0.04,
+      "kept": false
+    },
+    "bloomberg.com/opinion/articles/2026-07-31/ai-will-make-our-politics-even-more-emotional": {
+      "p": 0.07,
+      "kept": false
+    },
+    "bloomberg.com/opinion/articles/2026-07-02/we-re-one-step-closer-to-understanding-consciousness": {
+      "p": 0.68,
+      "kept": true
+    },
+    "bloomberg.com/news/articles/2026-07-30/deepseek-is-developing-massive-ai-data-center-in-inner-mongolia": {
+      "p": 0.04,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2026-09-11/tech-s-nouveau-riche-suffer-sudden-wealth-syndrome-as-ai-pay-explodes": {
+      "p": 0.03,
+      "kept": false
+    },
+    "cnn.com/2021/02/16/tech/emotion-recognition-ai-education-spc-intl-hnk": {
+      "p": 0.24,
+      "kept": false
+    },
+    "cnn.com/2021/09/01/world/rana-el-kaliouby-affectiva-emotion-ai-hnk-spc-intl": {
+      "p": 0.58,
+      "kept": false
+    },
+    "cnn.com/2021/11/22/europe/uk-sentient-beings-crabs-octopus-and-lobsters-scn": {
+      "p": 0.07,
+      "kept": false
+    },
+    "cnn.com/2022/10/04/tech/ai-bill-of-rights": {
+      "p": 0.08,
+      "kept": false
+    },
+    "cnn.com/2023/05/23/tech/chatgpt-mind-reading": {
+      "p": 0.16,
+      "kept": false
+    },
+    "cnn.com/world/pheelz-on-ai-why-music-needs-a-soul-spc": {
+      "p": 0.34,
+      "kept": false
+    },
+    "cnn.com/2026/07/13/americas/argentina-goldfish-sentient-latam-intl": {
+      "p": 0.03,
+      "kept": false
+    },
+    "foxnews.com/politics/presidential-flip-gop-insider-predicts-trump-change-mind-key-ai-policy-ahead-midterms": {
+      "p": 0.03,
+      "kept": false
+    },
+    "foxnews.com/opinion/machines-keep-america-alive-failing-forgot-how-replace-them": {
+      "p": 0.02,
+      "kept": false
+    },
+    "foxnews.com/sports/ex-nhl-star-ron-duguay-hospitalized-losing-consciousness-stage-4-cancer-battle": {
+      "p": 0.01,
+      "kept": false
+    },
+    "foxnews.com/opinion/william-bennett-jon-hage-ai-mimic-teacher-cannot-shepherd-soul": {
+      "p": 0.19,
+      "kept": false
+    },
+    "foxnews.com/tech/bionic-hands-teaching-robots-feel": {
+      "p": 0.15,
+      "kept": false
+    },
+    "foxnews.com/opinion/bishop-robert-barron-pope-leo-sees-ai-age-clearly-warns-must-save-souls": {
+      "p": 0.17,
+      "kept": false
+    },
+    "foxnews.com/opinion/pope-leo-xivs-ai-warning-speaks-directly-hollywoods-moral-crisis": {
+      "p": 0.12,
+      "kept": false
+    },
+    "foxnews.com/opinion/william-bennett-californias-welfare-state-fraud-machine-could-make-americans-victims": {
+      "p": 0.02,
+      "kept": false
+    },
+    "foxnews.com/politics/inside-chinas-ai-wolf-pack-drones-built-taiwan-conflict-mind": {
+      "p": 0.05,
+      "kept": false
+    },
+    "foxnews.com/us/mississippi-middle-schoolers-stop-runaway-bus-driver-loses-consciousness-asthma-attack": {
+      "p": 0.02,
+      "kept": false
+    },
+    "foxnews.com/politics/anthropics-moral-compass-architect-suggested-ai-overcorrection-could-address-historical-injustices": {
+      "p": 0.09,
+      "kept": false
+    },
+    "foxnews.com/outkick-culture/slot-machines-become-mobile-sentient-proving-end-times-near": {
+      "p": 0.12,
+      "kept": false
+    },
+    "foxnews.com/entertainment/oprah-winfrey-kim-kardashian-how-bing-crosby-inspired-canadian-tuxedo-stars-keep-trend-alive": {
+      "p": 0.01,
+      "kept": false
+    },
+    "foxnews.com/tech/ai-companions-reshaping-teen-emotional-bonds": {
+      "p": 0.08,
+      "kept": false
+    },
+    "foxnews.com/tech/ai-robot-brings-emotional-care-pets": {
+      "p": 0.1,
+      "kept": false
+    },
+    "foxnews.com/tech/robots-feel-pain-react-faster-than-humans": {
+      "p": 0.25,
+      "kept": false
+    },
+    "foxnews.com/media/james-cameron-says-fundamental-issue-putting-guardrails-ai-humans-cant-agree-morals": {
+      "p": 0.08,
+      "kept": false
+    },
+    "foxnews.com/tech/chatgpts-gpt-5-2-here-feels-rushed": {
+      "p": 0.04,
+      "kept": false
+    },
+    "foxnews.com/media/rep-pressley-pushes-ai-civil-rights-act-aimed-especially-protect-black-brown-marginalized-people": {
+      "p": 0.03,
+      "kept": false
+    },
+    "foxnews.com/politics/fox-news-poll-how-do-voters-feel-about-ai-its-complicated": {
+      "p": 0.03,
+      "kept": false
+    },
+    "foxnews.com/entertainment/sydney-sweeney-feels-like-caged-animal-hollywood-finds-freedom-flaunting-her-curves": {
+      "p": 0.02,
+      "kept": false
+    },
+    "foxnews.com/entertainment/sydney-sweeney-confesses-she-wasnt-prepared-emotional-toll-fame-amid-political-controversies": {
+      "p": 0.02,
+      "kept": false
+    },
+    "foxnews.com/opinion/let-liberals-lose-minds-over-sydney-sweeney-while-i-go-jeans-shopping": {
+      "p": 0.01,
+      "kept": false
+    },
+    "foxnews.com/opinion/ai-can-simulate-teacher-cant-shepherd-soul": {
+      "p": 0.32,
+      "kept": false
+    },
+    "foxnews.com/tech/ai-humanoid-robot-learns-mimic-human-emotions-behavior": {
+      "p": 0.11,
+      "kept": false
+    },
+    "foxnews.com/entertainment/harrison-ford-shuts-down-ai-fears-dismisses-technologys-power-steal-my-soul": {
+      "p": 0.17,
+      "kept": false
+    },
+    "foxnews.com/world/man-india-regains-consciousness-before-cremation-funeral-pyre": {
+      "p": 0.02,
+      "kept": false
+    },
+    "foxnews.com/sports/byu-cheerleading-coach-lost-consciousness-after-being-struck-head-water-bottle-utah-fan-arrested": {
+      "p": 0.01,
+      "kept": false
+    },
+    "foxnews.com/entertainment/beetlejuice-director-tim-burton-says-hes-disturbed-ai-scary-feeling": {
+      "p": 0.12,
+      "kept": false
+    },
+    "foxnews.com/tech/robots-get-feel-human-touch-no-artificial-skin-required": {
+      "p": 0.05,
+      "kept": false
+    },
+    "foxnews.com/entertainment/sydney-sweeney-stays-grounded-humbled-non-famous-inner-circle": {
+      "p": 0.01,
+      "kept": false
+    },
+    "foxnews.com/tech/googles-ai-power-play-apple-feeling-heat": {
+      "p": 0.04,
+      "kept": false
+    },
+    "foxnews.com/lifestyle/new-ai-lab-christian-university-aims-bring-morality-ethics-artificial-intelligence": {
+      "p": 0.18,
+      "kept": false
+    },
+    "foxnews.com/entertainment/dennis-quaid-says-ai-cant-replace-human-emotion-thats-what-actors-bring": {
+      "p": 0.21,
+      "kept": false
+    },
+    "foxnews.com/entertainment/katy-perry-miranda-lambert-among-200-names-letter-asking-ai-developers-respect-artists-rights": {
+      "p": 0.03,
+      "kept": false
+    },
+    "foxnews.com/tech/keep-these-tips-mind-avoid-duped-ai-generated-deepfakes": {
+      "p": 0.02,
+      "kept": false
+    },
+    "foxnews.com/tech/meet-humanoid-robot-learns-from-natural-language-mimics-human-emotions": {
+      "p": 0.09,
+      "kept": false
+    },
+    "foxnews.com/tech/this-mind-reading-tech-using-ai-can-convert-brain-activity-into-text": {
+      "p": 0.05,
+      "kept": false
+    },
+    "foxnews.com/entertainment/the-dukes-of-hazzard-star-john-schneider-says-ai-cannot-simulate-heart-and-soul": {
+      "p": 0.66,
+      "kept": true
+    },
+    "foxnews.com/sports/ai-driven-platform-play-anywhere-launches-game-changing-partnership-to-reimagine-interactive-tv-sports-rights": {
+      "p": 0.02,
+      "kept": false
+    },
+    "foxnews.com/tech/dating-app-uses-ai-find-soul-mate-face": {
+      "p": 0.03,
+      "kept": false
+    },
+    "foxnews.com/us/researchers-shed-light-how-read-control-ai-systems-minds": {
+      "p": 0.07,
+      "kept": false
+    },
+    "foxnews.com/us/feel-good-measure-google-require-visible-disclosure-political-ads-using-ai-images-audio": {
+      "p": 0.04,
+      "kept": false
+    },
+    "foxnews.com/opinion/ai-makes-gains-owns-your-thoughts-your-soul": {
+      "p": 0.18,
+      "kept": false
+    },
+    "foxnews.com/politics/minority-groups-sound-alarm-ai-urge-feds-protect-equity-civil-rights": {
+      "p": 0.06,
+      "kept": false
+    },
+    "foxnews.com/lifestyle/ai-jesus-talks-dating-relationships-morals-even-offers-video-gaming-tips": {
+      "p": 0.17,
+      "kept": false
+    },
+    "foxnews.com/tech/ai-jobs-with-mind-blowing-paychecks-375k-year": {
+      "p": 0.02,
+      "kept": false
+    },
+    "foxnews.com/tech/teslas-optimus-robot-fuses-self-driving-tech-mind-blowing-humanlike-capabilities": {
+      "p": 0.06,
+      "kept": false
+    },
+    "foxnews.com/politics/biden-equity-civil-rights-top-priority-development-responsible-ai": {
+      "p": 0.04,
+      "kept": false
+    },
+    "foxnews.com/opinion/ai-went-washington-heres-what-you-need-know-about-mind-blowing-technology": {
+      "p": 0.07,
+      "kept": false
+    },
+    "foxnews.com/politics/anti-terminator-ai-not-a-creature-working-toward-self-awareness-openai-ceo-altman-says": {
+      "p": 0.89,
+      "kept": true
+    },
+    "foxnews.com/tech/resurfaced-nikola-tesla-writings-about-machines-with-their-own-mind-eerily-predict-rise-of-ai": {
+      "p": 0.31,
+      "kept": false
+    },
+    "foxnews.com/tech/how-tech-titans-feel-ai-thoughts-elon-musk-bill-gates-mark-zuckerberg": {
+      "p": 0.13,
+      "kept": false
+    },
+    "foxnews.com/science/ai-brain-activity-decoder-can-reveal-stories-peoples-minds-researchers-say": {
+      "p": 0.06,
+      "kept": false
+    },
+    "foxnews.com/media/bill-maher-elon-musk-discuss-woke-mind-virus-twitter-takeover-ai-during-real-time-interview": {
+      "p": 0.11,
+      "kept": false
+    },
+    "foxnews.com/media/experts-warn-ai-creators-should-study-human-consciousness-in-open-letter": {
+      "p": 0.82,
+      "kept": true
+    },
+    "foxnews.com/tech/us-federal-trade-commission-leaders-plan-pursue-companies-misuse-ai-violate-civil-rights": {
+      "p": 0.04,
+      "kept": false
+    },
+    "foxnews.com/tech/schools-museums-turn-ai-detect-guns-tech-suffers-notable-fails": {
+      "p": 0.03,
+      "kept": false
+    },
+    "foxnews.com/media/ai-generated-joe-rogan-podcast-social-media-terrifying-accuracy-mind-blowingly-dangerous": {
+      "p": 0.03,
+      "kept": false
+    },
+    "foxnews.com/tech/ai-chatbot-chatgpt-influence-human-moral-judgments": {
+      "p": 0.04,
+      "kept": false
+    },
+    "foxnews.com/media/bill-maher-roasts-woke-presentism-magic-moral-time-machine-you-always-win": {
+      "p": 0.01,
+      "kept": false
+    },
+    "foxnews.com/media/minnesota-teachers-could-face-racial-consciousness-standard-in-new-teaching-license-requirements": {
+      "p": 0.01,
+      "kept": false
+    },
+    "foxnews.com/politics/sotomayor-compares-fetus-brain-dead-person-fetal-movement-consciousness": {
+      "p": 0.02,
+      "kept": false
+    },
+    "foxnews.com/media/nurse-lost-consciousness-at-uncontrollable-astroworld-festival": {
+      "p": 0.01,
+      "kept": false
+    },
+    "foxnews.com/sports/red-wings-jared-mcisaac-loses-consciousness": {
+      "p": 0.02,
+      "kept": false
+    },
+    "foxnews.com/entertainment/megan-fox-machine-gun-kelly-soul-mate": {
+      "p": 0.01,
+      "kept": false
+    },
+    "foxnews.com/food-drink/bing-drinking-during-pandemic-increases-during-lockdown-more-women-suffering": {
+      "p": 0.01,
+      "kept": false
+    },
+    "foxnews.com/media/judge-jeanine-susan-rice-email-consciousness-guilt": {
+      "p": 0.02,
+      "kept": false
+    },
+    "npr.org/2021/09/16/1037902314/the-u-n-warns-that-ai-can-pose-a-threat-to-human-rights": {
+      "p": 0.04,
+      "kept": false
+    },
+    "npr.org/2022/01/25/1075489024/will-baseball-feel-the-same-if-the-umpire-calling-balls-and-strikes-is-a-robot": {
+      "p": 0.03,
+      "kept": false
+    },
+    "npr.org/2022/12/02/1139414451/midwest-modern-twitter-unclear-and-present-danger-recipes-mom-gemini-rights": {
+      "p": 0.04,
+      "kept": false
+    },
+    "npr.org/2023/06/14/1182074511/civil-rights-advocates-say-laws-need-to-catch-up-with-ai-technology": {
+      "p": 0.04,
+      "kept": false
+    },
+    "npr.org/2023/05/22/1177543378/the-labor-fight-against-ai-military-spouses-often-feel-overwhelmed-and-alone": {
+      "p": 0.04,
+      "kept": false
+    },
+    "npr.org/2024/06/14/nx-s1-5006107/bump-stock-ban-gun-rights-machine-guns": {
+      "p": 0.02,
+      "kept": false
+    },
+    "npr.org/2024/10/02/1202966840/the-wild-robot-is-grand-and-gorgeous-with-big-feelings": {
+      "p": 0.06,
+      "kept": false
+    },
+    "npr.org/2025/06/27/g-s1-74597/the-artist-turning-heads-and-changing-minds-with-her-200k-robot-dog": {
+      "p": 0.07,
+      "kept": false
+    },
+    "npr.org/2025/05/30/nx-s1-5418039/taylor-swift-masters-rights-big-machine": {
+      "p": 0.02,
+      "kept": false
+    },
+    "npr.org/2025/03/17/1239050333/brain-severance-apple-tv-neuroscience-consciousness": {
+      "p": 0.13,
+      "kept": false
+    },
+    "npr.org/2025/11/19/nx-s1-5607093/inner-monologue-speech-consciousness-brain": {
+      "p": 0.06,
+      "kept": false
+    },
+    "npr.org/2025/09/15/nx-s1-5537297/ai-can-keep-you-alive-forever-should-it": {
+      "p": 0.1,
+      "kept": false
+    },
+    "npr.org/2025/08/21/nx-s1-5510084/artificial-intelligence-and-emotional-intimacy": {
+      "p": 0.14,
+      "kept": false
+    },
+    "npr.org/2025/07/11/g-s1177-76551/its-only-a-matter-of-time-before-your-mind-merges-with-ai-says-ray-kurzweil": {
+      "p": 0.11,
+      "kept": false
+    },
+    "npr.org/2026/05/11/nx-s1-5798754/several-states-considering-ban-on-legal-personhood-for-ai": {
+      "p": 0.12,
+      "kept": false
+    },
+    "npr.org/2026/04/13/nx-s1-5780867/you-might-be-suffering-from-ai-brain-fry": {
+      "p": 0.04,
+      "kept": false
+    },
+    "npr.org/2026/03/26/nx-s1-5761282/writer-tracy-kidder-found-riveting-emotion-in-stories-about-computers-and-houses": {
+      "p": 0.03,
+      "kept": false
+    },
+    "npr.org/2026/02/21/nx-s1-5720940/best-of-the-life-and-legacy-of-fela-kuti-michael-pollan-on-consciousness": {
+      "p": 0.25,
+      "kept": false
+    },
+    "npr.org/2026/09/20/nx-s1-5969770/cineplexity-the-ai-apocalypse-feels-closer-than-ever-hollywood-saw-it-coming": {
+      "p": 0.09,
+      "kept": false
+    },
+    "newyorker.com/magazine/2022/03/28/the-shaming-industrial-complex-cathy-oneil-the-shame-machine-owen-flanagan-how-to-do-things-with-emotions": {
+      "p": 0.03,
+      "kept": false
+    },
+    "newyorker.com/culture/photo-booth/for-elias-williams-the-hip-hop-beat-machine-carries-the-soul-of-community": {
+      "p": 0.04,
+      "kept": false
+    },
+    "newyorker.com/magazine/2026/06/01/a-vindication-of-the-rights-of-llms": {
+      "p": 0.52,
+      "kept": false
+    },
+    "newyorker.com/news/as-told-to/can-ai-keep-a-parent-alive": {
+      "p": 0.16,
+      "kept": false
+    },
+    "time.com/7304269/save-openai-nonprofit-soul": {
+      "p": 0.09,
+      "kept": false
+    },
+    "time.com/7332888/we-need-ai-morals": {
+      "p": 0.4,
+      "kept": false
+    },
+    "time.com/collections/davos-2026/7339221/ai-justice-gap-womens-rights-legal": {
+      "p": 0.08,
+      "kept": false
+    },
+    "time.com/7379564/ai-emotional-intelligence-support-bots": {
+      "p": 0.28,
+      "kept": false
+    },
+    "vox.com/recode/2020/7/22/21334051/facebook-news-feed-instagram-algorithm-racial-bias-civil-rights-audit": {
+      "p": 0.04,
+      "kept": false
+    },
+    "vox.com/22442624/google-mum-lamda-ai-search-artificial-intelligence": {
+      "p": 0.16,
+      "kept": false
+    },
+    "vox.com/22528451/pig-farm-animal-welfare-happiness-artificial-intelligence-facial-recognition": {
+      "p": 0.09,
+      "kept": false
+    },
+    "vox.com/future-perfect/2022/6/21/23173019/happy-elephant-bronx-zoo-new-york-lamda-artificial-intelligence-ai-google": {
+      "p": 0.22,
+      "kept": false
+    },
+    "vox.com/future-perfect/23292501/bees-insects-animals-pain-sentience-consciousness-cognition": {
+      "p": 0.06,
+      "kept": false
+    },
+    "vox.com/future-perfect/23387228/ai-bill-of-rights-white-house-artificial-intelligence-bias": {
+      "p": 0.07,
+      "kept": false
+    },
+    "vox.com/future-perfect/23591527/consciousness-census-perceptual-diversity-anil-seth-neurodiversity": {
+      "p": 0.12,
+      "kept": false
+    },
+    "vox.com/future-perfect/2023/5/7/23708169/ask-ai-chatgpt-ethical-advice-moral-enhancement": {
+      "p": 0.16,
+      "kept": false
+    },
+    "vox.com/future-perfect/2023/5/4/23708162/neurotechnology-mind-reading-brain-neuralink-brain-computer-interface": {
+      "p": 0.08,
+      "kept": false
+    },
+    "vox.com/future-perfect/2023/6/30/23778870/consciousness-brain-mind-hard-problem-neuroscience-koch-chalmers": {
+      "p": 0.12,
+      "kept": false
+    },
+    "vox.com/the-highlight/23777171/ai-animals-rights-cruelty-transhumanism-bostrom": {
+      "p": 0.19,
+      "kept": false
+    },
+    "vox.com/23950804/future-perfect-50-list-2023-ai-animal-rights-poverty-health-climate": {
+      "p": 0.03,
+      "kept": false
+    },
+    "vox.com/future-perfect/24125481/consciousness-mental-health-language-science-ineffable-math": {
+      "p": 0.07,
+      "kept": false
+    },
+    "vox.com/future-perfect/367188/love-addicted-ai-voice-human-gpt4-emotion": {
+      "p": 0.11,
+      "kept": false
+    },
+    "vox.com/future-perfect/386449/2024-future-perfect-50-progress-ai-climate-animal-welfare-innovation": {
+      "p": 0.04,
+      "kept": false
+    },
+    "vox.com/technology/381158/should-you-feel-guilty-about-using-ai": {
+      "p": 0.05,
+      "kept": false
+    },
+    "vox.com/the-highlight/379914/dmt-psychedelics-drug-neuroscience-consciousness-ayahuasca": {
+      "p": 0.03,
+      "kept": false
+    },
+    "vox.com/future-perfect/392634/how-meditation-works-new-science-consciousness": {
+      "p": 0.03,
+      "kept": false
+    },
+    "vox.com/artificial-intelligence/408786/ai-art-studio-ghibli-moral-injury-copyright": {
+      "p": 0.05,
+      "kept": false
+    },
+    "vox.com/future-perfect/469054/fish-pain-debate-sentience-consciousness": {
+      "p": 0.05,
+      "kept": false
+    },
+    "vox.com/future-perfect/471083/octopus-farming-bans-sentience": {
+      "p": 0.05,
+      "kept": false
+    },
+    "wired.com/story/ai-coming-most-mind-numbing-office-tasks": {
+      "p": 0.04,
+      "kept": false
+    },
+    "wired.com/story/mit-cuts-ties-chinese-ai-firm-human-rights": {
+      "p": 0.03,
+      "kept": false
+    },
+    "wired.com/story/proxemo-robot-guesses-emotion-from-walking": {
+      "p": 0.13,
+      "kept": false
+    },
+    "wired.com/story/roomba-robot-consciousness-enlightenment": {
+      "p": 0.89,
+      "kept": true
+    },
+    "wired.com/story/how-choreography-can-help-robots-come-alive": {
+      "p": 0.2,
+      "kept": false
+    },
+    "wired.com/story/this-fingertip-for-robots-uses-magnets-to-feel-things": {
+      "p": 0.04,
+      "kept": false
+    },
+    "wired.com/story/if-you-transplant-human-head-does-consciousness-follow": {
+      "p": 0.08,
+      "kept": false
+    },
+    "wired.com/story/opinion-bill-of-rights-artificial-intelligence": {
+      "p": 0.05,
+      "kept": false
+    },
+    "wired.com/story/the-long-search-for-a-computer-that-speaks-your-mind": {
+      "p": 0.08,
+      "kept": false
+    },
+    "wired.com/story/when-mind-melds-machine-whos-in-control-brain-computer-interface": {
+      "p": 0.15,
+      "kept": false
+    },
+    "wired.com/story/plaintext-lamda-soul-machine-learning-system": {
+      "p": 0.51,
+      "kept": false
+    },
+    "wired.com/story/duality-black-gaming-double-consciousness": {
+      "p": 0.02,
+      "kept": false
+    },
+    "wired.com/story/bidens-ai-bill-of-rights-is-toothless-against-big-tech": {
+      "p": 0.04,
+      "kept": false
+    },
+    "wired.com/story/insect-farming-sentience": {
+      "p": 0.06,
+      "kept": false
+    },
+    "wired.com/story/algorithms-welfare-state-politics": {
+      "p": 0.02,
+      "kept": false
+    },
+    "wired.com/story/welfare-algorithms-discrimination": {
+      "p": 0.03,
+      "kept": false
+    },
+    "wired.com/story/welfare-state-algorithms": {
+      "p": 0.04,
+      "kept": false
+    },
+    "wired.com/story/waluigi-effect-generative-artificial-intelligence-morality": {
+      "p": 0.67,
+      "kept": true
+    },
+    "wired.com/story/fast-forward-chatgpt-rivals-emotions": {
+      "p": 0.2,
+      "kept": false
+    },
+    "wired.com/story/artificial-intelligence-minds-science-fiction": {
+      "p": 0.59,
+      "kept": false
+    },
+    "wired.com/story/give-every-ai-a-soul-or-else": {
+      "p": 0.9,
+      "kept": true
+    },
+    "wired.com/story/the-inventor-behind-a-rush-of-ai-copyright-suits-is-trying-to-show-his-bot-is-sentient": {
+      "p": 0.72,
+      "kept": true
+    },
+    "wired.com/story/ai-thought-decoder-mind-philosophy": {
+      "p": 0.15,
+      "kept": false
+    },
+    "wired.com/story/ai-civil-rights-narratives-robots": {
+      "p": 0.4,
+      "kept": false
+    },
+    "wired.com/story/this-contest-put-theories-of-consciousness-to-the-test-heres-what-it-really-proved": {
+      "p": 0.73,
+      "kept": true
+    },
+    "wired.com/story/amazon-ai-cameras-emotions-uk-train-passengers": {
+      "p": 0.11,
+      "kept": false
+    },
+    "wired.com/story/openai-voice-mode-emotional-attachment": {
+      "p": 0.1,
+      "kept": false
+    },
+    "wired.com/story/hume-ai-emotional-intelligence": {
+      "p": 0.29,
+      "kept": false
+    },
+    "wired.com/story/algorithms-policed-welfare-systems-for-years-now-theyre-under-fire-for-bias": {
+      "p": 0.02,
+      "kept": false
+    },
+    "wired.com/story/ai-lab-amazon-launches-vulcan-a-robot-that-can-feel": {
+      "p": 0.05,
+      "kept": false
+    },
+    "wired.com/story/ai-emotional-spellcheck-difficult-people": {
+      "p": 0.06,
+      "kept": false
+    },
+    "wired.com/story/chatbots-play-with-emotions-to-avoid-saying-goodbye": {
+      "p": 0.09,
+      "kept": false
+    },
+    "wired.com/story/grammarly-is-offering-expert-ai-reviews-from-your-favorite-authors-dead-or-alive": {
+      "p": 0.03,
+      "kept": false
+    },
+    "wired.com/story/uncanny-valley-podcast-musk-v-altman-doj-guts-voting-rights-unit-is-ai-job-apocalypse-overhyped": {
+      "p": 0.05,
+      "kept": false
+    },
+    "wired.com/story/a-new-experiential-gallery-just-might-change-your-mind-about-ai-art": {
+      "p": 0.06,
+      "kept": false
+    },
+    "wired.com/story/a-new-trick-reveals-ai-models-inner-thoughts": {
+      "p": 0.18,
+      "kept": false
+    },
+    "theverge.com/2021/4/6/22369698/ai-emotion-recognition-unscientific-emojify-web-browser-game": {
+      "p": 0.08,
+      "kept": false
+    },
+    "theverge.com/2021/5/26/22454513/google-future-of-search-conversation-ai-mum-lamda": {
+      "p": 0.06,
+      "kept": false
+    },
+    "theverge.com/2021/5/18/22442328/google-io-2021-ai-language-model-lamda-pluto": {
+      "p": 0.06,
+      "kept": false
+    },
+    "theverge.com/2021/7/8/22567483/uk-bill-sentient-animals-feelings": {
+      "p": 0.07,
+      "kept": false
+    },
+    "theverge.com/2021/10/27/22746679/soul-machines-metaverse-digital-humans-labor": {
+      "p": 0.05,
+      "kept": false
+    },
+    "theverge.com/2021/10/20/22734215/ai-ask-delphi-moral-ethical-judgement-demo": {
+      "p": 0.12,
+      "kept": false
+    },
+    "theverge.com/2021/10/2/22675512/amazon-astro-robot-emotion-pets-anki-vector": {
+      "p": 0.12,
+      "kept": false
+    },
+    "theverge.com/2022/6/21/23177016/microsoft-retires-emotion-recognition-azure-ai-tool-api": {
+      "p": 0.13,
+      "kept": false
+    },
+    "theverge.com/2022/8/25/23321718/google-ai-chatbot-lamda-2-test-kitchen-experimental-waitlist": {
+      "p": 0.05,
+      "kept": false
+    },
+    "theverge.com/2022/11/2/23435258/google-ai-writing-wordcraft-lamda": {
+      "p": 0.03,
+      "kept": false
+    },
+    "theverge.com/2023/2/7/23589784/google-search-ai-event-bard-lamda-watch-live-stream-start-time": {
+      "p": 0.04,
+      "kept": false
+    },
+    "theverge.com/2023/7/13/23794224/sag-aftra-actors-strike-ai-image-rights": {
+      "p": 0.05,
+      "kept": false
+    },
+    "theverge.com/2023/12/19/24008149/stability-ai-paid-subscription-commercial-rights-safety": {
+      "p": 0.04,
+      "kept": false
+    },
+    "theverge.com/2024/1/16/24040826/how-one-artist-feels-about-her-work-being-scraped-for-ai": {
+      "p": 0.04,
+      "kept": false
+    },
+    "theverge.com/2024/4/3/24119785/ai-george-carlin-lawsuit-settled-artist-rights-alliance-protections": {
+      "p": 0.03,
+      "kept": false
+    },
+    "theverge.com/2024/6/10/24175631/elon-musks-response-to-the-apple-openai-partnership-feels-overblown": {
+      "p": 0.02,
+      "kept": false
+    },
+    "theverge.com/2024/7/9/24195082/a16z-trying-to-keep-ai-alive-with-oxygen-intiative": {
+      "p": 0.02,
+      "kept": false
+    },
+    "theverge.com/news/619063/uk-newspapers-covers-protest-government-ai-rights-proposal": {
+      "p": 0.03,
+      "kept": false
+    },
+    "theverge.com/news/674506/oneplus-13s-ai-plus-mind-key-button-india-availability": {
+      "p": 0.02,
+      "kept": false
+    },
+    "theverge.com/news/666268/tiktok-ai-alive-prompt-photo-image-video": {
+      "p": 0.03,
+      "kept": false
+    },
+    "theverge.com/news/665560/google-search-ai-mode-feeling-lucky-tests": {
+      "p": 0.04,
+      "kept": false
+    },
+    "theverge.com/news/800754/oneplus-oxygenos-16-gemini-mind-space": {
+      "p": 0.05,
+      "kept": false
+    },
+    "theverge.com/news/862439/a-conscious-decision-from-openai": {
+      "p": 0.09,
+      "kept": false
+    },
+    "theverge.com/ai-artificial-intelligence/919395/the-abstraction-fallacy-why-ai-can-simulate-but-not-instantiate-consciousness": {
+      "p": 0.97,
+      "kept": true
+    },
+    "theverge.com/ai-artificial-intelligence/930960/i-feel-like-im-going-to-miss-you-all-savitt-tells-the-jury": {
+      "p": 0.08,
+      "kept": false
+    },
+    "theverge.com/ai-artificial-intelligence/929804/fairly-stupid-choice-by-musks-lawyers-to-go-after-microsofts-major-decision-rights": {
+      "p": 0.05,
+      "kept": false
+    },
+    "theverge.com/ai-artificial-intelligence/925884/it-feels-so-gross-to-see-videos-of-yourself-thats-not-even-you": {
+      "p": 0.02,
+      "kept": false
+    },
+    "theverge.com/ai-artificial-intelligence/986765/openclaw-2-0-launches-as-peter-steinberger-says-local-harnesses-feel-like-relics-of-the-past-now": {
+      "p": 0.02,
+      "kept": false
+    },
+    "technologyreview.com/1999/11/01/236520/computer-animation-comes-alive": {
+      "p": 0.03,
+      "kept": false
+    },
+    "technologyreview.com/1997/04/01/41627/melding-mind-and-machine": {
+      "p": 0.19,
+      "kept": false
+    },
+    "technologyreview.com/2020/01/14/130907/a-machine-can-now-keep-livers-alive-outside-the-body-for-a-week": {
+      "p": 0.02,
+      "kept": false
+    },
+    "technologyreview.com/1998/01/01/275849/thinking-about-emotional-machines": {
+      "p": 0.67,
+      "kept": false
+    },
+    "technologyreview.com/2020/02/14/844765/ai-emotion-recognition-affective-computing-hirevue-regulation-ethics": {
+      "p": 0.09,
+      "kept": false
+    },
+    "technologyreview.com/2020/06/25/1004466/ai-could-help-human-rights-activists-prove-war-crimes": {
+      "p": 0.03,
+      "kept": false
+    },
+    "technologyreview.com/2020/10/14/1010474/ai-reads-human-emotions-should-it": {
+      "p": 0.11,
+      "kept": false
+    },
+    "technologyreview.com/2021/04/21/1023254/ftc-eu-ai-regulation-bias-algorithms-civil-rights": {
+      "p": 0.03,
+      "kept": false
+    },
+    "technologyreview.com/2021/07/21/1029860/disability-rights-employment-discrimination-ai-hiring": {
+      "p": 0.04,
+      "kept": false
+    },
+    "technologyreview.com/2021/08/25/1031776/the-hunt-for-hidden-signs-of-consciousness-in-unreachable-patients": {
+      "p": 0.05,
+      "kept": false
+    },
+    "technologyreview.com/2022/10/04/1060600/white-house-ai-bill-of-rights": {
+      "p": 0.03,
+      "kept": false
+    },
+    "technologyreview.com/2022/12/13/1064810/how-it-feels-to-be-sexually-objectified-by-an-ai": {
+      "p": 0.16,
+      "kept": false
+    },
+    "technologyreview.com/2023/08/14/1077788/ai-decoding-human-emotions-target-for-regulators": {
+      "p": 0.08,
+      "kept": false
+    },
+    "technologyreview.com/2023/09/06/1079026/chinese-ai-chatbots-emotional-support": {
+      "p": 0.12,
+      "kept": false
+    },
+    "technologyreview.com/2024/06/28/1094417/how-ai-video-games-can-help-reveal-the-mysteries-of-the-human-mind": {
+      "p": 0.08,
+      "kept": false
+    },
+    "technologyreview.com/2024/11/14/1106871/google-deepmind-has-a-new-way-to-look-inside-an-ais-mind": {
+      "p": 0.13,
+      "kept": false
+    },
+    "technologyreview.com/2025/03/21/1113635/openai-has-released-its-first-research-into-how-using-chatgpt-affects-peoples-emotional-wellbeing": {
+      "p": 0.08,
+      "kept": false
+    },
+    "technologyreview.com/2025/03/27/1113916/anthropic-can-now-track-the-bizarre-inner-workings-of-a-large-language-model": {
+      "p": 0.21,
+      "kept": false
+    },
+    "technologyreview.com/2025/06/11/1118233/amsterdam-fair-welfare-ai-discriminatory-algorithms-failure": {
+      "p": 0.03,
+      "kept": false
+    },
+    "technologyreview.com/2025/07/08/1119777/scientists-use-ai-unlock-human-mind": {
+      "p": 0.1,
+      "kept": false
+    },
+    "technologyreview.com/2025/07/30/1120275/roundtables-why-its-so-hard-to-make-welfare-ai-fair": {
+      "p": 0.05,
+      "kept": false
+    },
+    "technologyreview.com/2025/12/15/1129171/the-ai-doomers-feel-undeterred": {
+      "p": 0.09,
+      "kept": false
+    },
+    "technologyreview.com/2026/03/23/1134491/the-bay-areas-animal-welfare-movement-wants-to-recruit-ai": {
+      "p": 0.58,
+      "kept": false
+    },
+    "scientificamerican.com/article/how-psilocybin-alters-consciousness-to-create-a-sense-of-oneness": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/article/how-working-memory-could-give-rise-to-consciousness": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/podcast/episode/how-smartphones-and-ai-are-reshaping-our-bodies-and-minds": {
+      "p": 0.04,
+      "kept": false
+    },
+    "scientificamerican.com/article/are-the-roots-of-consciousness-in-the-ancient-deep-brain": {
+      "p": 0.04,
+      "kept": false
+    },
+    "scientificamerican.com/article/can-plants-have-consciousness-the-film-silent-friend-reimagines-the-science": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/article/many-people-dont-see-mental-images-the-reason-offers-clues-to-consciousness": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/article/how-ai-helps-this-civil-rights-lawyer-beat-the-feds": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/podcast/episode/decoding-dnas-dark-matter-with-ai-keeping-a-man-alive-without-lungs-and": {
+      "p": 0.04,
+      "kept": false
+    },
+    "scientificamerican.com/podcast/episode/can-science-really-explain-consciousness": {
+      "p": 0.07,
+      "kept": false
+    },
+    "scientificamerican.com/article/science-crossword-consciousness-carriers": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/article/your-guide-to-29-wildly-different-theories-of-consciousness": {
+      "p": 0.06,
+      "kept": false
+    },
+    "scientificamerican.com/article/can-ai-music-ever-feel-human-the-answer-goes-beyond-the-sound": {
+      "p": 0.27,
+      "kept": false
+    },
+    "scientificamerican.com/article/where-does-consciousness-come-from-two-neuroscience-theories-go-head-to-head": {
+      "p": 0.04,
+      "kept": false
+    },
+    "scientificamerican.com/article/brain-structure-that-filters-consciousness-identified": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/article/the-secret-to-understanding-animal-consciousness-may-be-joy": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/article/please-dont-take-moral-advice-from-chatgpt": {
+      "p": 0.07,
+      "kept": false
+    },
+    "scientificamerican.com/article/consciousness-might-hide-in-our-brains-electric-fields": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/article/experiments-prepare-to-test-whether-consciousness-arises-from-quantum": {
+      "p": 0.04,
+      "kept": false
+    },
+    "scientificamerican.com/podcast/episode/altering-consciousness-with-advanced-meditation": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/article/the-mystery-of-consciousness-is-deeper-than-we-thought": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/article/advanced-meditation-alters-consciousness-and-our-basic-sense-of-self": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/podcast/episode/do-plants-think-our-understanding-of-consciousness-may-be-too-limited-to": {
+      "p": 0.08,
+      "kept": false
+    },
+    "scientificamerican.com/article/scarlett-johanssons-openai-dispute-raises-questions-about-persona-rights": {
+      "p": 0.04,
+      "kept": false
+    },
+    "scientificamerican.com/article/do-insects-have-an-inner-life-animal-consciousness-needs-a-rethink": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/article/an-epitaph-for-daniel-dennett-philosopher-of-consciousness": {
+      "p": 0.04,
+      "kept": false
+    },
+    "scientificamerican.com/article/a-sexbot-gains-sentience-in-an-eerie-new-novel": {
+      "p": 0.69,
+      "kept": true
+    },
+    "scientificamerican.com/article/consciousness-is-a-continuum-and-scientists-are-starting-to-measure-it": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/article/understanding-consciousness-is-key-to-unlocking-secrets-of-the-universe": {
+      "p": 0.04,
+      "kept": false
+    },
+    "scientificamerican.com/article/prominent-consciousness-theory-is-slammed-as-bogus-science": {
+      "p": 0.05,
+      "kept": false
+    },
+    "scientificamerican.com/article/the-supreme-courts-affirmative-action-decision-is-the-latest-effort-to-erase-racism-from-cultural-consciousness": {
+      "p": 0.01,
+      "kept": false
+    },
+    "scientificamerican.com/article/new-robot-hand-works-by-feel-not-sight": {
+      "p": 0.04,
+      "kept": false
+    },
+    "scientificamerican.com/article/electronic-skin-lets-humans-feel-what-robots-do-mdash-and-vice-versa": {
+      "p": 0.06,
+      "kept": false
+    },
+    "scientificamerican.com/article/what-god-quantum-mechanics-and-consciousness-have-in-common": {
+      "p": 0.06,
+      "kept": false
+    },
+    "scientificamerican.com/video/decoding-the-puzzle-of-human-consciousness": {
+      "p": 0.06,
+      "kept": false
+    },
+    "scientificamerican.com/blog/beautiful-minds/on-consciousness-science-and-subjectivity-a-q-a-with-bernard-baars": {
+      "p": 0.04,
+      "kept": false
+    },
+    "scientificamerican.com/article/machine-that-keeps-livers-alive-for-a-week-can-repair-damaged-organs": {
+      "p": 0.01,
+      "kept": false
+    },
+    "scientificamerican.com/article/constant-shifts-between-mental-states-mark-a-signature-of-consciousness": {
+      "p": 0.04,
+      "kept": false
+    },
+    "scientificamerican.com/blog/observations/how-to-make-the-study-of-consciousness-scientifically-tractable": {
+      "p": 0.05,
+      "kept": false
+    },
+    "scientificamerican.com/article/does-consciousness-pervade-the-universe": {
+      "p": 0.05,
+      "kept": false
+    },
+    "scientificamerican.com/blog/observations/why-we-need-to-study-consciousness": {
+      "p": 0.05,
+      "kept": false
+    },
+    "scientificamerican.com/blog/observations/wheres-my-consciousness-ometer": {
+      "p": 0.18,
+      "kept": false
+    },
+    "scientificamerican.com/blog/cross-check/the-dawn-of-self-consciousness": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/article/a-robot-hand-helps-amputees-feel-again": {
+      "p": 0.09,
+      "kept": false
+    },
+    "scientificamerican.com/article/emotional-ai-might-sound-good-but-it-could-have-some-troubling-consequences": {
+      "p": 0.49,
+      "kept": false
+    },
+    "scientificamerican.com/article/cosmos-quantum-and-consciousness-is-science-doomed-to-leave-some-questions-unanswered": {
+      "p": 0.13,
+      "kept": false
+    },
+    "scientificamerican.com/article/the-brains-autopilot-mechanism-steers-consciousness": {
+      "p": 0.05,
+      "kept": false
+    },
+    "scientificamerican.com/article/computers-determine-states-of-consciousness": {
+      "p": 0.05,
+      "kept": false
+    },
+    "scientificamerican.com/blog/observations/what-psychedelic-research-can-and-cannot-tell-us-about-consciousness": {
+      "p": 0.04,
+      "kept": false
+    },
+    "scientificamerican.com/blog/observations/unlocking-the-mystery-of-consciousness": {
+      "p": 0.06,
+      "kept": false
+    },
+    "scientificamerican.com/article/how-to-make-a-robot-use-theory-of-mind": {
+      "p": 0.12,
+      "kept": false
+    },
+    "scientificamerican.com/blog/observations/spacetime-emergence-panpsychism-and-the-nature-of-consciousness": {
+      "p": 0.05,
+      "kept": false
+    },
+    "scientificamerican.com/article/will-science-ever-solve-the-mysteries-of-consciousness-free-will-and-god": {
+      "p": 0.05,
+      "kept": false
+    },
+    "scientificamerican.com/article/what-is-consciousness": {
+      "p": 0.05,
+      "kept": false
+    },
+    "scientificamerican.com/article/the-science-of-altering-consciousness": {
+      "p": 0.04,
+      "kept": false
+    },
+    "scientificamerican.com/blog/cross-check/a-super-simple-non-quantum-theory-of-eternal-consciousness": {
+      "p": 0.05,
+      "kept": false
+    },
+    "scientificamerican.com/blog/observations/sentient-robots-conscious-spoons-and-other-cheerful-follies": {
+      "p": 0.31,
+      "kept": false
+    },
+    "scientificamerican.com/article/could-intelligent-machines-of-the-future-own-the-rights-to-their-own-creations": {
+      "p": 0.07,
+      "kept": false
+    },
+    "scientificamerican.com/article/how-to-make-a-consciousness-meter": {
+      "p": 0.08,
+      "kept": false
+    },
+    "scientificamerican.com/article/da-vincis-genius-oliver-sacks-on-consciousness-and-other-new-science-books": {
+      "p": 0.05,
+      "kept": false
+    },
+    "scientificamerican.com/blog/observations/consciousness-goes-deeper-than-you-think": {
+      "p": 0.08,
+      "kept": false
+    },
+    "scientificamerican.com/blog/life-unbounded/chasing-consciousness-and-the-information-revolution": {
+      "p": 0.14,
+      "kept": false
+    },
+    "scientificamerican.com/article/melding-mind-and-machine-how-close-are-we": {
+      "p": 0.08,
+      "kept": false
+    },
+    "scientificamerican.com/article/mind-reading-computers-that-can-translate-thoughts-into-words": {
+      "p": 0.05,
+      "kept": false
+    },
+    "scientificamerican.com/blog/cross-check/is-consciousness-real": {
+      "p": 0.06,
+      "kept": false
+    },
+    "scientificamerican.com/article/the-footprints-of-consciousness": {
+      "p": 0.05,
+      "kept": false
+    },
+    "scientificamerican.com/blog/life-unbounded/fresh-ideas-for-chasing-consciousness": {
+      "p": 0.1,
+      "kept": false
+    },
+    "scientificamerican.com/article/robot-exoskeletons-march-in-to-link-mind-and-body": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/blog/cross-check/world-s-smartest-physicist-thinks-science-can-t-crack-consciousness": {
+      "p": 0.09,
+      "kept": false
+    },
+    "scientificamerican.com/article/machines-that-talk-to-us-may-soon-sense-our-feelings-too": {
+      "p": 0.33,
+      "kept": false
+    },
+    "scientificamerican.com/blog/cross-check/dispatch-from-the-desert-of-consciousness-research-part-4": {
+      "p": 0.11,
+      "kept": false
+    },
+    "scientificamerican.com/blog/cross-check/dispatch-from-the-desert-of-consciousness-research-part-3": {
+      "p": 0.09,
+      "kept": false
+    },
+    "scientificamerican.com/blog/cross-check/dispatch-from-the-desert-of-consciousness-research-part-2": {
+      "p": 0.1,
+      "kept": false
+    },
+    "scientificamerican.com/blog/cross-check/dispatch-from-the-desert-of-consciousness-research-part-1": {
+      "p": 0.11,
+      "kept": false
+    },
+    "scientificamerican.com/blog/cross-check/flashback-my-report-on-first-consciousness-powwow-in-tucson-how-far-has-science-come-since-then": {
+      "p": 0.1,
+      "kept": false
+    },
+    "scientificamerican.com/blog/guest-blog/why-2016-could-be-a-watershed-year-for-emotional-intelligence-in-machines": {
+      "p": 0.36,
+      "kept": false
+    },
+    "scientificamerican.com/blog/cross-check/consciousness-and-crazyism-responses-to-critique-of-integrated-information-theory": {
+      "p": 0.09,
+      "kept": false
+    },
+    "scientificamerican.com/blog/cross-check/can-integrated-information-theory-explain-consciousness": {
+      "p": 0.13,
+      "kept": false
+    },
+    "scientificamerican.com/article/next-generation-exoskeletons-will-meld-mind-and-machine": {
+      "p": 0.06,
+      "kept": false
+    },
+    "scientificamerican.com/blog/mind-guest-blog/exclusive-oliver-sacks-antonio-damasio-and-others-debate-christof-koch-on-the-nature-of-consciousness": {
+      "p": 0.11,
+      "kept": false
+    },
+    "scientificamerican.com/article/think-of-consciousness-as-art-created-by-the-brain": {
+      "p": 0.14,
+      "kept": false
+    },
+    "scientificamerican.com/article/the-inner-lives-of-robots-an-interview-with-filmmaker-alex-garland": {
+      "p": 0.85,
+      "kept": false
+    },
+    "scientificamerican.com/blog/frontiers-for-young-minds/under-what-circumstances-do-we-find-robots-trustworthy": {
+      "p": 0.2,
+      "kept": false
+    },
+    "scientificamerican.com/article/how-science-can-inform-ethics-and-champion-sentient-beings": {
+      "p": 0.47,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/blood-test-tells-how-long-concussion-symptoms-will-last": {
+      "p": 0.01,
+      "kept": false
+    },
+    "scientificamerican.com/article/this-robot-messes-with-your-brain-until-you-feel-a-ghostly-presence": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/article/neuronal-superhub-might-generate-consciousness": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/neuroscientists-break-into-the-brain-to-expose-its-workings": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/article/searching-for-signs-of-consciousness": {
+      "p": 0.06,
+      "kept": false
+    },
+    "scientificamerican.com/article/how-the-brain-creates-a-chronology-of-consciousness": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/brilliance-often-springs-from-boredom": {
+      "p": 0.01,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/for-parents-of-young-athletes-8-steps-to-protect-your-child-s-brain": {
+      "p": 0.01,
+      "kept": false
+    },
+    "scientificamerican.com/podcast/episode/brain-state-bread-crumbs-lead-way-back-to-consciousness": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/do-actions-speak-louder-than-feelings-video": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/children-reason-differently-from-adults-video": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/multitask-at-your-own-risk": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/article/how-a-sensor-filled-world-will-change-human-consciousness": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/article/electrical-brain-stimulation-can-restore-consciousness": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/is-your-sense-of-humor-in-your-genes-geneticists-crack-the-code": {
+      "p": 0.01,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/acts-of-kindness-explained-video": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/remember-when-how-your-brain-builds-a-memory-video": {
+      "p": 0.01,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/terrified-or-hopping-mad-what-s-going-on-inside-you-video": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/article/a-generation-loses-consciousness-and-grows-more-conscious-of-headbanging": {
+      "p": 0.01,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/what-is-vertigo-video": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/article/consciousness-might-emerge-from-a-data-broadcast": {
+      "p": 0.05,
+      "kept": false
+    },
+    "scientificamerican.com/article/consciousness-regaining-consciousness-one-patients-story-video": {
+      "p": 0.01,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/the-hidden-power-of-others-over-you-video": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/the-power-of-dad-in-shaping-childrens-lives": {
+      "p": 0.01,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/a-transformation-of-light-how-we-see-video": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/quick-what-is-the-word-for-a-pair-of-opposites-video": {
+      "p": 0.01,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/cultivate-your-character-video": {
+      "p": 0.01,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/who-needs-stimulants-for-adhd": {
+      "p": 0.01,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/how-to-coach-parents-audio": {
+      "p": 0.01,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/take-care-of-your-brainand-your-friendships": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/article/a-new-method-to-measure-consciousness-discovered": {
+      "p": 0.06,
+      "kept": false
+    },
+    "scientificamerican.com/article/is-consciousness-universal": {
+      "p": 0.07,
+      "kept": false
+    },
+    "scientificamerican.com/blog/mind-guest-blog/the-search-for-a-nobel-prize-winning-synapse-machine": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/teen-builds-gateway-to-the-brain-for-girls": {
+      "p": 0.01,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/repent-for-your-sinsor-turn-them-into-something-good": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/paralyzed-woman-walks-again-with-the-aid-of-a-robot": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/how-to-teach-long-division-through-guided-discovery": {
+      "p": 0.01,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/the-making-of-a-mathematical-mind-one-step-at-a-time": {
+      "p": 0.01,
+      "kept": false
+    },
+    "scientificamerican.com/article/new-measure-of-consciousness-tracks-our-waking-states": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/how-to-avoid-the-self-esteem-trap": {
+      "p": 0.01,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/benefits-of-online-attraction-the-movie": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/literally-psyched/of-polar-bears-and-consciousness-a-tribute-to-daniel-wegner": {
+      "p": 0.04,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/how-to-become-more-resilient": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/meeting-your-spouse-online-may-lead-to-a-better-marriage": {
+      "p": 0.01,
+      "kept": false
+    },
+    "scientificamerican.com/blog/talking-back/the-puzzle-of-consciousness-live-stream-tonight-8-pm": {
+      "p": 0.06,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/hear-me-talk-about-social-and-emotional-learning": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/can-doctors-diagnose-ms-from-blood": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/how-to-make-kids-smarterand-ease-existential-terror": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/do-music-lessons-make-you-smarter": {
+      "p": 0.01,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/a-surefire-way-to-sharpen-your-focus": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/learn-to-live-in-the-now-video": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/blog/observations/what-is-consciousness-go-to-the-video": {
+      "p": 0.12,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/how-to-think-like-sherlock-holmes-the-value-of-creativity-and-imagination-excerpt": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/brain-benefits-for-the-holidays-stuff-the-stocking-with-video-games": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/on-tv-ray-kurzweil-tells-me-how-to-build-a-brain": {
+      "p": 0.13,
+      "kept": false
+    },
+    "scientificamerican.com/article/how-far-away-mind-machine-integration": {
+      "p": 0.05,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/social-and-emotional-learning-empowers-children": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/how-social-emotional-learning-could-harm-our-kids": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/sandy-rips-through-my-street": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/where-are-the-gifted-minorities": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/how-do-you-spot-a-genius": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/watch-the-incredible-shrinking-woman-video": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/the-education-of-character-jumping-jacks-for-the-mind-video": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/the-education-of-character-your-brain-in-a-coke-bottle-video": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/the-education-of-characterstoking-memory-with-stones": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/the-education-of-character-carefully-considering-craisins": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/the-education-of-character-teaching-control-with-a-cottonball": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/scientists-scan-childrens-brains-for-answers-to-mental-illness": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/article/safely-switching-consciousness-off-on": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/article/what-sleep-crime-tells-us-about-consciousness": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/network-central/sciamblogs-wednesday-hospital-outbreak-stick-insects-consciousness-west-nile-pneumatic-transit-and-more": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/blog/octopus-chronicles/octopuses-gain-consciousness-according-to-scientists-declaration": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/minding-our-childrens-minds": {
+      "p": 0.06,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/educating-character-and-other-lessons-from-scientific-american-mind": {
+      "p": 0.04,
+      "kept": false
+    },
+    "scientificamerican.com/article/what-is-fundamental-nature-consciousness-giulio-tononi-excerpt": {
+      "p": 0.04,
+      "kept": false
+    },
+    "scientificamerican.com/blog/life-unbounded/calling-all-sentient-lifeforms": {
+      "p": 0.51,
+      "kept": false
+    },
+    "scientificamerican.com/article/what-happens-to-consciousness-when-we-die": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/star-filmmakers-found-in-unlikely-spot": {
+      "p": 0.11,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/when-sleeping-turns-deadly-and-other-strange-tales-from-scientific-american-mind": {
+      "p": 0.04,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/why-wearing-fakes-makes-us-cheat-more-excerpt": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/why-are-there-no-biological-tests-in-psychiatry": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/the-gloom-and-doom-disease-should-woody-allens-have-a-home-in-the-manual-of-mental-illness": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/trouble-at-the-heart-of-psychiatrys-revised-rulebook": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/science-remains-a-stranger-to-psychiatrys-new-bible": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/psychiatrists-are-about-to-shift-the-boundaries-between-sane-and-insane": {
+      "p": 0.04,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/the-importance-of-being-social": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/can-atheists-be-happy-and-other-answers-from-scientific-american-mind": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/cross-check/christof-koch-on-free-will-the-singularity-and-the-quest-to-crack-consciousness": {
+      "p": 0.18,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/want-to-change-your-life-this-movie-might-inspire-you": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/one-mans-mission-to-save-struggling-students": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/primate-diaries/raising-darwins-consciousness-sarah-blaffer-hrdy-on-the-evolutionary-lessons-of-motherhood": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/primate-diaries/raising-darwins-consciousness-an-interview-with-sarah-blaffer-hrdy-on-mother-nature": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/article/consciousness-does-not-reside-here": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/more-surprises-about-the-mind": {
+      "p": 0.04,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/surprising-truths-about-how-we-think-and-act": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/success-in-seven-short-steps": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/what-you-need-to-succeedand-how-to-find-out-if-you-have-it": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/can-money-buy-self-esteem": {
+      "p": 0.01,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/8-ways-to-forget-your-troubles": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/patients-risk-brain-surgery-to-fix-shaky-hands": {
+      "p": 0.01,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/an-artist-reveals-how-he-tricks-the-eyes": {
+      "p": 0.01,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/toddlers-stand-up-for-property-rights": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/understanding-your-mind-is-mission-critical": {
+      "p": 0.09,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/what-is-the-secret-to-a-happy-marriage-a-new-film-offers-unusual-answers": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/decoding-sexual-desire-why-youre-into-itor-not": {
+      "p": 0.1,
+      "kept": false
+    },
+    "scientificamerican.com/article/great-consciousness-contest-winners": {
+      "p": 0.37,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/goldie-hawn-plunges-into-brain-science": {
+      "p": 0.05,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/forgetting-about-911": {
+      "p": 0.04,
+      "kept": false
+    },
+    "scientificamerican.com/article/testing-for-consciousness-in-machines": {
+      "p": 0.95,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/money-can-buy-isolation": {
+      "p": 0.05,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/porn-on-the-mind": {
+      "p": 0.07,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/httpblogsscientificamericancomstreams-of-consciousness20110727the-miracle-of-birth-is-that-most-of-us-figure-out-how-to-mothere28094more-or-less": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/httpblogsscientificamericancomstreams-of-consciousness20110714crux-of-schizophreniae28099s-emotional-and-social-deficits-may-be-cognitive": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/httpblogsscientificamericancomstreams-of-consciousness20110708seeing-schizophrenia-before-ite28099s-too-late": {
+      "p": 0.04,
+      "kept": false
+    },
+    "scientificamerican.com/blog/streams-of-consciousness/entering-streams-of-consciousness-8230": {
+      "p": 0.05,
+      "kept": false
+    },
+    "scientificamerican.com/article/koch-contest-fool-the-machine-consciousness": {
+      "p": 0.9,
+      "kept": false
+    },
+    "scientificamerican.com/article/a-test-for-consciousness": {
+      "p": 0.96,
+      "kept": false
+    },
+    "scientificamerican.com/podcast/episode/self-aware-robots-11-03-02": {
+      "p": 0.84,
+      "kept": false
+    },
+    "scientificamerican.com/article/automaton-robots-become-self-aware": {
+      "p": 0.85,
+      "kept": false
+    },
+    "scientificamerican.com/article/machine-self-awareness": {
+      "p": 0.74,
+      "kept": false
+    },
+    "scientificamerican.com/article/reviving-consciousness": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/article/conditional-consciousness": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/article/when-does-consciousness-arise": {
+      "p": 0.02,
+      "kept": false
+    },
+    "scientificamerican.com/article/a-theory-of-consciousness": {
+      "p": 0.08,
+      "kept": false
+    },
+    "scientificamerican.com/blog/news-blog/mind-games-can-computer-brain-train-2009-03-24": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/article/merging-of-mind-and-machine": {
+      "p": 0.17,
+      "kept": false
+    },
+    "scientificamerican.com/article/understanding-consciousness-measure-more-argue-less": {
+      "p": 0.05,
+      "kept": false
+    },
+    "scientificamerican.com/article/exploring-consciousness": {
+      "p": 0.04,
+      "kept": false
+    },
+    "scientificamerican.com/article/drug-access-conservation-strategy-consciousness": {
+      "p": 0.04,
+      "kept": false
+    },
+    "scientificamerican.com/article/controlling-robots-with-the-mind": {
+      "p": 0.04,
+      "kept": false
+    },
+    "scientificamerican.com/article/betting-on-consciousness": {
+      "p": 0.05,
+      "kept": false
+    },
+    "scientificamerican.com/blog/news-blog/betting-on-consciousness-ancient-qu": {
+      "p": 0.06,
+      "kept": false
+    },
+    "scientificamerican.com/article/consciousness-may-be-a-su": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/article/vision-a-window-into-consciousness": {
+      "p": 0.02,
+      "kept": false
     }
   }
 }

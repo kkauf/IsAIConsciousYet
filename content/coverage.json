@@ -1,6 +1,6 @@
 {
   "since": "2020-01-01",
-  "updatedAt": "2026-09-26",
+  "updatedAt": "2026-09-27",
   "outlets": [
     "The New York Times",
     "The Washington Post",
@@ -190,6 +190,13 @@
       "foundAt": "2026-09-26"
     },
     {
+      "date": "2026-07-02",
+      "publication": "Bloomberg",
+      "headline": "We’re One Step Closer to Understanding Consciousness",
+      "url": "https://www.bloomberg.com/opinion/articles/2026-07-02/we-re-one-step-closer-to-understanding-consciousness",
+      "foundAt": "2026-09-27"
+    },
+    {
       "date": "2026-07-01",
       "publication": "The Washington Post",
       "headline": "Can chatbots have consciousness? Silicon Valley is trying to find out.",
@@ -316,6 +323,13 @@
       "foundAt": "2026-09-26"
     },
     {
+      "date": "2026-04-27",
+      "publication": "The Verge",
+      "headline": "“The Abstraction Fallacy: Why AI Can Simulate But Not Instantiate Consciousness.”",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/919395/the-abstraction-fallacy-why-ai-can-simulate-but-not-instantiate-consciousness",
+      "foundAt": "2026-09-27"
+    },
+    {
       "date": "2026-04-24",
       "publication": "NPR",
       "headline": "'Self-aware' robots can learn complex tasks by watching humans. Is that a good thing?",
@@ -386,18 +400,18 @@
       "foundAt": "2026-09-26"
     },
     {
-      "date": "2026-03-07",
-      "publication": "Fox News",
-      "headline": "Musk accuses Anthropic CEO of 'projecting' over AI consciousness concerns",
-      "url": "https://www.foxnews.com/politics/tech-company-odds-pentagon-warns-its-ai-possibly-gained-consciousness-elon-musk-issues-two-word-response.amp",
-      "foundAt": "2026-09-26"
-    },
-    {
       "date": "2026-03-06",
       "publication": "Scientific American",
       "headline": "Michael Pollan explains why AI will never replicate human consciousness",
       "url": "https://www.scientificamerican.com/article/michael-pollan-explains-why-ai-will-never-replicate-human-consciousness/",
       "foundAt": "2026-09-26"
+    },
+    {
+      "date": "2026-02-27",
+      "publication": "Bloomberg",
+      "headline": "In Michael Pollan’s 'A World Appears,' Consciousness Is the Final Frontier",
+      "url": "https://www.bloomberg.com/news/articles/2026-02-27/in-michael-pollan-s-a-world-appears-consciousness-is-the-final-frontier",
+      "foundAt": "2026-09-27"
     },
     {
       "date": "2026-02-25",
@@ -418,20 +432,6 @@
       "publication": "NPR",
       "headline": "Michael Pollan explores AI and consciousness in 'A World Appears' : NPR",
       "url": "https://www.npr.org/2026/02/19/nx-s1-5713514/michael-pollan-ai-consciousness-a-world-appears",
-      "foundAt": "2026-09-26"
-    },
-    {
-      "date": "2026-02-19",
-      "publication": "NPR",
-      "headline": "Michael Pollan says AI may 'think' — but it will never be conscious",
-      "url": "https://www.npr.org/transcripts/nx-s1-5713514",
-      "foundAt": "2026-09-26"
-    },
-    {
-      "date": "2026-02-19",
-      "publication": "NPR",
-      "headline": "Fresh Air for Feb. 19, 2026: Michael Pollan explores: What is consciousness? : NPR",
-      "url": "https://www.npr.org/programs/fresh-air/g-s1-110746/fresh-air-for-feb-19-2026-michael-pollan-explores-what-is-consciousness",
       "foundAt": "2026-09-26"
     },
     {
@@ -729,6 +729,13 @@
       "foundAt": "2026-09-26"
     },
     {
+      "date": "2024-05-16",
+      "publication": "The Wall Street Journal",
+      "headline": "Think AI Can Perceive Emotion? Think Again.",
+      "url": "https://www.wsj.com/tech/ai/think-ai-can-perceive-emotion-think-again-2b4c7d29",
+      "foundAt": "2026-09-27"
+    },
+    {
       "date": "2024-04-04",
       "publication": "The Atlantic",
       "headline": "Conscious AI Is the Second-Scariest Kind",
@@ -750,11 +757,25 @@
       "foundAt": "2026-09-26"
     },
     {
+      "date": "2024-03-01",
+      "publication": "Scientific American",
+      "headline": "A Sexbot Gains Sentience in an Eerie New Novel",
+      "url": "https://www.scientificamerican.com/article/a-sexbot-gains-sentience-in-an-eerie-new-novel/",
+      "foundAt": "2026-09-27"
+    },
+    {
       "date": "2024-02-18",
       "publication": "Financial Times",
       "headline": "Can man ever build a mind?",
       "url": "https://www.ft.com/content/2e75c04a-0f43-11e9-acdc-4d9976f1533b",
       "foundAt": "2026-09-26"
+    },
+    {
+      "date": "2023-12-22",
+      "publication": "Fox News",
+      "headline": "‘The Dukes of Hazzard’ star John Schneider says AI cannot simulate ‘heart’ and ‘soul’",
+      "url": "https://www.foxnews.com/entertainment/the-dukes-of-hazzard-star-john-schneider-says-ai-cannot-simulate-heart-and-soul",
+      "foundAt": "2026-09-27"
     },
     {
       "date": "2023-12-21",
@@ -776,6 +797,13 @@
       "headline": "How Moral Can A.I. Really Be?",
       "url": "https://www.newyorker.com/science/annals-of-artificial-intelligence/how-moral-can-ai-really-be",
       "foundAt": "2026-09-26"
+    },
+    {
+      "date": "2023-10-22",
+      "publication": "Wired",
+      "headline": "This Contest Put Theories of Consciousness to the Test. Here’s What It Really Proved",
+      "url": "https://www.wired.com/story/this-contest-put-theories-of-consciousness-to-the-test-heres-what-it-really-proved/",
+      "foundAt": "2026-09-27"
     },
     {
       "date": "2023-10-17",
@@ -806,6 +834,13 @@
       "foundAt": "2026-09-26"
     },
     {
+      "date": "2023-08-31",
+      "publication": "Wired",
+      "headline": "The Inventor Behind a Rush of AI Copyright Suits Is Trying to Show His Bot Is Sentient",
+      "url": "https://www.wired.com/story/the-inventor-behind-a-rush-of-ai-copyright-suits-is-trying-to-show-his-bot-is-sentient/",
+      "foundAt": "2026-09-27"
+    },
+    {
       "date": "2023-08-30",
       "publication": "New Scientist",
       "headline": "AI shows no sign of consciousness yet, but we know what to look for",
@@ -834,6 +869,20 @@
       "foundAt": "2026-09-26"
     },
     {
+      "date": "2023-07-06",
+      "publication": "Wired",
+      "headline": "Give Every AI a Soul—or Else",
+      "url": "https://www.wired.com/story/give-every-ai-a-soul-or-else/",
+      "foundAt": "2026-09-27"
+    },
+    {
+      "date": "2023-06-19",
+      "publication": "The New York Times",
+      "headline": "Machines and Morality",
+      "url": "https://www.nytimes.com/2023/06/19/special-series/chatgpt-and-morality.html",
+      "foundAt": "2026-09-27"
+    },
+    {
       "date": "2023-06-04",
       "publication": "Wired",
       "headline": "If Pinocchio Doesn't Freak You Out, Sydney Shouldn't Either",
@@ -841,11 +890,32 @@
       "foundAt": "2026-09-26"
     },
     {
+      "date": "2023-05-25",
+      "publication": "Wired",
+      "headline": "Waluigi, Carl Jung, and the Case for Moral AI",
+      "url": "https://www.wired.com/story/waluigi-effect-generative-artificial-intelligence-morality/",
+      "foundAt": "2026-09-27"
+    },
+    {
       "date": "2023-05-23",
       "publication": "Wired",
       "headline": "Does AI Have a Subconscious?",
       "url": "https://www.wired.com/story/does-ai-have-a-subconscious/",
       "foundAt": "2026-09-26"
+    },
+    {
+      "date": "2023-05-16",
+      "publication": "Fox News",
+      "headline": "Anti-'Terminator': AI not a 'creature' working toward self-awareness, OpenAI CEO Altman says",
+      "url": "https://www.foxnews.com/politics/anti-terminator-ai-not-a-creature-working-toward-self-awareness-openai-ceo-altman-says",
+      "foundAt": "2026-09-27"
+    },
+    {
+      "date": "2023-04-27",
+      "publication": "Fox News",
+      "headline": "Experts warn AI creators should study human consciousness in open letter",
+      "url": "https://www.foxnews.com/media/experts-warn-ai-creators-should-study-human-consciousness-in-open-letter",
+      "foundAt": "2026-09-27"
     },
     {
       "date": "2023-04-26",
@@ -888,6 +958,13 @@
       "headline": "The AI emotions dreamed up by ChatGPT",
       "url": "https://www.bbc.com/future/article/20230224-the-ai-emotions-dreamed-up-by-chatgpt",
       "foundAt": "2026-09-26"
+    },
+    {
+      "date": "2023-02-22",
+      "publication": "Bloomberg",
+      "headline": "Microsoft's Bing AI Chatbot Ends Conversation When Prompted About ‘Feelings’",
+      "url": "https://www.bloomberg.com/news/articles/2023-02-22/microsoft-s-bing-ai-chatbot-ends-conversation-when-prompted-about-feelings",
+      "foundAt": "2026-09-27"
     },
     {
       "date": "2023-02-17",
@@ -953,6 +1030,13 @@
       "foundAt": "2026-09-26"
     },
     {
+      "date": "2022-09-28",
+      "publication": "Bloomberg",
+      "headline": "Tesla AI Day Offers Glimpse of Just How Sentient Its Bots Have Become",
+      "url": "https://www.bloomberg.com/news/articles/2022-09-28/tesla-ai-day-offers-glimpse-of-just-how-sentient-its-bots-have-become",
+      "foundAt": "2026-09-27"
+    },
+    {
       "date": "2022-09-02",
       "publication": "The Economist",
       "headline": "Artificial neural networks are making strides towards consciousness, according to Blaise Agüera y Arcas",
@@ -1007,6 +1091,13 @@
       "headline": "Blake Lemoine: Google fires engineer who said AI tech has feelings",
       "url": "https://www.bbc.com/news/technology-62275326",
       "foundAt": "2026-09-26"
+    },
+    {
+      "date": "2022-07-23",
+      "publication": "Bloomberg",
+      "headline": "Google Fires Software Engineer Who Says He Talked to Sentient AI",
+      "url": "https://www.bloomberg.com/news/articles/2022-07-23/google-fires-software-engineer-who-says-he-talked-to-sentient-ai",
+      "foundAt": "2026-09-27"
     },
     {
       "date": "2022-07-23",
@@ -1129,6 +1220,13 @@
     },
     {
       "date": "2022-06-17",
+      "publication": "Bloomberg",
+      "headline": "Can AI Gain Sentience? Here’s How Google Chatbot Lamda Answers Human Questions",
+      "url": "https://www.bloomberg.com/news/articles/2022-06-17/can-ai-gain-sentience-maybe-but-probably-not-yet-quicktake",
+      "foundAt": "2026-09-27"
+    },
+    {
+      "date": "2022-06-17",
       "publication": "The Washington Post",
       "headline": "Google’s AI passed the Turing test — and showed how it's broken",
       "url": "https://www.washingtonpost.com/technology/2022/06/17/google-ai-lamda-turing-test/",
@@ -1182,6 +1280,13 @@
       "headline": "Watch Google Engineer Says Chat Bot Is Sentient",
       "url": "https://www.bloomberg.com/news/videos/2022-06-14/google-engineer-says-chat-bot-is-sentinent-video",
       "foundAt": "2026-09-26"
+    },
+    {
+      "date": "2022-06-14",
+      "publication": "The Washington Post",
+      "headline": "Is AI sentient? Wrong question.",
+      "url": "https://www.washingtonpost.com/opinions/2022/06/14/google-lamda-artificial-intelligence-sentient-wrong-question/",
+      "foundAt": "2026-09-27"
     },
     {
       "date": "2022-06-14",
@@ -1296,6 +1401,13 @@
       "foundAt": "2026-09-26"
     },
     {
+      "date": "2021-11-19",
+      "publication": "The New York Times",
+      "headline": "Can a Machine Learn Morality?",
+      "url": "https://www.nytimes.com/2021/11/19/technology/can-a-machine-learn-morality.html",
+      "foundAt": "2026-09-27"
+    },
+    {
       "date": "2021-08-25",
       "publication": "MIT Technology Review",
       "headline": "What would it be like to be a conscious AI?",
@@ -1308,6 +1420,13 @@
       "headline": "A dog’s inner life: what a robot pet taught me about consciousness",
       "url": "https://www.theguardian.com/science/2021/aug/10/dogs-inner-life-what-robot-pet-taught-me-about-consciousness-artificial-intelligence",
       "foundAt": "2026-09-26"
+    },
+    {
+      "date": "2020-10-20",
+      "publication": "Wired",
+      "headline": "My Roomba Has Achieved Enlightenment",
+      "url": "https://www.wired.com/story/roomba-robot-consciousness-enlightenment/",
+      "foundAt": "2026-09-27"
     },
     {
       "date": "2020-09-16",

@@ -75,10 +75,16 @@ export default function TimelinePage() {
         <div className="max-w-2xl space-y-3 leading-relaxed">
           <p>
             The articles come from the {coverage.outlets.length} publications listed below, searched back to {monthName(coverage.since.slice(0, 7))}.
-            A language model read each search result and judged how likely it is that the article is mainly about whether AI systems are
-            or could be conscious, sentient, able to feel, or owed moral consideration. Articles judged at least 60% likely are listed.
-            Headlines and dates come from the article page or its address. No article is scored for or against. Search finds recent
-            articles more easily than old ones, so earlier years are probably undercounted.
+            Search finds recent articles more easily than old ones. So for the 15 publications that publish a full index of their
+            articles, every article address in that index since 2020 was also checked for words that name the subject: the same effort
+            for every year. That check found articles search had missed, mostly from 2022 and 2023; 2020 and 2021 stayed quiet. The
+            Guardian, the BBC, The Economist, The Atlantic, The Telegraph, AP, the Financial Times, Nature and New Scientist are found by
+            search only, and Reuters only by search after October 2023.
+          </p>
+          <p>
+            A language model read each result and judged how likely it is that the article is mainly about whether AI systems are or
+            could be conscious, sentient, able to feel, or owed moral consideration. Articles judged at least 60% likely are listed.
+            Headlines and dates come from the article page or its address. No article is scored for or against.
           </p>
           <p>
             {coverage.updatedAt && <>Searched weekly, last on {shortDate(coverage.updatedAt)}. </>}

@@ -176,15 +176,19 @@ A failed build publishes nothing; the failure step commits only `pipeline/state`
 The popular debate, drawn on `/timeline` and the homepage next to the case files: articles in a fixed list of 24 general-audience publications (`coverage.outlets` in `pipeline/config.json`) whose main subject is whether AI systems are or could become conscious, sentient, have feelings, or deserve moral consideration. Text only (publication, headline, date, link). Nothing is scored for or against. Script: `pipeline/coverage.mjs`; output `content/coverage.json` (validated by `check-cases.mjs`); state `pipeline/state/coverage.json` (every judged URL, so nothing is judged twice).
 
 ```
-parallel.ai Search (listed domains, after_date) ─► strict outlet match, NOT_ARTICLE, articleUrl() ─► Jev: main subject? (≥ 0.6)
- ─► code: subject named in headline or address; headline and date from the URL, the page's own metadata, or extract; og:type article
- ─► same publication + same headline within 45 days = one piece (earliest kept) ─► content/coverage.json
+parallel.ai Search (listed domains, after_date) ──┐
+archive sitemaps (pipeline/sitemaps.mjs, 15 outlets) ─► address names the subject (CANDIDATE) ─► page title + description ──┤
+                                                                                                                          ▼
+ strict outlet match, NOT_ARTICLE, articleUrl() ─► Jev: main subject? (≥ 0.6)
+ ─► code: subject named in headline or address; headline and date from the URL, the page's own metadata, the sitemap's day, or extract; og:type article
+ ─► same address, or same publication + same headline within 45 days = one piece (earliest kept) ─► content/coverage.json
 ```
 
 | Mode | What it does | Measured cost |
 |---|---|---|
 | Weekly (in `auto.mjs`, step "2c") | Outlets in groups of 4, `after_date` two weeks before the last run | 6 searches, $0.04 (dry run 2026-09-26: 56 results, 15 new, 1 kept); cap assumes $0.15 |
 | `--backfill [--outlets d1,d2]` | One search per outlet and year since `coverage.since` (2020), because the index favours recent pages | 168 searches, $1.62 (2026-09-26) |
+| Sitemaps (weekly, and `--backfill --sitemaps-only`) | Every address the outlet's archive sitemap lists for the period, kept when the address names the subject (`CANDIDATE` in `pipeline/sitemaps.mjs`). Free: plain HTTP. The same effort for every year, which search is not (it ignores `before_date` and ranks recent pages first, checked 2026-09-26). Weekly: the current month, 84 s uncached. Parsed files of closed periods are cached in `pipeline/runs/_coverage/sitemap-cache/` (local only) | Backfill 2020–2026: 848 addresses, 674 judged, 20 added, Jev $0.02 (2026-09-27) |
 | `--revalidate [--retry]` | Applies the code rules to the stored articles again and reduces addresses and state keys to `articleUrl()`. `--retry` reads again every article the judge kept in an earlier run but the rules left out (needs the local run files in `pipeline/runs/_coverage/`) | $0.03 |
 
 Findings from the backfill (2026-09-26):
@@ -194,7 +198,9 @@ Findings from the backfill (2026-09-26):
 - Page fetches vary run to run (Time, FT): two retries added different articles. An article left out for "no date" can come back on a later retry.
 - Removed by hand: Wired's newsletter "Shopify Goes Soul-Searching" (one aside on sentience). Marked `removedBy` in the state so no run adds it again.
 
-Unknowns: recall. There was no ground truth to check it against (the Guardian's open API key returned 401; Wayback CDX needs authorisation), so the page says earlier years are likely undercounted. English-language publications only. AP returned no article.
+Sitemap backfill (2026-09-27): search had missed articles mostly in 2022 (+4) and 2023 (+9); 2020 and 2021 gained one each, so the quiet early years are quiet, not unsearched. Which outlets have usable sitemaps and why the others do not: the `SOURCES` table in `pipeline/sitemaps.mjs` (survey: `node pipeline/sitemaps.mjs --survey`). New Scientist is left out on purpose: its robots.txt forbids automated mining. Reuters' archive stops at 2023-10 and lists wire copies whose pages are walled, so those are judged on the address words and left out when no headline can be read. The judge sees less for sitemap candidates (page title and description, not a search excerpt).
+
+Unknowns: recall for the 9 search-only outlets (AP, BBC, Guardian, Telegraph, FT, Economist, Atlantic, New Scientist, Nature), and for sitemap outlets, articles whose address does not name the subject. Earlier note: There was no ground truth to check it against (the Guardian's open API key returned 401; Wayback CDX needs authorisation), so the page says earlier years are likely undercounted. English-language publications only. AP returned no article.
 
 Adding an outlet: add it to the config, then `--backfill --outlets <domain>`, so every outlet is counted over the same years.
 
