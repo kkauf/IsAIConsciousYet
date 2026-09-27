@@ -3,6 +3,7 @@ import { Newsreader, Public_Sans } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
 import Header from "@/components/Header";
+import Prism from "@/components/Prism";
 import { DATA_LINKS } from "@/lib/cases/load";
 
 const newsreader = Newsreader({ variable: "--font-newsreader", subsets: ["latin"], style: ["normal", "italic"], axes: ["opsz"] });
@@ -41,6 +42,7 @@ export default function RootLayout({
           `}
         </Script>
 
+        <Prism />
         <div className="min-h-screen flex flex-col">
           <Header />
           <main className="flex-1 flex flex-col pt-16">{children}</main>
@@ -51,7 +53,7 @@ export default function RootLayout({
               <a href="https://github.com/kkauf/IsAIConsciousYet" className="underline decoration-rule underline-offset-4 hover:text-bone">
                 code and every case file
               </a>{" "}
-              are public.
+              are public. The colour on these pages grows with the time you spend here; it is kept in this browser and nowhere else.
             </p>
           </footer>
         </div>

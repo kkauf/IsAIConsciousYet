@@ -44,7 +44,7 @@ export default function TimelinePage() {
 
   return (
     <div className="tl-page w-full max-w-6xl mx-auto px-6 pt-12 md:pt-24">
-      <h1 className="font-serif font-light text-5xl md:text-7xl leading-[1] tracking-tight">The question, over time</h1>
+      <h1 className="prism-text font-serif font-light text-5xl md:text-7xl leading-[1] tracking-tight">The question, over time</h1>
       <p className="mt-8 max-w-4xl font-serif text-2xl md:text-3xl leading-snug text-bone/80">{takeaway(ms, coverage.outlets.length)}</p>
       <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ash">
         Each square is one article. The band behind each year shows that year’s monthly average. Each dot below the line is a case

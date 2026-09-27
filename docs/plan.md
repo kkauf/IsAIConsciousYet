@@ -88,6 +88,7 @@ Wait until there are 8 or more case files. Then `/cases` becomes the heat map fr
 | Licence | Done: MIT for the code (`LICENSE`); CC BY 4.0 for the site's own text and the case files, quotes excepted (`content/LICENSE.md`) |
 | Per-case reading tally | Proposed 2026-09-26: wait until the main vote passes 100 votes (7 on 2026-09-26), pending Konstantin |
 | Konstantin's own reading | None. The makers host the conversation and are not readings; the `site-owner` party type is removed |
+| What the record cannot show (raised by Konstantin 2026-09-27, open) | Rule (b) selects surprises, so a conscious system's ordinary, within-reason behaviour would leave no primary source and never appear: the record is asymmetric by construction. The contribution phase (submit a source, pick a reading) is the counterweight; a line on /why or /cases naming the selection effect is the cheap first step |
 
 ## Measuring value
 

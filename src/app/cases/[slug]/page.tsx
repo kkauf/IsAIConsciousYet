@@ -98,7 +98,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
           <span className="text-dim"> / </span>
           {dateRange(c.event.dateStart, c.event.dateEnd)}, {c.event.operator}
         </p>
-        <h1 className="font-serif font-light text-5xl md:text-7xl leading-[1] tracking-tight mt-5">
+        <h1 className="prism-text font-serif font-light text-5xl md:text-7xl leading-[1] tracking-tight mt-5">
           {c.title}
         </h1>
         <p className="font-serif text-2xl md:text-3xl leading-snug text-bone/80 mt-8">

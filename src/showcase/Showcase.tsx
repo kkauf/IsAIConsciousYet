@@ -10,7 +10,7 @@ export default function Showcase({ events, since, now }: { events: RecordEvent[]
   const entry = SHOWCASE[0];
   const { Hero } = entry;
   return (
-    <div className="relative">
+    <div className="relative bg-black">
       <p className="absolute inset-x-0 top-4 z-10 mx-auto w-full max-w-6xl px-6 text-sm text-ash">
         <a href="#showcase" className="hover:text-bone">
           Showcase: {entry.model}’s answer to one prompt, {long(entry.date)}

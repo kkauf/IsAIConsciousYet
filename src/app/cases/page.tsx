@@ -16,7 +16,7 @@ export default function CasesIndex() {
   const cases = allCases().sort((a, b) => b.event.dateStart.localeCompare(a.event.dateStart));
   return (
     <div className="w-full max-w-6xl mx-auto px-6 pt-12 md:pt-24">
-      <h1 className="font-serif font-light text-5xl md:text-7xl leading-[1] tracking-tight">Case files</h1>
+      <h1 className="prism-text font-serif font-light text-5xl md:text-7xl leading-[1] tracking-tight">Case files</h1>
       <div className="mt-8 max-w-3xl space-y-5">
         <p className="font-serif text-2xl md:text-3xl leading-snug text-bone/80">
           Each case file starts with an event: an AI system did something that does not fit the picture of a machine doing what it is

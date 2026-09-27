@@ -13,10 +13,95 @@
   --color-mention: #e3a94b;
 }
 
+/* The prism. --spectrum (0 to 1, set on <html> by src/lib/prism.ts) is how far this reader has decoded the
+   site's white light: it grows with their own time here and lives in their browser only. Seven hues from rose
+   to violet at the lightness of bone, low chroma, so the page stays serious. Every rule that uses it resolves
+   to today's monochrome at 0. The showcase heroes are not tinted; they are kept as their models made them. */
+@property --spectrum {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 0;
+}
+
 :root {
   color-scheme: dark;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+
+  --spectrum: 0;
+  --spectrum-time: 3s;
+  transition: --spectrum var(--spectrum-time) linear;
+  --p1: oklch(0.8 0.11 20);
+  --p2: oklch(0.8 0.11 65);
+  --p3: oklch(0.8 0.11 110);
+  --p4: oklch(0.8 0.11 150);
+  --p5: oklch(0.8 0.11 195);
+  --p6: oklch(0.8 0.11 245);
+  --p7: oklch(0.8 0.11 300);
+  /* bone, decoded */
+  --s1: color-mix(in oklch, var(--color-bone), var(--p1) calc(var(--spectrum) * 100%));
+  --s2: color-mix(in oklch, var(--color-bone), var(--p2) calc(var(--spectrum) * 100%));
+  --s3: color-mix(in oklch, var(--color-bone), var(--p3) calc(var(--spectrum) * 100%));
+  --s4: color-mix(in oklch, var(--color-bone), var(--p4) calc(var(--spectrum) * 100%));
+  --s5: color-mix(in oklch, var(--color-bone), var(--p5) calc(var(--spectrum) * 100%));
+  --s6: color-mix(in oklch, var(--color-bone), var(--p6) calc(var(--spectrum) * 100%));
+  --s7: color-mix(in oklch, var(--color-bone), var(--p7) calc(var(--spectrum) * 100%));
+}
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    transition: none;
+  }
+}
+
+/* Light on the ground: a faint sun, sky and leaf behind the page, none at 0. Fixed, so it does not scroll. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60% 50% at 10% 0%, oklch(0.62 0.12 70), transparent 70%),
+    radial-gradient(55% 50% at 95% 5%, oklch(0.58 0.1 245), transparent 70%),
+    radial-gradient(80% 50% at 50% 105%, oklch(0.55 0.1 150), transparent 70%);
+  opacity: calc(var(--spectrum) * 0.32);
+}
+
+/* The site's own headings take the tint, never more than 90%; quotes, body text and the heroes do not. */
+@supports (color: color-mix(in oklch, red, blue)) {
+  .prism-text {
+    background-image: linear-gradient(
+      100deg,
+      color-mix(in oklch, var(--color-bone), var(--p1) calc(var(--spectrum) * 90%)),
+      color-mix(in oklch, var(--color-bone), var(--p2) calc(var(--spectrum) * 90%)),
+      color-mix(in oklch, var(--color-bone), var(--p3) calc(var(--spectrum) * 90%)),
+      color-mix(in oklch, var(--color-bone), var(--p4) calc(var(--spectrum) * 90%)),
+      color-mix(in oklch, var(--color-bone), var(--p5) calc(var(--spectrum) * 90%)),
+      color-mix(in oklch, var(--color-bone), var(--p6) calc(var(--spectrum) * 90%)),
+      color-mix(in oklch, var(--color-bone), var(--p7) calc(var(--spectrum) * 90%))
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    text-decoration-color: var(--color-rule);
+  }
+  .prism-text::selection {
+    color: #000;
+    -webkit-text-fill-color: #000;
+  }
+}
+
+/* The eye's iris (Header.tsx, SeamEye.tsx): a gradient ring and disc over the bone lines, and in the large
+   header eye each fibre takes the hue of its angle. */
+.prism-ring {
+  opacity: var(--spectrum);
+}
+.prism-fill {
+  opacity: calc(var(--spectrum) * 0.35);
+}
+.prism-fibre {
+  stroke: color-mix(in oklch, currentColor, oklch(0.78 0.13 var(--fh)) calc(var(--spectrum) * 100%));
 }
 
 @layer base {
@@ -42,12 +127,48 @@
   }
 }
 
-/* The seam: a line that divides two readings without deciding between them. */
+/* The seam: a line that divides two readings without deciding between them. As the reader's spectrum grows,
+   the line is not one colour but seven, and a little of the light spills beside it. */
 @layer components {
   .seam {
+    position: relative;
     width: 1px;
-    background: linear-gradient(to bottom, transparent, var(--color-bone) 12%, var(--color-bone) 88%, transparent);
-    opacity: 0.4;
+    background: linear-gradient(
+      to bottom,
+      transparent,
+      var(--s1) 12%,
+      var(--s2) 25%,
+      var(--s3) 37%,
+      var(--s4) 50%,
+      var(--s5) 63%,
+      var(--s6) 75%,
+      var(--s7) 88%,
+      transparent
+    );
+    opacity: calc(0.4 + 0.45 * var(--spectrum));
+  }
+  .seam::after {
+    content: "";
+    position: absolute;
+    inset: 0 -9px;
+    background: inherit;
+    filter: blur(8px);
+    opacity: calc(var(--spectrum) * 0.8);
+  }
+  /* The same seam lying down, on narrow screens: rule-dim at 0, the seven hues left to right as the spectrum grows. */
+  .seam-h {
+    position: relative;
+    height: 1px;
+    background: linear-gradient(to right, var(--s1), var(--s2), var(--s3), var(--s4), var(--s5), var(--s6), var(--s7));
+    opacity: calc(0.14 + 0.5 * var(--spectrum));
+  }
+  .seam-h::after {
+    content: "";
+    position: absolute;
+    inset: -9px 0;
+    background: inherit;
+    filter: blur(8px);
+    opacity: calc(var(--spectrum) * 0.8);
   }
 }
 

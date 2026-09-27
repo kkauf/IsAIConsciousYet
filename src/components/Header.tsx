@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useId, useRef } from 'react';
+import { useEffect, useId, useRef, type CSSProperties } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { approach, attending, bindInput, blinker, clamp, input, lerp, onFrame, reducedMotion, smoothstep, wanderer } from './eye/motion';
@@ -20,7 +20,8 @@ const almond = (open: number) => {
 const FIBRES = Array.from({ length: 56 }, (_, i) => {
   const a = (i / 56) * Math.PI * 2 + Math.sin(i * 7.3) * 0.04;
   const outer = 5.1 - ((i * 5) % 3) * 0.55;
-  return { x1: 18 + Math.cos(a) * 2, y1: 18 + Math.sin(a) * 2, x2: 18 + Math.cos(a) * outer, y2: 18 + Math.sin(a) * outer };
+  // hue: the fibre's angle, so the large iris is a wheel of the prism's spectrum (globals.css, .prism-fibre)
+  return { x1: 18 + Math.cos(a) * 2, y1: 18 + Math.sin(a) * 2, x2: 18 + Math.cos(a) * outer, y2: 18 + Math.sin(a) * outer, hue: Math.round((i / 56) * 360) };
 });
 
 // On a page with a #hero-eye placeholder the eye starts large there, and scrolling carries it into the
@@ -29,6 +30,7 @@ const FIBRES = Array.from({ length: 56 }, (_, i) => {
 export default function Header() {
   const pathname = usePathname();
   const clipId = useId();
+  const gradId = useId();
   const fly = useRef<HTMLDivElement>(null);
   const slot = useRef<HTMLSpanElement>(null);
   const lid = useRef<SVGPathElement>(null);
@@ -155,6 +157,12 @@ export default function Header() {
                     <clipPath id={clipId}>
                       <path ref={clip} d={almond(1)} />
                     </clipPath>
+                    {/* The prism (globals.css): the seam's seven hues across the iris */}
+                    <linearGradient id={gradId} x1="0" y1="0" x2="1" y2="0">
+                      {[1, 2, 3, 4, 5, 6, 7].map((i) => (
+                        <stop key={i} offset={(i - 1) / 6} style={{ stopColor: `var(--s${i})` }} />
+                      ))}
+                    </linearGradient>
                   </defs>
                   {/* Outer circle — the boundary */}
                   <circle pathLength={1} cx="18" cy="18" r="16" stroke="currentColor" className="eye-line eye-draw" />
@@ -164,14 +172,16 @@ export default function Header() {
                     <g ref={iris} className="eye-iris">
                       <g ref={detail} opacity={0}>
                         <circle cx="18" cy="18" r="5.5" fill="currentColor" fillOpacity={0.05} />
-                        {FIBRES.map((f, i) => (
-                          <line key={i} {...f} stroke="currentColor" strokeOpacity={0.5} className="eye-line fibre" />
+                        {FIBRES.map(({ hue, ...f }, i) => (
+                          <line key={i} {...f} stroke="currentColor" strokeOpacity={0.5} className="eye-line fibre prism-fibre" style={{ '--fh': hue } as CSSProperties} />
                         ))}
                         <circle ref={hole} cx="18" cy="18" r="2.15" fill="#000" stroke="currentColor" strokeOpacity={0.6} className="eye-line fibre" />
                         <circle ref={glint} cx="16.8" cy="16.7" r="0.42" className="fill-bone" />
                       </g>
                       {/* Iris ring */}
                       <circle cx="18" cy="18" r="5.5" stroke="currentColor" className="eye-line thin" />
+                      <circle cx="18" cy="18" r="5.5" fill={`url(#${gradId})`} className="prism-fill" />
+                      <circle cx="18" cy="18" r="5.5" stroke={`url(#${gradId})`} className="eye-line thin prism-ring" />
                       {/* Pupil — the "I" in AI */}
                       <circle ref={pupil} cx="18" cy="18" r="2" fill="currentColor" />
                     </g>

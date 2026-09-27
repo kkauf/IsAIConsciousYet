@@ -91,7 +91,7 @@ Live at https://isaiconsciousyet.com (Vercel project "iaicy"). Push to `main` = 
 | Machine-readable | `sitemap.ts`, `robots.ts`, `llms.txt/route.ts`, JSON-LD on each case page, social cards in `opengraph-image.tsx` (fonts in `src/assets/`); data at `/cases.json`, `/cases/<slug>.json` (rewrite in `next.config.ts` to `cases-json/[slug]/route.ts`) and the Atom feed `/feed.xml`; IndexNow ping `pipeline/indexnow.mjs` (key file in `public/`) |
 | Vote | `src/lib/votes.ts` → `/api/votes/*` proxy → Cloudflare Worker `votes.kgm-839.workers.dev` (`docs/votes-worker.md`) |
 | Showcase hero | `src/showcase/`: the homepage opening, one model's answer at a time to a fixed prompt, labelled on the page. `src/showcase/README.md` holds the prompt and how a new model adds its own version |
-| Design | Tokens and the seam in `src/app/globals.css`; the eye (logo in the header, eyes in the seams) in `src/components/eye/`; Newsreader + Public Sans via `next/font` in `src/app/layout.tsx` |
+| Design | Tokens and the seam in `src/app/globals.css`; the eye (logo in the header, eyes in the seams) in `src/components/eye/`; Newsreader + Public Sans via `next/font` in `src/app/layout.tsx`. The prism (`src/lib/prism.ts`, `--spectrum` in `globals.css`, decided by Konstantin 2026-09-27): colour that grows with the reader's own time on the site, kept in localStorage and never sent; at 0 the site is monochrome; it tints the seams, the eye's iris, the site's headings and the ground, never a quote and never a showcase hero |
 
 Stack: Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4. No database; the site needs no environment variables. Pipeline keys live in `~/.claude/secrets/` for hand runs (see `pipeline/run.sh`) and as Actions secrets for the weekly run.
 
@@ -114,3 +114,13 @@ The smoke tests never click the vote: that would write to the production counter
 - Public code and case files, so the conversation about AI consciousness stays transparent. Code MIT (`LICENSE`); case files and site text CC BY 4.0, quotes excepted (`content/LICENSE.md`), decided 2026-09-25.
 - The site is live — your changes will be seen
 - Lean: automated gathering, no editorial staff, no approval click (decided 2026-09-21), no authoring by hand.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+# This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

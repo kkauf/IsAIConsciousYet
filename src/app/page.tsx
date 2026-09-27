@@ -50,7 +50,7 @@ export default function Home() {
             </div>
             <Link href={`/cases/${latest.slug}`} className="group mt-8 block max-w-4xl">
               <p className="text-dim">{dateRange(latest.event.dateStart, latest.event.dateEnd)}, {latest.event.operator}</p>
-              <h3 className="mt-3 font-serif text-4xl md:text-6xl leading-[1.02] tracking-tight group-hover:underline decoration-rule underline-offset-[6px] decoration-1">
+              <h3 className="prism-text mt-3 font-serif text-4xl md:text-6xl leading-[1.02] tracking-tight group-hover:underline decoration-rule underline-offset-[6px] decoration-1">
                 {latest.title}
               </h3>
               <p className="mt-6 max-w-3xl font-serif text-xl md:text-2xl leading-snug text-bone/80">{latest.event.unaskedBehaviour}</p>

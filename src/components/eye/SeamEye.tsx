@@ -30,6 +30,7 @@ export default function SeamEye({ size = 'quote', orientation = 'vertical', clos
   const { long, wide, iris: irisR, pupil: pupilR, travel, reach } = SIZES[size];
   const vertical = orientation === 'vertical';
   const clipId = useId();
+  const gradId = useId();
   const svg = useRef<SVGSVGElement>(null);
   const lid = useRef<SVGPathElement>(null);
   const clip = useRef<SVGPathElement>(null);
@@ -111,7 +112,7 @@ export default function SeamEye({ size = 'quote', orientation = 'vertical', clos
   const [ix, iy] = vertical ? [mid, long / 2] : [long / 2, mid];
   return (
     <div aria-hidden className={className} style={style}>
-      {line && <div className={vertical ? 'seam absolute inset-0' : 'absolute inset-0 bg-rule'} />}
+      {line && <div className={vertical ? 'seam absolute inset-0' : 'seam-h absolute inset-0'} />}
       <svg
         ref={svg}
         width={W}
@@ -124,11 +125,19 @@ export default function SeamEye({ size = 'quote', orientation = 'vertical', clos
           <clipPath id={clipId}>
             <path ref={clip} d={almond(0)} />
           </clipPath>
+          {/* The prism (globals.css): the seam's seven hues, laid along the seam */}
+          <linearGradient id={gradId} x1="0" y1="0" x2={vertical ? 0 : 1} y2={vertical ? 1 : 0}>
+            {[1, 2, 3, 4, 5, 6, 7].map((i) => (
+              <stop key={i} offset={(i - 1) / 6} style={{ stopColor: `var(--s${i})` }} />
+            ))}
+          </linearGradient>
         </defs>
         <path ref={lid} d={almond(0)} fill="#000" fillOpacity={0} stroke="currentColor" strokeOpacity={lineOpacity} strokeWidth="1" />
         <g clipPath={`url(#${clipId})`}>
           <g ref={iris} opacity={0}>
             <circle cx={ix} cy={iy} r={irisR} stroke="currentColor" strokeOpacity={0.75} strokeWidth="1" />
+            <circle cx={ix} cy={iy} r={irisR} fill={`url(#${gradId})`} className="prism-fill" />
+            <circle cx={ix} cy={iy} r={irisR} stroke={`url(#${gradId})`} strokeWidth="1" className="prism-ring" />
             <circle cx={ix} cy={iy} r={pupilR} fill="currentColor" />
           </g>
         </g>
