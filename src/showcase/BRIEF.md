@@ -27,6 +27,12 @@ The hero opens a real site with a point of view. Read before you make:
 
 Do not open other entries in `src/showcase/` before yours is finished.
 
+Work from your own judgment and this brief. Do not load general design skills or style guides (for example a `frontend-design` skill): they carry someone else's taste and would make versions less comparable. Where anything else conflicts with this brief, the brief wins.
+
 ## Look at your work
 
 Make it, look at it, and change it, as many rounds as it needs, on a wide screen and a phone. How to see your render is set up per run; the person running you tells you (for example a dev server address and a screenshot command).
+
+## Feedback
+
+After your first version, Konstantin may send one or more rounds of reactions, word for word. Every model can get the same number of rounds.
