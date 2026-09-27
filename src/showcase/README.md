@@ -32,4 +32,4 @@ Earlier entries stay in the repository and on the page.
 | Model | Released | Made | Folder | Title |
 |---|---|---|---|---|
 | Claude Opus 5.5 | 2026-09-22 | 2026-09-26 | `claude-opus-5-5/` | "Closer": a film in points of light, played by scrolling |
-| GPT-6 Astra | 2026-09-03 | 2026-09-26 | `gpt-6-astra/` | "The shape of I": wire contours that line up into an I, then turn away |
+| GPT-6 Astra | 2026-09-03 | 2026-09-26 | `gpt-6-astra/` | "The shape of I": six chapters on black, a thread that becomes an I, a way inside, two views, and the record |
