@@ -32,3 +32,4 @@ Earlier entries stay in the repository and on the page.
 | Model | Released | Made | Folder | Title |
 |---|---|---|---|---|
 | Claude Opus 5.5 | 2026-09-22 | 2026-09-26 | `claude-opus-5-5/` | "Closer": a film in points of light, played by scrolling |
+| GPT-6 Astra | 2026-09-03 | 2026-09-26 | `gpt-6-astra/` | "The word 'I' is not a window": a printed I that opens onto more paper |

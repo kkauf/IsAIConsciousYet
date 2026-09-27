@@ -51,9 +51,12 @@ export default function Showcase({ events, since, now }: { events: RecordEvent[]
 
   return (
     <div className="relative bg-black">
-      <nav aria-label="Showcase versions" className="absolute inset-x-0 top-4 z-10 mx-auto flex w-full max-w-6xl flex-wrap items-baseline gap-x-3 gap-y-1 px-6 text-sm text-ash">
-        <a href="#showcase" className="hover:text-bone">Showcase</a>
-        {versions("flex flex-wrap gap-x-3 gap-y-1")}
+      {/* Dark backing, so the switcher reads on any hero, light or dark */}
+      <nav aria-label="Showcase versions" className="absolute inset-x-0 top-4 z-10 mx-auto w-full max-w-6xl px-6 text-sm text-ash">
+        <div className="inline-flex flex-wrap items-baseline gap-x-3 gap-y-1 rounded-full bg-black/85 px-3 py-1.5 backdrop-blur">
+          <a href="#showcase" className="hover:text-bone">Showcase</a>
+          {versions("flex flex-wrap gap-x-3 gap-y-1")}
+        </div>
       </nav>
       <Hero key={entry.slug} events={events} since={since} now={now} model={entry.model} date={entry.made} />
       <aside id="showcase" aria-labelledby="showcase-title" className="mx-auto mt-10 w-full max-w-6xl scroll-mt-24 px-6">
