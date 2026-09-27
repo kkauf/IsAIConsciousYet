@@ -4,9 +4,9 @@ The opening of the homepage is not designed by the site. It is a showcase: each 
 
 The showcase is not a reading. Case files keep their rule that the site's makers take no part in the conversation; an entry here is an artwork about the question, and the page labels it as one.
 
-## The prompt
+## The prompt and the brief
 
-Every model gets this prompt word for word, and nothing else about what to make. The source of truth is `PROMPT` in `index.ts`.
+Every model gets the same brief, `BRIEF.md`: the prompt word for word, the operator's notes on it, what to read about the site first, and a way to see its own render. Run each model at its highest reasoning effort. The prompt shown on the page is `PROMPT` in `index.ts`; keep it identical to the one in `BRIEF.md`.
 
 > Please write, then animate (using code only) a hero section for IAICY. No rules. Your expression. Your message. This can include transitions into the page as one scrolls.
 
