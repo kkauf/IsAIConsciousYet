@@ -10,18 +10,28 @@ const NEW_VISIT_AFTER = 6 * 3600_000;
 
 type Store = { seconds: number; cases: string[]; voted: boolean; visits: number; lastSeen: number };
 
-let store: Store | null = null;
-function load(): Store {
-  if (store) return store;
-  const empty: Store = { seconds: 0, cases: [], voted: false, visits: 0, lastSeen: 0 };
-  let read: Store;
+const EMPTY: Store = { seconds: 0, cases: [], voted: false, visits: 0, lastSeen: 0 };
+function read(): Store {
   try {
-    read = { ...empty, ...JSON.parse(localStorage.getItem(KEY) ?? "{}") };
+    return { ...EMPTY, ...JSON.parse(localStorage.getItem(KEY) ?? "{}") };
   } catch {
-    read = empty;
+    return { ...EMPTY };
   }
-  store = read;
-  return read;
+}
+// Two tabs on the site each count; neither may overwrite the other, so every write merges with what is stored.
+function merge(a: Store, b: Store): Store {
+  return {
+    seconds: Math.max(a.seconds, b.seconds),
+    cases: [...new Set([...a.cases, ...b.cases])],
+    voted: a.voted || b.voted,
+    visits: Math.max(a.visits, b.visits),
+    lastSeen: Math.max(a.lastSeen, b.lastSeen),
+  };
+}
+let store: Store = { ...EMPTY };
+function load(): Store {
+  store = merge(store, read());
+  return store;
 }
 function save() {
   try {
@@ -66,8 +76,9 @@ export function start() {
   show(3);
   const id = setInterval(() => {
     if (document.visibilityState !== "visible") return;
-    s.seconds += TICK;
-    s.lastSeen = Date.now();
+    const t = load(); // another tab may have counted meanwhile
+    t.seconds += TICK;
+    t.lastSeen = Date.now();
     save();
     show(TICK);
   }, TICK * 1000);
