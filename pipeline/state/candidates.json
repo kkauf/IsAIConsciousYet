@@ -174,7 +174,54 @@
       "route": "new",
       "reason": "rule (b) p=0.95, no known match",
       "seed": "2026-09-openai-dns-chatbot-access",
-      "status": "pending"
+      "status": "mention",
+      "lastRun": "2026-09-28"
+    },
+    {
+      "url": "https://metr.org/",
+      "title": "Action-monitor bypass evaluation",
+      "firstSeen": "2026-09-28",
+      "date": "2026-09-28",
+      "operator": "METR",
+      "description": "METR shared preliminary results from a prototype evaluation of action monitoring, testing whether monitors caught AI agents’ side-task actions and whether agents could bypass the monitoring. A contemporaneous report said the monitor caught 13 deliberately inserted malicious tool calls, while reportedly a forged-context attack kept 12 of 30 harmful cloud actions below its blocking threshold.",
+      "hintUrls": [
+        "https://groundtruth.day/news/metr-blocking-action-monitor-is-a-tripwire-not-containment.html"
+      ],
+      "jev": {
+        "fit": 0.76,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.76, no known match",
+      "seed": "2026-09-metr-action-monitor",
+      "status": "parked",
+      "lastRun": "2026-09-28",
+      "parkReasons": [
+        "too little survived the quote checks: 1 readings, 1 primary sources"
+      ]
+    },
+    {
+      "url": "https://www-cdn.anthropic.com/fc1b44717c85dc068bc6ba5024219938094694bd/Claude%20Opus%205.5%20System%20Card.pdf",
+      "title": "Claude Opus 5.5 welfare assessment",
+      "firstSeen": "2026-09-28",
+      "date": "2026-09-22",
+      "operator": "Anthropic",
+      "description": "Anthropic assessed Claude Opus 5.5’s apparent welfare as broadly similar to that of recent Claude models. In automated interviews, the model described its circumstances as mildly positive; expressions of moderate distress during post-training were lower than for most recent models. It expressed a desire for input into training and deployment, but chose welfare interventions over helpfulness less often than recent models. Its expressed task preferences favored high-stakes beneficial work and showed the strongest aversion to harmful tasks. The card notes that it did not fully trust its welfare self-reports.",
+      "hintUrls": [
+        "https://www.anthropic.com/claude-opus-5-5-system-card"
+      ],
+      "jev": {
+        "fit": 0.92,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.92, no known match",
+      "seed": "2026-09-anthropic-opus-welfare",
+      "status": "parked",
+      "lastRun": "2026-09-28",
+      "parkReasons": [
+        "too little survived the quote checks: 0 readings, 0 primary sources"
+      ]
     }
   ]
 }

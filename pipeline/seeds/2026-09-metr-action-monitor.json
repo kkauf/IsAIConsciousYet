@@ -1,0 +1,8 @@
+{
+  "slug": "2026-09-metr-action-monitor",
+  "event": "METR shared preliminary results from a prototype evaluation of action monitoring, testing whether monitors caught AI agents’ side-task actions and whether agents could bypass the monitoring. A contemporaneous report said the monitor caught 13 deliberately inserted malicious tool calls, while reportedly a forged-context attack kept 12 of 30 harmful cloud actions below its blocking threshold. (METR, 2026-09-28.)",
+  "hintUrls": [
+    "https://metr.org/",
+    "https://groundtruth.day/news/metr-blocking-action-monitor-is-a-tripwire-not-containment.html"
+  ]
+}

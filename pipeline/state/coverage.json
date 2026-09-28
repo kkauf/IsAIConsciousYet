@@ -1,5 +1,5 @@
 {
-  "lastRun": "2026-09-27",
+  "lastRun": "2026-09-28",
   "seen": {
     "nytimes.com/2023/09/18/science/ai-computers-consciousness.html": {
       "p": 0.81,
@@ -6039,6 +6039,62 @@
     },
     "scientificamerican.com/article/vision-a-window-into-consciousness": {
       "p": 0.02,
+      "kept": false
+    },
+    "wsj.com/opinion/will-the-ai-frenzy-add-up-to-anything-ee76a76c": {
+      "p": 0.85,
+      "kept": false
+    },
+    "nytimes.com/2026/09/25/podcasts/hardfork-ezra-klein-jensen-huang.html": {
+      "p": 0.67,
+      "kept": false
+    },
+    "nytimes.com/2026/09/27/opinion/ai-philosophy-thinking-judgment.html": {
+      "p": 0.42,
+      "kept": false
+    },
+    "washingtonpost.com/opinions/2026/09/18/ai-autonomy-is-growing-faster-than-human-control": {
+      "p": 0.1,
+      "kept": false
+    },
+    "foxnews.com/health": {
+      "p": 0.02,
+      "kept": false
+    },
+    "theguardian.com/community/live/2026/sep/18/could-ai-really-end-humanity-technology-qanda": {
+      "p": 0.4,
+      "kept": false
+    },
+    "ft.com/content/850f7679-5104-4f7e-af27-93bf42be15a5": {
+      "p": 0.02,
+      "kept": false
+    },
+    "ft.com/content/49b61634-7a5d-46c4-8c43-c20ed2196ca9": {
+      "p": 0.02,
+      "kept": false
+    },
+    "ft.com/content/543d2627-1d31-4461-a4f0-e372684d1a7d": {
+      "p": 0.06,
+      "kept": false
+    },
+    "ft.com/content/0ac94fc0-36bf-4bb9-8497-6837c580f9a3": {
+      "p": 0.07,
+      "kept": false
+    },
+    "theverge.com/podcast/996412/microsoft-ai-ceo-mustafa-suleyman-regulation-safety-anthropic-claude": {
+      "p": 0.45,
+      "kept": false
+    },
+    "theverge.com/news/994566/microsoft-humanist-ai-code-of-conduct": {
+      "p": 0.44,
+      "kept": false
+    },
+    "newscientist.com/article/2588900-this-weeks-new-questions-363": {
+      "p": 0.03,
+      "kept": false
+    },
+    "npr.org/2026/09/27/nx-s1-5981063/from-human-rights-to-mathematical-research-how-ai-is-being-used-for-good": {
+      "p": 0.03,
       "kept": false
     }
   }
