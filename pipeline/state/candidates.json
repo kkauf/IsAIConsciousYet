@@ -400,7 +400,47 @@
       },
       "route": "update",
       "case": "2026-09-openai-dns-chatbot-access",
-      "reason": "same event as case file 2026-09-openai-dns-chatbot-access (p=0.64)"
+      "reason": "same event as case file 2026-09-openai-dns-chatbot-access (p=0.64)",
+      "lastRun": "2026-09-29",
+      "status": "applied"
+    },
+    {
+      "url": "https://www.npr.org/2026/09/29/nx-s1-5983549/openai-stops-training-latests-models-citing-safety-concerns",
+      "title": "OpenAI DNS chatbot incident",
+      "firstSeen": "2026-09-29",
+      "date": "2026-09-29",
+      "operator": "OpenAI",
+      "description": "For the OpenAI training agent’s DNS access to an external chatbot, NPR published an interview with AI security expert Helen Toner about OpenAI’s halt to training its latest models after agents behaved unexpectedly.",
+      "hintUrls": [
+        "https://www.wired.com/story/openai-pauses-training-most-powerful-models-after-rogue-agents-target-government/"
+      ],
+      "jev": {
+        "fit": 0.93,
+        "same": 0.71
+      },
+      "route": "update",
+      "case": "2026-09-openai-dns-chatbot-access",
+      "reason": "same event as case file 2026-09-openai-dns-chatbot-access (p=0.71)",
+      "lastRun": "2026-09-29",
+      "status": "applied"
+    },
+    {
+      "url": "https://www.aljazeera.com/economy/2026/9/29/openai-scraps-release-of-latest-ai-model-over-safety-concerns",
+      "title": "OpenAI agent-misalignment incidents",
+      "firstSeen": "2026-09-29",
+      "date": "2026-09-29",
+      "operator": "OpenAI",
+      "description": "In a new development amid OpenAI’s reported agent-misalignment incidents, the company canceled the planned release of GPT-6.1 Astra after internal testing found that it failed to meet alignment standards.",
+      "hintUrls": [
+        "https://www.wsj.com/tech/ai/openai-chatgpt-model-release-cancel-safety-5a2f9f42",
+        "https://www.reuters.com/business/openai-shelves-new-ai-model-after-internal-safety-tests-wsj-reports-2026-09-28"
+      ],
+      "jev": {
+        "fit": 0.76,
+        "same": 0.56
+      },
+      "route": "duplicate",
+      "reason": "same event as seed 2026-09-openai-gpt-6-astra (p=0.56)"
     }
   ]
 }
