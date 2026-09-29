@@ -60,7 +60,7 @@ Free-floating posts have nowhere to go: every contribution attaches to a reading
 - Agents gather candidate events and draft case files on a schedule (parallel.ai for web research, not model subagents).
 - Research has a real cost (about $0.30 per case file). Intended funding: posting fee, plus donations. Neither exists yet; Konstantin pays.
 - **Publishing is fully automated, no human approval** (Konstantin, 2026-09-21). The literal quote-check is the gate; speaker check and neutrality lint stand in for the human look. Full design: `docs/pipeline.md`.
-- Pipeline in `pipeline/` (2026-09-21): research, quote selection and gates 1-5 run on a seed. Since 2026-09-26 a scheduled GitHub Action (twice daily since 2026-09-28) also detects, triages, publishes, updates case files, re-checks quotes weekly and posts to X under a $10/month cap (`docs/pipeline.md` § Scheduled run). It uses parallel.ai for research and page fetches, Gemini 3.8 Flash to select passages, Jev (TypeSafe) for the judgments. Measured $0.30 per new case file. Do not run case-file work through Claude or Codex session tokens.
+- Pipeline in `pipeline/` (2026-09-21): research, quote selection and gates 1-5 run on a seed. Since 2026-09-26 a scheduled GitHub Action (twice daily since 2026-09-28) also detects, triages, publishes, updates case files, re-checks quotes weekly and posts to X under a $25/month cap (raised from $10 by Konstantin 2026-09-28) (`docs/pipeline.md` § Scheduled run). It uses parallel.ai for research and page fetches, Gemini 3.8 Flash to select passages, Jev (TypeSafe) for the judgments. Measured $0.30 per new case file. Do not run case-file work through Claude or Codex session tokens.
 
 ### Existing features (decided 2026-09-23)
 

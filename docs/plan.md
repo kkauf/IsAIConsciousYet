@@ -58,7 +58,7 @@ Status 2026-09-26: built (`.github/workflows/pipeline.yml`, `pipeline/auto.mjs`,
 | draft + gates | Built. Up to 3 queued events per run through `run-case.mjs`; build, then commit to `main`. |
 | re-check | Built. Marks `sourceChanged`, shown on the case page. |
 | notify | Built. Every run's summary on the Actions run page. An issue labelled `pipeline-run`, assigned to Konstantin (so it emails him), only for errors, the spend cap, a Dependabot PR open for a week, or a failed run (2026-09-26: "Actionable/ failures only"). Vercel PR comments off (`vercel.json`). |
-| spend cap | Built. $10/month from `pipeline/config.json`, checked before every paid step. |
+| spend cap | Built. $25/month (from $10, Konstantin 2026-09-28) from `pipeline/config.json`, checked before every paid step. |
 | Dependabot | Built. npm monthly (minor and patch grouped), Actions monthly (grouped). `.github/workflows/dependabot-merge.yml` merges those after CI passes. npm major versions are not proposed (they need deliberate work). |
 | Updates to existing cases | Built 2026-09-26. One case per run is rerun with the new sources; additions only, logged on the page under Updates. |
 | Parked events | Retried once, 21 days after they parked. |
@@ -85,7 +85,7 @@ Wait until there are 8 or more case files. Then `/cases` becomes the heat map fr
 | Decision | Outcome |
 |---|---|
 | Order | Content by hand first (stage 1), then the automation |
-| Spend cap and cadence | Detect weekly; cap $10/month (about 30 case files). Cadence changed by Konstantin 2026-09-28: "daily or more", indexing only the latest; now twice daily, each run searching since the last one. Press coverage and the quote re-check stay weekly. Detect costs about $1.80 a month at this cadence |
+| Spend cap and cadence | Detect weekly; cap $10/month (about 30 case files). Cadence changed by Konstantin 2026-09-28: "daily or more", indexing only the latest; now twice daily, each run searching since the last one. Press coverage and the quote re-check stay weekly. Detect costs about $1.80 a month at this cadence. Cap raised to $25/month the same day (Konstantin), about 70 new or updated case files |
 | Licence | Done: MIT for the code (`LICENSE`); CC BY 4.0 for the site's own text and the case files, quotes excepted (`content/LICENSE.md`) |
 | Per-case reading tally | Proposed 2026-09-26: wait until the main vote passes 100 votes (7 on 2026-09-26), pending Konstantin |
 | Konstantin's own reading | None. The makers host the conversation and are not readings; the `site-owner` party type is removed |

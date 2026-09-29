@@ -1,5 +1,5 @@
 {
-  "monthlyCapUsd": 10,
+  "monthlyCapUsd": 25,
   "maxNewCasesPerRun": 3,
   "maxUpdatesPerRun": 1,
   "parkedRetryDays": [3, 7, 14],

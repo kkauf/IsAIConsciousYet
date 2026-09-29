@@ -170,7 +170,7 @@ Window: detect searches from the last detect run less `detectOverlapDays` (1), a
 
 **Reruns never lose what passed.** Research varies run to run (a rerun of the Hugging Face case on 2026-09-26 verified only 4 of its 9 published readings). So when `content/cases/<slug>.json` exists, `run-case.mjs` carries forward every published reading and primary source it did not find again, unless the weekly re-check marked its page changed; keeps the published title; and refuses to write a file with fewer readings or a lower tier (case file → mention).
 
-Spend cap: before each paid step, month-to-date spend (`spend.json`) + this run so far + the step's worst case (`worstCaseUsd` in config) must stay under `monthlyCapUsd` ($10). Otherwise the step is skipped and the summary says so. Queued events wait for the next run.
+Spend cap: before each paid step, month-to-date spend (`spend.json`) + this run so far + the step's worst case (`worstCaseUsd` in config) must stay under `monthlyCapUsd` ($25 since 2026-09-28, was $10). Otherwise the step is skipped and the summary says so. Queued events wait for the next run.
 
 A failed build publishes nothing; the failure step commits only `pipeline/state` and `pipeline/seeds`, so spend and dedupe survive, and opens an issue linking the run.
 
@@ -222,4 +222,4 @@ Adding an outlet: add it to the config, then `--backfill --outlets <domain>`, so
 
 ## Decisions
 
-Spend cap ($10/month), cadence (detect twice daily since 2026-09-28), build order, and the removed `site-owner` slot: `docs/plan.md` § Decisions.
+Spend cap ($25/month since 2026-09-28), cadence (detect twice daily since 2026-09-28), build order, and the removed `site-owner` slot: `docs/plan.md` § Decisions.

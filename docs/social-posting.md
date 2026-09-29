@@ -16,7 +16,7 @@ Status: researched 2026-09-26; built 2026-09-28 (`pipeline/social.mjs`, step "Po
 The pipeline publishes or updates a case file. A fixed template is then filled from the case file's fields, with no model writing text: "New case file: {title}. {operator}, {date}. {n} readings, quoted word for word. {link}". The post goes to X, and optionally to Bluesky.
 
 - **Not allowed:** replies, quote-posts, @-mentions of the people quoted, or free text written by a model.
-- **Volume:** `pipeline/config.json` allows at most 3 new cases and 1 update per run, and since 2026-09-28 there are two runs a day. The spend cap binds first: at $0.30 a case, $10 a month allows about 25 new or updated files, so about 25 posts, $5 at $0.20 a link post.
+- **Volume:** `pipeline/config.json` allows at most 3 new cases and 1 update per run, and since 2026-09-28 there are two runs a day. The spend cap binds first: at $0.30 a case, the $25 monthly cap allows about 70 new or updated files, so up to about 70 posts, $14 at $0.20 a link post; realistic months are far lower.
 
 ## Findings
 
