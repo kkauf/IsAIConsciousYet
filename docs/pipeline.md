@@ -137,7 +137,7 @@ CaseFile {
   updates: { date, change, sourceUrl }[]
   provenance: { draftedBy, pipelineVersion, checkedAt, humanReviewed: false }
 }
-Reading { partyName, partyType: 'operator' | 'affected' | 'evaluator' | 'scientist' | 'commentator',
+Reading { partyName, partyType: 'operator' | 'affected' | 'evaluator' | 'scientist' | 'commentator', partyDescription? /* ≤10 words, lib.mjs describeParty */,
           stanceLabel /* ≤8 words */, quote, url, archivedUrl, date, speakerCheck: 'pass',
           sourceChanged? /* date the re-check found the quote gone */ }
 Source  { url, archivedUrl, publisher, published, quote, sourceChanged? }
@@ -154,7 +154,7 @@ cap check ─► run-case.mjs per seed (child process) ─► content/cases/<slu
 cap check ─► update of one case file with its new sources
 weekly:  cap check ─► PRESS COVERAGE (coverage.mjs, § Press coverage) ─► content/coverage.json
 weekly:  cap check ─► RECHECK every live quote ─► state files ─► summary.md
-Action: npm run build (validates case files) ─► commit to main ─► IndexNow ─► post to X (social.mjs) ─► run summary (issue only if actionable)
+Action: npm run build (validates case files) ─► commit to main ─► IndexNow ─► run summary (issue only if actionable)
 ```
 
 Window: detect searches from the last detect run less `detectOverlapDays` (1), at least 2 days, at most `lookbackDays` (21, also the first run's window). The weekly steps run once `weeklyStepsEveryDays` (7) have passed since their last run, or with `--weekly`. Timestamps: `pipeline/state/schedule.json`.

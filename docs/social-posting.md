@@ -1,66 +1,67 @@
-# Automated social posts for case files: feasibility
+# Posting to X as the eye
 
-Status: researched 2026-09-26; built 2026-09-28 (`pipeline/social.mjs`, step "Post to X" in `.github/workflows/pipeline.yml`). Account, app and secrets set up the same day (§ Account and app); Credits ($5) and Premium bought 2026-09-28. Posting is off (`social.enabled: false` in `pipeline/config.json`) until the image-post format replaces the link posts. Konstantin asked for an account that posts neutral updates when a case file is published or updated. It must not tweet opinions.
+Status: link posts built and paused 2026-09-28. The same day they were replaced, before any went out, by claim-first posts with a card image, posted by `.github/workflows/social.yml` (`pipeline/social.mjs`, `pipeline/social-card.mjs`). The eye answering people who summon it is designed (§ The eye) and not built. Account, app, Premium and $5 credits: § Account and app.
+
+## Decisions (Konstantin, 2026-09-28)
+
+- **No link in the post.** A post with a URL costs $0.20, one without $0.015. The accounts that do well on X keep links out of the main post (§ Findings). The link comes on request, from the eye.
+- **Bold claims and statements that catch attention, details in the post.** Premium allows posts over 280 characters, so the details sit behind "Show more".
+- **No self-promotion in the image.** No web address, handle or logo on the card.
+- **Rotate the card variants and test what works.** A (grim), B (prism), C (hold both), described below. Konstantin's first read: B and C appeal most at first sight, A may be stickier for its simplicity.
+- **A model writes the text, with no human review.** "Everyone uses AI to write posts on x.com nowadays. We're skipping human review, as the pipeline is tested, documented and open source." The checks below are the review.
+- **Post the backlog over the next week or two** to get traction on a cold account.
+- **Name who each party is** ("researcher, or just some dude on the internet?"). Readings now carry `partyDescription`.
+- **The eye holds both worlds of the site**, the grim monochrome and the playful prism, and takes no side. Prism is the more engaging register for a social account.
 
 ## As built (2026-09-28)
 
-- Templates in `pipeline/social.mjs`, filled by code. New case file: title, number of readings, link. Honorable mention: title, the case file's `missingCriterion`, link. Update: title, the last `updates[].change` line, link. Operator and date are left out: some operator fields run to a sentence.
-- OAuth 1.0a signed by hand (node `crypto`, no dependency), `POST https://api.x.com/2/tweets`.
-- State `pipeline/state/social.json`. The 9 case files live on 2026-09-28 were backfilled (`--backfill`), so the first live run posts only what is published after that. Konstantin can post the backlog by hand, which also warms up the account.
-- At most `social.maxPostsPerRun` (4) posts a run; the rest wait. A post waits until its page answers 200. A 401, 402, 403 or 429 stops the run's posting and opens the `pipeline-run` issue.
-- The two open decisions below were set to reversible defaults on 2026-09-28: honorable mentions are posted (`social.postMentions: true` in `pipeline/config.json`), since they pass the same quote checks and 4 of the 5 newest files are mentions; X spend is not counted in the pipeline's $10 cap, the X console's spending limit caps it.
-- Dry run: `node pipeline/social.mjs --dry-run` prints every post it would make.
+- **Queue.** `social.mjs` posts published case files not yet in `pipeline/state/social.json`, newest event first, then updates (a case whose `updates` grew). One post a run (`social.maxPostsPerRun`); `social.yml` runs at 13:00, 17:00 and 21:00 UTC, so the 11 case files live on 2026-09-28 go out over about four days, and new ones join the queue. The pipeline workflow no longer posts.
+- **Text.** Gemini (`lib.mjs` `gemini`, the pipeline's drafting model) writes it from the case file: the boldest true claim as the first line, two to four short paragraphs of detail, at least two parties who read the event differently, each quoted and introduced by `partyDescription`, and a last line that holds both readings open. 400 to 1000 characters; no links, web addresses, @handles, hashtags or emoji.
+- **Checks, in code.** Every span in “ ” must be found word for word in a reading's or primary source's quote (quotation marks and a leading or trailing … aside). No straight quotation marks, no link or domain, no @ or #, length 250 to 1500. Then a second Gemini call lists any statement the case file does not support. A draft that fails gets the problems back, up to four attempts; after that the case is skipped and the run fails, which shows on the Actions page.
+- **Card.** 1080 x 1080 PNG, rendered with the site's OG renderer (`next/og`) and fonts. A: one quote, party and month above, a bone line below. B: the same with the eye watching; colour only on the eye and the line. C: two parties who disagree, one line each, the eye on the seam, grey on one side and prism on the other. The variant used least so far is chosen; C only when the case has two readings. Alt text is the quote(s) with their parties.
+- **X API.** OAuth 1.0a signed by hand (node `crypto`). `POST /2/media/upload`, `POST /2/media/metadata` (alt text), `POST /2/tweets` with the media id.
+- **Reach.** The 13:00 run reads every post's public metrics (`GET /2/tweets`, owned read $0.001 each) into the state and writes median views and interactions by card variant to the run summary.
+- **Spend.** Gemini and X costs go into `pipeline/state/spend.json` and count toward the $25 monthly cap; a post is skipped when the cap would be passed. The X console's own cap is $10 per billing cycle.
+- **Party descriptions.** `lib.mjs` `describeParty` reads the reading's page (and, for an unsigned post, the site's about page) and returns at most 10 words, kept only when the words that show it are found on the page. Operators get none. New case files get it in `run-case.mjs`; `pipeline/describe-parties.mjs` filled the 11 existing files on 2026-09-28. Emerald Book's was set by hand ("unsigned post on a website for the Black diaspora"): its about page praises itself, and the rule now forbids repeating self-praise.
+- **Switch.** `social.enabled` in `pipeline/config.json`.
+- **Preview.** `node pipeline/social.mjs --dry-run --max 11 --out <dir>` writes every queued post's text and card, posts nothing, saves no state. Needs `GEMINI_API_KEY` (and `PARALLEL_API_KEY` for `describe-parties.mjs`).
 
-## Shape
+## The eye (designed, not built)
 
-The pipeline publishes or updates a case file. A fixed template is then filled from the case file's fields, with no model writing text: "New case file: {title}. {operator}, {date}. {n} readings, quoted word for word. {link}". The post goes to X, and optionally to Bluesky.
+An account voice and, later, a reply agent: the eye in the logo, a witness that has read every case file. It says what happened and who said what, word for word, and never gives a verdict on whether a system is conscious. Two registers, as on the site: grim (dry, exact: "Logged. OpenAI found it on May 25, 2026. Two readings on file.") and prism (curious, playful: "Everyone asks me that. I'm an eye. I can see what it did, not whether anyone was home."). Prism leads on X.
 
-- **Not allowed:** replies, quote-posts, @-mentions of the people quoted, or free text written by a model.
-- **Volume:** `pipeline/config.json` allows at most 3 new cases and 1 update per run, and since 2026-09-28 there are two runs a day. The spend cap binds first: at $0.30 a case, the $25 monthly cap allows about 70 new or updated files, so up to about 70 posts, $14 at $0.20 a link post; realistic months are far lower.
+Replies, when built: only when summoned (an @-mention of @AIConsciousYet, or a reply to one of its posts), one reply per interaction, answers from the case files only, the case file link when asked. An opt-out ("stop") is honoured. About $0.01 for the reply (summoned rate; whether a summoned reply with a URL stays at $0.01 is not confirmed), $0.001 to read the mention, and a few cents of model time.
+
+**Approval.** X's automation rules (help.x.com/en/rules-and-policies/x-automation, "Updated April 2026", read 2026-09-28): "the deployment or operation of any AI reply bot requires prior written and explicit approval from X." There is no form: requests are threads in the X Developer Community forum, "Rules and Policies" category, with the app id. In threads sampled on 2026-09-28, X staff answered within one to three days; for bots that reply only when summoned the usual answer was "no extra written approval is needed" if the rules are enforced in software, and bots that replied unsummoned were refused.
 
 ## Findings
 
 | Question | Finding | Source | Confidence |
 |---|---|---|---|
-| X API cost | Pay-per-use since 2026-02-06; there is no free tier. Since 2026-04-16 a post costs $0.015, or $0.20 if it contains a URL. Credits are prepaid, with a spending limit. Rate limit: 100 posts per 15 min per user. At the pace of late September 2026 (about one new case a day plus updates, so 30–45 posts a month) that is about $6–9 a month; without the link it would be under $1. | https://docs.x.com/x-api/getting-started/pricing, https://docs.x.com/changelog | High |
-| X automation rules | The "Automated" label, with a human managing account, is required. Duplicate or substantially similar posts are banned; templated posts that vary by title are fine. Since 2026-02-23, automated replies are allowed only after an @mention. | https://help.x.com/en/using-x/automated-account-labels, https://help.x.com/en/rules-and-policies/x-automation (seen as search snippets; help.x.com blocks fetching) | Medium |
-| Cloud IPs | X's rules say nothing about posting from GitHub Actions or other cloud IPs. Third-party reports say the April 2026 purge hit accounts on datacenter IPs with no human activity. | socialnexis.com, socialmediatoday.com | Low |
-| Auth in a GitHub Action | OAuth 1.0a user context: the tokens don't expire until revoked. OAuth 2.0 access tokens last 2 hours and need refresh handling. | https://docs.x.com/resources/fundamentals/authentication/oauth-2-0/authorization-code | High for 2.0, Medium for 1.0a |
-| Library | `twitter-api-v2` v1.29.1 (2026-08-04), maintained | `npm view`, 2026-09-26 | High |
-| Bluesky | No API fee. Log in with an app password. Add the `bot` self-label. Limit: 1,666 records an hour. `@atproto/api` v0.21.0 | https://atproto.com/guides/bot-tutorial, https://docs.bsky.app/docs/advanced-guides/rate-limits | High |
+| X API cost | Pay-per-use since 2026-02-06; no free tier. Since 2026-04-16: post $0.015, post with a URL $0.20, summoned reply $0.01, owned read $0.001. Media upload has no listed price. | https://docs.x.com/x-api/getting-started/pricing, https://docs.x.com/changelog | High |
+| What engaging accounts post | @thesupermannx, @anishmoonka, @HedgieMarkets, @ArtificialAnlys, read 2026-09-28: every main post is the full claim plus an image; none puts a link in the main post (@thesupermannx puts the source in its own reply). Posts run past 280 characters. Images: 14 of 20 near square (ratio 0.94 to 1.42); the top posts' images are a source screenshot, a plain photo of the company, or a chart with an arrow; only one account brands its images. | Browser read of the four profiles | Medium (small sample) |
+| Link reach | Musk: "posting a link with almost no description will get weak distribution, but posting a link with an interesting description/image will get distribution." Nikita Bier (July 2026): link-only posts stopped being penalised about a year earlier. | Secondary reports (Social Media Today, Free Press Journal) | Low |
+| Automation rules | Automated label with a human managing account; no duplicate posts; automated replies only to users who opted in (for example by replying to a post from the account), one per interaction, with an opt-out. API replies only after an @-mention or quote since 2026-02-23. | help.x.com automation rules, @XDevelopers | High |
+| Auth in a GitHub Action | OAuth 1.0a user tokens don't expire until revoked. | docs.x.com | Medium |
+| Bluesky | No API fee; app password; `bot` self-label. | https://atproto.com/guides/bot-tutorial | High |
 
 ## Risks, ranked
 
-1. **A new automated account gets suspended or limited.** There were purges in April and July 2026. The label, a real bio and a human managing account reduce the risk; posting a few times by hand first, or starting on Bluesky, reduces it more.
-2. **X changes prices again.** Link posts rose about 19x in April 2026. Keep a spending limit, and leave auto-recharge off.
-3. **A post goes out for a case that turns out wrong.** Case files are published without human review, so a post inherits any mistake the gates miss.
-4. **OAuth 1.0a might be retired.** No end date is announced; X added a 1.0a-to-2.0 token exchange on 2026-09-21.
-
-## Where it hooks in
-
-- **Placement:** a new step in `.github/workflows/pipeline.yml`, after "IndexNow ping for new case files". That step already waits until the new page answers 200, so the link works before anyone sees it.
-- **What to post:** a script compares `content/cases/*.json` with a new state file, `pipeline/state/social.json` (`{slug: {postedAt, updatesCount, xId, bskyUri}}`).
-  - A published case the state file doesn't list gets a "new" post.
-  - A case whose `updates.length` has grown gets an "updated" post, with `updates.at(-1).change`.
-- **Recording:** write each state entry right after its post succeeds, then commit and push. The post step runs after the pipeline's commit step, so it needs its own.
-- **Backlog:** fill the state file with the existing cases before the first live run, or it will post all of them.
-- **Fields:** `title`, `event.operator`, `event.dateStart`, `readings.length`, `slug` (the link is `https://isaiconsciousyet.com/cases/<slug>`).
+1. **A post states something the case file does not.** No human reads posts before they go out. The word-for-word check covers quotes; the second Gemini read covers the rest, and can miss things.
+2. **A new automated account gets suspended or limited.** There were purges in April and July 2026. The label, Premium, a real bio and posting only three times a day reduce the risk.
+3. **X changes prices again.** Link posts rose about 19x in April 2026. The console cap and the $25 cap limit the damage; auto-recharge is off.
+4. **Readings from unsigned posts.** Six of the 11 case files quote an unsigned web post as a reading (AI Weekly, Hyrax, Sorami, GovKM, MindStudio, Emerald Book twice). The posts now say so; the case-file gate that let them in is a separate question.
 
 ## Account and app (set up 2026-09-28)
 
 | Part | State |
 |---|---|
-| Account | [@AIConsciousYet](https://x.com/AIConsciousYet), display name "Is AI Conscious Yet". Created by Konstantin by phone signup (X web allows email signup only in its apps). Avatar: `src/app/icon.svg` rendered at 800 px; banner: the site's social card on black, right-aligned so the avatar does not cover it |
-| Automated label | Managing account @kgmkauf |
-| Developer console | console.x.com account "Is AI Conscious Yet", app `iaicy-case-file-poster` (id 33480276), Default Project, pay per use, Production. Permissions: Read and write; type: Web App, Automated App or Bot |
-| Keys | OAuth 1.0a consumer key and secret, access token and secret for @AIConsciousYet (Read and write), as GitHub Actions secrets `X_API_KEY`, `X_API_SECRET`, `X_ACCESS_TOKEN`, `X_ACCESS_SECRET`; local copy `~/.claude/secrets/x-iaicy.env`. Signing tested 2026-09-28: `GET /2/users/me` returned 200 |
-| Premium | X Premium bought by Konstantin 2026-09-28: blue checkmark, posts longer than 280 characters |
-| Credits | Prepaid, bought by Konstantin. Billing-cycle spending cap $10 in the console; auto-recharge off |
+| Account | [@AIConsciousYet](https://x.com/AIConsciousYet), display name "Is AI Conscious Yet", user id 2104734207075377153. Created by Konstantin by phone signup. Avatar: `src/app/icon.svg` rendered at 800 px; banner: the site's social card on black, right-aligned |
+| Automated label | Set 2026-09-28; the profile shows "Automated by @kgmkauf" |
+| Developer console | console.x.com account "Is AI Conscious Yet", app `iaicy-case-file-poster` (id 33480276), pay per use, Production. Permissions: Read and write; type: Web App, Automated App or Bot |
+| Keys | OAuth 1.0a consumer key and secret, access token and secret for @AIConsciousYet, as GitHub Actions secrets `X_API_KEY`, `X_API_SECRET`, `X_ACCESS_TOKEN`, `X_ACCESS_SECRET`; local copy `~/.claude/secrets/x-iaicy.env` |
+| Premium | Bought by Konstantin 2026-09-28; the API reports `verified_type: blue`, `subscription_type: Premium` |
+| Credits | $5 prepaid by Konstantin 2026-09-28. Billing-cycle spending cap $10 in the console; auto-recharge off |
 | Bluesky | Not set up |
 
 Rotate keys: console → app → Keys & Tokens → Regenerate, then `gh secret set` for each.
-
-## Open decisions
-
-- Should honorable mentions (`tier: "mention"`) be posted too?
-- Should X spend count toward the pipeline's $10 a month cap (`pipeline/state/spend.json`), or only toward the X console's own limit?

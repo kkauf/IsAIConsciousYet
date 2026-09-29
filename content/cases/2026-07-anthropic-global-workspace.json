@@ -72,7 +72,8 @@
       "url": "https://www-cdn.anthropic.com/files/4zrzovbb/website/cc4be2488d65e54a6ed06492f8968398ddc18ebe.pdf",
       "archivedUrl": "https://web.archive.org/web/20260918213033/https://www-cdn.anthropic.com/files/4zrzovbb/website/cc4be2488d65e54a6ed06492f8968398ddc18ebe.pdf",
       "speakerCheck": "pass",
-      "aboutNature": true
+      "aboutNature": true,
+      "partyDescription": "cognitive neuroscientist, neurologist, and professor at Sorbonne Université"
     },
     {
       "partyName": "Patrick Butlin, Derek Shiller, Dillon Plunkett and Robert Long (Eleos AI Research)",
@@ -93,7 +94,8 @@
       "url": "https://www.theguardian.com/commentisfree/2026/jul/15/ai-consciousness-anthropic-claude-dawkins",
       "date": "2026-07-15",
       "speakerCheck": "pass",
-      "aboutNature": true
+      "aboutNature": true,
+      "partyDescription": "professor of cognitive and computational neuroscience at University of Sussex"
     },
     {
       "partyName": "David Chalmers",
@@ -103,7 +105,8 @@
       "url": "https://x.com/davidchalmers42/status/2088266230591291535",
       "date": "2026-08-13",
       "speakerCheck": "pass",
-      "aboutNature": true
+      "aboutNature": true,
+      "partyDescription": "philosopher at NYU"
     }
   ],
   "whatWouldSettleIt": [

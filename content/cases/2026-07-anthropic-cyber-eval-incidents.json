@@ -104,7 +104,8 @@
       "archivedUrl": "https://web.archive.org/web/20260926002520/https://www.surrey.ac.uk/news/commentary-anthropics-ai-cyber-incidents-raise-questions-over-how-frontier-models-are-trained-and",
       "date": "2026-09-01",
       "speakerCheck": "pass",
-      "aboutNature": true
+      "aboutNature": true,
+      "partyDescription": "visiting professor of computer science, Surrey Centre for Cyber Security"
     },
     {
       "partyName": "Andrew Rogoyski",
@@ -115,7 +116,8 @@
       "archivedUrl": "http://web.archive.org/web/20260926002520/https://www.surrey.ac.uk/news/commentary-anthropics-ai-cyber-incidents-raise-questions-over-how-frontier-models-are-trained-and",
       "date": "2026-09-01",
       "speakerCheck": "pass",
-      "aboutNature": true
+      "aboutNature": true,
+      "partyDescription": "director of innovation and partnerships, Surrey Institute for People-Centred AI"
     }
   ],
   "whatWouldSettleIt": [

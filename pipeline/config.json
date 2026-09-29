@@ -7,7 +7,7 @@
   "detectOverlapDays": 1,
   "weeklyStepsEveryDays": 7,
   "detectProcessor": "base",
-  "social": { "enabled": false, "postMentions": true, "maxPostsPerRun": 4 },
+  "social": { "enabled": true, "postMentions": true, "maxPostsPerRun": 1 },
   "worstCaseUsd": {
     "detectTriage": 0.01,
     "case": 0.5,

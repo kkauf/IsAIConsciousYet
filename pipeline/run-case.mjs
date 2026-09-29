@@ -9,7 +9,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parallelTask, parallelExtract, directFetch, relevantWindow, gemini, jev, waybackSnapshot, findQuote, shortHash, markAboutNature, ledger, ledgerTotal, PRICES } from './lib.mjs';
+import { parallelTask, parallelExtract, directFetch, relevantWindow, gemini, jev, waybackSnapshot, findQuote, shortHash, markAboutNature, describeParty, ledger, ledgerTotal, PRICES } from './lib.mjs';
 import { CASE_FILE_SCHEMA, QUESTIONS, PARTY_TYPES, validate } from './contract.mjs';
 
 const PIPELINE_VERSION = '0.3';
@@ -364,6 +364,7 @@ if (readings.length >= 2 && primaries.length >= 1) {
     const marked = await markAboutNature(d.title, caseFile.readings);
     report.gates.aboutNature = Object.fromEntries(marked.map((r) => [r.partyName, r._p]));
     caseFile.readings = marked.map(({ _p, ...r }) => r);
+    for (const r of caseFile.readings) { const desc = await describeParty(r).catch(() => null); if (desc) r.partyDescription = desc; }
     break;
   }
 }

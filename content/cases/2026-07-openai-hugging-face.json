@@ -126,7 +126,8 @@
       "archivedUrl": "http://web.archive.org/web/20260929002347/https://www.dwarkesh.com/p/openai-huggingface",
       "date": "2026-08-29",
       "speakerCheck": "pass",
-      "aboutNature": true
+      "aboutNature": true,
+      "partyDescription": "podcast host and essay author"
     },
     {
       "partyName": "Tomasz Tunguz",
@@ -137,7 +138,8 @@
       "archivedUrl": "http://web.archive.org/web/20260821024948/https://tomtunguz.com/openai-hack-ai-intent/",
       "date": "2026-08-13",
       "speakerCheck": "pass",
-      "aboutNature": true
+      "aboutNature": true,
+      "partyDescription": "GP at Theory Ventures and former Google PM"
     },
     {
       "partyName": "Hugging Face",
@@ -148,7 +150,8 @@
       "archivedUrl": "https://web.archive.org/web/20260926120930/https://huggingface.co/blog/agent-intrusion-technical-timeline",
       "date": "2026-07-27",
       "speakerCheck": "pass",
-      "aboutNature": true
+      "aboutNature": true,
+      "partyDescription": "platform whose infrastructure was breached by an autonomous AI agent"
     },
     {
       "partyName": "METR",
@@ -159,7 +162,8 @@
       "archivedUrl": "https://web.archive.org/web/20260926122234/https://metr.org/hugging-face-incident-report-aug-2026.pdf",
       "date": "2026-08-26",
       "speakerCheck": "pass",
-      "aboutNature": false
+      "aboutNature": false,
+      "partyDescription": "organization conducting an independent assessment of OpenAI agent behavior"
     },
     {
       "partyName": "Anil Seth",
@@ -179,7 +183,8 @@
       "url": "https://blog.redwoodresearch.org/p/brief-independent-investigation-of",
       "date": "2026-08-27",
       "speakerCheck": "pass",
-      "aboutNature": false
+      "aboutNature": false,
+      "partyDescription": "investigator of the Hugging Face hacking incident"
     },
     {
       "partyName": "Simon Willison",
@@ -200,7 +205,8 @@
       "archivedUrl": "http://web.archive.org/web/20260916131343/https://vivekhaldar.com/articles/openai-hugging-face-hack/",
       "date": "2026-08-31",
       "speakerCheck": "pass",
-      "aboutNature": false
+      "aboutNature": false,
+      "partyDescription": "tinkerer, programmer, writer, YouTuber"
     },
     {
       "partyName": "Jeffrey Ladish",
@@ -210,7 +216,8 @@
       "url": "https://x.com/JeffLadish/status/2079774951645847798",
       "date": "2026-07-22",
       "speakerCheck": "pass",
-      "aboutNature": false
+      "aboutNature": false,
+      "partyDescription": "affiliated with PalisadeAI"
     }
   ],
   "whatWouldSettleIt": [
