@@ -104,18 +104,25 @@ if (metricsMode) {
   process.exit(0);
 }
 
-// ── what to post: case files not yet posted (newest event first), then updates ──
+// ── what to post ──
+// Fresh: case files published since posting began, and updates to any case file. Backlog: the case files live when
+// posting began (state.backlog). A run posts up to maxPostsPerRun fresh items; only a run with nothing fresh posts one
+// backlog item, so the backlog fills idle slots and never delays a new case file. Newest event first within each.
 const live = loadCases().filter((c) => c.status === 'published' && (config.postMentions !== false || c.tier !== 'mention'));
-const todo = [];
+const backlogSlugs = new Set(state.backlog ?? []);
+const fresh = [], backlog = [];
 for (const c of [...live].sort((a, b) => (b.event.dateStart ?? '').localeCompare(a.event.dateStart ?? ''))) {
   const s = state.x[c.slug];
-  if (!s) todo.push({ kind: 'new', c });
-  else if ((c.updates?.length ?? 0) > (s.updates ?? 0)) todo.push({ kind: 'update', c });
+  if (!s) (backlogSlugs.has(c.slug) ? backlog : fresh).push({ kind: 'new', c });
+  else if ((c.updates?.length ?? 0) > (s.updates ?? 0)) fresh.push({ kind: 'update', c });
 }
-todo.sort((a, b) => (a.kind === b.kind ? 0 : a.kind === 'new' ? -1 : 1));
+fresh.sort((a, b) => (a.kind === b.kind ? 0 : a.kind === 'new' ? -1 : 1));
+const max = Number(opt('--max') ?? config.maxPostsPerRun ?? 3);
+const todo = fresh.length ? fresh.slice(0, max) : backlog.slice(0, opt('--max') ? max : 1);
+const waiting = fresh.length + backlog.length - todo.length;
 
-if (config.enabled === false && !dryRun) { log(`X: posting off in pipeline/config.json (${todo.length} post(s) waiting)`); process.exit(0); }
-if (!dryRun && !haveKeys) { log(`X: secrets not set, skipped (${todo.length} post(s) waiting)`); process.exit(0); }
+if (config.enabled === false && !dryRun) { log(`X: posting off in pipeline/config.json (${fresh.length + backlog.length} post(s) waiting)`); process.exit(0); }
+if (!dryRun && !haveKeys) { log(`X: secrets not set, skipped (${fresh.length + backlog.length} post(s) waiting)`); process.exit(0); }
 
 // ── the writer ──
 const SYSTEM = `You write posts for @AIConsciousYet on X. The account is the eye of isaiconsciousyet.com, an archive of things AI systems did that nobody asked for, and of how named people read them. The eye is a witness: curious, exact, a little playful. It never gives a verdict on whether a system is conscious, intends anything, or feels anything, and never claims more than the case file says.
@@ -215,10 +222,9 @@ function recordSpend() {
   if (dryRun || usd === 0) return;
   saveSpend(addSpend(loadSpend(), usd));
 }
-const max = Number(opt('--max') ?? config.maxPostsPerRun ?? 1);
 const done = [], errors = [];
 if (dryRun) mkdirSync(outDir, { recursive: true });
-for (const { kind, c } of todo.slice(0, max)) {
+for (const { kind, c } of todo) {
   const cap = capCheck({ config: fullConfig, spentBefore: monthToDate(loadSpend()), spentThisRun: ledgerTotal().total + xSpent, estimate: 0.05, step: `X post for ${c.slug}` });
   if (cap && !dryRun) { errors.push(cap); break; }
   try {
@@ -245,7 +251,7 @@ for (const { kind, c } of todo.slice(0, max)) {
     if (/\bX (401|402|403|429)\b/.test(String(e.message))) break; // auth, credits or rate limit: the rest would fail too
   }
 }
-if (todo.length > max) log(`X: ${todo.length - max} post(s) queued for later runs (max ${max} per run)`);
+if (waiting) log(`X: ${waiting} post(s) queued for later runs (${backlog.length} in the backlog)`);
 recordSpend();
 
 if (summaryPath && (done.length || errors.length)) appendFileSync(summaryPath, ['', '## Posted to X', '', ...done, ...errors.map((e) => `- Error: ${e}`), ''].join('\n'));
