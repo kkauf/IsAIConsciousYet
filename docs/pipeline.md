@@ -143,25 +143,28 @@ Reading { partyName, partyType: 'operator' | 'affected' | 'evaluator' | 'scienti
 Source  { url, archivedUrl, publisher, published, quote, sourceChanged? }
 ```
 
-## Scheduled run (built 2026-09-26)
+## Scheduled run (built 2026-09-26, twice daily since 2026-09-28)
 
-`pipeline/auto.mjs`, weekly on Monday 06:00 UTC and on demand (`workflow_dispatch`). By hand: `pipeline/run.sh auto.mjs --dry-run --summary /tmp/summary.md`.
+`pipeline/auto.mjs`, twice a day at 06:00 and 18:00 UTC and on demand (`workflow_dispatch`). Weekly until 2026-09-28; Konstantin moved it to daily or more that day because events and their follow-ups arrive within days (the OpenAI training pause after the DNS incident of 2026-09-20). By hand: `pipeline/run.sh auto.mjs --dry-run --summary /tmp/summary.md`.
 
 ```
-cap check ─► DETECT (1 parallel.ai task) ─► TRIAGE (1 Jev call per batch) ─► queue in candidates.json
+cap check ─► DETECT (3 parallel.ai tasks, since the last run) ─► TRIAGE (1 Jev call per batch) ─► queue in candidates.json
                                                                                  │ up to maxNewCasesPerRun, oldest first
 cap check ─► run-case.mjs per seed (child process) ─► content/cases/<slug>.json if it passes
-cap check ─► PRESS COVERAGE (coverage.mjs, § Press coverage) ─► content/coverage.json
-cap check ─► RECHECK every live quote ─► state files ─► summary.md
-Action: npm run build (validates case files) ─► commit to main ─► IndexNow (if pipeline/indexnow.mjs exists) ─► run summary (issue only if actionable)
+cap check ─► update of one case file with its new sources
+weekly:  cap check ─► PRESS COVERAGE (coverage.mjs, § Press coverage) ─► content/coverage.json
+weekly:  cap check ─► RECHECK every live quote ─► state files ─► summary.md
+Action: npm run build (validates case files) ─► commit to main ─► IndexNow ─► post to X (social.mjs) ─► run summary (issue only if actionable)
 ```
+
+Window: detect searches from the last detect run less `detectOverlapDays` (1), at least 2 days, at most `lookbackDays` (21, also the first run's window). The weekly steps run once `weeklyStepsEveryDays` (7) have passed since their last run, or with `--weekly`. Timestamps: `pipeline/state/schedule.json`.
 
 | Step | What it does | Measured cost |
 |---|---|---|
-| Detect | One parallel.ai Task (`base` processor, `detectProcessor` in config) with the fixed source list in `pipeline/config.json` and rule (b) of Version 2. Returns up to 10 events from the last `lookbackDays` (21) with title, date, neutral description, primary URL and hint URLs. Known case files and seeds are listed in the prompt as "do not list again". Since 2026-09-26 a second Task runs alongside it: findings about what a system is (welfare assessments, stated preferences, self-reports, inner workings), including a finding inside a launch document such as a system card's welfare section, with its own `findingSources`. One search alone let incidents crowd these out; the first two-search dry run found the Claude Opus 5.5 welfare section, which two one-search runs missed (`docs/plan.md`, "What the record cannot show"). | $0.02 (two Tasks, run in parallel), 1-3 minutes. `lite` ($0.005) gave thinner descriptions; `core` ($0.025) found the same events (runs of 2026-09-26). |
-| Triage | Exact URL match against candidates.json (except `no-fit` candidates: one system card holds several findings), seeds and case-file sources → `duplicate`; within one batch only the same URL with the same title. Then one Jev call: rule (b) as a probability (below 0.5 → `no-fit`), and a Choice over known case files, seeds, earlier candidates and earlier items in the batch (same event at 0.5 or above → `update` if it is a case file, else `duplicate`). The rest → `new`: a seed in `pipeline/seeds/` (slug `YYYY-MM-short-name`) queued as `pending`. | under $0.001 |
+| Detect | One parallel.ai Task (`base` processor, `detectProcessor` in config) with the fixed source list in `pipeline/config.json` and rule (b) of Version 2. Returns up to 10 events from the last `lookbackDays` (21) with title, date, neutral description, primary URL and hint URLs. Known case files and seeds are listed in the prompt as "do not list again". Since 2026-09-26 a second Task runs alongside it: findings about what a system is (welfare assessments, stated preferences, self-reports, inner workings), including a finding inside a launch document such as a system card's welfare section, with its own `findingSources`. One search alone let incidents crowd these out; the first two-search dry run found the Claude Opus 5.5 welfare section, which two one-search runs missed (`docs/plan.md`, "What the record cannot show"). Since 2026-09-28 a third Task looks for developments on known case files: a further operator statement, a response such as a paused training run, or a named person's reading, on pages other than the case's own sources. Its items route to `update`. Without it the OpenAI training pause, reported by AP, Fortune and The Verge on 2026-09-26, was not found: the first two searches only visit operator pages, and a first attempt that did not list the case's own URLs returned those URLs back. | $0.03 (three Tasks, run in parallel), 3-5 minutes; about $1.80 a month at two runs a day. `lite` ($0.005) gave thinner descriptions; `core` ($0.025) found the same events (runs of 2026-09-26). |
+| Triage | Exact URL match against candidates.json (except `no-fit` candidates: one system card holds several findings), seeds and case-file sources → `duplicate`; within one batch only the same URL with the same title. Then one Jev call: rule (b) as a probability (below 0.5 → `no-fit`), and a Choice over known case files, seeds, earlier candidates and earlier items in the batch (same event at 0.5 or above → `update` if it is a case file, else `duplicate`). A match to a case file is an update even when rule (b) scores low, since a follow-up such as a training pause is not itself unexpected behaviour. The Choice names a different model or a different system card as a different event: on 2026-09-28 the Claude Sonnet 5.5 welfare section was matched to the Opus 5.5 seed at 0.62 without that sentence, and at no match with it. The rest → `new`: a seed in `pipeline/seeds/` (slug `YYYY-MM-short-name`) queued as `pending`. | under $0.001 |
 | Research + gates | `run-case.mjs` unchanged, one child process per seed. Result read from `pipeline/runs/<slug>/report.json`. A crash is charged at the worst case and marked `error` (not retried; set it back to `pending` to retry). | $0.30 per case; cap assumes $0.50 |
-| Parked retry | A parked event is queued once more `parkedRetryAfterDays` (21) after its run, behind new events: most new events park only because nobody has commented yet. | as research + gates |
+| Parked retry | A parked event is queued again `parkedRetryDays` after each run (3, 7, then 14 days), behind new events: most new events park only because nobody has commented yet, and comment arrives within days. Until 2026-09-28: once, after 21 days. | as research + gates |
 | Update | Up to `maxUpdatesPerRun` (1) case file per run: the update URLs join the seed's `hintUrls`, then `run-case.mjs --force`. The summary and page line are written by code: "Checked again after new reports; added N new readings and M new first-hand sources." If nothing new passes, the published file is restored byte for byte and the candidate is `no-change`. | $0.30 |
 | Re-check | `recheck.mjs`, all quote URLs of published case files, one Extract each | $0.001 per URL |
 
@@ -219,4 +222,4 @@ Adding an outlet: add it to the config, then `--backfill --outlets <domain>`, so
 
 ## Decisions
 
-Spend cap ($10/month), cadence (detect weekly), build order, and the removed `site-owner` slot: `docs/plan.md` § Decisions.
+Spend cap ($10/month), cadence (detect twice daily since 2026-09-28), build order, and the removed `site-owner` slot: `docs/plan.md` § Decisions.

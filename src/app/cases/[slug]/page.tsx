@@ -220,7 +220,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
         </div>
       </section>
 
-      {/* Written by the weekly run (pipeline/auto.mjs) when a rerun added readings or sources */}
+      {/* Written by the scheduled run (pipeline/auto.mjs) when a rerun added readings or sources */}
       {c.updates.length > 0 && (
         <section aria-labelledby="updates" className="mt-24 border-t border-rule pt-6 grid gap-4 md:grid-cols-[14rem_1fr] md:gap-8">
           <h2 id="updates" className="text-ash">Updates</h2>

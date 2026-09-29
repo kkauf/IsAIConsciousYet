@@ -1,11 +1,12 @@
-# Weekly case-file pipeline: detect + triage, research and gates on new events, re-check of
-# every live quote, then publish by pushing to main (Vercel deploys main). Design: docs/pipeline.md.
+# Case-file pipeline, twice a day: detect + triage since the last run, research and gates on new events,
+# updates to case files; weekly also press coverage and a re-check of every live quote. Publishes by pushing
+# to main (Vercel deploys main), then posts to X. Design: docs/pipeline.md, docs/social-posting.md.
 # No human approval (Konstantin, 2026-09-21); the gates and `npm run build` are the check.
 # Logs are public: the scripts print titles, URLs and reasons, never keys or page text.
 name: Pipeline
 on:
   schedule:
-    - cron: "0 6 * * 1" # Monday 06:00 UTC
+    - cron: "0 6,18 * * *" # 06:00 and 18:00 UTC; the weekly steps run when 7 days have passed (pipeline/state/schedule.json)
   workflow_dispatch:
 permissions:
   contents: write
@@ -65,6 +66,22 @@ jobs:
           done
           node pipeline/indexnow.mjs $(cat new-urls.txt) || echo "IndexNow ping failed (not a gate)"
 
+      # Posts new and updated case files to X from fixed templates (pipeline/social.mjs). Skips, with one log
+      # line, until the four X secrets exist. Its state is committed on its own, after each run's posts.
+      - name: Post to X
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
+        run: |
+          node pipeline/social.mjs --summary summary.md --actionable actionable.txt
+          git add pipeline/state/social.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m "Posted to X $(date -u +%F)" -m "$RUN_URL"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
       # Every run's summary goes to the run page. An issue, assigned to the owner so it emails him,
       # opens only when something needs a person: errors, the spend cap, or Dependabot PRs that CI
       # kept from merging for a week (Konstantin, 2026-09-26: failures and actionable items only).
@@ -76,7 +93,7 @@ jobs:
             echo "- $stuck Dependabot PR(s) open for more than a week: CI failed on them, so they were not merged. $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/pulls" >> actionable.txt
           fi
           [ -s actionable.txt ] || { echo "nothing needs a person"; exit 0; }
-          gh label create pipeline-run --color 5319e7 --description "Weekly pipeline run summary" 2>/dev/null || true
+          gh label create pipeline-run --color 5319e7 --description "Pipeline run summary" 2>/dev/null || true
           { echo "## Needs action"; echo; cat actionable.txt; echo; echo "---"; echo; cat summary.md; printf '\n\n[Workflow run](%s)\n' "$RUN_URL"; } > issue.md
           gh issue create --title "Pipeline run $(date -u +%F): needs action" --label pipeline-run --assignee "$GITHUB_REPOSITORY_OWNER" --body-file issue.md
 
@@ -98,7 +115,7 @@ jobs:
       - name: Open failure issue
         if: failure()
         run: |
-          gh label create pipeline-run --color 5319e7 --description "Weekly pipeline run summary" 2>/dev/null || true
+          gh label create pipeline-run --color 5319e7 --description "Pipeline run summary" 2>/dev/null || true
           {
             echo "The pipeline run failed: $RUN_URL"
             echo

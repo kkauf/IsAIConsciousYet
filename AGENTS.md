@@ -60,7 +60,7 @@ Free-floating posts have nowhere to go: every contribution attaches to a reading
 - Agents gather candidate events and draft case files on a schedule (parallel.ai for web research, not model subagents).
 - Research has a real cost (about $0.30 per case file). Intended funding: posting fee, plus donations. Neither exists yet; Konstantin pays.
 - **Publishing is fully automated, no human approval** (Konstantin, 2026-09-21). The literal quote-check is the gate; speaker check and neutrality lint stand in for the human look. Full design: `docs/pipeline.md`.
-- Pipeline in `pipeline/` (2026-09-21): research, quote selection and gates 1-5 run on a seed. Since 2026-09-26 a weekly GitHub Action also detects, triages, publishes and re-checks quotes under a $10/month cap (`docs/pipeline.md` § Scheduled run). It uses parallel.ai for research and page fetches, Gemini 3.8 Flash to select passages, Jev (TypeSafe) for the judgments. Measured $0.30 per new case file. Do not run case-file work through Claude or Codex session tokens.
+- Pipeline in `pipeline/` (2026-09-21): research, quote selection and gates 1-5 run on a seed. Since 2026-09-26 a scheduled GitHub Action (twice daily since 2026-09-28) also detects, triages, publishes, updates case files, re-checks quotes weekly and posts to X under a $10/month cap (`docs/pipeline.md` § Scheduled run). It uses parallel.ai for research and page fetches, Gemini 3.8 Flash to select passages, Jev (TypeSafe) for the judgments. Measured $0.30 per new case file. Do not run case-file work through Claude or Codex session tokens.
 
 ### Existing features (decided 2026-09-23)
 
@@ -81,19 +81,19 @@ Conceived through collaboration between a human (Konstantin) and an AI (Claude).
 
 ## Technical Context
 
-Live at https://isaiconsciousyet.com (Vercel project "iaicy"). Push to `main` = live. GitHub Actions (`.github/workflows/ci.yml`) runs the same checks on every push. Pushes by the weekly pipeline Action use the workflow token and do not trigger CI; that workflow runs the build itself before it commits.
+Live at https://isaiconsciousyet.com (Vercel project "iaicy"). Push to `main` = live. GitHub Actions (`.github/workflows/ci.yml`) runs the same checks on every push. Pushes by the pipeline Action use the workflow token and do not trigger CI; that workflow runs the build itself before it commits.
 
 | Part | Where |
 |---|---|
 | Pages | `src/app/`: `/` (the showcase hero, then the latest case file, the timeline, then the vote), `/cases`, `/cases/[slug]`, `/timeline` (press coverage and case files by month, `src/components/Timeline.tsx`), `/why` |
 | Case files | JSON in `content/cases/`, written by `pipeline/` (contract: `pipeline/contract.mjs`), read by `src/lib/cases/load.ts`. Press coverage: `content/coverage.json`, written by `pipeline/coverage.mjs`, read by `src/lib/coverage.ts` |
-| Pipeline | `pipeline/run-case.mjs` (one seed), `pipeline/auto.mjs` (weekly run: detect, research, re-check), config `pipeline/config.json`, state `pipeline/state/`, Action `.github/workflows/pipeline.yml`, run summaries on the Actions run page; an issue labelled `pipeline-run`, assigned to Konstantin, only when a run needs a person |
+| Pipeline | `pipeline/run-case.mjs` (one seed), `pipeline/auto.mjs` (twice-daily run: detect, research, updates; weekly re-check and press coverage), `pipeline/social.mjs` (posts to X, `docs/social-posting.md`), config `pipeline/config.json`, state `pipeline/state/`, Action `.github/workflows/pipeline.yml`, run summaries on the Actions run page; an issue labelled `pipeline-run`, assigned to Konstantin, only when a run needs a person |
 | Machine-readable | `sitemap.ts`, `robots.ts`, `llms.txt/route.ts`, JSON-LD on each case page, social cards in `opengraph-image.tsx` (fonts in `src/assets/`); data at `/cases.json`, `/cases/<slug>.json` (rewrite in `next.config.ts` to `cases-json/[slug]/route.ts`) and the Atom feed `/feed.xml`; IndexNow ping `pipeline/indexnow.mjs` (key file in `public/`) |
 | Vote | `src/lib/votes.ts` → `/api/votes/*` proxy → Cloudflare Worker `votes.kgm-839.workers.dev` (`docs/votes-worker.md`) |
 | Showcase hero | `src/showcase/`: the homepage opening, one model's answer at a time to a fixed prompt, labelled on the page. `src/showcase/README.md` holds the prompt and how a new model adds its own version |
 | Design | Tokens and the seam in `src/app/globals.css`; the eye (logo in the header, eyes in the seams) in `src/components/eye/`; Newsreader + Public Sans via `next/font` in `src/app/layout.tsx`. The prism (`src/lib/prism.ts`, `--spectrum` in `globals.css`, decided by Konstantin 2026-09-26): colour that grows with the reader's own time on the site, kept in localStorage and never sent; at 0 the site is monochrome; it tints the seams, the eye's iris, the site's headings and the ground, never a quote and never a showcase hero |
 
-Stack: Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4. No database; the site needs no environment variables. Pipeline keys live in `~/.claude/secrets/` for hand runs (see `pipeline/run.sh`) and as Actions secrets for the weekly run.
+Stack: Next.js 16 (App Router), React 19, TypeScript, Tailwind CSS v4. No database; the site needs no environment variables. Pipeline keys live in `~/.claude/secrets/` for hand runs (see `pipeline/run.sh`) and as Actions secrets for the scheduled run.
 
 ```bash
 npm run dev          # localhost:4000

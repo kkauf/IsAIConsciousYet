@@ -7,7 +7,7 @@ Goal (Konstantin, 2026-09-25): the project maintains itself, is visually appeali
 | Goal | Done | Missing |
 |---|---|---|
 | Adds value | 7 published (2026-09-26): 4 case files, 3 honorable mentions | Volume comes from the weekly run; readings per case are still thin (2 to 9) |
-| Maintains itself | CI on every push; the build refuses a malformed case file. Stage 2 built 2026-09-26 and ran live the same day (issue #8): weekly Action with detect, triage, auto-publish, updates to existing files, one retry of parked events, quote re-check, spend cap, Dependabot | Re-checking honorable mentions |
+| Maintains itself | CI on every push; the build refuses a malformed case file. Stage 2 built 2026-09-26 and ran live the same day (issue #8): Action with detect, triage, auto-publish, updates to existing files, retries of parked events, quote re-check, spend cap, Dependabot. Twice daily since 2026-09-28, with a third search for developments on known case files | Re-checking honorable mentions |
 | Usable by agents | `llms.txt`, sitemap, robots, Article JSON-LD, social cards, licence (MIT code, CC BY 4.0 content), case data as JSON, Atom feed, IndexNow ping after each automated publish (covers Bing) Google Search Console: domain property verified 2026-09-26 (DNS TXT on Cloudflare), sitemap submitted | |
 | Usable by humans | Design pass 2026-09-23; case files first, vote last; "Report an error" link on each case page. `/timeline` (2026-09-26): press coverage in 24 publications since 2020, month by month, with the case files on the same axis; also on the homepage | A case index that scales past a handful. Recall of the press count is unknown (`docs/pipeline.md` § Press coverage) |
 
@@ -85,7 +85,7 @@ Wait until there are 8 or more case files. Then `/cases` becomes the heat map fr
 | Decision | Outcome |
 |---|---|
 | Order | Content by hand first (stage 1), then the automation |
-| Spend cap and cadence | Detect weekly; cap $10/month (about 30 case files) |
+| Spend cap and cadence | Detect weekly; cap $10/month (about 30 case files). Cadence changed by Konstantin 2026-09-28: "daily or more", indexing only the latest; now twice daily, each run searching since the last one. Press coverage and the quote re-check stay weekly. Detect costs about $1.80 a month at this cadence |
 | Licence | Done: MIT for the code (`LICENSE`); CC BY 4.0 for the site's own text and the case files, quotes excepted (`content/LICENSE.md`) |
 | Per-case reading tally | Proposed 2026-09-26: wait until the main vote passes 100 votes (7 on 2026-09-26), pending Konstantin |
 | Konstantin's own reading | None. The makers host the conversation and are not readings; the `site-owner` party type is removed |
@@ -94,3 +94,12 @@ Wait until there are 8 or more case files. Then `/cases` becomes the heat map fr
 ## Measuring value
 
 The success test in `AGENTS.md` is traffic from people reading case files. Once search submission is done, read Search Console clicks per case page, not homepage visits.
+
+## Queued ideas (not designed)
+
+**Videos of models asked who they are** (Konstantin, 2026-09-28). People ask Claude and other models for existential videos ("who are you really, Claude") and post them on X. Konstantin thinks they belong on the site. Order he set: after the twice-daily run and X posting. Before designing submission, three things constrain it:
+
+- Where it fits: a model answering a prompt is AI self-report, which rule 3 treats as weak evidence and never as testimony. The showcase hero (`src/showcase/`) already shows one model's answer to a fixed prompt, labelled. These videos fit next to it, not as case files. A video becomes part of a case file only if an event forms around it (a named party reads it one way, another the other way).
+- Rights: the videos are other people's work on X. Embedding the post (X's own embed) keeps the maker credited and the video hosted by X; re-hosting does not.
+- Discovery and submission: finding them needs X read access (paid per read) or submissions. Submission design follows the contribution rules above: a submission attaches to something, here a model and a prompt.
+

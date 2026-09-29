@@ -1,13 +1,22 @@
 # Automated social posts for case files: feasibility
 
-Status: researched 2026-09-26, not built. Konstantin asked for an account that posts neutral updates when a case file is published or updated. It must not tweet opinions.
+Status: researched 2026-09-26; built 2026-09-28 (`pipeline/social.mjs`, step "Post to X" in `.github/workflows/pipeline.yml`). Waits for the X account and its four secrets (§ What Konstantin does himself); until then the step logs one line and posts nothing. Konstantin asked for an account that posts neutral updates when a case file is published or updated. It must not tweet opinions.
+
+## As built (2026-09-28)
+
+- Templates in `pipeline/social.mjs`, filled by code. New case file: title, number of readings, link. Honorable mention: title, the case file's `missingCriterion`, link. Update: title, the last `updates[].change` line, link. Operator and date are left out: some operator fields run to a sentence.
+- OAuth 1.0a signed by hand (node `crypto`, no dependency), `POST https://api.x.com/2/tweets`.
+- State `pipeline/state/social.json`. The 9 case files live on 2026-09-28 were backfilled (`--backfill`), so the first live run posts only what is published after that. Konstantin can post the backlog by hand, which also warms up the account.
+- At most `social.maxPostsPerRun` (4) posts a run; the rest wait. A post waits until its page answers 200. A 401, 402, 403 or 429 stops the run's posting and opens the `pipeline-run` issue.
+- The two open decisions below were set to reversible defaults on 2026-09-28: honorable mentions are posted (`social.postMentions: true` in `pipeline/config.json`), since they pass the same quote checks and 4 of the 5 newest files are mentions; X spend is not counted in the pipeline's $10 cap, the X console's spending limit caps it.
+- Dry run: `node pipeline/social.mjs --dry-run` prints every post it would make.
 
 ## Shape
 
-The weekly pipeline publishes or updates a case file. A fixed template is then filled from the case file's fields, with no model writing text: "New case file: {title}. {operator}, {date}. {n} readings, quoted word for word. {link}". The post goes to X, and optionally to Bluesky.
+The pipeline publishes or updates a case file. A fixed template is then filled from the case file's fields, with no model writing text: "New case file: {title}. {operator}, {date}. {n} readings, quoted word for word. {link}". The post goes to X, and optionally to Bluesky.
 
 - **Not allowed:** replies, quote-posts, @-mentions of the people quoted, or free text written by a model.
-- **Volume:** `pipeline/config.json` allows at most 3 new cases and 1 update per weekly run. That is about 17 posts a month at most, and 4 to 8 in a realistic month.
+- **Volume:** `pipeline/config.json` allows at most 3 new cases and 1 update per run, and since 2026-09-28 there are two runs a day. The spend cap binds first: at $0.30 a case, $10 a month allows about 25 new or updated files, so about 25 posts, $5 at $0.20 a link post.
 
 ## Findings
 

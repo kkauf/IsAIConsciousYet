@@ -33,6 +33,12 @@ export function capCheck({ config, spentBefore, spentThisRun, estimate, step }) 
   return `${step} skipped: month-to-date $${(spentBefore + spentThisRun).toFixed(2)} + worst case $${estimate.toFixed(2)} would exceed the $${config.monthlyCapUsd} monthly cap`;
 }
 
+// ── schedule: when detect and the weekly steps last ran (ISO timestamps) ──
+
+const schedulePath = p('pipeline', 'state', 'schedule.json');
+export const loadSchedule = () => (existsSync(schedulePath) ? readJson(schedulePath) : {});
+export const saveSchedule = (s) => writeJson(schedulePath, s);
+
 // ── candidates: every candidate ever seen, so later runs dedupe ──
 
 export const loadCandidates = () => readJson(p('pipeline', 'state', 'candidates.json'));
