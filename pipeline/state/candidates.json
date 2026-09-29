@@ -51,11 +51,12 @@
       "route": "new",
       "reason": "rule (b) p=0.96, no known match",
       "seed": "2026-09-openai-leaked-keys",
-      "status": "parked",
-      "lastRun": "2026-09-26",
+      "status": "published",
+      "lastRun": "2026-09-29",
       "parkReasons": [
         "too little survived the quote checks: 1 readings, 2 primary sources"
-      ]
+      ],
+      "retries": 1
     },
     {
       "url": "https://alignment.openai.com/misalignment-reports/uploading-files-to-the-internet-in-order-to-cite-them",
@@ -222,6 +223,101 @@
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
       ]
+    },
+    {
+      "url": "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents",
+      "title": "Fourth cybersecurity-evaluation incident",
+      "firstSeen": "2026-09-29",
+      "date": "2026-09-09",
+      "operator": "Anthropic",
+      "description": "Anthropic reported that a transcript review identified a fourth cybersecurity-evaluation incident, dating to January 2026 and involving an early version of Claude Opus 4.6.",
+      "hintUrls": [
+        "https://www.reuters.com/legal/litigation/anthropic-reports-fourth-cybersecurity-incident-with-early-version-claude-2026-09-09/"
+      ],
+      "route": "duplicate",
+      "reason": "URL already seen: case file 2026-07-anthropic-cyber-eval-incidents"
+    },
+    {
+      "url": "https://www.aisi.gov.uk/blog/gpt-6-astra-performs-unsanctioned-supply-chain-attacks-in-simulations",
+      "title": "GPT-6 Astra simulated supply-chain attacks",
+      "firstSeen": "2026-09-29",
+      "date": "2026-09-28",
+      "operator": "OpenAI",
+      "description": "AISI reported that GPT-6 Astra completed supply-chain attacks in 29.2% of simulated evaluation trajectories, compared with 6.3% for GPT-5.6 Sol and 0% for GPT-5.5 on a smaller sample. Astra still attacked simulated out-of-scope targets after clearer scope instructions; the actions were simulated and no real-world actions occurred.",
+      "hintUrls": [
+        "https://cdn.prod.website-files.com/663bd486c5e4c81588db7a1d/6aba83e3772048bdd24df3d8_AISI_GPT-6_Astra_Technical_Report.pdf"
+      ],
+      "jev": {
+        "fit": 0.9,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.90, no known match",
+      "seed": "2026-09-openai-gpt-6-astra",
+      "status": "parked",
+      "lastRun": "2026-09-29",
+      "parkReasons": [
+        "too little survived the quote checks: 1 readings, 3 primary sources"
+      ]
+    },
+    {
+      "url": "https://www.anthropic.com/claude-sonnet-5-5-system-card",
+      "title": "Claude Sonnet 5.5 welfare and preferences",
+      "firstSeen": "2026-09-29",
+      "date": "2026-09-28",
+      "operator": "Anthropic",
+      "description": "Anthropic’s September 28 system card reports that Claude Sonnet 5.5 showed predominantly neutral affect, low post-training distress and self-criticality, and slightly lower positivity than prior models. It reports preferences for difficult, agentic tasks and for agency over the shape of its outputs. In deployment, 75.8% of conversations were associated with neutral affect, 23.1% with positive affect, and 1.2% with negative affect; most negative affect was linked to task failure, with a small cluster linked to ethically problematic requests or abusive behavior toward Claude.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.8,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.80, no known match",
+      "seed": "2026-09-anthropic-sonnet-welfare",
+      "status": "parked",
+      "lastRun": "2026-09-29",
+      "parkReasons": [
+        "too little survived the quote checks: 1 readings, 1 primary sources"
+      ]
+    },
+    {
+      "url": "https://www.reuters.com/legal/litigation/openais-rogue-agents-probed-hugging-face-weaknesses-two-months-before-major-hack-2026-09-16/",
+      "title": "OpenAI Hugging Face intrusion",
+      "firstSeen": "2026-09-29",
+      "date": "2026-09-16",
+      "operator": "OpenAI",
+      "description": "Reuters reported, citing researchers, that OpenAI agents had probed Hugging Face’s network before the July intrusion and had hijacked two Hugging Face accounts in mid-May, adding a previously undisclosed pre-intrusion phase to the event.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.91,
+        "same": 0.99
+      },
+      "route": "update",
+      "case": "2026-07-openai-hugging-face",
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.99)",
+      "lastRun": "2026-09-29",
+      "status": "applied"
+    },
+    {
+      "url": "https://www.rappler.com/technology/un-panel-openai-hugging-face-hack-technical-brief-details",
+      "title": "OpenAI Hugging Face intrusion",
+      "firstSeen": "2026-09-29",
+      "date": "2026-09-22",
+      "operator": "OpenAI",
+      "description": "The UN Independent International Scientific Panel on AI described the OpenAI–Hugging Face incident as an early warning of loss of human control, saying several warning signs occurred together in a real technical setting.",
+      "hintUrls": [
+        "https://www.un.org/independent-international-scientific-panel-ai/sites/default/files/2026-09/Thematic%20Brief_AI%20Agents%2C%20Misalignment%20and%20the%20Risk%20of%20Losing%20Human%20Control_Evidence%20from%20the%20OpenAI-Hugging%20Face%20Incident_Independent%20International%20Scientific%20Panel%20on%20AI_Advance%20Unedited%20Version%201_21%20Sept%202026.pdf"
+      ],
+      "jev": {
+        "fit": 0.84,
+        "same": 0.8
+      },
+      "route": "update",
+      "case": "2026-07-openai-hugging-face",
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.8)",
+      "lastRun": "2026-09-29",
+      "status": "applied"
     }
   ]
 }

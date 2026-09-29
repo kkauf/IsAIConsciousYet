@@ -1,0 +1,7 @@
+{
+  "slug": "2026-09-anthropic-sonnet-welfare",
+  "event": "Anthropic’s September 28 system card reports that Claude Sonnet 5.5 showed predominantly neutral affect, low post-training distress and self-criticality, and slightly lower positivity than prior models. It reports preferences for difficult, agentic tasks and for agency over the shape of its outputs. In deployment, 75.8% of conversations were associated with neutral affect, 23.1% with positive affect, and 1.2% with negative affect; most negative affect was linked to task failure, with a small cluster linked to ethically problematic requests or abusive behavior toward Claude. (Anthropic, 2026-09-28.)",
+  "hintUrls": [
+    "https://www.anthropic.com/claude-sonnet-5-5-system-card"
+  ]
+}
