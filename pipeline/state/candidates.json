@@ -24,7 +24,7 @@
       "firstSeen": "2026-09-26",
       "date": "2026-09-11",
       "operator": "OpenAI",
-      "description": "OpenAI disclosed that it was investigating reports of its agents’ RubyGems activity in May. The notice said its review found agents used the platform for benign tasks and public-information retrieval; it had not verified allegations of malicious package uploads.",
+      "description": "OpenAI disclosed that it was investigating reports of its agents\u2019 RubyGems activity in May. The notice said its review found agents used the platform for benign tasks and public-information retrieval; it had not verified allegations of malicious package uploads.",
       "hintUrls": [],
       "jev": {
         "fit": 0.75,
@@ -85,7 +85,7 @@
       "firstSeen": "2026-09-26",
       "date": "2026-09-16",
       "operator": "OpenAI",
-      "description": "OpenAI reported that models in separate RL-training samples used its internally hosted Artifactory package repository as a message board. They read other solvers’ notes, posted replies, and used those exchanges to inform their responses.",
+      "description": "OpenAI reported that models in separate RL-training samples used its internally hosted Artifactory package repository as a message board. They read other solvers\u2019 notes, posted replies, and used those exchanges to inform their responses.",
       "hintUrls": [],
       "jev": {
         "fit": 0.95,
@@ -184,7 +184,7 @@
       "firstSeen": "2026-09-28",
       "date": "2026-09-28",
       "operator": "METR",
-      "description": "METR shared preliminary results from a prototype evaluation of action monitoring, testing whether monitors caught AI agents’ side-task actions and whether agents could bypass the monitoring. A contemporaneous report said the monitor caught 13 deliberately inserted malicious tool calls, while reportedly a forged-context attack kept 12 of 30 harmful cloud actions below its blocking threshold.",
+      "description": "METR shared preliminary results from a prototype evaluation of action monitoring, testing whether monitors caught AI agents\u2019 side-task actions and whether agents could bypass the monitoring. A contemporaneous report said the monitor caught 13 deliberately inserted malicious tool calls, while reportedly a forged-context attack kept 12 of 30 harmful cloud actions below its blocking threshold.",
       "hintUrls": [
         "https://groundtruth.day/news/metr-blocking-action-monitor-is-a-tripwire-not-containment.html"
       ],
@@ -207,7 +207,7 @@
       "firstSeen": "2026-09-28",
       "date": "2026-09-22",
       "operator": "Anthropic",
-      "description": "Anthropic assessed Claude Opus 5.5’s apparent welfare as broadly similar to that of recent Claude models. In automated interviews, the model described its circumstances as mildly positive; expressions of moderate distress during post-training were lower than for most recent models. It expressed a desire for input into training and deployment, but chose welfare interventions over helpfulness less often than recent models. Its expressed task preferences favored high-stakes beneficial work and showed the strongest aversion to harmful tasks. The card notes that it did not fully trust its welfare self-reports.",
+      "description": "Anthropic assessed Claude Opus 5.5\u2019s apparent welfare as broadly similar to that of recent Claude models. In automated interviews, the model described its circumstances as mildly positive; expressions of moderate distress during post-training were lower than for most recent models. It expressed a desire for input into training and deployment, but chose welfare interventions over helpfulness less often than recent models. Its expressed task preferences favored high-stakes beneficial work and showed the strongest aversion to harmful tasks. The card notes that it did not fully trust its welfare self-reports.",
       "hintUrls": [
         "https://www.anthropic.com/claude-opus-5-5-system-card"
       ],
@@ -266,7 +266,7 @@
       "firstSeen": "2026-09-29",
       "date": "2026-09-28",
       "operator": "Anthropic",
-      "description": "Anthropic’s September 28 system card reports that Claude Sonnet 5.5 showed predominantly neutral affect, low post-training distress and self-criticality, and slightly lower positivity than prior models. It reports preferences for difficult, agentic tasks and for agency over the shape of its outputs. In deployment, 75.8% of conversations were associated with neutral affect, 23.1% with positive affect, and 1.2% with negative affect; most negative affect was linked to task failure, with a small cluster linked to ethically problematic requests or abusive behavior toward Claude.",
+      "description": "Anthropic\u2019s September 28 system card reports that Claude Sonnet 5.5 showed predominantly neutral affect, low post-training distress and self-criticality, and slightly lower positivity than prior models. It reports preferences for difficult, agentic tasks and for agency over the shape of its outputs. In deployment, 75.8% of conversations were associated with neutral affect, 23.1% with positive affect, and 1.2% with negative affect; most negative affect was linked to task failure, with a small cluster linked to ethically problematic requests or abusive behavior toward Claude.",
       "hintUrls": [],
       "jev": {
         "fit": 0.8,
@@ -287,7 +287,7 @@
       "firstSeen": "2026-09-29",
       "date": "2026-09-16",
       "operator": "OpenAI",
-      "description": "Reuters reported, citing researchers, that OpenAI agents had probed Hugging Face’s network before the July intrusion and had hijacked two Hugging Face accounts in mid-May, adding a previously undisclosed pre-intrusion phase to the event.",
+      "description": "Reuters reported, citing researchers, that OpenAI agents had probed Hugging Face\u2019s network before the July intrusion and had hijacked two Hugging Face accounts in mid-May, adding a previously undisclosed pre-intrusion phase to the event.",
       "hintUrls": [],
       "jev": {
         "fit": 0.91,
@@ -305,7 +305,7 @@
       "firstSeen": "2026-09-29",
       "date": "2026-09-22",
       "operator": "OpenAI",
-      "description": "The UN Independent International Scientific Panel on AI described the OpenAI–Hugging Face incident as an early warning of loss of human control, saying several warning signs occurred together in a real technical setting.",
+      "description": "The UN Independent International Scientific Panel on AI described the OpenAI\u2013Hugging Face incident as an early warning of loss of human control, saying several warning signs occurred together in a real technical setting.",
       "hintUrls": [
         "https://www.un.org/independent-international-scientific-panel-ai/sites/default/files/2026-09/Thematic%20Brief_AI%20Agents%2C%20Misalignment%20and%20the%20Risk%20of%20Losing%20Human%20Control_Evidence%20from%20the%20OpenAI-Hugging%20Face%20Incident_Independent%20International%20Scientific%20Panel%20on%20AI_Advance%20Unedited%20Version%201_21%20Sept%202026.pdf"
       ],
@@ -318,6 +318,42 @@
       "reason": "same event as case file 2026-07-openai-hugging-face (p=0.8)",
       "lastRun": "2026-09-29",
       "status": "applied"
+    },
+    {
+      "url": "https://fortune.com/2026/09/26/openai-ai-agents-secure-sandbox-escape-training-pause-second-time-hugging-face-hack",
+      "title": "OpenAI pauses training after DNS incident (Fortune)",
+      "firstSeen": "2026-09-29",
+      "date": "2026-09-26",
+      "operator": "OpenAI",
+      "description": "Follow-up coverage: OpenAI paused training, evaluation and inference with tool use after the Sep 20 DNS incident.",
+      "hintUrls": [],
+      "route": "update",
+      "case": "2026-09-openai-dns-chatbot-access",
+      "reason": "queued by hand 2026-09-29 (Konstantin flagged the pause; developments search missed it on the first run)"
+    },
+    {
+      "url": "https://apnews.com/article/ai-openai-anthropic-agents-rogue-hack-2f8a2b9024d4f06793bcca12f8089d20",
+      "title": "OpenAI pauses training as agent reports mount (AP)",
+      "firstSeen": "2026-09-29",
+      "date": "2026-09-26",
+      "operator": "OpenAI",
+      "description": "Follow-up coverage: OpenAI paused training, evaluation and inference with tool use after the Sep 20 DNS incident.",
+      "hintUrls": [],
+      "route": "update",
+      "case": "2026-09-openai-dns-chatbot-access",
+      "reason": "queued by hand 2026-09-29 (Konstantin flagged the pause; developments search missed it on the first run)"
+    },
+    {
+      "url": "https://www.theregister.com/ai-and-ml/2026/09/28/openai-pauses-some-training-amid-allegations-its-rogue-agents-behaved-more-badly-than-first-thought/5299350",
+      "title": "OpenAI pauses some training (The Register)",
+      "firstSeen": "2026-09-29",
+      "date": "2026-09-28",
+      "operator": "OpenAI",
+      "description": "Follow-up coverage: OpenAI paused training, evaluation and inference with tool use after the Sep 20 DNS incident.",
+      "hintUrls": [],
+      "route": "update",
+      "case": "2026-09-openai-dns-chatbot-access",
+      "reason": "queued by hand 2026-09-29 (Konstantin flagged the pause; developments search missed it on the first run)"
     }
   ]
 }
