@@ -1,6 +1,6 @@
 # Automated social posts for case files: feasibility
 
-Status: researched 2026-09-26; built 2026-09-28 (`pipeline/social.mjs`, step "Post to X" in `.github/workflows/pipeline.yml`). Account, app and secrets set up the same day (§ Account and app); posting needs prepaid credits. Konstantin asked for an account that posts neutral updates when a case file is published or updated. It must not tweet opinions.
+Status: researched 2026-09-26; built 2026-09-28 (`pipeline/social.mjs`, step "Post to X" in `.github/workflows/pipeline.yml`). Account, app and secrets set up the same day (§ Account and app); Credits ($5) and Premium bought 2026-09-28. Posting is off (`social.enabled: false` in `pipeline/config.json`) until the image-post format replaces the link posts. Konstantin asked for an account that posts neutral updates when a case file is published or updated. It must not tweet opinions.
 
 ## As built (2026-09-28)
 

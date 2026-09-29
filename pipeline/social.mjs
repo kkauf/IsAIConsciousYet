@@ -50,6 +50,11 @@ if (backfill) {
   process.exit(0);
 }
 
+if (config.enabled === false && !dryRun) {
+  log(`X: posting off in pipeline/config.json (${todo.length} post(s) waiting)`);
+  process.exit(0);
+}
+
 const keys = ['X_API_KEY', 'X_API_SECRET', 'X_ACCESS_TOKEN', 'X_ACCESS_SECRET'];
 if (!dryRun && keys.some((k) => !process.env[k])) {
   log(`X: secrets not set, skipped (${todo.length} post(s) waiting)`);
