@@ -251,7 +251,7 @@ for (const { kind, c } of todo) {
     if (/\bX (401|402|403|429)\b/.test(String(e.message))) break; // auth, credits or rate limit: the rest would fail too
   }
 }
-if (waiting) log(`X: ${waiting} post(s) queued for later runs (${backlog.length} in the backlog)`);
+if (waiting) log(`X: ${waiting} post(s) queued for later runs (${backlog.length - (fresh.length ? 0 : todo.length)} in the backlog)`);
 recordSpend();
 
 if (summaryPath && (done.length || errors.length)) appendFileSync(summaryPath, ['', '## Posted to X', '', ...done, ...errors.map((e) => `- Error: ${e}`), ''].join('\n'));
