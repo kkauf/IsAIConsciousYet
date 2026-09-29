@@ -3,7 +3,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import path from "node:path";
 
 export type Reading = {
-  partyName: string; partyType: string; stanceLabel: string; quote: string;
+  partyName: string; partyType: string; partyDescription?: string; stanceLabel: string; quote: string;
   url: string; archivedUrl?: string; date?: string; aboutNature?: boolean;
   sourceChanged?: string; // set by pipeline/recheck.mjs when the page no longer holds the quote
 };

@@ -201,6 +201,46 @@ export async function markAboutNature(event, readings) {
   return readings.map((r, i) => ({ ...r, aboutNature: a[`r${i}`].noul >= ABOUT_NATURE_THRESHOLD, _p: a[`r${i}`].noul }));
 }
 
+// Who a reading's party is, in a few words, so a reader can tell a researcher from an unsigned blog post:
+// "security researcher at the University of Surrey", "unsigned post on a business directory site".
+// Grounded in the reading's own page: Gemini returns the words on the page that show it, and code keeps the
+// description only when those words are found there literally. Otherwise the reading gets no description.
+const DESCRIBE_SCHEMA = {
+  type: 'object', required: ['description', 'evidence'],
+  properties: {
+    description: { type: 'string', description: 'At most 10 words, lower case except names. Role and affiliation for a person as a readable phrase ("AI safety researcher at Eleos AI", "works on post-training at OpenAI"), never a bio fragment, what the organisation is for an organisation ("AI company that trained the model"), and for a page with no named author say so ("unsigned post on a directory of Black-owned businesses"). Never repeat self-praise such as trusted or leading. When the post has no named author, start with "unsigned post on" and then what the site is. Empty string if the pages do not show it.' },
+    evidence: { type: 'string', description: 'Words copied exactly from the page, 20 to 200 characters, that show the description: a byline, an author bio, an about line. Empty string if none.' },
+  },
+};
+export async function describeParty(reading) {
+  if (reading.partyType === 'operator') return null; // the company that ran the system; its name says who it is
+  let page = await directFetch(reading.url);
+  if (page.error || (page.text ?? '').length < 500) { const x = (await parallelExtract('describe-party', [reading.url]))[reading.url]; if (x?.text) page = x; }
+  const text = page.text ?? '';
+  if (text.length < 200) return null;
+  const head = text.slice(0, 6000), at = normalise(text).indexOf(normalise(reading.quote).slice(0, 80));
+  const near = at > 0 ? text.slice(Math.max(0, at - 3000), at + 1500) : '';
+  const ask = async (about) => {
+    const r = await gemini('describe-party', {
+      system: 'You say who a quoted party is, using only the pages given. Never use outside knowledge, never guess an affiliation, never praise or judge.',
+      prompt: `Party: ${reading.partyName} (${reading.partyType})\nPage title: ${page.title ?? ''}\nPage URL: ${reading.url}\n\nStart of the page:\n${head}\n\nAround the quote:\n${near}${about ? `\n\nThe site's own about page:\n${about.slice(0, 4000)}` : ''}`,
+      schema: DESCRIBE_SCHEMA,
+    });
+    const description = (r.description ?? '').trim().replace(/\.$/, '');
+    if (!description || description.split(/\s+/).length > 10 || /^(the )?author\b/i.test(description)) return null;
+    return r.evidence && (findQuote(text, r.evidence) || (about && findQuote(about, r.evidence))) ? description : null;
+  };
+  const first = await ask(null);
+  if (first) return first;
+  // An unsigned post: what the publishing site is comes from its about page.
+  const origin = new URL(reading.url).origin;
+  for (const u of [`${origin}/about`, `${origin}/about-us`, origin]) {
+    const a = await directFetch(u);
+    if ((a.text ?? '').length > 300) return ask(a.text);
+  }
+  return null;
+}
+
 // ── Wayback Machine (best effort, free) ──────────────────────────────────────
 
 // Saves a fresh snapshot, so the archived copy holds the quote as checked today.

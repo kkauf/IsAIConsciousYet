@@ -93,7 +93,8 @@
       "archivedUrl": "http://web.archive.org/web/20260307192502/https://x.com/dioscuri/status/2029283415863013689",
       "date": "2026-03-04",
       "speakerCheck": "pass",
-      "aboutNature": true
+      "aboutNature": true,
+      "partyDescription": "philosopher and AI ethicist at Google DeepMind and Cambridge"
     },
     {
       "partyName": "Cameron Berg",
@@ -103,7 +104,8 @@
       "url": "https://www.aol.com/articles/ai-agents-now-studying-own-203843000.html",
       "date": "2026-09-01",
       "speakerCheck": "pass",
-      "aboutNature": true
+      "aboutNature": true,
+      "partyDescription": "founder and director at Reciprocal Research"
     },
     {
       "partyName": "Alexander Yue",
@@ -114,7 +116,8 @@
       "archivedUrl": "http://web.archive.org/web/20260914165800/https://www.thestar.com.my/tech/tech-news/2026/09/14/study-ai-consciousness-the-bots-would-like-a-word-with-you",
       "date": "2026-03-25",
       "speakerCheck": "pass",
-      "aboutNature": false
+      "aboutNature": false,
+      "partyDescription": "physics and computer science student at Stanford University"
     },
     {
       "partyName": "Jonathan Birch",
@@ -125,7 +128,8 @@
       "archivedUrl": "http://web.archive.org/web/20260524230609/https://futurism.com/artificial-intelligence/philosopher-ai-consciousness-startled-ai-email",
       "date": "2026-03-04",
       "speakerCheck": "pass",
-      "aboutNature": true
+      "aboutNature": true,
+      "partyDescription": "professor of philosophy at London School of Economics"
     }
   ],
   "whatWouldSettleIt": [

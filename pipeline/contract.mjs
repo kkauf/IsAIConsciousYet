@@ -32,6 +32,8 @@ const reading = {
     quote: str(), url: str(), archivedUrl: str(), date: str({ isoDate: true }), speakerCheck: str({ enum: ['pass'] }),
     // true = the quote says what the system is, not only what happened or how dangerous it was.
     aboutNature: { type: 'boolean' },
+    // Who the party is, in at most 10 words, grounded in the reading's page (lib.mjs describeParty).
+    partyDescription: str({ maxWords: 10 }),
     sourceChanged: str(),
   },
 };

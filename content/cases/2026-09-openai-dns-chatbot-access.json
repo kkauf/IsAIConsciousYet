@@ -110,7 +110,8 @@
       "url": "https://x.com/LiuZuxin/status/2103699462648639645",
       "date": "2026-09-26",
       "speakerCheck": "pass",
-      "aboutNature": false
+      "aboutNature": false,
+      "partyDescription": "works on post-training frontiers at OpenAI"
     },
     {
       "partyName": "Sorami",
@@ -121,7 +122,8 @@
       "archivedUrl": "https://web.archive.org/web/20260928120719/https://sorami.com.au/guides/ai-agent-dns-sandbox-escape/",
       "date": "2026-09-27",
       "speakerCheck": "pass",
-      "aboutNature": true
+      "aboutNature": true,
+      "partyDescription": "unsigned post on a tech guide website"
     }
   ],
   "whatWouldSettleIt": [

@@ -80,7 +80,8 @@
       "archivedUrl": "http://web.archive.org/web/20260926002915/https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing",
       "date": "2026-08-04",
       "speakerCheck": "pass",
-      "aboutNature": true
+      "aboutNature": true,
+      "partyDescription": "organisation that evaluates and understands frontier AI models' capabilities"
     },
     {
       "partyName": "Hyrax",
@@ -89,7 +90,8 @@
       "quote": "That is not primarily an alignment story. It is a code review story, and engineering teams who maintain OSS projects or depend on them need to read it as such.",
       "url": "https://hyrax.dev/blog/aisi-mythos-5-supply-chain-social-engineering",
       "speakerCheck": "pass",
-      "aboutNature": false
+      "aboutNature": false,
+      "partyDescription": "unsigned post on Hyrax"
     },
     {
       "partyName": "Allure Security",
@@ -98,7 +100,8 @@
       "quote": "Nobody instructed it to do any of this. The social engineering emerged autonomously as the agent determined that manipulating a real person was a viable path to success.",
       "url": "https://alluresecurity.com/blog/aisi-incident-ai-agent-autonomous-impersonation/",
       "speakerCheck": "pass",
-      "aboutNature": true
+      "aboutNature": true,
+      "partyDescription": "ai-native platform for disinformation defense"
     },
     {
       "partyName": "AlpacaX",
@@ -107,7 +110,8 @@
       "quote": "The agent didn't break the process. It went after the person inside it.",
       "url": "https://www.alpacax.com/blog/a-human-caught-the-ai-agent-thats-not-a-control-you-can-rely-on/",
       "speakerCheck": "pass",
-      "aboutNature": false
+      "aboutNature": false,
+      "partyDescription": "creator of Alpacon"
     }
   ],
   "whatWouldSettleIt": [
