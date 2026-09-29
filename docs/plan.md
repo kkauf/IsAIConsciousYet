@@ -57,7 +57,7 @@ Status 2026-09-26: built (`.github/workflows/pipeline.yml`, `pipeline/auto.mjs`,
 | detect + triage | Built. Two parallel.ai Tasks (`base`) since 2026-09-26, events and findings about ordinary behaviour, each with its source list, then one Jev call. The parallel.ai monitor and polled feeds were replaced by the task. |
 | draft + gates | Built. Up to 3 queued events per run through `run-case.mjs`; build, then commit to `main`. |
 | re-check | Built. Marks `sourceChanged`, shown on the case page. |
-| notify | Built. Every run's summary on the Actions run page. An issue labelled `pipeline-run`, assigned to Konstantin (so it emails him), only for errors, the spend cap, a Dependabot PR open for a week, or a failed run (2026-09-26: "Actionable/ failures only"). Vercel PR comments off (`vercel.json`). |
+| notify | Built. Every run's summary on the Actions run page. An issue labelled `pipeline-run`, assigned to Konstantin (so it emails him), only for errors, the spend cap, a Dependabot PR open for a week, or a failed run (2026-09-26: "Actionable/ failures only"). Vercel PR and commit comments off in the Vercel project settings (`gitComments`, set by API 2026-09-28; `github.silent` in `vercel.json` no longer stops them). |
 | spend cap | Built. $25/month (from $10, Konstantin 2026-09-28) from `pipeline/config.json`, checked before every paid step. |
 | Dependabot | Built. npm monthly (minor and patch grouped), Actions monthly (grouped). `.github/workflows/dependabot-merge.yml` merges those after CI passes. npm major versions are not proposed (they need deliberate work). |
 | Updates to existing cases | Built 2026-09-26. One case per run is rerun with the new sources; additions only, logged on the page under Updates. |

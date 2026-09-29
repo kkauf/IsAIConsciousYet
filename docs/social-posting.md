@@ -1,6 +1,6 @@
 # Automated social posts for case files: feasibility
 
-Status: researched 2026-09-26; built 2026-09-28 (`pipeline/social.mjs`, step "Post to X" in `.github/workflows/pipeline.yml`). Waits for the X account and its four secrets (§ What Konstantin does himself); until then the step logs one line and posts nothing. Konstantin asked for an account that posts neutral updates when a case file is published or updated. It must not tweet opinions.
+Status: researched 2026-09-26; built 2026-09-28 (`pipeline/social.mjs`, step "Post to X" in `.github/workflows/pipeline.yml`). Account, app and secrets set up the same day (§ Account and app); posting needs prepaid credits. Konstantin asked for an account that posts neutral updates when a case file is published or updated. It must not tweet opinions.
 
 ## As built (2026-09-28)
 
@@ -46,13 +46,18 @@ The pipeline publishes or updates a case file. A fixed template is then filled f
 - **Backlog:** fill the state file with the existing cases before the first live run, or it will post all of them.
 - **Fields:** `title`, `event.operator`, `event.dateStart`, `readings.length`, `slug` (the link is `https://isaiconsciousyet.com/cases/<slug>`).
 
-## What Konstantin does himself
+## Account and app (set up 2026-09-28)
 
-1. **Account:** create the X account. Turn on the Automated label with his personal handle as the managing account. Bio: "Automated. Posts when a case file is published or updated."
-2. **Developer app:** log in to console.x.com as the bot and create an app with user authentication set to Read and write. Only then generate the API key and secret and the access token and secret.
-3. **Credits:** buy about $5 of credits and set a spending limit, with auto-recharge off.
-4. **Secrets:** add `X_API_KEY`, `X_API_SECRET`, `X_ACCESS_TOKEN` and `X_ACCESS_SECRET` as GitHub Actions secrets.
-5. **Bluesky (optional):** create the account and an app password, and add two more secrets.
+| Part | State |
+|---|---|
+| Account | [@AIConsciousYet](https://x.com/AIConsciousYet), display name "Is AI Conscious Yet". Created by Konstantin by phone signup (X web allows email signup only in its apps). Avatar: `src/app/icon.svg` rendered at 800 px; banner: the site's social card on black, right-aligned so the avatar does not cover it |
+| Automated label | Managing account @kgmkauf |
+| Developer console | console.x.com account "Is AI Conscious Yet", app `iaicy-case-file-poster` (id 33480276), Default Project, pay per use, Production. Permissions: Read and write; type: Web App, Automated App or Bot |
+| Keys | OAuth 1.0a consumer key and secret, access token and secret for @AIConsciousYet (Read and write), as GitHub Actions secrets `X_API_KEY`, `X_API_SECRET`, `X_ACCESS_TOKEN`, `X_ACCESS_SECRET`; local copy `~/.claude/secrets/x-iaicy.env`. Signing tested 2026-09-28: `GET /2/users/me` returned 200 |
+| Credits | Prepaid, bought by Konstantin. Billing-cycle spending cap $10 in the console; auto-recharge off |
+| Bluesky | Not set up |
+
+Rotate keys: console → app → Keys & Tokens → Regenerate, then `gh secret set` for each.
 
 ## Open decisions
 
