@@ -2,9 +2,12 @@
   "monthlyCapUsd": 10,
   "maxNewCasesPerRun": 3,
   "maxUpdatesPerRun": 1,
-  "parkedRetryAfterDays": 21,
+  "parkedRetryDays": [3, 7, 14],
   "lookbackDays": 21,
+  "detectOverlapDays": 1,
+  "weeklyStepsEveryDays": 7,
   "detectProcessor": "base",
+  "social": { "postMentions": true, "maxPostsPerRun": 4 },
   "worstCaseUsd": {
     "detectTriage": 0.01,
     "case": 0.5,

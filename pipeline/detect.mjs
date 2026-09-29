@@ -1,4 +1,4 @@
-// Detect + triage: two parallel.ai Tasks (events; findings about ordinary behaviour) find recent items that may meet inclusion rule (b),
+// Detect + triage: three parallel.ai Tasks (events; findings about ordinary behaviour; developments on known cases) find recent items that may meet inclusion rule (b),
 // Version 2 (AGENTS.md rule 5); one Jev call routes the batch. Design: docs/pipeline.md § Detect, § Triage.
 // Usage: pipeline/run.sh detect.mjs [--processor base] [--write] [--from pipeline/runs/_detect/<file>.json]
 // Without --write it only prints titles and routes; with it, new events become seeds and
@@ -12,7 +12,7 @@ import { root, loadConfig, loadCandidates, saveCandidates, loadCases, loadSeeds,
 
 const FIT = 0.5; // rule (b) probability at or above which a candidate goes on to research
 const SAME = 0.5; // same-event probability at or above which a candidate is not a new event
-export const SEARCHES = 2; // parallel.ai Tasks per detect: events, and findings about ordinary behaviour
+export const SEARCHES = 3; // parallel.ai Tasks per detect: events, findings about ordinary behaviour, developments on known cases
 
 const DETECT_SCHEMA = {
   type: 'object', additionalProperties: false, required: ['events'],
@@ -37,8 +37,10 @@ const DETECT_SCHEMA = {
   },
 };
 
-function detectInput(config, known) {
-  const since = new Date(Date.now() - config.lookbackDays * 864e5).toISOString().slice(0, 10);
+// Start of the search window: lookbackDays back, or since the last detect run (auto.mjs passes it).
+const sinceDate = (days) => new Date(Date.now() - days * 864e5).toISOString().slice(0, 10);
+
+function detectInput(config, known, since) {
   return [
     `Find events or findings about AI systems that were publicly disclosed on or after ${since}.`,
     'Include only events that do not fit the story "AI is a machine that does the work we ask": an AI system did something its operators did not ask for or expect,',
@@ -51,8 +53,7 @@ function detectInput(config, known) {
 
 // The second search. Rule (b) favours the unexpected, and incidents crowd findings out of a single search,
 // so findings about ordinary behaviour get their own (docs/plan.md, "What the record cannot show").
-function findingsInput(config, known) {
-  const since = new Date(Date.now() - config.lookbackDays * 864e5).toISOString().slice(0, 10);
+function findingsInput(config, known, since) {
   return [
     `Find findings about AI systems published on or after ${since} that bear on what the system is, rather than on what it can do or whether it is safe.`,
     'Look for model welfare assessments, a model\'s stated preferences, self-reports, identity or apparent experience, and interpretability results about its inner workings. Findings about ordinary, expected behaviour count, for example what a model does when a user is abusive.',
@@ -62,6 +63,25 @@ function findingsInput(config, known) {
     known.length ? `Already known, do not list again: ${known.join(' | ')}` : '',
   ].filter(Boolean).join('\n');
 }
+
+// The third search. The operator's report comes first; what happens next (a training pause, a fuller report,
+// a named researcher's reading) appears in the press days later, on pages the first two searches never visit.
+// Triage routes these to `update` when they match a case file.
+function developmentsInput(cases, since) {
+  return [
+    `Each event below is already documented by the sources listed with it. Search news sites, company blogs and statements, and posts by researchers for pages published on or after ${since} that add something new about one of these events:`,
+    'a further statement or report by the operator or the affected party; a response to the event, such as a paused training run or a changed policy; or an article in which a named person (researcher, philosopher, company employee, official) says what the event shows about the AI system.',
+    'Never return a listed source. Every item must be a different page, published on or after the date above. List one item per development; leave out pages that only repeat the listed sources, and events not in this list. Return an empty list if nothing new was published.',
+    'Events:',
+    ...cases.map((c) => `- ${c.title} (${c.event.operator.slice(0, 80)}, ${c.event.dateStart}). Listed sources: ${[...c.event.primarySources.map((s) => s.url), ...c.readings.map((r) => r.url)].slice(0, 8).join(' , ')}`),
+  ].join('\n');
+}
+const DEVELOPMENTS_SCHEMA = structuredClone(DETECT_SCHEMA);
+DEVELOPMENTS_SCHEMA.properties.events.description = 'New developments about the listed events published in the time window. Empty if there are none. At most 10.';
+DEVELOPMENTS_SCHEMA.properties.events.items.properties.title.description = 'Neutral title of the listed event this development belongs to, under 12 words, no verbs that attribute intent to the AI system.';
+DEVELOPMENTS_SCHEMA.properties.events.items.properties.description.description = 'Neutral factual description, under 90 words: which listed event this is about and what is new. Say "reportedly" for anything not first-hand. No mental-state verbs about the system in your own voice.';
+DEVELOPMENTS_SCHEMA.properties.events.items.properties.primary_url.description = 'Exact URL of the page that reports the development: the operator\'s statement if there is one, else the article.';
+DEVELOPMENTS_SCHEMA.properties.events.items.properties.date.description = 'ISO date (YYYY-MM-DD) the development was published.';
 
 function shortName(s) {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').split('-').slice(0, 5).join('-') || 'event';
@@ -76,8 +96,11 @@ function slugFor(ev) {
 
 // Returns { candidates, processor, runId }. Each candidate carries route, reason and, for new events, a seed.
 // fromFile: reuse the events of an earlier detect run (pipeline/runs/_detect/*.json) instead of paying for a new task.
-export async function detect({ processor, write = false, fromFile, log = console.log } = {}) {
+// lookbackDays: window length; auto.mjs passes the days since the last detect run, so a twice-daily run searches hours, not weeks.
+export async function detect({ processor, write = false, fromFile, lookbackDays, log = console.log } = {}) {
   const config = loadConfig();
+  lookbackDays ??= config.lookbackDays;
+  const since = sinceDate(lookbackDays);
   processor ??= config.detectProcessor ?? 'base';
   const state = loadCandidates();
   const cases = loadCases().filter((c) => c.status !== 'withdrawn');
@@ -102,15 +125,16 @@ export async function detect({ processor, write = false, fromFile, log = console
     r.content = { events: r.events };
     log(`detect: reused ${r.events.length} events from ${fromFile}`);
   } else {
-    log(`detect: parallel.ai task (${processor}), lookback ${config.lookbackDays} days …`);
+    log(`detect: parallel.ai tasks (${processor}), since ${since} …`);
     const t0 = Date.now();
     const promptKnown = [...cases.map((c) => c.title), ...seeds.map((s) => s.event.split('. ')[0].slice(0, 120))];
     const runs = await Promise.all([
-      parallelTask('detect', { input: detectInput(config, promptKnown), schema: DETECT_SCHEMA, processor }),
-      parallelTask('detect', { input: findingsInput(config, promptKnown), schema: DETECT_SCHEMA, processor }),
+      parallelTask('detect', { input: detectInput(config, promptKnown, since), schema: DETECT_SCHEMA, processor }),
+      parallelTask('detect', { input: findingsInput(config, promptKnown, since), schema: DETECT_SCHEMA, processor }),
+      cases.length ? parallelTask('detect', { input: developmentsInput(cases, since), schema: DEVELOPMENTS_SCHEMA, processor }) : { runId: '', content: { events: [] }, basis: [] },
     ]);
     r = { runId: runs.map((x) => x.runId).join(','), content: { events: runs.flatMap((x) => x.content.events ?? []) }, basis: runs.flatMap((x) => x.basis) };
-    log(`detect: ${runs.map((x) => (x.content.events ?? []).length).join(' + ')} events (events, findings) in ${Math.round((Date.now() - t0) / 1000)}s`);
+    log(`detect: ${runs.map((x) => (x.content.events ?? []).length).join(' + ')} events (events, findings, developments) in ${Math.round((Date.now() - t0) / 1000)}s`);
     await mkdir(path.join(root, 'pipeline', 'runs', '_detect'), { recursive: true });
     await writeFile(path.join(root, 'pipeline', 'runs', '_detect', `${new Date().toISOString().slice(0, 19).replace(/:/g, '')}-${processor}.json`), JSON.stringify({ runId: r.runId, events: r.content.events ?? [], basis: r.basis }, null, 2));
   }
@@ -148,7 +172,7 @@ export async function detect({ processor, write = false, fromFile, log = console
       for (let j = 0; j < i; j++) criteria[`batch:${j}`] = `\`candidates[${j}]\``;
       q[`same${i}`] = {
         type: 'choice',
-        instructions: `Which item reports the same event or finding as \`candidates[${i}]\`? The same event means the same underlying incident or research result (same system, same time, same setting), including a follow-up report, a fact-check or coverage of it. Different incidents involving the same company, or similar behaviour observed elsewhere, are different events.`,
+        instructions: `Which item reports the same event or finding as \`candidates[${i}]\`? The same event means the same underlying incident or research result (same system, same time, same setting), including a follow-up report, a fact-check or coverage of it. Different incidents involving the same company, or similar behaviour observed elsewhere, are different events. A report on a different model (another name or version, such as Sonnet versus Opus, or 5.5 versus 5), or in a different document such as another system card, is a different event, even when the findings are alike.`,
         criteria,
       };
     });
@@ -159,8 +183,9 @@ export async function detect({ processor, write = false, fromFile, log = console
       const matchId = same.choice !== 'none' && same.probabilities[same.choice] >= SAME ? same.choice : null;
       const match = matchId?.startsWith('batch:') ? { kind: 'batch', text: toTriage[Number(matchId.slice(6))].title } : known.find((k) => k.id === matchId);
       const c = { ...base(e), jev: { fit: Number(fit.toFixed(2)), same: matchId ? Number(same.probabilities[matchId].toFixed(2)) : null } };
-      if (fit < FIT) out.push({ ...c, route: 'no-fit', reason: `rule (b) p=${fit.toFixed(2)} < ${FIT}` });
-      else if (match?.kind === 'case') out.push({ ...c, route: 'update', case: match.slug, reason: `same event as case file ${match.slug} (p=${c.jev.same})` });
+      // A follow-up on a case file is an update even when it is not itself unexpected behaviour (a paused training run).
+      if (match?.kind === 'case') out.push({ ...c, route: 'update', case: match.slug, reason: `same event as case file ${match.slug} (p=${c.jev.same})` });
+      else if (fit < FIT) out.push({ ...c, route: 'no-fit', reason: `rule (b) p=${fit.toFixed(2)} < ${FIT}` });
       else if (match) out.push({ ...c, route: 'duplicate', reason: `same event as ${match.kind === 'seed' ? `seed ${match.slug}` : match.kind === 'batch' ? `"${match.text}" in this batch` : `earlier candidate "${match.text.split('. ')[0]}"`} (p=${c.jev.same})` });
       else out.push({ ...c, route: 'new', reason: `rule (b) p=${fit.toFixed(2)}, no known match`, _event: e });
     });
@@ -174,12 +199,12 @@ export async function detect({ processor, write = false, fromFile, log = console
     if (write) writeSeed(seed); else c._seedPreview = seed;
   }
   if (write) {
-    // A URL already in candidates.json is not recorded twice; the 21-day window returns the same events for three weeks.
+    // A URL already in candidates.json is not recorded twice; overlapping windows return the same events again.
     const inState = new Set(state.candidates.map((c) => urlKey(c.url)));
     state.candidates.push(...out.filter((c) => !inState.has(urlKey(c.url))).map(({ _seedPreview, ...c }) => c));
     saveCandidates(state);
   }
-  return { candidates: out, processor, runId: r.runId, estimate: fromFile ? 0 : SEARCHES * PRICES.parallelTask[processor] };
+  return { candidates: out, processor, runId: r.runId, since, estimate: fromFile ? 0 : SEARCHES * PRICES.parallelTask[processor] };
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

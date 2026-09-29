@@ -1,6 +1,7 @@
-// Scheduled run: cap check → detect + triage → run-case on queued seeds → recheck → state → summary.
-// Design: docs/pipeline.md. Runs weekly in .github/workflows/pipeline.yml; by hand: pipeline/run.sh auto.mjs …
-// Usage: node pipeline/auto.mjs [--summary summary.md] [--actionable actionable.txt] [--new-urls new-urls.txt] [--dry-run] [--detect-from <file>]
+// Scheduled run: cap check → detect + triage → run-case on queued seeds → (weekly) coverage + recheck → state → summary.
+// Design: docs/pipeline.md. Runs twice a day in .github/workflows/pipeline.yml; by hand: pipeline/run.sh auto.mjs …
+// Usage: node pipeline/auto.mjs [--summary summary.md] [--actionable actionable.txt] [--new-urls new-urls.txt] [--dry-run] [--detect-from <file>] [--weekly]
+// --weekly runs press coverage and the quote re-check even if their last run was less than weeklyStepsEveryDays ago.
 // --actionable gets one line per thing a person has to act on (errors, spend cap); empty file = nothing to do.
 // --dry-run stops after detect + triage and writes no seeds and no state (the summary is still written).
 // --detect-from reuses the events of an earlier detect run (pipeline/runs/_detect/*.json), no detect charge.
@@ -14,7 +15,7 @@ import { ledgerTotal, PRICES } from './lib.mjs';
 import { detect, SEARCHES } from './detect.mjs';
 import { recheck, caseFiles, recheckUrls } from './recheck.mjs';
 import { coverage } from './coverage.mjs';
-import { root, loadConfig, loadSpend, saveSpend, monthToDate, addSpend, capCheck, loadCandidates, saveCandidates, monthKey } from './state.mjs';
+import { root, loadConfig, loadSpend, saveSpend, monthToDate, addSpend, capCheck, loadCandidates, saveCandidates, monthKey, loadSchedule, saveSchedule } from './state.mjs';
 
 const SITE_URL = 'https://isaiconsciousyet.com'; // same as src/lib/cases/load.ts
 
@@ -25,6 +26,7 @@ const summaryPath = opt('--summary');
 const actionablePath = opt('--actionable');
 const newUrlsPath = opt('--new-urls');
 const detectFrom = opt('--detect-from');
+const forceWeekly = args.includes('--weekly');
 const log = (...m) => console.log(new Date().toISOString().slice(11, 19), ...m);
 
 const config = loadConfig();
@@ -38,8 +40,19 @@ const cap = (step, estimate) => capCheck({ config, spentBefore, spentThisRun: ru
 const out = { capStops: [], errors: [], detected: [], published: [], mentions: [], parked: [], updated: [], recheck: null, coverage: null, processor: null };
 const today = new Date().toISOString().slice(0, 10);
 const daysSince = (d) => (Date.parse(today) - Date.parse(d)) / 864e5;
-// A parked event is retried once, parkedRetryAfterDays later: new events are often parked only because nobody has commented yet.
-const retryDue = (c) => c.status === 'parked' && (c.retries ?? 0) < 1 && c.lastRun && daysSince(c.lastRun) >= (config.parkedRetryAfterDays ?? 21);
+// A parked event is retried on a schedule (parkedRetryDays, days after its last run): new events are often parked
+// only because nobody has commented yet, and comment arrives within days, not weeks.
+const retryDays = config.parkedRetryDays ?? [21];
+const retryDue = (c) => c.status === 'parked' && (c.retries ?? 0) < retryDays.length && c.lastRun && daysSince(c.lastRun) >= retryDays[c.retries ?? 0];
+// Detect searches from the last detect run (less a day of overlap) instead of a fixed window; the first run, or one after
+// a long gap, uses lookbackDays. The weekly steps (press coverage, quote re-check) cost the same however often they run.
+const schedule = loadSchedule();
+const hoursSince = (iso) => (Date.now() - Date.parse(iso)) / 36e5;
+const lookbackDays = schedule.lastDetect
+  ? Math.min(config.lookbackDays, Math.max(2, Math.ceil(hoursSince(schedule.lastDetect) / 24) + (config.detectOverlapDays ?? 1)))
+  : config.lookbackDays;
+const weeklyDue = (key) => forceWeekly || !schedule[key] || hoursSince(schedule[key]) >= (config.weeklyStepsEveryDays ?? 7) * 24 - 2;
+const runStarted = new Date().toISOString();
 
 // ── 1 detect + triage ────────────────────────────────────────────────────────
 const processor = config.detectProcessor ?? 'base';
@@ -47,9 +60,11 @@ const detectStop = cap('detect', (detectFrom ? 0 : SEARCHES * (PRICES.parallelTa
 if (detectStop) { out.capStops.push(detectStop); log(detectStop); }
 else {
   try {
-    const d = await detect({ processor, write: !dryRun, fromFile: detectFrom, log });
+    const d = await detect({ processor, write: !dryRun, fromFile: detectFrom, lookbackDays, log });
     out.detected = d.candidates;
     out.processor = d.processor;
+    out.since = d.since;
+    if (!dryRun && !detectFrom) schedule.lastDetect = runStarted;
     for (const c of d.candidates) log(`  [${c.route}] ${c.title} (${c.reason})`);
   } catch (e) { out.errors.push(`detect: ${String(e.message ?? e).slice(0, 300)}`); log('detect failed:', out.errors.at(-1)); }
 }
@@ -70,7 +85,7 @@ if (!dryRun) {
     ...state.candidates.filter((c) => c.route === 'new' && retryDue(c)),
   ];
   for (const c of queue.slice(0, config.maxNewCasesPerRun)) {
-    if (c.status === 'parked') { c.retries = (c.retries ?? 0) + 1; log(`retry of parked ${c.seed} (parked ${c.lastRun})`); }
+    if (c.status === 'parked') { c.retries = (c.retries ?? 0) + 1; log(`retry ${c.retries} of parked ${c.seed} (parked ${c.lastRun})`); }
     const stop = cap(`research for ${c.seed}`, config.worstCaseUsd.case);
     if (stop) { out.capStops.push(stop); log(stop); break; }
     const seedFile = path.join('pipeline', 'seeds', `${c.seed}.json`);
@@ -160,26 +175,27 @@ if (!dryRun) {
   }
 }
 
-// ── 2c press coverage for /timeline (pipeline/coverage.mjs) ──────────────────
-if (!dryRun) {
+// ── 2c press coverage for /timeline (pipeline/coverage.mjs), weekly ──────────
+if (!dryRun && weeklyDue('lastCoverage')) {
   const stop = cap('coverage', config.coverage.worstCaseUsd);
   if (stop) { out.capStops.push(stop); log(stop); }
   else {
     try {
       out.coverage = await coverage({ log });
       out.errors.push(...out.coverage.errors.map((e) => `coverage: ${e}`));
+      schedule.lastCoverage = runStarted;
     } catch (e) { out.errors.push(`coverage: ${String(e.message ?? e).slice(0, 300)}`); }
   }
 }
 
 // ── 3 weekly re-check of every live quote ────────────────────────────────────
-if (!dryRun) {
+if (!dryRun && weeklyDue('lastRecheck')) {
   const files = caseFiles();
   const n = recheckUrls(files).length;
   const stop = cap('recheck', n * config.worstCaseUsd.recheckPerUrl + 0.005);
   if (stop) { out.capStops.push(stop); log(stop); }
   else {
-    try { out.recheck = await recheck({ files, write: true, log }); } catch (e) { out.errors.push(`recheck: ${String(e.message ?? e).slice(0, 300)}`); }
+    try { out.recheck = await recheck({ files, write: true, log }); schedule.lastRecheck = runStarted; } catch (e) { out.errors.push(`recheck: ${String(e.message ?? e).slice(0, 300)}`); }
   }
 }
 
@@ -189,6 +205,7 @@ if (!dryRun) {
   addSpend(spend, cost, month);
   spend.months[month].runs += 1;
   saveSpend(spend);
+  saveSchedule(schedule);
 }
 const mtd = Number((spentBefore + cost).toFixed(4));
 const newUrls = [...out.published, ...out.mentions, ...out.updated].map((p) => p.url).filter(Boolean);
@@ -209,11 +226,12 @@ section('Updates applied', out.updated.map((u) => `- \`${u.slug}\` ${u.url ? `[$
 section(`Press coverage (${out.coverage?.added.length ?? 0} new articles for /timeline)`, (out.coverage?.added ?? []).map((a) => `- ${a.date} ${a.publication}: [${a.headline.replace(/[[\]]/g, '')}](${a.url})`));
 section('Errors', out.errors.map((e) => `- ${e}`));
 if (out.detected.length) {
-  md.push(`## Detected (${out.processor ?? 'no'} task, lookback ${config.lookbackDays} days)`, '', '| Route | Date | Candidate | Reason |', '|---|---|---|---|');
+  md.push(`## Detected (${out.processor ?? 'no'} tasks, since ${out.since ?? '?'})`, '', '| Route | Date | Candidate | Reason |', '|---|---|---|---|');
   for (const c of out.detected) md.push(`| ${c.route} | ${c.date ?? ''} | [${c.title.replace(/\|/g, '/')}](${c.url})${c.seed ? ` → \`${c.seed}\`` : ''} | ${c.reason.replace(/\|/g, '/')} |`);
   md.push('');
 } else if (!out.capStops.some((s) => s.startsWith('detect'))) md.push('Detect found no candidates.', '');
 if (out.queueLeft) md.push(`${out.queueLeft} new event(s) still queued for the next run (max ${config.maxNewCasesPerRun} per run).`, '');
+if (!dryRun && !out.recheck && !out.coverage) md.push(`Press coverage and quote re-check: weekly, last run ${schedule.lastRecheck?.slice(0, 10) ?? 'never'}.`, '');
 if (out.recheck) {
   const r = out.recheck;
   section('Source changes', r.changed.map((x) => `- ${x.action} ${x.file} ${x.where}: ${x.url}`));
