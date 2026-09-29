@@ -54,6 +54,7 @@ The pipeline publishes or updates a case file. A fixed template is then filled f
 | Automated label | Managing account @kgmkauf |
 | Developer console | console.x.com account "Is AI Conscious Yet", app `iaicy-case-file-poster` (id 33480276), Default Project, pay per use, Production. Permissions: Read and write; type: Web App, Automated App or Bot |
 | Keys | OAuth 1.0a consumer key and secret, access token and secret for @AIConsciousYet (Read and write), as GitHub Actions secrets `X_API_KEY`, `X_API_SECRET`, `X_ACCESS_TOKEN`, `X_ACCESS_SECRET`; local copy `~/.claude/secrets/x-iaicy.env`. Signing tested 2026-09-28: `GET /2/users/me` returned 200 |
+| Premium | X Premium bought by Konstantin 2026-09-28: blue checkmark, posts longer than 280 characters |
 | Credits | Prepaid, bought by Konstantin. Billing-cycle spending cap $10 in the console; auto-recharge off |
 | Bluesky | Not set up |
 
