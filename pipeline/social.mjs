@@ -157,13 +157,6 @@ function problems(c, w) {
   if (/(^|\s)[@#]\w/.test(w.text)) out.push('text contains an @handle or a hashtag');
   if (w.text.includes('"')) out.push('text uses straight quotation marks; use “ ” around quotations');
   for (const m of w.text.matchAll(/“([^”]+)”/g)) if (!verbatim(m[1])) out.push(`quoted words not found word for word in the case file (copy them exactly, or drop words only at the start or end): “${m[1].slice(0, 80)}”`);
-  const ex = (e, max, name) => {
-    if (!c.readings[e.reading]) return out.push(`${name}: reading ${e.reading} does not exist`);
-    if (e.words.length > max) out.push(`${name}: ${e.words.length} characters, at most ${max}`);
-    if (!norm(c.readings[e.reading].quote).includes(norm(stripEllipsis(e.words)))) out.push(`${name}: words not found in reading ${e.reading}'s quote; copy a continuous run of its words exactly, with … only at the start or end`);
-  };
-  ex(w.single, 170, 'single');
-  if (c.readings.length >= 2) { ex(w.pair.left, 100, 'pair.left'); ex(w.pair.right, 100, 'pair.right'); if (w.pair.left.reading === w.pair.right.reading) out.push('pair: the two readings must differ'); }
   return out;
 }
 // A second read of the draft against the case file: statements that say more than the file, or other than it.
@@ -184,17 +177,35 @@ async function write(c, kind) {
   throw new Error(`draft failed the checks: ${p.join('; ')}`);
 }
 
+function opening(quote, max) {
+  const q = quote.trim();
+  let out = '';
+  for (const s of q.match(/[^.!?]+[.!?]+["”’]?\s*/g) ?? [q]) { if ((out + s).length > max) break; out += s; }
+  if (!out) out = q.slice(0, max).replace(/[\s,;:]+\S*$/, '');
+  out = out.trim();
+  return out.length < q.length ? `${out} …` : out;
+}
 // ── the card: the variant used least so far, C only when the case has two readings ──
 const month = (d) => (d ? new Date(`${d.slice(0, 7)}-01T00:00:00Z`).toLocaleDateString('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' }) : '');
 function card(c, w) {
   const used = Object.fromEntries(VARIANTS.map((v) => [v, Object.values(state.x).filter((s) => s.variant === v).length]));
   const variant = VARIANTS.filter((v) => v !== 'C' || c.readings.length >= 2).sort((a, b) => used[a] - used[b])[0];
-  const side = (e) => { const r = c.readings[e.reading]; return { source: r.partyName, quote: unquote(e.words).replace(/“/g, '‘').replace(/”/g, '’'), date: r.date ?? c.event.dateStart }; // the card adds “ ” };
+  // The model's excerpt when it is a continuous run of the quote's words within the length; else the quote's
+  // opening sentences, cut at a word, by code. Quotes inside the quote become ‘ ’, since the card adds “ ”.
+  const side = (e, max) => {
+    const r = c.readings[e.reading];
+    const ok = !!r && e.words.length <= max && norm(r.quote).includes(norm(stripEllipsis(e.words)));
+    return { source: r.partyName, quote: (ok ? unquote(e.words) : opening(r.quote, max)).replace(/“/g, '‘').replace(/”/g, '’'), date: r.date ?? c.event.dateStart };
+  };
   if (variant === 'C') {
-    const left = side(w.pair.left), right = side(w.pair.right);
+    // Two different parties: an index out of range or a repeated one falls back to the first readings.
+    const li = c.readings[w.pair.left.reading] ? w.pair.left.reading : 0;
+    let ri = c.readings[w.pair.right.reading] ? w.pair.right.reading : 1;
+    if (ri === li) ri = li === 0 ? 1 : 0;
+    const left = side({ ...w.pair.left, reading: li }, 100), right = side({ ...w.pair.right, reading: ri }, 100);
     return { variant, data: { left, right }, alt: `${left.source}: “${left.quote}” ${right.source}: “${right.quote}”` };
   }
-  const s = side(w.single);
+  const s = side({ ...w.single, reading: c.readings[w.single.reading] ? w.single.reading : 0 }, 170);
   return { variant, data: { source: [s.source, month(s.date)].filter(Boolean).join(', '), quote: s.quote }, alt: `${s.source}: “${s.quote}”` };
 }
 

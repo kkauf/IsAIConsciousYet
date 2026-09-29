@@ -208,7 +208,7 @@ export async function markAboutNature(event, readings) {
 const DESCRIBE_SCHEMA = {
   type: 'object', required: ['description', 'evidence'],
   properties: {
-    description: { type: 'string', description: 'At most 10 words, lower case except names. Role and affiliation for a person ("AI safety researcher at Eleos AI"), what the organisation is for an organisation ("AI company that trained the model"), and for a page with no named author say so ("unsigned post on a directory of Black-owned businesses"). Never repeat self-praise such as trusted or leading. When the post has no named author, start with "unsigned post on" and then what the site is. Empty string if the pages do not show it.' },
+    description: { type: 'string', description: 'At most 10 words, lower case except names. Role and affiliation for a person as a readable phrase ("AI safety researcher at Eleos AI", "works on post-training at OpenAI"), never a bio fragment, what the organisation is for an organisation ("AI company that trained the model"), and for a page with no named author say so ("unsigned post on a directory of Black-owned businesses"). Never repeat self-praise such as trusted or leading. When the post has no named author, start with "unsigned post on" and then what the site is. Empty string if the pages do not show it.' },
     evidence: { type: 'string', description: 'Words copied exactly from the page, 20 to 200 characters, that show the description: a byline, an author bio, an about line. Empty string if none.' },
   },
 };
