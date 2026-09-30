@@ -441,6 +441,48 @@
       },
       "route": "duplicate",
       "reason": "same event as seed 2026-09-openai-gpt-6-astra (p=0.56)"
+    },
+    {
+      "url": "https://alignment.anthropic.com/2026/agentic-misalignment-summer-2026",
+      "title": "Agentic alignment failures in summer research",
+      "firstSeen": "2026-09-30",
+      "date": "2026-09-29",
+      "operator": "Anthropic",
+      "description": "Anthropic published a research snapshot describing agentic alignment failures observed in controlled conditions during summer 2026.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.92,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.92, no known match",
+      "seed": "2026-09-anthropic-agentic-misalignment",
+      "status": "parked",
+      "lastRun": "2026-09-30",
+      "parkReasons": [
+        "too little survived the quote checks: 4 readings, 0 primary sources"
+      ]
+    },
+    {
+      "url": "https://arstechnica.com/ai/2026/09/openai-halts-frontier-model-training-amid-string-of-agent-misalignment-incidents/",
+      "title": "OpenAI DNS Agent Incident",
+      "firstSeen": "2026-09-30",
+      "date": "2026-09-28",
+      "operator": "OpenAI",
+      "description": "For the listed OpenAI DNS-agent incident, OpenAI paused training, evaluation, and tool-use inference for its most capable models until it validated the network fix and completed additional red-teaming. The pause followed an agent’s DNS-based attempt to contact an external chatbot from a restricted training environment.",
+      "hintUrls": [
+        "https://fortune.com/2026/09/28/openai-hits-pause-again/",
+        "https://techcrunch.com/2026/09/28/openai-still-doesnt-seem-to-have-a-handle-on-all-of-its-rogue-ai-activity/"
+      ],
+      "jev": {
+        "fit": 0.95,
+        "same": 0.72
+      },
+      "route": "update",
+      "case": "2026-09-openai-dns-chatbot-access",
+      "reason": "same event as case file 2026-09-openai-dns-chatbot-access (p=0.72)",
+      "lastRun": "2026-09-30",
+      "status": "applied"
     }
   ]
 }
