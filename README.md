@@ -28,6 +28,7 @@ No environment variables are needed to run the site. Drafting case files needs A
 | `content/cases/` | Published case files, one JSON file each |
 | `pipeline/` | Finds sources, checks quotes, drafts case files |
 | `src/app/` | The site (Next.js) |
+| `tools/export-showcase-videos.mjs` | [Banner MP4 exports and retained videos](docs/showcase-videos.md) |
 | `AGENTS.md` | The concept and its rules, for people and coding agents |
 | `docs/plan.md` | What is built, what is next, open decisions |
 
