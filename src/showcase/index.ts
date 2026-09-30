@@ -22,6 +22,16 @@ export type Entry = {
 const ENTRIES: Entry[] = [
 
   {
+    slug: "gpt-6-1-sol",
+    model: "GPT-6.1 Sol",
+    maker: "OpenAI",
+    released: "2026-09-29",
+    releasedSource: "https://developers.openai.com/api/docs/changelog#september-2026",
+    made: "2026-09-29",
+    Hero: dynamic(() => import("./gpt-6-1-sol/Hero")),
+  },
+
+  {
     slug: "gpt-6-astra",
     model: "GPT-6 Astra",
     maker: "OpenAI",
