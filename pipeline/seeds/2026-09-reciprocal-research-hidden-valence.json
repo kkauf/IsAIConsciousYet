@@ -1,0 +1,7 @@
+{
+  "slug": "2026-09-reciprocal-research-hidden-valence",
+  "event": "A paper tested activation steering across seven open-weight models from five families. Negative-valence steering affected later choices through hidden KV-cache states, even when visible text was held fixed; the effect emerged mainly after direct preference optimization. In a self-steering test, the model did not preferentially induce positive steering but repeatedly removed imposed negative-valence steering. The authors said whether these traces imply subjective experience remains unclear. (Reciprocal Research and the University of Warwick (researchers who ran the study), 2026-09-28.)",
+  "hintUrls": [
+    "https://arxiv.org/abs/2609.35591"
+  ]
+}

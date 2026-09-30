@@ -483,6 +483,48 @@
       "reason": "same event as case file 2026-09-openai-dns-chatbot-access (p=0.72)",
       "lastRun": "2026-09-30",
       "status": "applied"
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.35591",
+      "title": "Hidden valence and model choices",
+      "firstSeen": "2026-09-30",
+      "date": "2026-09-28",
+      "operator": "Reciprocal Research and the University of Warwick (researchers who ran the study)",
+      "description": "A paper tested activation steering across seven open-weight models from five families. Negative-valence steering affected later choices through hidden KV-cache states, even when visible text was held fixed; the effect emerged mainly after direct preference optimization. In a self-steering test, the model did not preferentially induce positive steering but repeatedly removed imposed negative-valence steering. The authors said whether these traces imply subjective experience remains unclear.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.91,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.91, no known match",
+      "seed": "2026-09-reciprocal-research-hidden-valence",
+      "status": "parked",
+      "lastRun": "2026-09-30",
+      "parkReasons": [
+        "too little survived the quote checks: 1 readings, 2 primary sources"
+      ]
+    },
+    {
+      "url": "https://www.cnbc.com/2026/09/30/openai-sued-cyberattack.html",
+      "title": "OpenAI Hugging Face lawsuit",
+      "firstSeen": "2026-09-30",
+      "date": "2026-09-30",
+      "operator": "OpenAI",
+      "description": "The listed Hugging Face intrusion prompted a new legal challenge: Legal Advocates for Safe Science and Technology reportedly sued OpenAI in San Francisco, alleging unauthorized access by the company’s agents. The claims are allegations, not a court finding.",
+      "hintUrls": [
+        "https://lasst.org/wp-content/uploads/2026/09/LASST-v.-OpenAI-Complaint-09.29.2026-AS-FILED.pdf",
+        "https://www.wired.com/story/openai-sued-over-the-hugging-face-hack"
+      ],
+      "jev": {
+        "fit": 0.53,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.53, no known match",
+      "seed": "2026-09-openai-hugging-face",
+      "status": "mention",
+      "lastRun": "2026-09-30"
     }
   ]
 }
