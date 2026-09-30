@@ -28,5 +28,7 @@ Entry: `/?v=gpt-6-1-sol`. Release date: 29 September 2026, verified against the
 [OpenAI API changelog](https://developers.openai.com/api/docs/changelog#september-2026).
 
 Validation: typecheck, lint, production build, the site's smoke tests, and
-`tests/e2e/sol-showcase.spec.ts` (desktop and phone interaction, JavaScript
-disabled, reduced motion, and stopping the renderer off screen).
+`tests/e2e/sol-showcase.spec.ts` (hydration warnings on initial load, desktop
+and phone interaction, JavaScript disabled, reduced motion, and stopping the
+renderer off screen). SVG references use names scoped to this entry, so its
+server-rendered still and first client render have identical attributes.

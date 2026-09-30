@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import type { HeroProps } from "../types";
 import { clamp, createScene, ease } from "./scene";
@@ -9,7 +9,10 @@ import styles from "./hero.module.css";
 const chapters = ["The surface", "A response", "The mechanism", "The question"];
 const stops = [0, 0.29, 0.59, 0.95];
 
-function Still({ id }: { id: string }) {
+function Still() {
+  // The showcase renders one entry at a time. Names scoped to this entry keep
+  // SVG references identical across next/dynamic's server and client trees.
+  const id = "gpt-6-1-sol-still";
   return (
     <svg className={styles.still} viewBox="0 0 600 720" aria-hidden="true">
       <defs>
@@ -34,7 +37,6 @@ export default function Hero({ model, date }: HeroProps) {
   const rootRef = useRef<HTMLElement>(null);
   const stageRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const id = useId().replace(/:/g, "");
 
   useEffect(() => {
     const root = rootRef.current;
@@ -181,7 +183,7 @@ export default function Hero({ model, date }: HeroProps) {
     <section ref={rootRef} className={styles.root} aria-label="The other side, a visual story by GPT-6.1 Sol" data-sol-hero>
       <div ref={stageRef} className={styles.stage}>
         <canvas ref={canvasRef} className={styles.canvas} aria-hidden="true" />
-        <Still id={id} />
+        <Still />
 
         <div className={styles.intro} data-copy="0">
           <h1>Is AI Conscious Yet?</h1>

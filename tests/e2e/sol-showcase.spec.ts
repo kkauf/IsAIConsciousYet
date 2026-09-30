@@ -1,5 +1,22 @@
 import { test, expect } from "@playwright/test";
 
+test("the banner hydrates without server/client attribute mismatches", async ({ page }) => {
+  const hydrationErrors: string[] = [];
+  page.on("console", (message) => {
+    if (/hydration|hydrated|server.rendered|Minified React error #(?:418|419|421|422|423|424|425)/i.test(message.text())) {
+      hydrationErrors.push(message.text());
+    }
+  });
+  page.on("pageerror", (error) => hydrationErrors.push(error.message));
+  for (const url of ["/", "/?v=gpt-6-1-sol"]) {
+    await page.goto(url);
+    const hero = page.locator("[data-sol-hero]");
+    await expect(hero).toHaveAttribute("data-enhanced", "true");
+    await expect.poll(() => hero.locator("canvas").evaluate((c: HTMLCanvasElement) => c.width)).toBeGreaterThan(300);
+    expect(hydrationErrors).toEqual([]);
+  }
+});
+
 for (const viewport of [{ width: 1280, height: 800 }, { width: 393, height: 852 }]) {
   test(`Sol's visual story responds and reaches the evidence at ${viewport.width}px`, async ({ page }) => {
     await page.setViewportSize(viewport);
