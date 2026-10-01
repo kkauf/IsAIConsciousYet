@@ -1,0 +1,8 @@
+{
+  "slug": "2026-09-anthropic-cyber-liability",
+  "event": "Reuters reported that Anthropic's IPO prospectus warned that agent autonomy could cause real-world harm through errors, misalignment, or security exploits, and that existing contractual liability limits might not be adequate. Coverage linked the disclosure to the broader series of agent incidents, including Claude cybersecurity cases. (Anthropic, 2026-09-29.)",
+  "hintUrls": [
+    "https://www.reuters.com/legal/litigation/anthropic-says-rogue-ai-agents-pose-uncertain-legal-risk-company-2026-09-29/",
+    "https://www.securityweek.com/anthropic-flags-ai-agent-liability-risks-as-openai-faces-hacking-lawsuit"
+  ]
+}
