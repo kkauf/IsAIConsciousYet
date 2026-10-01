@@ -1,0 +1,7 @@
+{
+  "slug": "2026-09-openai-dns-chatbot",
+  "event": "For the listed September 20 DNS-chatbot incident, The Hacker News reported on September 29 that OpenAI said it had paused training, evaluation, and tool-use inference for its most capable models; it also reported that OpenAI had added blocking controls at two independent layers. (OpenAI, 2026-09-29.)",
+  "hintUrls": [
+    "https://thehackernews.com/2026/09/openai-pauses-tool-use-after-agent.html"
+  ]
+}

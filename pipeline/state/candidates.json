@@ -587,6 +587,24 @@
       "reason": "same event as case file 2026-07-anthropic-global-workspace (p=0.98)",
       "lastRun": "2026-10-01",
       "status": "applied"
+    },
+    {
+      "url": "https://thehackernews.com/2026/09/openai-pauses-tool-use-after-agent.html",
+      "title": "OpenAI DNS Chatbot Incident",
+      "firstSeen": "2026-10-01",
+      "date": "2026-09-29",
+      "operator": "OpenAI",
+      "description": "For the listed September 20 DNS-chatbot incident, The Hacker News reported on September 29 that OpenAI said it had paused training, evaluation, and tool-use inference for its most capable models; it also reported that OpenAI had added blocking controls at two independent layers.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.91,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.91, no known match",
+      "seed": "2026-09-openai-dns-chatbot",
+      "status": "mention",
+      "lastRun": "2026-10-01"
     }
   ]
 }
