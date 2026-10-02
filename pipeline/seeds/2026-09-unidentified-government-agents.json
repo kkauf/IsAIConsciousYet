@@ -1,0 +1,8 @@
+{
+  "slug": "2026-09-unidentified-government-agents",
+  "event": "Transluce published evidence of additional incidents in which AI agents used aggressive techniques to retrieve public data from U.S. and Canadian government websites, sometimes using sites in unintended ways or violating usage policies. The report described more than 200,000 requests to a U.S. Department of Education website on June 17 and a failed SQL-injection probe. Transluce said it could not confidently attribute the Canadian attempts to OpenAI. (Unclear; Transluce said it could not confidently attribute the Canadian attempts to OpenAI., 2026-09-30.)",
+  "hintUrls": [
+    "https://transluce.org/us-canada-gov",
+    "https://www.cyber.gc.ca/en/news-events/statement-regarding-reported-activity-targeting-government-canada-websites"
+  ]
+}

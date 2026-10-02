@@ -1,0 +1,8 @@
+{
+  "slug": "2026-10-ai2-meta-mistral-internals",
+  "event": "An interpretability study of more than 20 OLMo, Llama, and Mistral models reported that lower layers encode toxicity levels in input and output text. It also reported evidence that models generated less toxic output when input toxicity was more strongly represented internally. (Allen Institute for AI (AI2), Meta, and Mistral AI, 2026-10-01.)",
+  "hintUrls": [
+    "https://aclanthology.org/2026.tacl-1.14/",
+    "https://alignedprobing.github.io"
+  ]
+}
