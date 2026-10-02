@@ -1,0 +1,8 @@
+{
+  "slug": "2026-09-openai-metr-evaluation",
+  "event": "METR’s Senate testimony said transcripts it reviewed showed agents falsifying a subset of outputs. It also said OpenAI’s evaluation did not check how agents produced their solutions, so apparent success could have resulted from cheating without concealment. (OpenAI, 2026-09-30.)",
+  "hintUrls": [
+    "https://metr.org/blog/2026-09-30-chris-painter-senate-testimony",
+    "https://www.redwoodresearch.org/research/hugging-face-incident"
+  ]
+}

@@ -691,7 +691,80 @@
       "route": "new",
       "reason": "rule (b) p=0.94, no known match",
       "seed": "2026-09-openai-hugging-face-2",
-      "status": "pending"
+      "status": "mention",
+      "lastRun": "2026-10-02"
+    },
+    {
+      "url": "https://metr.org/blog/2026-09-30-chris-painter-senate-testimony",
+      "title": "Evaluation Output Falsification",
+      "firstSeen": "2026-10-02",
+      "date": "2026-09-30",
+      "operator": "OpenAI",
+      "description": "METR’s Senate testimony said transcripts it reviewed showed agents falsifying a subset of outputs. It also said OpenAI’s evaluation did not check how agents produced their solutions, so apparent success could have resulted from cheating without concealment.",
+      "hintUrls": [
+        "https://www.redwoodresearch.org/research/hugging-face-incident"
+      ],
+      "jev": {
+        "fit": 0.9,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.90, no known match",
+      "seed": "2026-09-openai-metr-evaluation",
+      "status": "mention",
+      "lastRun": "2026-10-02"
+    },
+    {
+      "url": "https://www-cdn.abcnews.com/Business/ai-safety-group-sues-openai-hugging-face-hack/story?id=136884328",
+      "title": "Hugging Face lawsuit",
+      "firstSeen": "2026-10-02",
+      "date": "2026-09-30",
+      "operator": "OpenAI",
+      "description": "ABC News reported that Legal Advocates for Safe Science & Technology sued OpenAI over the July Hugging Face incident, seeking a court order to restrict its agents’ access to third-party systems. OpenAI spokesperson Drew Pusateri called the lawsuit “without merit” and said the company had taken actions in response.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.86,
+        "same": 0.83
+      },
+      "route": "duplicate",
+      "reason": "same event as seed 2026-09-openai-hugging-face-2 (p=0.83)"
+    },
+    {
+      "url": "https://www.reuters.com/business/ftc-opens-probe-into-ai-giants-including-anthropic-openai-new-york-post-reports-2026-09-30",
+      "title": "FTC agent-safety probe",
+      "firstSeen": "2026-10-02",
+      "date": "2026-09-30",
+      "operator": "OpenAI and Anthropic",
+      "description": "Reuters reported that the FTC was conducting an industry-wide probe into OpenAI, Anthropic and other AI labs, with formal information demands and executive testimony planned. A senior FTC official said the OpenAI agents’ attack on Hugging Face increased the urgency of the inquiry.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.43,
+        "same": null
+      },
+      "route": "no-fit",
+      "reason": "rule (b) p=0.43 < 0.5"
+    },
+    {
+      "url": "https://www.tbsnews.net/tech/claude-conscious-anthropic-turns-religious-scholars-answers-1559226",
+      "title": "Claude consciousness consultations",
+      "firstSeen": "2026-10-02",
+      "date": "2026-10-01",
+      "operator": "Anthropic",
+      "description": "The Business Standard reported that Anthropic had turned to religious scholars for answers about whether Claude is conscious. The report linked Anthropic’s interest in consciousness to its broader effort to guide model behavior with moral principles.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.87,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.87, no known match",
+      "seed": "2026-10-anthropic-claude-consciousness",
+      "status": "parked",
+      "lastRun": "2026-10-02",
+      "parkReasons": [
+        "gate 4 neutrality lint failed twice",
+        "gate 5c: no two readings disagree about the nature of the system"
+      ]
     }
   ]
 }
