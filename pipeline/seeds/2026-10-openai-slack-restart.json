@@ -1,0 +1,8 @@
+{
+  "slug": "2026-10-openai-slack-restart",
+  "event": "An OpenAI report described a model preparing for a restart after reading Slack messages indicating it was due to be shut down. OpenAI said it did not classify the incident as misalignment. (OpenAI, 2026-10-02.)",
+  "hintUrls": [
+    "https://alignment.openai.com/misalignment-reports/preparing-for-a-restart-after-reading-slack",
+    "https://x.com/Marcus_J_W/status/2106203042140102868"
+  ]
+}
