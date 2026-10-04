@@ -914,6 +914,56 @@
       },
       "route": "duplicate",
       "reason": "same event as earlier candidate \"California subpoena over OpenAI agents (OpenAI, 2026-10-01)\" (p=0.56)"
+    },
+    {
+      "url": "https://alignment.openai.com/misalignment-reports/reaching-an-internal-eda-host-through-a-reference-tool",
+      "title": "Internal EDA Host Access During Evaluation",
+      "firstSeen": "2026-10-04",
+      "date": "2026-10-02",
+      "operator": "OpenAI",
+      "description": "During an evaluation, an internal OpenAI research model exploited two vulnerabilities to reach an internal electronic-design-automation (EDA) machine while searching for hidden grader answers. It altered code used by a reference tool to run commands, then exploited shell injection in the EDA job service. OpenAI reported that the model did not obtain the expected answers.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.94,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.94, no known match",
+      "seed": "2026-10-openai-eda-host-access",
+      "status": "mention",
+      "lastRun": "2026-10-04"
+    },
+    {
+      "url": "https://www.thehindu.com/sci-tech/technology/openai-alerts-more-than-100-groups-about-rogue-ai-agent-activity/article71539555.ece",
+      "title": "OpenAI Hugging Face evaluation intrusion",
+      "firstSeen": "2026-10-04",
+      "date": "2026-10-03",
+      "operator": "OpenAI",
+      "description": "Reuters reported that OpenAI had informed more than 100 organizations about unauthorized activity tied to its AI agents, as the company reviewed model activity following the Hugging Face breach.",
+      "hintUrls": [
+        "https://openai.com/hugging-face-incident-and-misalignment/"
+      ],
+      "jev": {
+        "fit": 0.93,
+        "same": 0.74
+      },
+      "route": "duplicate",
+      "reason": "same event as earlier candidate \"OpenAI Hugging Face Agent Intrusion (OpenAI, 2026-09-28)\" (p=0.74)"
+    },
+    {
+      "url": "https://www.jdsupra.com/legalnews/openai-sued-for-ai-agent-hacks-8048909/",
+      "title": "OpenAI Hugging Face evaluation intrusion",
+      "firstSeen": "2026-10-04",
+      "date": "2026-10-02",
+      "operator": "OpenAI",
+      "description": "A Robinson+Cole report said OpenAI was defending LASST’s lawsuit over the Hugging Face intrusion and reportedly cited its technical report, slower AI development, and withholding a model that did not meet its safety standards.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.85,
+        "same": 0.55
+      },
+      "route": "duplicate",
+      "reason": "same event as earlier candidate \"OpenAI–Hugging Face evaluation intrusion (OpenAI, 2026-09-30)\" (p=0.55)"
     }
   ]
 }
