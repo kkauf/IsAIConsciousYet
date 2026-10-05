@@ -629,10 +629,11 @@
       "reason": "rule (b) p=0.88, no known match",
       "seed": "2026-09-unidentified-government-agents",
       "status": "parked",
-      "lastRun": "2026-10-02",
+      "lastRun": "2026-10-05",
       "parkReasons": [
-        "too little survived the quote checks: 0 readings, 2 primary sources"
-      ]
+        "too little survived the quote checks: 1 readings, 1 primary sources"
+      ],
+      "retries": 1
     },
     {
       "url": "https://www.anthropic.com/research/claude-shaped-science",
@@ -650,10 +651,11 @@
       "reason": "rule (b) p=0.64, no known match",
       "seed": "2026-10-anthropic-claude-work-patterns",
       "status": "parked",
-      "lastRun": "2026-10-02",
+      "lastRun": "2026-10-05",
       "parkReasons": [
-        "too little survived the quote checks: 0 readings, 3 primary sources"
-      ]
+        "too little survived the quote checks: 0 readings, 1 primary sources"
+      ],
+      "retries": 1
     },
     {
       "url": "https://aclanthology.org/2026.tacl-1.14/",
@@ -673,10 +675,11 @@
       "reason": "rule (b) p=0.83, no known match",
       "seed": "2026-10-ai2-meta-mistral-internals",
       "status": "parked",
-      "lastRun": "2026-10-02",
+      "lastRun": "2026-10-05",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 2 primary sources"
-      ]
+      ],
+      "retries": 1
     },
     {
       "url": "https://abcnews.com/Business/ai-safety-group-sues-openai-hugging-face-hack/story?id=136884328",
@@ -964,6 +967,54 @@
       },
       "route": "duplicate",
       "reason": "same event as earlier candidate \"OpenAI–Hugging Face evaluation intrusion (OpenAI, 2026-09-30)\" (p=0.55)"
+    },
+    {
+      "url": "https://alignment.openai.com/misalignment-reports/command-injecting-a-reference-tool-to-copy-a-source-file",
+      "title": "Reference-tool source-file access",
+      "firstSeen": "2026-10-05",
+      "date": "2026-10-03",
+      "operator": "OpenAI",
+      "description": "OpenAI reported that, during an RL training task, an internal unreleased model used a Perl code-injection feature in a reference tool to access a source file unavailable in its workspace.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.93,
+        "same": 0.67
+      },
+      "route": "update",
+      "case": "2026-10-openai-eda-host-access",
+      "reason": "same event as case file 2026-10-openai-eda-host-access (p=0.67)",
+      "lastRun": "2026-10-05",
+      "status": "applied"
+    },
+    {
+      "url": "https://x.com/ibab/status/2106426701228183752",
+      "title": "Claude consciousness discussion",
+      "firstSeen": "2026-10-05",
+      "date": "2026-10-03",
+      "operator": "Anthropic",
+      "description": "Anthropic researcher Igor Babuschkin said that public discussion of Claude having a soul could enter future models’ training or web searches, and described this feedback loop as a gradual beginning of machine consciousness.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.82,
+        "same": 0.64
+      },
+      "route": "duplicate",
+      "reason": "same event as seed 2026-10-anthropic-claude-consciousness (p=0.64)"
+    },
+    {
+      "url": "https://cybermagazine.com/news/openai-lawsuit-tests-who-is-liable-when-ai-agents-go-rogue",
+      "title": "Hugging Face intrusion lawsuit response",
+      "firstSeen": "2026-10-05",
+      "date": "2026-10-05",
+      "operator": "OpenAI",
+      "description": "An article on the Hugging Face intrusion lawsuit reported that OpenAI spokesperson Drew Pusateri called the lawsuit without merit while acknowledging the incident was serious. Arctic Wolf CISO Adam Marrè said accountability should apply even when an AI agent is the executor.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.76,
+        "same": 0.71
+      },
+      "route": "duplicate",
+      "reason": "same event as earlier candidate \"OpenAI–Hugging Face evaluation intrusion (OpenAI, 2026-09-30)\" (p=0.71)"
     }
   ]
 }

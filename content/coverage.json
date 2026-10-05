@@ -1,6 +1,6 @@
 {
   "since": "2020-01-01",
-  "updatedAt": "2026-09-28",
+  "updatedAt": "2026-10-05",
   "outlets": [
     "The New York Times",
     "The Washington Post",
@@ -28,6 +28,34 @@
     "Nature"
   ],
   "articles": [
+    {
+      "date": "2026-10-02",
+      "publication": "The Telegraph",
+      "headline": "Anthropic tried to persuade Pope that AI could be conscious being",
+      "url": "https://www.telegraph.co.uk/business/2026/10/02/anthropic-lobbied-pope-to-argue-ai-conscious-being/",
+      "foundAt": "2026-10-05"
+    },
+    {
+      "date": "2026-10-02",
+      "publication": "Vox",
+      "headline": "Anthropic vs. the pope: The AI consciousness debate, explained",
+      "url": "https://www.vox.com/today-explained-newsletter/504966/anthropic-claude-consciousness-pope-leo",
+      "foundAt": "2026-10-05"
+    },
+    {
+      "date": "2026-09-29",
+      "publication": "The New York Times",
+      "headline": "Is Claude Conscious? Inside Anthropic’s Quest to Instill Morality Into Its A.I. Models",
+      "url": "https://www.nytimes.com/2026/09/29/us/anthropic-claude-morals-ai.html",
+      "foundAt": "2026-10-05"
+    },
+    {
+      "date": "2026-09-28",
+      "publication": "The Wall Street Journal",
+      "headline": "Did the Associated Press Hurt AI’s Feelings?",
+      "url": "https://www.wsj.com/opinion/did-the-associated-press-hurt-ais-feelings-a2f49bf6",
+      "foundAt": "2026-10-05"
+    },
     {
       "date": "2026-09-21",
       "publication": "The New York Times",

@@ -1,5 +1,5 @@
 {
-  "lastRun": "2026-09-28",
+  "lastRun": "2026-10-05",
   "seen": {
     "nytimes.com/2023/09/18/science/ai-computers-consciousness.html": {
       "p": 0.81,
@@ -6094,6 +6094,106 @@
       "kept": false
     },
     "npr.org/2026/09/27/nx-s1-5981063/from-human-rights-to-mathematical-research-how-ai-is-being-used-for-good": {
+      "p": 0.03,
+      "kept": false
+    },
+    "wsj.com/tech/ai/anthropic-amanda-askell-philosopher-ai-3c031883": {
+      "p": 0.28,
+      "kept": false
+    },
+    "reuters.com/business/what-amodei-altman-musk-have-said-about-ai-risks-stoking-doom-fears-2026-09-21": {
+      "p": 0.22,
+      "kept": false
+    },
+    "reuters.com/business/media-telecom/ten-days-that-changed-course-ai-2026-09-19": {
+      "p": 0.09,
+      "kept": false
+    },
+    "reuters.com/commentary/breakingviews/europe-has-some-scope-swerve-an-ai-dark-age-2026-09-24": {
+      "p": 0.07,
+      "kept": false
+    },
+    "cnn.com/2026/09/28/us/ai-human-extinction-parents-kids-safety": {
+      "p": 0.1,
+      "kept": false
+    },
+    "foxnews.com/live-news/openai-rogue-ai-warning-hugging-face-hack-10-02-26": {
+      "p": 0.05,
+      "kept": false
+    },
+    "bloomberg.com/opinion/articles/2026-09-19/ai-s-threats-demand-a-better-movie-analogy-than-the-terminator": {
+      "p": 0.1,
+      "kept": false
+    },
+    "reuters.com/legal/litigation/microsoft-drafts-code-conduct-keep-its-ai-under-human-control-2026-09-14": {
+      "p": 0.42,
+      "kept": false
+    },
+    "foxnews.com/live-news/ai-super-intelligence-trump-altman-10-05": {
+      "p": 0.7,
+      "kept": false
+    },
+    "telegraph.co.uk/business/2026/10/02/anthropic-lobbied-pope-to-argue-ai-conscious-being": {
+      "p": 0.86,
+      "kept": true
+    },
+    "vox.com/today-explained-newsletter/504966/anthropic-claude-consciousness-pope-leo": {
+      "p": 0.93,
+      "kept": true
+    },
+    "vox.com/technology/503361/ai-bioweapons-pandemics-extinction": {
+      "p": 0.11,
+      "kept": false
+    },
+    "wired.com/story/if-the-ai-industry-followed-its-own-research-it-might-have-paused-already": {
+      "p": 0.09,
+      "kept": false
+    },
+    "vox.com/today-explained-newsletter/503296/ai-existential-risk-human-extinction-panic-jasmine-sun": {
+      "p": 0.09,
+      "kept": false
+    },
+    "wired.com/story/how-to-use-ai-with-your-privacy-intact": {
+      "p": 0.04,
+      "kept": false
+    },
+    "vox.com/technology/504061/ai-education-schools-trump-texas-alpha-screentime-vouchers-charters": {
+      "p": 0.04,
+      "kept": false
+    },
+    "scientificamerican.com/discussions/what-does-consciousness-mean-to-you": {
+      "p": 0.67,
+      "kept": false
+    },
+    "scientificamerican.com": {
+      "p": 0.18,
+      "kept": false
+    },
+    "nytimes.com/2026/10/05/science/consciousness-brain-babies.html": {
+      "p": 0.28,
+      "kept": false
+    },
+    "nytimes.com/2026/10/01/well/mind/ai-anxiety-therapy-artificial-intelligence.html": {
+      "p": 0.11,
+      "kept": false
+    },
+    "nytimes.com/2026/09/29/us/anthropic-claude-morals-ai.html": {
+      "p": 0.7,
+      "kept": true
+    },
+    "wsj.com/opinion/ais-behavior-will-matter-more-than-its-mind-dd185719": {
+      "p": 0.44,
+      "kept": false
+    },
+    "wsj.com/opinion/did-the-associated-press-hurt-ais-feelings-a2f49bf6": {
+      "p": 0.67,
+      "kept": true
+    },
+    "theverge.com/ai-artificial-intelligence/1004523/sam-altman-feels-it-necessary-to-clarify-that-people-shouldnt-see-ai-as-godlike-for-some-reason": {
+      "p": 0.21,
+      "kept": false
+    },
+    "technologyreview.com/2026/10/01/1145588/ai-mind-reading-reconstructs-what-youre-looking-at": {
       "p": 0.03,
       "kept": false
     }
