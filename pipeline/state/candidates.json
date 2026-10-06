@@ -767,12 +767,13 @@
       "route": "new",
       "reason": "rule (b) p=0.87, no known match",
       "seed": "2026-10-anthropic-claude-consciousness",
-      "status": "parked",
-      "lastRun": "2026-10-02",
+      "status": "published",
+      "lastRun": "2026-10-06",
       "parkReasons": [
         "gate 4 neutrality lint failed twice",
         "gate 5c: no two readings disagree about the nature of the system"
-      ]
+      ],
+      "retries": 1
     },
     {
       "url": "https://alignment.openai.com/misalignment-reports/preparing-for-a-restart-after-reading-slack",

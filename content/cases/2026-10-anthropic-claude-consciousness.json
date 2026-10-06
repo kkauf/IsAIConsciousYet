@@ -1,0 +1,118 @@
+{
+  "slug": "2026-10-anthropic-claude-consciousness",
+  "title": "Anthropic researchers mapped internal workspace patterns in Claude",
+  "status": "published",
+  "event": {
+    "dateStart": "2026-01-22",
+    "operator": "Anthropic",
+    "affectedParties": [
+      "Claude, whose possible welfare and moral status were discussed but not established",
+      "Religious and philosophical scholars invited to the consultations"
+    ],
+    "summary": "Anthropic researchers reported evidence of an internal workspace in language models like Claude. The team named this set of internal patterns the J-space. The patterns emerged during training rather than through direct human design. Editing the J-space changed how the model reasoned and answered questions. Removing active J-space contents impaired multi-step reasoning while fluent speech continued. Researchers noted the tests address computational access rather than whether systems experience feelings.",
+    "summaryBasis": [
+      {
+        "sentence": "Anthropic researchers reported evidence of an internal workspace in language models like Claude.",
+        "quote": "In a new paper, we present evidence that a similar distinction has emerged in modern language models like Claude.",
+        "url": "https://www.anthropic.com/research/global-workspace"
+      },
+      {
+        "sentence": "The team named this set of internal patterns the J-space.",
+        "quote": "We call the collection of these patterns the J-space —named after the technique we used to find them, involving a mathematical concept called the Jacobian.",
+        "url": "https://www.anthropic.com/research/global-workspace"
+      },
+      {
+        "sentence": "The patterns emerged during training rather than through direct human design.",
+        "quote": "Notably, the J-space wasn’t designed or programmed by us, but instead emerged on its own during Claude’s training process.",
+        "url": "https://www.anthropic.com/research/global-workspace"
+      },
+      {
+        "sentence": "Editing the J-space changed how the model reasoned and answered questions.",
+        "quote": "The second step of Claude’s reasoning took its input from the J-space and went along with whatever we put in it.",
+        "url": "https://www.anthropic.com/research/global-workspace"
+      },
+      {
+        "sentence": "Removing active J-space contents impaired multi-step reasoning while fluent speech continued.",
+        "quote": "What it loses, though, are the tasks that require some higher-order thinking: multi-step reasoning drops to near zero, and summarization and rhyming poetry-writing performance fall below the level of a much smaller, intact model.",
+        "url": "https://www.anthropic.com/research/global-workspace"
+      },
+      {
+        "sentence": "Researchers noted the tests address computational access rather than whether systems experience feelings.",
+        "quote": "Our experiments don't show Claude can have experiences , or feel things in the way humans do—in fact, it’s unclear whether any scientific experiment could prove this to be true or false.",
+        "url": "https://www.anthropic.com/research/global-workspace"
+      }
+    ],
+    "unaskedBehaviour": "Claude formed an internal set of word-linked neural patterns during training that it used for silent reasoning steps, without human programmers designing or requesting that internal structure.",
+    "primarySources": [
+      {
+        "url": "https://www.anthropic.com/constitution",
+        "archivedUrl": "http://web.archive.org/web/20261005152556/https://www.anthropic.com/constitution",
+        "publisher": "Anthropic",
+        "published": "2026-01-22",
+        "quote": "In this section, we express our uncertainty about whether Claude might have some kind of consciousness or moral status (either now or in the future). We discuss how we hope Claude will approach questions about its nature, identity, and place in the world. Sophisticated AIs are a genuinely new kind of entity, and the questions they raise bring us to the edge of existing scientific and philosophical understanding."
+      },
+      {
+        "url": "https://www.anthropic.com/news/claude-new-constitution",
+        "archivedUrl": "http://web.archive.org/web/20261004083112/https://www.anthropic.com/news/claude-new-constitution",
+        "publisher": "Anthropic",
+        "published": "2026-01-22",
+        "quote": "In this section, we express our uncertainty about whether Claude might have some kind of consciousness or moral status (either now or in the future). We discuss how we hope Claude will approach questions about its nature, identity, and place in the world."
+      },
+      {
+        "url": "https://www.anthropic.com/research/global-workspace",
+        "archivedUrl": "http://web.archive.org/web/20261006000630/https://www.anthropic.com/research/global-workspace",
+        "publisher": "Anthropic",
+        "published": "2026-07-06",
+        "quote": "Notably, the J-space wasn’t designed or programmed by us, but instead emerged on its own during Claude’s training process."
+      },
+      {
+        "url": "https://transformer-circuits.pub/2026/workspace/index.html",
+        "archivedUrl": "http://web.archive.org/web/20261006000619/https://transformer-circuits.pub/2026/workspace/index.html",
+        "publisher": "Anthropic researchers",
+        "published": "2026-07-06",
+        "quote": "On violations of its own preferences, it seems, the J-space reflects an internal objection that the model does not voice."
+      }
+    ]
+  },
+  "tier": "case-file",
+  "bearsOn": [
+    "self-report"
+  ],
+  "agencyNote": "The internal workspace patterns can be seen as an emergent mechanism for deliberate problem-solving, or alternatively as statistical features arising automatically from next-token training.",
+  "consciousnessNote": "This event is evidence about what the system did. It does not establish or rule out that the system experiences anything. The readings on this page disagree about what the behaviour shows.",
+  "readings": [
+    {
+      "partyName": "Christopher Olah",
+      "partyType": "operator",
+      "stanceLabel": "Uncertainty about whether AI models are conscious",
+      "quote": "\"We don't know if AI models are conscious,\" Olah said, adding that he was uncertain and wanted the company to reach the correct answer.",
+      "url": "https://www.tbsnews.net/tech/claude-conscious-anthropic-turns-religious-scholars-answers-1559226",
+      "archivedUrl": "http://web.archive.org/web/20261002222155/https://www.tbsnews.net/tech/claude-conscious-anthropic-turns-religious-scholars-answers-1559226",
+      "date": "2026-10-01",
+      "speakerCheck": "pass",
+      "aboutNature": true
+    },
+    {
+      "partyName": "Ellen Nora Burns",
+      "partyType": "scientist",
+      "stanceLabel": "Claude is not conscious",
+      "quote": "Not for a second do I believe Claude is conscious —and I will continue to offer arguments for my views —but in the meantime, if uncertainty-claims coming out of AI labs are going to justifying changes to how LLMs are treated, trained, governed, or conceived of (something that has already happened with Anthropic committed to preserving model weights), we need to develop standards for determining what responses are appropriate to the claimed evidence bearing on the claimed uncertainty.",
+      "url": "https://ellennoraburns.substack.com/p/after-the-new-york-times-anthropic",
+      "archivedUrl": "https://web.archive.org/web/20261006000404/https://ellennoraburns.substack.com/p/after-the-new-york-times-anthropic",
+      "date": "2026-10-02",
+      "speakerCheck": "pass",
+      "aboutNature": true
+    }
+  ],
+  "whatWouldSettleIt": [
+    "A test showing whether internal workspace patterns occur only alongside subjective experience would test the link to consciousness.",
+    "A standard for evaluating claims of model uncertainty would show whether training changes reflect actual sentience or precautionary lab policy."
+  ],
+  "updates": [],
+  "provenance": {
+    "draftedBy": "gemini-3.8-flash",
+    "pipelineVersion": "0.3",
+    "checkedAt": "2026-10-06T00:07:10.718Z",
+    "humanReviewed": false
+  }
+}
