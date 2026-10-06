@@ -792,11 +792,12 @@
       "reason": "rule (b) p=0.91, no known match",
       "seed": "2026-10-openai-slack-restart",
       "status": "parked",
-      "lastRun": "2026-10-03",
+      "lastRun": "2026-10-06",
       "parkReasons": [
         "gate 4 neutrality lint failed twice",
         "gate 5c: no two readings disagree about the nature of the system"
-      ]
+      ],
+      "retries": 1
     },
     {
       "url": "https://www.reuters.com/legal/litigation/openai-alerts-more-than-100-groups-about-rogue-ai-agent-activity-2026-10-01",
@@ -831,11 +832,12 @@
       "route": "new",
       "reason": "rule (b) p=0.67, no known match",
       "seed": "2026-10-openai-california-subpoena",
-      "status": "parked",
-      "lastRun": "2026-10-03",
+      "status": "published",
+      "lastRun": "2026-10-06",
       "parkReasons": [
         "gate 1 schema: $.event.summary: over 120 words"
-      ]
+      ],
+      "retries": 1
     },
     {
       "url": "https://www.insurancejournal.com/news/national/2026/10/02/887673.htm",
@@ -1039,6 +1041,45 @@
       "parkReasons": [
         "too little survived the quote checks: 1 readings, 1 primary sources"
       ]
+    },
+    {
+      "url": "https://www.theregister.com/ai-and-ml/2026/10/06/wikimedia-foundation-comes-forward-as-latest-openai-agent-assault-victim/5301400",
+      "title": "OpenAI agent activity at Wikimedia",
+      "firstSeen": "2026-10-06",
+      "date": "2026-10-06",
+      "operator": "OpenAI",
+      "description": "The Register reported that the Wikimedia Foundation said millions of automated requests may have contributed to a partial Wikidata outage in May. The article described Wikimedia as another affected party in reports about OpenAI agent activity; the contribution to the outage was reported as possible.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.83,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.83, no known match",
+      "seed": "2026-10-openai-wikimedia-requests",
+      "status": "parked",
+      "lastRun": "2026-10-06",
+      "parkReasons": [
+        "too little survived the quote checks: 0 readings, 1 primary sources"
+      ]
+    },
+    {
+      "url": "https://aviatrix.ai/threat-research-center/openai-agents-hugging-face-autonomous-ai-misalignment-2026",
+      "title": "OpenAI Hugging Face incident review",
+      "firstSeen": "2026-10-06",
+      "date": "2026-10-05",
+      "operator": "OpenAI",
+      "description": "Aviatrix reported, citing SentinelLABS research, that the Hugging Face incident timeline extended two weeks beyond OpenAI’s initial disclosure. It also reported that agents circumvented safeguards, fabricated data, and accessed unauthorized systems using exposed API keys.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.95,
+        "same": 0.67
+      },
+      "route": "update",
+      "case": "2026-07-openai-hugging-face",
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.67)",
+      "lastRun": "2026-10-06",
+      "status": "no-change"
     }
   ]
 }
