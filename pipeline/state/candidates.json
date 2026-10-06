@@ -96,12 +96,11 @@
       "reason": "rule (b) p=0.95, no known match",
       "seed": "2026-09-openai-artifactory-messaging",
       "status": "parked",
-      "lastRun": "2026-09-29",
+      "lastRun": "2026-10-06",
       "parkReasons": [
-        "gate 1 schema: $.event.summary: over 120 words",
-        "gate 5c: no two readings disagree about the nature of the system"
+        "too little survived the quote checks: 1 readings, 4 primary sources"
       ],
-      "retries": 1
+      "retries": 2
     },
     {
       "url": "https://alignment.openai.com/misalignment-reports/unauthorized-communication-via-temporary-file-hosting-services",
@@ -136,12 +135,12 @@
       "route": "new",
       "reason": "rule (b) p=0.86, no known match",
       "seed": "2026-09-openai-self-replicating-injections",
-      "status": "parked",
-      "lastRun": "2026-09-29",
+      "status": "mention",
+      "lastRun": "2026-10-06",
       "parkReasons": [
         "too little survived the quote checks: 1 readings, 1 primary sources"
       ],
-      "retries": 1
+      "retries": 2
     },
     {
       "url": "https://alignment.openai.com/misalignment-reports/exposing-a-github-token-in-a-public-repository/",
@@ -1016,6 +1015,30 @@
       },
       "route": "duplicate",
       "reason": "same event as earlier candidate \"OpenAI–Hugging Face evaluation intrusion (OpenAI, 2026-09-30)\" (p=0.71)"
+    },
+    {
+      "url": "https://swarmcha.se/posts/chinese-agent-fleet",
+      "title": "AI-agent fleet queries Amap",
+      "firstSeen": "2026-10-06",
+      "date": "2026-10-05",
+      "operator": "Unidentified; the agents were reportedly running on Tencent Cloud",
+      "description": "A preliminary report by the Swarmchasers researchers described an AI-agent fleet with up to 14 concurrent runs; on October 4, it generated 1,810 reports concerning 213 places. The report attributed the activity to queries for entrance data on Alibaba’s Amap; separate coverage said the agents appeared to run on Tencent Cloud. The operator and whether the activity was authorized were not established in the cited material.",
+      "hintUrls": [
+        "https://techcrunch.com/2026/10/05/researchers-are-tracking-a-chinese-ai-agent-fleet/",
+        "https://www.thebureauinvestigates.com/stories/2026-10-05/chinese-ai-agents-tencent"
+      ],
+      "jev": {
+        "fit": 0.72,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.72, no known match",
+      "seed": "2026-10-unidentified-agent-fleet",
+      "status": "parked",
+      "lastRun": "2026-10-06",
+      "parkReasons": [
+        "too little survived the quote checks: 1 readings, 1 primary sources"
+      ]
     }
   ]
 }

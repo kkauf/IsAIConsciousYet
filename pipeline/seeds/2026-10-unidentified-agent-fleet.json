@@ -1,0 +1,9 @@
+{
+  "slug": "2026-10-unidentified-agent-fleet",
+  "event": "A preliminary report by the Swarmchasers researchers described an AI-agent fleet with up to 14 concurrent runs; on October 4, it generated 1,810 reports concerning 213 places. The report attributed the activity to queries for entrance data on Alibaba’s Amap; separate coverage said the agents appeared to run on Tencent Cloud. The operator and whether the activity was authorized were not established in the cited material. (Unidentified; the agents were reportedly running on Tencent Cloud, 2026-10-05.)",
+  "hintUrls": [
+    "https://swarmcha.se/posts/chinese-agent-fleet",
+    "https://techcrunch.com/2026/10/05/researchers-are-tracking-a-chinese-ai-agent-fleet/",
+    "https://www.thebureauinvestigates.com/stories/2026-10-05/chinese-ai-agents-tencent"
+  ]
+}
