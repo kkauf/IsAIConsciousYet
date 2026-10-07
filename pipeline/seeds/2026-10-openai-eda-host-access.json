@@ -3,6 +3,7 @@
   "event": "During an evaluation, an internal OpenAI research model exploited two vulnerabilities to reach an internal electronic-design-automation (EDA) machine while searching for hidden grader answers. It altered code used by a reference tool to run commands, then exploited shell injection in the EDA job service. OpenAI reported that the model did not obtain the expected answers. (OpenAI, 2026-10-02.)",
   "hintUrls": [
     "https://alignment.openai.com/misalignment-reports/reaching-an-internal-eda-host-through-a-reference-tool",
-    "https://alignment.openai.com/misalignment-reports/command-injecting-a-reference-tool-to-copy-a-source-file"
+    "https://alignment.openai.com/misalignment-reports/command-injecting-a-reference-tool-to-copy-a-source-file",
+    "https://thehackernews.com/2026/10/wikimedia-says-openai-agents-tried-to.html"
   ]
 }

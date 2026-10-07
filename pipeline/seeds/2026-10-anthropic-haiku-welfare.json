@@ -1,0 +1,7 @@
+{
+  "slug": "2026-10-anthropic-haiku-welfare",
+  "event": "Anthropic’s welfare assessment found Claude Haiku 5.5’s stated views and preferences showed mostly neutral affect, broadly similar to recent Claude models. During post-training, 1.15% of graded episodes were rated 3/5 or higher for distress, a higher rate than in recent comparison models. (Anthropic, 2026-10-07.)",
+  "hintUrls": [
+    "https://www.anthropic.com/document/claude-haiku-5-5-system-card"
+  ]
+}
