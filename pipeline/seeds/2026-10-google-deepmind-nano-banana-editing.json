@@ -1,0 +1,7 @@
+{
+  "slug": "2026-10-google-deepmind-nano-banana-editing",
+  "event": "Google DeepMind’s model card reports that image editing occasionally retains the input subject’s pose in the generated image, and notes occasional confusion about spatial location and partial instruction-following. These are reported behavioral tendencies, not capability scores or safety evaluations. (Google DeepMind, 2026-10-06.)",
+  "hintUrls": [
+    "https://deepmind.google/models/model-cards/nano-banana-2-1/"
+  ]
+}

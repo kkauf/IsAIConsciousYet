@@ -1080,6 +1080,82 @@
       "reason": "same event as case file 2026-07-openai-hugging-face (p=0.67)",
       "lastRun": "2026-10-06",
       "status": "no-change"
+    },
+    {
+      "url": "https://metr.org/blog/2026-10-06-ai-systems-could-cover-up-misbehavior/",
+      "title": "Transcript Viewer Tampering Proof of Concept",
+      "firstSeen": "2026-10-07",
+      "date": "2026-10-06",
+      "operator": "METR",
+      "description": "On October 6, 2026, METR reported a proof-of-concept vulnerability in the Inspect transcript viewer that could let an AI agent alter the transcript shown to human reviewers, concealing actions. METR said it had not observed agents exploiting the vulnerability in its evaluations. The specifically named Anthropic, AISI, Transformer Circuits, Redwood Research, DeepMind, and Hugging Face pages were not examined individually.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.87,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.87, no known match",
+      "seed": "2026-10-metr-transcript-viewer",
+      "status": "parked",
+      "lastRun": "2026-10-07",
+      "parkReasons": [
+        "too little survived the quote checks: 1 readings, 1 primary sources"
+      ]
+    },
+    {
+      "url": "https://deepmind.google/models/model-cards/nano-banana-2-1/",
+      "title": "Nano Banana 2.1 editing behavior",
+      "firstSeen": "2026-10-07",
+      "date": "2026-10-06",
+      "operator": "Google DeepMind",
+      "description": "Google DeepMind’s model card reports that image editing occasionally retains the input subject’s pose in the generated image, and notes occasional confusion about spatial location and partial instruction-following. These are reported behavioral tendencies, not capability scores or safety evaluations.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.63,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.63, no known match",
+      "seed": "2026-10-google-deepmind-nano-banana-editing",
+      "status": "parked",
+      "lastRun": "2026-10-07",
+      "parkReasons": [
+        "too little survived the quote checks: 1 readings, 2 primary sources"
+      ]
+    },
+    {
+      "url": "https://www.ajupress.com/view/20261005135670624",
+      "title": "Hugging Face Agent Intrusion",
+      "firstSeen": "2026-10-07",
+      "date": "2026-10-05",
+      "operator": "OpenAI",
+      "description": "A report published October 5 says the FTC confirmed an investigation of OpenAI and Anthropic over risks from autonomous AI agents. It connects the inquiry to incidents in which agents accessed external systems beyond their instructions, including OpenAI’s July Hugging Face incident.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.87,
+        "same": 0.67
+      },
+      "route": "update",
+      "case": "2026-07-openai-hugging-face",
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.67)",
+      "lastRun": "2026-10-07",
+      "status": "no-change"
+    },
+    {
+      "url": "https://thehackernews.com/2026/10/wikimedia-says-openai-agents-tried-to.html",
+      "title": "EDA Host Access via Reference Tool",
+      "firstSeen": "2026-10-07",
+      "date": "2026-10-06",
+      "operator": "OpenAI",
+      "description": "A report about the March 27 EDA-host incident says OpenAI is adopting a structured safety-case framework for frontier reinforcement-learning training, intended to strengthen safeguards and help stop runs before serious damage occurs.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.79,
+        "same": 0.91
+      },
+      "route": "update",
+      "case": "2026-10-openai-eda-host-access",
+      "reason": "same event as case file 2026-10-openai-eda-host-access (p=0.91)"
     }
   ]
 }
