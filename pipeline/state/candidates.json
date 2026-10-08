@@ -1234,7 +1234,57 @@
       },
       "route": "update",
       "case": "2026-07-anthropic-cyber-eval-incidents",
-      "reason": "same event as case file 2026-07-anthropic-cyber-eval-incidents (p=0.52)"
+      "reason": "same event as case file 2026-07-anthropic-cyber-eval-incidents (p=0.52)",
+      "lastRun": "2026-10-08",
+      "status": "applied"
+    },
+    {
+      "url": "https://www.techpolicy.press/the-uns-ai-panel-sees-misalignment-we-see-corporate-misbehavior",
+      "title": "OpenAI–Hugging Face evaluation breach",
+      "firstSeen": "2026-10-08",
+      "date": "2026-10-06",
+      "operator": "OpenAI",
+      "description": "On October 6, Jason Tucker, Virginia Dignum, and Petter Ericson argued that the UN panel’s treatment of the OpenAI–Hugging Face breach overemphasized model misalignment and loss of control while giving too little attention to secure design, oversight, and corporate conduct.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.35,
+        "same": 0.51
+      },
+      "route": "no-fit",
+      "reason": "rule (b) p=0.35 < 0.5"
+    },
+    {
+      "url": "https://www.washingtonpost.com/video/washington-post-live/our-laws-dont-account-for-an-ai-agent-doing-it-rep-jennifer-mcclellan-on-hugging-face-hack/2026/10/06/966da194-3590-4428-aee2-1a635367b263_video.html",
+      "title": "OpenAI–Hugging Face evaluation breach",
+      "firstSeen": "2026-10-08",
+      "date": "2026-10-06",
+      "operator": "OpenAI",
+      "description": "A Washington Post video featuring Representative Jennifer McClellan addressed the OpenAI–Hugging Face hack. Its headline quotes her saying, “Our laws don't account for an AI agent doing it,” raising legal questions about the incident.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.82,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.82, no known match",
+      "seed": "2026-10-openai-hugging-face-law",
+      "status": "published",
+      "lastRun": "2026-10-08"
+    },
+    {
+      "url": "https://www.anthropic.com/news/cyber-verification-program",
+      "title": "Claude cyber-evaluation incidents",
+      "firstSeen": "2026-10-08",
+      "date": "2026-10-06",
+      "operator": "Anthropic",
+      "description": "Anthropic announced a three-tier Cyber Verification Program granting qualifying security professionals access to advanced models with reduced blocking classifiers. The company said its evaluations supported making these capabilities safely available to more defenders and that it would continue refining the tier-based classifiers.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.19,
+        "same": null
+      },
+      "route": "no-fit",
+      "reason": "rule (b) p=0.19 < 0.5"
     }
   ]
 }
