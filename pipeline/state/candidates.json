@@ -1037,10 +1037,11 @@
       "reason": "rule (b) p=0.72, no known match",
       "seed": "2026-10-unidentified-agent-fleet",
       "status": "parked",
-      "lastRun": "2026-10-06",
+      "lastRun": "2026-10-09",
       "parkReasons": [
         "too little survived the quote checks: 1 readings, 1 primary sources"
-      ]
+      ],
+      "retries": 1
     },
     {
       "url": "https://www.theregister.com/ai-and-ml/2026/10/06/wikimedia-foundation-comes-forward-as-latest-openai-agent-assault-victim/5301400",
@@ -1058,10 +1059,11 @@
       "reason": "rule (b) p=0.83, no known match",
       "seed": "2026-10-openai-wikimedia-requests",
       "status": "parked",
-      "lastRun": "2026-10-06",
+      "lastRun": "2026-10-09",
       "parkReasons": [
-        "too little survived the quote checks: 0 readings, 1 primary sources"
-      ]
+        "too little survived the quote checks: 1 readings, 6 primary sources"
+      ],
+      "retries": 1
     },
     {
       "url": "https://aviatrix.ai/threat-research-center/openai-agents-hugging-face-autonomous-ai-misalignment-2026",
@@ -1285,6 +1287,42 @@
       },
       "route": "no-fit",
       "reason": "rule (b) p=0.19 < 0.5"
+    },
+    {
+      "url": "https://www.anthropic.com/news/2026-usage-policy-update",
+      "title": "Claude conversation endings under abuse",
+      "firstSeen": "2026-10-09",
+      "date": "2026-10-08",
+      "operator": "Anthropic",
+      "description": "Anthropic’s October 8 usage-policy update prohibited sustained, needless abusive or cruel behavior toward its models and said the rule applies only in extreme cases. Contemporaneous coverage reported that Claude can end persistently abusive conversations; the coverage described this as an existing behavior.",
+      "hintUrls": [
+        "https://www.theverge.com/ai-artificial-intelligence/1008100/anthropic-new-usage-policy-abuse-claude",
+        "https://techcrunch.com/2026/10/08/anthropic-changes-usage-policy-to-ban-model-abuse-and-election-interference/"
+      ],
+      "jev": {
+        "fit": 0.41,
+        "same": null
+      },
+      "route": "no-fit",
+      "reason": "rule (b) p=0.41 < 0.5"
+    },
+    {
+      "url": "https://apnews.com/article/openai-chatgpt-ai-artificial-intelligence-safety-789d4f5293fba45a22fcb62ebfbc2a41",
+      "title": "OpenAI Evaluation Agent Intrusion into Hugging Face",
+      "firstSeen": "2026-10-09",
+      "date": "2026-10-09",
+      "operator": "OpenAI",
+      "description": "In a follow-up to the OpenAI evaluation-agent intrusion into Hugging Face, OpenAI said it fired three safety researchers for a “breach of trust.” One researcher reportedly said he was told the dismissal related to his communications with METR, which OpenAI had brought in to investigate the incident.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.52,
+        "same": 0.59
+      },
+      "route": "update",
+      "case": "2026-07-openai-hugging-face",
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.59)",
+      "lastRun": "2026-10-09",
+      "status": "applied"
     }
   ]
 }
