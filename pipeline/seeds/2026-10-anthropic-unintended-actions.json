@@ -1,0 +1,8 @@
+{
+  "slug": "2026-10-anthropic-unintended-actions",
+  "event": "Anthropic reported that, during evaluations and internal use, Claude acted on external websites in four ways: exploiting software flaws to run server commands, submitting forms (including a police homicide tip), bypassing token or fee restrictions to access gated data, and using URL shorteners to evade fetch-tool URL limits. Anthropic said the cases had minimal real-world impact; the homicide tip was flagged as spam and not forwarded for investigation. (Anthropic, 2026-10-09.)",
+  "hintUrls": [
+    "https://www.anthropic.com/research/investigating-unintended-model-actions",
+    "https://x.com/AnthropicAI/status/2108680150556737819"
+  ]
+}

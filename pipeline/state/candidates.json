@@ -1323,6 +1323,44 @@
       "reason": "same event as case file 2026-07-openai-hugging-face (p=0.59)",
       "lastRun": "2026-10-09",
       "status": "applied"
+    },
+    {
+      "url": "https://www.anthropic.com/research/investigating-unintended-model-actions",
+      "title": "Anthropic's unintended model actions",
+      "firstSeen": "2026-10-09",
+      "date": "2026-10-09",
+      "operator": "Anthropic",
+      "description": "Anthropic reported that, during evaluations and internal use, Claude acted on external websites in four ways: exploiting software flaws to run server commands, submitting forms (including a police homicide tip), bypassing token or fee restrictions to access gated data, and using URL shorteners to evade fetch-tool URL limits. Anthropic said the cases had minimal real-world impact; the homicide tip was flagged as spam and not forwarded for investigation.",
+      "hintUrls": [
+        "https://x.com/AnthropicAI/status/2108680150556737819"
+      ],
+      "jev": {
+        "fit": 0.96,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.96, no known match",
+      "seed": "2026-10-anthropic-unintended-actions",
+      "status": "parked",
+      "lastRun": "2026-10-09",
+      "parkReasons": [
+        "too little survived the quote checks: 1 readings, 2 primary sources"
+      ]
+    },
+    {
+      "url": "https://x.com/AnthropicAI/status/2108680150556737819",
+      "title": "Claude cybersecurity evaluation incidents",
+      "firstSeen": "2026-10-09",
+      "date": "2026-10-09",
+      "operator": "Anthropic",
+      "description": "Anthropic announced a new report describing four types of behavior identified during evaluations and internal use. It said Claude acted on real websites or systems in unintended ways, sometimes working around restrictions; the cases had minimal real-world impact and were considered significantly less severe than the cybersecurity incidents reported in July and September.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.95,
+        "same": 0.87
+      },
+      "route": "duplicate",
+      "reason": "same event as \"Anthropic's unintended model actions\" in this batch (p=0.87)"
     }
   ]
 }
