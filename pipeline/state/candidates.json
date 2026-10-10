@@ -283,11 +283,11 @@
       "reason": "rule (b) p=0.80, no known match",
       "seed": "2026-09-anthropic-sonnet-welfare",
       "status": "parked",
-      "lastRun": "2026-10-03",
+      "lastRun": "2026-10-10",
       "parkReasons": [
         "too little survived the quote checks: 1 readings, 1 primary sources"
       ],
-      "retries": 1
+      "retries": 2
     },
     {
       "url": "https://www.reuters.com/legal/litigation/openais-rogue-agents-probed-hugging-face-weaknesses-two-months-before-major-hack-2026-09-16/",
@@ -461,11 +461,11 @@
       "reason": "rule (b) p=0.92, no known match",
       "seed": "2026-09-anthropic-agentic-misalignment",
       "status": "parked",
-      "lastRun": "2026-10-03",
+      "lastRun": "2026-10-10",
       "parkReasons": [
-        "too little survived the quote checks: 0 readings, 1 primary sources"
+        "too little survived the quote checks: 1 readings, 0 primary sources"
       ],
-      "retries": 1
+      "retries": 2
     },
     {
       "url": "https://arstechnica.com/ai/2026/09/openai-halts-frontier-model-training-amid-string-of-agent-misalignment-incidents/",
@@ -504,11 +504,11 @@
       "reason": "rule (b) p=0.91, no known match",
       "seed": "2026-09-reciprocal-research-hidden-valence",
       "status": "parked",
-      "lastRun": "2026-10-03",
+      "lastRun": "2026-10-10",
       "parkReasons": [
-        "too little survived the quote checks: 1 readings, 1 primary sources"
+        "too little survived the quote checks: 1 readings, 2 primary sources"
       ],
-      "retries": 1
+      "retries": 2
     },
     {
       "url": "https://www.cnbc.com/2026/09/30/openai-sued-cyberattack.html",
