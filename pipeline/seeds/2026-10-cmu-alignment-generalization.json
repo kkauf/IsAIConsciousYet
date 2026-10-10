@@ -1,0 +1,7 @@
+{
+  "slug": "2026-10-cmu-alignment-generalization",
+  "event": "A multi-institution research team analyzed how training models on individual values affected their behavior on other values. Across four Olmo and Qwen models, representations based on model activations predicted alignment generalization better than text descriptions (Spearman ρ = 0.45 versus 0.05). The paper also reported that persona-vector similarity correlated with robustness to adversarial prefills and presented preliminary evidence for a shared value space across models. (Carnegie Mellon University-led research team, with Mila, McGill University, ETH Zurich, the University of British Columbia, and the Vector Institute, 2026-10-08.)",
+  "hintUrls": [
+    "https://arxiv.org/abs/2610.12410"
+  ]
+}

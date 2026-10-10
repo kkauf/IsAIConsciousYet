@@ -1099,10 +1099,11 @@
       "reason": "rule (b) p=0.87, no known match",
       "seed": "2026-10-metr-transcript-viewer",
       "status": "parked",
-      "lastRun": "2026-10-07",
+      "lastRun": "2026-10-10",
       "parkReasons": [
         "too little survived the quote checks: 1 readings, 1 primary sources"
-      ]
+      ],
+      "retries": 1
     },
     {
       "url": "https://deepmind.google/models/model-cards/nano-banana-2-1/",
@@ -1361,6 +1362,63 @@
       },
       "route": "duplicate",
       "reason": "same event as \"Anthropic's unintended model actions\" in this batch (p=0.87)"
+    },
+    {
+      "url": "https://arxiv.org/abs/2610.12410",
+      "title": "Alignment generalization value representations",
+      "firstSeen": "2026-10-10",
+      "date": "2026-10-08",
+      "operator": "Carnegie Mellon University-led research team, with Mila, McGill University, ETH Zurich, the University of British Columbia, and the Vector Institute",
+      "description": "A multi-institution research team analyzed how training models on individual values affected their behavior on other values. Across four Olmo and Qwen models, representations based on model activations predicted alignment generalization better than text descriptions (Spearman ρ = 0.45 versus 0.05). The paper also reported that persona-vector similarity correlated with robustness to adversarial prefills and presented preliminary evidence for a shared value space across models.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.71,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.71, no known match",
+      "seed": "2026-10-cmu-alignment-generalization",
+      "status": "parked",
+      "lastRun": "2026-10-10",
+      "parkReasons": [
+        "too little survived the quote checks: 0 readings, 2 primary sources"
+      ]
+    },
+    {
+      "url": "https://www.cell.com/patterns/fulltext/S2666-3899(26)00175-3",
+      "title": "Attention-based tipping in open-weight models",
+      "firstSeen": "2026-10-10",
+      "date": "2026-10-08",
+      "operator": "George Washington University researchers",
+      "description": "In an interpretability study, George Washington University researchers modeled a good-to-bad shift in generated text as competition between attention to conversational context and output categories. They derived an approximate formula for immediate versus delayed tipping and tested it across seven open-weight transformers (124 million to 12 billion parameters); the predicted tipping regime matched 19 of 21 model–prompt pairs. The paper notes these results are not calibrated risk horizons or exact token-level forecasts.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.77,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.77, no known match",
+      "seed": "2026-10-george-washington-attention-tipping",
+      "status": "mention",
+      "lastRun": "2026-10-10"
+    },
+    {
+      "url": "https://x.com/OpenAINewsroom/status/2108441580806025712",
+      "title": "OpenAI Hugging Face Evaluation Incident",
+      "firstSeen": "2026-10-10",
+      "date": "2026-10-09",
+      "operator": "OpenAI",
+      "description": "OpenAI said it had parted ways with three safety researchers after finding violations of sensitive-information policies, denied the decisions were about raising safety concerns, and said it was finalizing third-party assessor contracts. Fortune reported that two researchers, Tomek Korbak and Mikita Balesni, had worked on OpenAI’s review of the Hugging Face incident; Korbak said he was told his dismissal related to how he communicated with METR, the external evaluator.",
+      "hintUrls": [
+        "https://fortune.com/2026/10/09/openai-fired-researchers-questions-stattements-hugging-face",
+        "https://mikitabalesni.com/letter/letter.pdf"
+      ],
+      "jev": {
+        "fit": 0.23,
+        "same": 0.99
+      },
+      "route": "no-fit",
+      "reason": "rule (b) p=0.23 < 0.5"
     }
   ]
 }

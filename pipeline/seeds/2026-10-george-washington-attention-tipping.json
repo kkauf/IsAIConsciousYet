@@ -1,0 +1,7 @@
+{
+  "slug": "2026-10-george-washington-attention-tipping",
+  "event": "In an interpretability study, George Washington University researchers modeled a good-to-bad shift in generated text as competition between attention to conversational context and output categories. They derived an approximate formula for immediate versus delayed tipping and tested it across seven open-weight transformers (124 million to 12 billion parameters); the predicted tipping regime matched 19 of 21 model–prompt pairs. The paper notes these results are not calibrated risk horizons or exact token-level forecasts. (George Washington University researchers, 2026-10-08.)",
+  "hintUrls": [
+    "https://www.cell.com/patterns/fulltext/S2666-3899(26)00175-3"
+  ]
+}
