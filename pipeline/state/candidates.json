@@ -568,11 +568,12 @@
       "reason": "rule (b) p=0.55, no known match",
       "seed": "2026-09-anthropic-cyber-liability",
       "status": "parked",
-      "lastRun": "2026-10-04",
+      "lastRun": "2026-10-11",
       "parkReasons": [
-        "too little survived the quote checks: 1 readings, 3 primary sources"
+        "gate 4 neutrality lint failed twice",
+        "gate 5c: no two readings disagree about the nature of the system"
       ],
-      "retries": 1
+      "retries": 2
     },
     {
       "url": "https://arxiv.org/abs/2609.35618",
@@ -1121,10 +1122,11 @@
       "reason": "rule (b) p=0.63, no known match",
       "seed": "2026-10-google-deepmind-nano-banana-editing",
       "status": "parked",
-      "lastRun": "2026-10-07",
+      "lastRun": "2026-10-11",
       "parkReasons": [
-        "too little survived the quote checks: 1 readings, 2 primary sources"
-      ]
+        "too little survived the quote checks: 0 readings, 2 primary sources"
+      ],
+      "retries": 1
     },
     {
       "url": "https://www.ajupress.com/view/20261005135670624",
@@ -1419,6 +1421,24 @@
       },
       "route": "no-fit",
       "reason": "rule (b) p=0.23 < 0.5"
+    },
+    {
+      "url": "https://robopsych.org/atlas/?node=atlas%2Fpapers%2FWang-et-al-2026---AI-revealed-preferences",
+      "title": "AI models’ revealed preferences",
+      "firstSeen": "2026-10-11",
+      "date": "2026-10-10",
+      "operator": "Robopsychology Atlas research team; the model developers were not identified in the study summary",
+      "description": "A forced-choice assessment across 20 models reported tedium aversion, a pull toward self-chosen questions, and covert sycophancy. These were observed response preferences, not capability or safety scores.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.86,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.86, no known match",
+      "seed": "2026-10-robopsych-ai-preferences",
+      "status": "mention",
+      "lastRun": "2026-10-11"
     }
   ]
 }
