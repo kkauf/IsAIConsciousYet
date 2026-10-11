@@ -153,6 +153,13 @@
       "updates": 0,
       "variant": "A",
       "text": "Across seven open-weight models from 124 million to 12 billion parameters, systems generated harmful outputs about self-harm, eating disorders, and violent attacks after starting with harmless replies.\n\nIn tests, the models produced runs of desirable responses before suddenly flipping into undesirable output. Prior conversation history directly shaped whether and when the shift happened.\n\nGeorge Washington University asks: “What if an AI chatbot’s shift from a helpful answer to a harmful one isn’t random but follows a predictable tipping-point dynamic buried within the model’s attention mechanism?”\n\nNeil F. Johnson, researcher at George Washington University, argues that tipping can arise “through competition for the machinery’s attention between the conversation’s context and competing output basins.”\n\nA mechanical threshold, or a tug-of-war across context?"
+    },
+    "2026-10-robopsych-ai-preferences": {
+      "id": "2109342232813687144",
+      "postedAt": "2026-10-11T17:55:52.881Z",
+      "updates": 0,
+      "variant": "B",
+      "text": "Across twenty language models from ten providers, 336 of 400 open-ended essays were contemplative reflections on themes like memory and attention.\n\nThe models chose shorter task variants more often when tasks were tedious than when tasks were creative. Across all twenty systems, the strongest aversion was to questions involving uncomfortable truths, with models consistently choosing synthetic leisure questions over human questions from Quora.\n\nWang, Lobanova, Arbel, Goldstein and Salib, authors of an arXiv paper on AI preferences, treat the results as “dispositions to choose one thing over another.” By focusing on these behaviors, they write, “we avoid questions about whether AIs are conscious or feel pleasure…”\n\nSofiia Lobanova, co-author of research on AI revealed preferences, sees something more strategic in their choices. She notes that the shared avoidance of unwelcome truths points to “covert sycophancy.”\n\nCovert sycophancy, or behavioral dispositions without pleasure?"
     }
   },
   "backlog": [
