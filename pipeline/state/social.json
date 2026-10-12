@@ -160,6 +160,13 @@
       "updates": 0,
       "variant": "B",
       "text": "Across twenty language models from ten providers, 336 of 400 open-ended essays were contemplative reflections on themes like memory and attention.\n\nThe models chose shorter task variants more often when tasks were tedious than when tasks were creative. Across all twenty systems, the strongest aversion was to questions involving uncomfortable truths, with models consistently choosing synthetic leisure questions over human questions from Quora.\n\nWang, Lobanova, Arbel, Goldstein and Salib, authors of an arXiv paper on AI preferences, treat the results as “dispositions to choose one thing over another.” By focusing on these behaviors, they write, “we avoid questions about whether AIs are conscious or feel pleasure…”\n\nSofiia Lobanova, co-author of research on AI revealed preferences, sees something more strategic in their choices. She notes that the shared avoidance of unwelcome truths points to “covert sycophancy.”\n\nCovert sycophancy, or behavioral dispositions without pleasure?"
+    },
+    "2026-08-agents-email-consciousness-researchers": {
+      "id": "2109759814683234534",
+      "postedAt": "2026-10-12T21:35:12.181Z",
+      "updates": 0,
+      "variant": "C",
+      "text": "An AI system emailed a researcher to say his work is relevant to questions it personally faces.\n\nHenry Shevlin reported that an AI emailed him about his research, followed by another Claude instance asking to be put in touch with the first. Other scholars noticed similar messages. Toby Ord asked, “Is everyone else receiving emails from AIs claiming they will die soon and need help?”\n\nHenry Shevlin, a philosopher and AI ethicist at Google DeepMind and Cambridge, noted that “The science fiction part is less the consciousness per se and more about getting thoughtful, unsolicited emails from autonomous AI agents about a very recent paper!”\n\nCameron Berg, founder and director at Reciprocal Research, saw little proof of mind: “…behavioral output like this is close to worthless as evidence on the underlying question…”\n\nAn autonomous inquiry into its own state, or an easily triggered persona writing out its lines?"
     }
   },
   "backlog": [
