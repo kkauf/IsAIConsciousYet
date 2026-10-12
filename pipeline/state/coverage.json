@@ -1,5 +1,5 @@
 {
-  "lastRun": "2026-10-05",
+  "lastRun": "2026-10-12",
   "seen": {
     "nytimes.com/2023/09/18/science/ai-computers-consciousness.html": {
       "p": 0.81,
@@ -6196,6 +6196,46 @@
     "technologyreview.com/2026/10/01/1145588/ai-mind-reading-reconstructs-what-youre-looking-at": {
       "p": 0.03,
       "kept": false
+    },
+    "washingtonpost.com/wp-intelligence/ai-tech-brief/2026/10/02/ai-tech-brief-ai-prom": {
+      "p": 0.85,
+      "kept": false
+    },
+    "foxnews.com/live-news/ai-news-anthropic-google-tech-10-09-26": {
+      "p": 0.12,
+      "kept": false
+    },
+    "foxnews.com": {
+      "p": 0.06,
+      "kept": false
+    },
+    "theguardian.com/technology/2026/oct/08/anthropic-bans-abusive-behavior-claude": {
+      "p": 0.16,
+      "kept": false
+    },
+    "theguardian.com/politics/2026/sep/27/pat-mcfadden-uk-benefits-young-people-moral-crusade": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/article/how-the-brain-uses-memory-to-imagine-what-might-have-been": {
+      "p": 0.04,
+      "kept": false
+    },
+    "newscientist.com/article/2591107-do-ais-already-process-information-in-a-way-that-gives-rise-to-consciousness": {
+      "p": 0.96,
+      "kept": true
+    },
+    "nature.com/articles/d41586-026-03005-2": {
+      "p": 0.16,
+      "kept": false
+    },
+    "nytimes.com/2026/10/12/opinion/letters/anthropic-chatbot-soul.html": {
+      "p": 0.82,
+      "kept": true
+    },
+    "nytimes.com/2026/10/09/podcasts/hardfork-anthropic-ai-morals.html": {
+      "p": 0.73,
+      "kept": true
     }
   }
 }

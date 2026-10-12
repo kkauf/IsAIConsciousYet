@@ -1,6 +1,6 @@
 {
   "since": "2020-01-01",
-  "updatedAt": "2026-10-05",
+  "updatedAt": "2026-10-12",
   "outlets": [
     "The New York Times",
     "The Washington Post",
@@ -28,6 +28,27 @@
     "Nature"
   ],
   "articles": [
+    {
+      "date": "2026-10-12",
+      "publication": "New Scientist",
+      "headline": "Do AIs already process information in a way that gives rise to consciousness?",
+      "url": "https://www.newscientist.com/article/2591107-do-ais-already-process-information-in-a-way-that-gives-rise-to-consciousness/",
+      "foundAt": "2026-10-12"
+    },
+    {
+      "date": "2026-10-12",
+      "publication": "The New York Times",
+      "headline": "The Flawed Search for a Chatbot’s Soul",
+      "url": "https://www.nytimes.com/2026/10/12/opinion/letters/anthropic-chatbot-soul.html",
+      "foundAt": "2026-10-12"
+    },
+    {
+      "date": "2026-10-09",
+      "publication": "The New York Times",
+      "headline": "Anthropic’s Quest to Give A.I. Morals",
+      "url": "https://www.nytimes.com/2026/10/09/podcasts/hardfork-anthropic-ai-morals.html",
+      "foundAt": "2026-10-12"
+    },
     {
       "date": "2026-10-02",
       "publication": "The Telegraph",

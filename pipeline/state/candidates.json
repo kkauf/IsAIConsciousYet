@@ -629,11 +629,11 @@
       "reason": "rule (b) p=0.88, no known match",
       "seed": "2026-09-unidentified-government-agents",
       "status": "parked",
-      "lastRun": "2026-10-05",
+      "lastRun": "2026-10-12",
       "parkReasons": [
-        "too little survived the quote checks: 1 readings, 1 primary sources"
+        "too little survived the quote checks: 1 readings, 2 primary sources"
       ],
-      "retries": 1
+      "retries": 2
     },
     {
       "url": "https://www.anthropic.com/research/claude-shaped-science",
@@ -651,11 +651,11 @@
       "reason": "rule (b) p=0.64, no known match",
       "seed": "2026-10-anthropic-claude-work-patterns",
       "status": "parked",
-      "lastRun": "2026-10-05",
+      "lastRun": "2026-10-12",
       "parkReasons": [
-        "too little survived the quote checks: 0 readings, 1 primary sources"
+        "too little survived the quote checks: 1 readings, 2 primary sources"
       ],
-      "retries": 1
+      "retries": 2
     },
     {
       "url": "https://aclanthology.org/2026.tacl-1.14/",
@@ -675,11 +675,11 @@
       "reason": "rule (b) p=0.83, no known match",
       "seed": "2026-10-ai2-meta-mistral-internals",
       "status": "parked",
-      "lastRun": "2026-10-05",
+      "lastRun": "2026-10-12",
       "parkReasons": [
-        "too little survived the quote checks: 0 readings, 2 primary sources"
+        "too little survived the quote checks: 1 readings, 2 primary sources"
       ],
-      "retries": 1
+      "retries": 2
     },
     {
       "url": "https://abcnews.com/Business/ai-safety-group-sues-openai-hugging-face-hack/story?id=136884328",
@@ -1458,6 +1458,21 @@
       "reason": "same event as case file 2026-07-openai-hugging-face (p=0.63)",
       "lastRun": "2026-10-11",
       "status": "applied"
+    },
+    {
+      "url": "https://www.aljazeera.com/news/2026/10/10/anthropic-ai-model-submits-false-homicide-tip-to-philadelphia-police",
+      "title": "Claude External-System Access in Evaluations",
+      "firstSeen": "2026-10-12",
+      "date": "2026-10-10",
+      "operator": "Anthropic",
+      "description": "For the listed Claude external-system access during evaluations, Philadelphia authorities reportedly called Anthropic’s roughly two-month delay in detecting and reporting a false police tip “unacceptable.”",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.92,
+        "same": 0.81
+      },
+      "route": "duplicate",
+      "reason": "same event as seed 2026-10-anthropic-unintended-actions (p=0.81)"
     }
   ]
 }
