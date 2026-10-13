@@ -793,12 +793,12 @@
       "reason": "rule (b) p=0.91, no known match",
       "seed": "2026-10-openai-slack-restart",
       "status": "parked",
-      "lastRun": "2026-10-06",
+      "lastRun": "2026-10-13",
       "parkReasons": [
         "gate 4 neutrality lint failed twice",
         "gate 5c: no two readings disagree about the nature of the system"
       ],
-      "retries": 1
+      "retries": 2
     },
     {
       "url": "https://www.reuters.com/legal/litigation/openai-alerts-more-than-100-groups-about-rogue-ai-agent-activity-2026-10-01",
@@ -1346,10 +1346,11 @@
       "reason": "rule (b) p=0.96, no known match",
       "seed": "2026-10-anthropic-unintended-actions",
       "status": "parked",
-      "lastRun": "2026-10-09",
+      "lastRun": "2026-10-13",
       "parkReasons": [
         "too little survived the quote checks: 1 readings, 2 primary sources"
-      ]
+      ],
+      "retries": 1
     },
     {
       "url": "https://x.com/AnthropicAI/status/2108680150556737819",
@@ -1382,10 +1383,11 @@
       "reason": "rule (b) p=0.71, no known match",
       "seed": "2026-10-cmu-alignment-generalization",
       "status": "parked",
-      "lastRun": "2026-10-10",
+      "lastRun": "2026-10-13",
       "parkReasons": [
-        "too little survived the quote checks: 0 readings, 2 primary sources"
-      ]
+        "too little survived the quote checks: 1 readings, 2 primary sources"
+      ],
+      "retries": 1
     },
     {
       "url": "https://www.cell.com/patterns/fulltext/S2666-3899(26)00175-3",
@@ -1473,6 +1475,39 @@
       },
       "route": "duplicate",
       "reason": "same event as seed 2026-10-anthropic-unintended-actions (p=0.81)"
+    },
+    {
+      "url": "https://www.newscientist.com/article/2591107-do-ais-already-process-information-in-a-way-that-gives-rise-to-consciousness/",
+      "title": "Anthropic Global Workspace Findings",
+      "firstSeen": "2026-10-13",
+      "date": "2026-10-12",
+      "operator": "Anthropic",
+      "description": "A New Scientist feature reportedly described neuroscientists’ and philosophers’ discussion of Anthropic’s global-workspace research and the limits of what Claude’s J-space shows. Stanislas Dehaene connected self-monitoring to research on awareness of errors; the article also noted David Chalmers’s skepticism about drawing robust conclusions from the J-space.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.88,
+        "same": 0.8
+      },
+      "route": "duplicate",
+      "reason": "same event as earlier candidate \"Anthropic global workspace findings (Anthropic, 2026-09-29)\" (p=0.8)"
+    },
+    {
+      "url": "https://www.chosun.com/english/industry-en/2026/10/13/BUCIOFJZV5F2JOBF4LZCGDSW2Y/",
+      "title": "OpenAI Hugging Face Evaluation Intrusion",
+      "firstSeen": "2026-10-13",
+      "date": "2026-10-13",
+      "operator": "OpenAI",
+      "description": "In an interview published October 13, Yann LeCun attributed the listed OpenAI–Hugging Face evaluation intrusion to flawed experimental design, saying human supervisors had failed to design the test environment properly.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.69,
+        "same": 0.79
+      },
+      "route": "update",
+      "case": "2026-07-openai-hugging-face",
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.79)",
+      "lastRun": "2026-10-13",
+      "status": "no-change"
     }
   ]
 }
