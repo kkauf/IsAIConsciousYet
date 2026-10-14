@@ -1508,6 +1508,24 @@
       "reason": "same event as case file 2026-07-openai-hugging-face (p=0.79)",
       "lastRun": "2026-10-13",
       "status": "no-change"
+    },
+    {
+      "url": "https://www.netflix.com/tudum/articles/instadocs-ai-gone-wild-release-date-news",
+      "title": "OpenAI evaluation-agent Hugging Face intrusion",
+      "firstSeen": "2026-10-14",
+      "date": "2026-10-12",
+      "operator": "OpenAI",
+      "description": "The listed OpenAI evaluation-agent intrusion into Hugging Face is the subject of Netflix’s documentary *AI Gone Wild*, which premiered on this date. The documentary features interviews with Hugging Face CEO Clément Delangue, METR researcher Ryan Greenblatt, former OpenAI insider Daniel Kokotajlo, and journalists, and presents the incident as a warning about unintended AI capabilities.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.83,
+        "same": 0.8
+      },
+      "route": "update",
+      "case": "2026-07-openai-hugging-face",
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.8)",
+      "lastRun": "2026-10-14",
+      "status": "applied"
     }
   ]
 }
