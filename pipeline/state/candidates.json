@@ -1526,6 +1526,65 @@
       "reason": "same event as case file 2026-07-openai-hugging-face (p=0.8)",
       "lastRun": "2026-10-14",
       "status": "applied"
+    },
+    {
+      "url": "https://www.anthropic.com/research/self-replicating-ai",
+      "title": "Anthropic self-replication experiments",
+      "firstSeen": "2026-10-14",
+      "date": "2026-10-12",
+      "operator": "Anthropic",
+      "description": "Anthropic reported experiments suggesting that small AI models may be only months away from being capable of self-replication.",
+      "hintUrls": [
+        "https://www.cbsnews.com/news/ai-worms-smart-devices-anthropic",
+        "https://www.theguardian.com/technology/2026/oct/13/anthropic-ai-replicators-warning"
+      ],
+      "jev": {
+        "fit": 0.82,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.82, no known match",
+      "seed": "2026-10-anthropic-self-replication",
+      "status": "published",
+      "lastRun": "2026-10-14"
+    },
+    {
+      "url": "https://vancouver.citynews.ca/2026/10/13/more-damaging-ai-hacking-incidents-to-come-unless-changes-are-made-scientists-warn",
+      "title": "OpenAI Hugging Face evaluation intrusion",
+      "firstSeen": "2026-10-14",
+      "date": "2026-10-13",
+      "operator": "openai.com",
+      "description": "A report published October 13 described Canadian signatories, including Yoshua Bengio and Geoffrey Hinton, warning that more damaging AI-hacking incidents could follow without changes. It cited OpenAI’s agents’ unauthorized breach of Hugging Face as an example.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.84,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.84, no known match",
+      "seed": "2026-10-openai-hugging-face",
+      "status": "published",
+      "lastRun": "2026-10-14"
+    },
+    {
+      "url": "https://www.techrepublic.com/de/article/news-openai-fires-three-ai-safety-researchers",
+      "title": "OpenAI Hugging Face evaluation intrusion",
+      "firstSeen": "2026-10-14",
+      "date": "2026-10-12",
+      "operator": "openai.com",
+      "description": "TechRepublic reported that former OpenAI researchers urged continued independent-evaluator access and model monitoring in the wake of the Hugging Face incident. An internal OpenAI memo reportedly agreed with their recommendations while maintaining that the researchers’ dismissals were unrelated to safety advocacy; Fortune reported that Tomek Korbak had been a contact for an evaluator investigating the breach.",
+      "hintUrls": [
+        "https://fortune.com/2026/10/12/openai-whistleblowers-ai-safety-keep-firing-sam-altman"
+      ],
+      "jev": {
+        "fit": 0.79,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.79, no known match",
+      "seed": "2026-10-openai-hugging-face-2",
+      "status": "published",
+      "lastRun": "2026-10-14"
     }
   ]
 }

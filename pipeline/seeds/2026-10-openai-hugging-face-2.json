@@ -1,0 +1,8 @@
+{
+  "slug": "2026-10-openai-hugging-face-2",
+  "event": "TechRepublic reported that former OpenAI researchers urged continued independent-evaluator access and model monitoring in the wake of the Hugging Face incident. An internal OpenAI memo reportedly agreed with their recommendations while maintaining that the researchers’ dismissals were unrelated to safety advocacy; Fortune reported that Tomek Korbak had been a contact for an evaluator investigating the breach. (openai.com, 2026-10-12.)",
+  "hintUrls": [
+    "https://www.techrepublic.com/de/article/news-openai-fires-three-ai-safety-researchers",
+    "https://fortune.com/2026/10/12/openai-whistleblowers-ai-safety-keep-firing-sam-altman"
+  ]
+}
