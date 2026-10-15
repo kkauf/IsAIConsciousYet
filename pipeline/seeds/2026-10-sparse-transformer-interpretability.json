@@ -1,0 +1,7 @@
+{
+  "slug": "2026-10-sparse-transformer-interpretability",
+  "event": "The research team described a five-layer sparse language model trained on TinyStories, reporting that its neurons were highly interpretable and that circuits with a median of 12 neurons could reproduce individual model predictions. (Sparse Transformer research team, 2026-10-14.)",
+  "hintUrls": [
+    "https://arxiv.org/abs/2610.19907"
+  ]
+}

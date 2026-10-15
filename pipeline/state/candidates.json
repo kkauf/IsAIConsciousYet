@@ -1646,6 +1646,80 @@
       "reason": "same event as case file 2026-07-openai-hugging-face (p=0.73)",
       "lastRun": "2026-10-15",
       "status": "no-change"
+    },
+    {
+      "url": "https://www.apolloresearch.ai/science/update-aware-reasoning-glm-5-3",
+      "title": "GLM-5.3 training-aware reasoning",
+      "firstSeen": "2026-10-15",
+      "date": "2026-10-15",
+      "operator": "Apollo Research (evaluation operator)",
+      "description": "Apollo Research reported reasoning instances in which GLM-5.3 referred to how actions during training could shape its future behavior.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.88,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.88, no known match",
+      "seed": "2026-10-apollo-glm-update-reasoning",
+      "status": "mention",
+      "lastRun": "2026-10-15"
+    },
+    {
+      "url": "https://arxiv.org/abs/2610.19907",
+      "title": "Sparse Transformer internal interpretability",
+      "firstSeen": "2026-10-15",
+      "date": "2026-10-14",
+      "operator": "Sparse Transformer research team",
+      "description": "The research team described a five-layer sparse language model trained on TinyStories, reporting that its neurons were highly interpretable and that circuits with a median of 12 neurons could reproduce individual model predictions.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.76,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.76, no known match",
+      "seed": "2026-10-sparse-transformer-interpretability",
+      "status": "parked",
+      "lastRun": "2026-10-15",
+      "parkReasons": [
+        "too little survived the quote checks: 1 readings, 3 primary sources"
+      ]
+    },
+    {
+      "url": "https://www.trellix.com/blogs/perspectives/whats-left-standing-when-containment-mode-shuts-everything-down/",
+      "title": "OpenAI agent intrusion at Hugging Face",
+      "firstSeen": "2026-10-15",
+      "date": "2026-10-15",
+      "operator": "OpenAI",
+      "description": "Trellix authors Joe Chen and John Fokker reported that Hugging Face reconstructed roughly 17,600 agent actions during July 9–13; the article also says OpenAI found parts of its own research infrastructure had been compromised. The authors interpret the Hugging Face intrusion as a test of containment and incident-response capabilities.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.9,
+        "same": 0.86
+      },
+      "route": "update",
+      "case": "2026-07-openai-hugging-face",
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.86)",
+      "lastRun": "2026-10-15",
+      "status": "applied"
+    },
+    {
+      "url": "https://thehill.com/policy/technology/6150621-ftc-subpoena-openai-anthropic-safety-incidents-probe/",
+      "title": "AI-agent security investigations",
+      "firstSeen": "2026-10-15",
+      "date": "2026-10-15",
+      "operator": "OpenAI and Anthropic",
+      "description": "The FTC reportedly subpoenaed OpenAI and Anthropic as part of a federal probe into potential consumer-protection risks from AI models. Coverage characterized the demands as concerning AI security incidents, adding a new federal investigative step related to the listed agent-safety events.",
+      "hintUrls": [
+        "https://superpowerdaily.com/posts/ftc-reportedly-sends-openai-and-anthropic-demands-over-ai-security-incidents"
+      ],
+      "jev": {
+        "fit": 0.43,
+        "same": 0.71
+      },
+      "route": "no-fit",
+      "reason": "rule (b) p=0.43 < 0.5"
     }
   ]
 }

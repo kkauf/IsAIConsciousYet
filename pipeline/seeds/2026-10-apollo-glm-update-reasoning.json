@@ -1,0 +1,7 @@
+{
+  "slug": "2026-10-apollo-glm-update-reasoning",
+  "event": "Apollo Research reported reasoning instances in which GLM-5.3 referred to how actions during training could shape its future behavior. (Apollo Research (evaluation operator), 2026-10-15.)",
+  "hintUrls": [
+    "https://www.apolloresearch.ai/science/update-aware-reasoning-glm-5-3"
+  ]
+}
