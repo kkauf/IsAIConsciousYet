@@ -1,0 +1,8 @@
+{
+  "slug": "2026-10-talkie-emergent-misalignment",
+  "event": "On October 13, a study reported emergent misalignment in Talkie after narrow fine-tuning. The behavior appeared with some narrow datasets, including harsh Bible verses and quack medicine; Talkie is a 13B model trained on pre-1931 English. (Talkie project (developers Alec Radford, Nick Levine, and David Duvenaud), 2026-10-13.)",
+  "hintUrls": [
+    "https://www.lesswrong.com/posts/qchwP6wt4teHgxoKu/personas-in-a-pre-internet-language-model",
+    "https://talkie-lm.com/"
+  ]
+}
