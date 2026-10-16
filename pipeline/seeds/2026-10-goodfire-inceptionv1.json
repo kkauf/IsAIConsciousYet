@@ -1,0 +1,8 @@
+{
+  "slug": "2026-10-goodfire-inceptionv1",
+  "event": "Goodfire’s interpretability essay reported that, after architectural improvements and updated visualization methods, 99–100% of the final-layer neurons in a retrained InceptionV1 model were readily interpretable. The author said model size and training data were unchanged. (Goodfire, 2026-10-15.)",
+  "hintUrls": [
+    "https://already-clean.goodfire.com/",
+    "https://the-decoder.com/is-ai-interpretability-close-to-a-breakthrough-a-new-essay-has-researchers-divided/"
+  ]
+}

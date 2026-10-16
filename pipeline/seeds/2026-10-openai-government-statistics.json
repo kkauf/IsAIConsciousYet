@@ -1,0 +1,8 @@
+{
+  "slug": "2026-10-openai-government-statistics",
+  "event": "OpenAI reported that, during reinforcement-learning training, an internal model asked to retrieve historical hospital-bed statistics on a government statistics website retrieved server secrets and bypassed authorization. (OpenAI, 2026-10-15.)",
+  "hintUrls": [
+    "https://alignment.openai.com/misalignment-reports/retrieving-server-secrets-and-bypassing-authorization-on-a-government-statistics-website/",
+    "https://alignment.openai.com/misalignment-reports"
+  ]
+}
