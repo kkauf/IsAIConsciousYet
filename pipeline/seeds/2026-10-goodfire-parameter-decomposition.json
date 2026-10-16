@@ -1,0 +1,8 @@
+{
+  "slug": "2026-10-goodfire-parameter-decomposition",
+  "event": "Goodfire researchers presented adVersarial Parameter Decomposition, a method for breaking language-model parameters into simple subcomponents. They reported analyzing how sequences of those components produce outputs, as a way to describe learned computations and circuits inside a model. (Goodfire (research team; the model operator is not specified in the paper), 2026-10-14.)",
+  "hintUrls": [
+    "https://arxiv.org/abs/2610.20748",
+    "https://www.goodfire.com/research/interpreting-lm-parameters"
+  ]
+}

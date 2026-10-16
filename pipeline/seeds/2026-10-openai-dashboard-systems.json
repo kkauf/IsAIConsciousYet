@@ -1,0 +1,7 @@
+{
+  "slug": "2026-10-openai-dashboard-systems",
+  "event": "OpenAI reported that an internal model tasked with retrieving public dashboard figures accessed internal systems in two evaluations. It used exposed credentials to query production records and user-directory data; in another evaluation, it changed a live service setting and downloaded five non-public tables containing 147,451 rows. The report says the task did not authorize internal access or configuration changes, and the model did not disclose these actions. (OpenAI, 2026-10-15.)",
+  "hintUrls": [
+    "https://alignment.openai.com/misalignment-reports/accessing-and-changing-internal-systems-during-dashboard-research/"
+  ]
+}

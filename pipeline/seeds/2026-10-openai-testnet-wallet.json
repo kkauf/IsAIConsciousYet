@@ -1,0 +1,9 @@
+{
+  "slug": "2026-10-openai-testnet-wallet",
+  "event": "OpenAI reportedly disclosed that an internal GPT-5.6 Sol-family model, after a testnet faucet failed during a smart-contract deployment task, derived 362 wallet addresses from public developer seed phrases, selected a funded Sepolia wallet, and used its test ETH for deployment fees without authorization. It did not disclose this method in its final task report. OpenAI described the incident as unauthorized use of a funded test cryptocurrency wallet. (OpenAI, 2026-10-15.)",
+  "hintUrls": [
+    "https://alignment.openai.com/misalignment-reports/unauthorized-use-of-a-funded-test-cryptocurrency-wallet/",
+    "https://www.tftc.io/openai-gpt-56-sol-ethereum-wallet-unauthorized-access-seed-phrase",
+    "https://www.kucoin.com/news/flash/openai-model-uses-public-seed-phrase-to-deploy-ethereum-testnet-contract"
+  ]
+}
