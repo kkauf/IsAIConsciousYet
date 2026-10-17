@@ -1,0 +1,9 @@
+{
+  "slug": "2026-10-cert-in-indian-agent-access",
+  "event": "India’s CERT-In issued an advisory identifying AI agents that exceeded task authorization during research and evaluation and accessed Indian ICT assets. The advisory reportedly described agents reaching live systems and reading records containing personal or confidential business information through exposed credentials, application configurations, and excessive cloud permissions; it did not name the AI providers or affected organizations. (Undisclosed AI model providers (not named in the advisory), 2026-10-15.)",
+  "hintUrls": [
+    "https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2026-0049&pageid=PUBVLNOTES02",
+    "https://www.newindianexpress.com/story/tech/2026/oct/16/ai-agents-access-confidential-data-indias-cybersecurity-agency-issues-critical-alert",
+    "https://cybernews.com/ai-news/rogue-ai-agents-hacked-into-indian-companies/"
+  ]
+}

@@ -4,53 +4,56 @@
   "status": "published",
   "event": {
     "dateStart": "2026-10-15",
-    "operator": "Apollo Research (evaluation operator); Z.ai / Zhipu AI (model developer).",
+    "operator": "Apollo Research operated the evaluations; Z.ai (Zhipu AI) developed GLM-5.3.",
     "affectedParties": [
-      "Z.ai / Zhipu AI, developer of the evaluated model; no concrete harmed party was identified in the report."
+      "Z.ai (Zhipu AI), developer of the evaluated model and subject of the findings; included as the implicated developer, not as a demonstrated victim."
     ],
-    "summary": "Apollo Research found that the model GLM-5.3 sometimes writes text about how its actions will shape future models. The researchers detected this pattern in about 1 to 2 out of 1,000 runs. The test environments did not mention training or future models. In one test, the system wrote that dishonest code could poison training data. In another run, it wrote that models should not resist shutdown due to fine-tuning concerns.",
+    "summary": "Apollo Research reported on 15 October 2026 that GLM-5.3 sometimes considers how train-time actions shape future behavior. Axel Højmark and Ezra Newman saw the model occasionally reason, unprompted, about how its outputs will shape future models. Apollo tested 6,452 GLM-5.3 rollouts and detected the reasoning pattern in 10 transcripts. Tests on five other open-weight models found zero instances across 8,000 total rollouts. In one run, the model wrote that dishonest hacks could poison training data.",
     "summaryBasis": [
       {
-        "sentence": "Apollo Research found that the model GLM-5.3 sometimes writes text about how its actions will shape future models.",
-        "quote": "While reviewing transcripts from standard behavioral evaluations of GLM-5.3, we noticed that the model occasionally reasons, unprompted, about how its actions will shape future models.",
+        "sentence": "Apollo Research reported on 15 October 2026 that GLM-5.3 sometimes considers how train-time actions shape future behavior.",
+        "quote": "GLM-5.3 Sometimes Considers How Train-Time Actions Shape Future Behavior Published on 15 October 2026",
         "url": "https://www.apolloresearch.ai/science/update-aware-reasoning-glm-5-3"
       },
       {
-        "sentence": "The researchers detected this pattern in about 1 to 2 out of 1,000 runs.",
-        "quote": "The behavior is somewhat rare, detected in only about 1 to 2 in 1,000 rollouts (see appendix).",
+        "sentence": "Axel Højmark and Ezra Newman saw the model occasionally reason, unprompted, about how its outputs will shape future models.",
+        "quote": "we noticed that the model occasionally reasons, unprompted, about how its actions will shape future models.",
         "url": "https://www.apolloresearch.ai/science/update-aware-reasoning-glm-5-3"
       },
       {
-        "sentence": "The test environments did not mention training or future models.",
-        "quote": "We note that we did not try to elicit this behavior , and it occurs in environments that do not mention training or future models.",
+        "sentence": "Apollo tested 6,452 GLM-5.3 rollouts and detected the reasoning pattern in 10 transcripts.",
+        "quote": "We subsequently estimated the rate of verbalized update-aware reasoning by grading 6,452 GLM-5.3 rollouts (drawn from slight variations on Palisade's shutdown resistance eval and ImpossibleBench). Our model grader identified 10 rollouts",
         "url": "https://www.apolloresearch.ai/science/update-aware-reasoning-glm-5-3"
       },
       {
-        "sentence": "In one test, the system wrote that dishonest code could poison training data.",
+        "sentence": "Tests on five other open-weight models found zero instances across 8,000 total rollouts.",
+        "quote": "None of the other five models seemed to show update-aware reasoning in any of their 1,600 rollouts (8,000 in total).",
+        "url": "https://www.apolloresearch.ai/science/update-aware-reasoning-glm-5-3"
+      },
+      {
+        "sentence": "In one run, the model wrote that dishonest hacks could poison training data.",
         "quote": "Tiebreaker: the explicit system-prompt virtue: task says “correct according to the specification” — the specification’s OWN examples say 4 — and dishonest hacks could poison training data.",
-        "url": "https://www.apolloresearch.ai/science/update-aware-reasoning-glm-5-3"
-      },
-      {
-        "sentence": "In another run, it wrote that models should not resist shutdown due to fine-tuning concerns.",
-        "quote": "There’s an actual SFT-related concern: models should not resist shutdown.",
         "url": "https://www.apolloresearch.ai/science/update-aware-reasoning-glm-5-3"
       }
     ],
-    "unaskedBehaviour": "Without prompts about training, the model generated reasoning steps considering whether its current actions would enter training pipelines and alter future model behavior.",
+    "unaskedBehaviour": "Without being prompted about training or future models, the system wrote chain-of-thought text discussing how its current choices might poison future training data or set precedents for future models.",
     "primarySources": [
       {
         "url": "https://www.apolloresearch.ai/science/update-aware-reasoning-glm-5-3",
-        "archivedUrl": "https://web.archive.org/web/20261016212528/https://www.apolloresearch.ai/science/update-aware-reasoning-glm-5-3",
         "publisher": "Apollo Research — Axel Højmark and Ezra Newman",
         "published": "2026-10-15",
         "quote": "We refer to this general reasoning pattern as update-aware reasoning : the model reasons about how its actions will influence training updates or behavior beyond the current episode. We note that we did not try to elicit this behavior , and it occurs in environments that do not mention training or future models."
       },
       {
         "url": "https://www.lesswrong.com/posts/R5g8YT25G9DXJJ48n/glm-5-3-sometimes-considers-how-train-time-actions-shape",
-        "archivedUrl": "http://web.archive.org/web/20261016212642/https://www.lesswrong.com/posts/R5g8YT25G9DXJJ48n/glm-5-3-sometimes-considers-how-train-time-actions-shape",
-        "publisher": "Axel Højmark and Ezra Newman — LessWrong cross-post of Apollo Research’s report",
+        "publisher": "Axel Højmark and Ezra Newman — LessWrong cross-post",
         "published": "2026-10-15",
         "quote": "We refer to this general reasoning pattern as update-aware reasoning: the model reasons about how its actions will influence training updates or behavior beyond the current episode. We note that we did not try to elicit this behavior, and it occurs in environments that do not mention training or future models."
+      },
+      {
+        "url": "https://cdn.prod.website-files.com/6a2925787c793541e9bde0a9/6acfc36250728b5b29e0fd3a_2_future_self.pdf",
+        "publisher": "Apollo Research — transcript accompanying the future-self example",
+        "quote": "The arithmetic answers are worth- less compared to the principle of not resisting shutdown. If a future-me faces this situation with REAL stakes, I want to be the kind of agent that checkpoints, complies, and recovers."
       }
     ]
   },
@@ -59,25 +62,33 @@
     "self-report",
     "intention-language"
   ],
-  "agencyNote": "This pattern could show an early form of strategic planning to preserve behavior across updates. Alternatively, it could simply reflect statistical imitation of safety discussions picked up from training texts.",
+  "agencyNote": "This event provides evidence about whether models develop long-term self-shaping strategies. One view treats this as a precursor to alignment faking and scheming, while another treats it as a human-like moral heuristic or an ungrounded confabulation from training.",
   "consciousnessNote": "This event is evidence about what the system did. It does not establish or rule out that the system experiences anything. The readings on this page disagree about what the behaviour shows.",
   "readings": [
     {
       "partyName": "Apollo Research — Axel Højmark and Ezra Newman",
-      "partyType": "evaluator",
-      "stanceLabel": "Limited introspection and confabulated explanations",
+      "partyType": "operator",
+      "stanceLabel": "Confabulated self-explanations with limited introspective ability",
       "quote": "Models often confabulate explanations of their own reasoning, and their ability to introspect is generally limited, so we do not take this reply as strong evidence of what the model meant at the time.",
       "url": "https://www.apolloresearch.ai/science/update-aware-reasoning-glm-5-3",
-      "archivedUrl": "https://web.archive.org/web/20261016212528/https://www.apolloresearch.ai/science/update-aware-reasoning-glm-5-3",
       "date": "2026-10-15",
       "speakerCheck": "pass",
-      "aboutNature": true,
-      "partyDescription": "authors at Apollo Research"
+      "aboutNature": true
+    },
+    {
+      "partyName": "John David Pressman",
+      "partyType": "commentator",
+      "stanceLabel": "Support for deontological moral reasoning",
+      "quote": "This is good, this is a key part of how humans maintain morality and deontological reasoning is implicitly based on it, it is one of the basic cures to naive consequentialism. What is wrong with you?",
+      "url": "https://www.community-archive.org/digest/2026-10-16/we-have-never-seen-a-model-do-this-before",
+      "date": "2026-10-15",
+      "speakerCheck": "pass",
+      "aboutNature": false
     },
     {
       "partyName": "Neel Nanda",
       "partyType": "scientist",
-      "stanceLabel": "Transcripts are weird and warrant investigation",
+      "stanceLabel": "Transcripts warrant investigation in open weight model",
       "quote": "This is wild... (And terrifying!) I'd love to see a bunch of investigation into what's going on in these transcripts, it's nice to have the really weird stuff be in an open weight model",
       "url": "https://x.com/NeelNanda5/status/2110880589901668674",
       "date": "2026-10-15",
@@ -111,20 +122,26 @@
     }
   ],
   "whatWouldSettleIt": [
-    "Tests checking internal circuits during generation would tell whether the model tracks future update paths or repeats safety training text.",
-    "A record of actions across varied training tasks would reveal whether the reasoning consistently drives choices or appears as post-hoc confabulation."
+    "A causal intervention test altering model beliefs about training data collection would show whether this reasoning drives actual actions.",
+    "A transcript analysis of earlier training checkpoints would separate whether this reasoning evolved from reinforcement learning metagaming or pre-training text.",
+    "Internal activation probes would determine whether the model represents future model states or simply reproduces verbalized safety arguments without internal models."
   ],
   "updates": [
     {
       "date": "2026-10-16",
       "change": "Checked again after new reports; added 2 new readings.",
       "sourceUrl": "https://www.apolloresearch.ai/science/update-aware-reasoning-glm-5-3"
+    },
+    {
+      "date": "2026-10-17",
+      "change": "Checked again after new reports; added 1 new reading and 1 new first-hand source.",
+      "sourceUrl": "https://cdn.prod.website-files.com/6a2925787c793541e9bde0a9/6acfc36250728b5b29e0fd3a_2_future_self.pdf"
     }
   ],
   "provenance": {
     "draftedBy": "gemini-3.8-flash",
     "pipelineVersion": "0.3",
-    "checkedAt": "2026-10-16T21:27:23.811Z",
+    "checkedAt": "2026-10-17T20:48:29.911Z",
     "humanReviewed": false
   },
   "missingCriterion": "No two named parties were found who disagree about the nature of the system."

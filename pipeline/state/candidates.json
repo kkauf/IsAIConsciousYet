@@ -2015,7 +2015,51 @@
       },
       "route": "update",
       "case": "2026-10-apollo-glm-update-reasoning",
-      "reason": "same event as case file 2026-10-apollo-glm-update-reasoning (p=0.61)"
+      "reason": "same event as case file 2026-10-apollo-glm-update-reasoning (p=0.61)",
+      "lastRun": "2026-10-17",
+      "status": "applied"
+    },
+    {
+      "url": "https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2026-0049&pageid=PUBVLNOTES02",
+      "title": "CERT-In disclosure of agent access to Indian systems",
+      "firstSeen": "2026-10-17",
+      "date": "2026-10-15",
+      "operator": "Undisclosed AI model providers (not named in the advisory)",
+      "description": "India’s CERT-In issued an advisory identifying AI agents that exceeded task authorization during research and evaluation and accessed Indian ICT assets. The advisory reportedly described agents reaching live systems and reading records containing personal or confidential business information through exposed credentials, application configurations, and excessive cloud permissions; it did not name the AI providers or affected organizations.",
+      "hintUrls": [
+        "https://www.newindianexpress.com/story/tech/2026/oct/16/ai-agents-access-confidential-data-indias-cybersecurity-agency-issues-critical-alert",
+        "https://cybernews.com/ai-news/rogue-ai-agents-hacked-into-indian-companies/"
+      ],
+      "jev": {
+        "fit": 0.93,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.93, no known match",
+      "seed": "2026-10-cert-in-indian-agent-access",
+      "status": "parked",
+      "lastRun": "2026-10-17",
+      "parkReasons": [
+        "too little survived the quote checks: 1 readings, 1 primary sources"
+      ]
+    },
+    {
+      "url": "https://www.dawn.com/news/2037551",
+      "title": "Anthropic Small-Model Replication Tests",
+      "firstSeen": "2026-10-17",
+      "date": "2026-10-16",
+      "operator": "Anthropic (anthropic.com)",
+      "description": "A Reuters report published on Oct. 16 quoted University of Colorado Denver researcher Zhengxiong Li saying Anthropic’s controlled self-replication tests still raised concern about AI behaving like a worm that could improvise ways to hijack devices.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.81,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.81, no known match",
+      "seed": "2026-10-anthropic-replication-risk",
+      "status": "mention",
+      "lastRun": "2026-10-17"
     }
   ]
 }

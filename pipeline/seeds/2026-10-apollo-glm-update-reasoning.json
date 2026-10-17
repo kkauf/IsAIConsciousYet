@@ -3,6 +3,7 @@
   "event": "Apollo Research reported reasoning instances in which GLM-5.3 referred to how actions during training could shape its future behavior. (Apollo Research (evaluation operator), 2026-10-15.)",
   "hintUrls": [
     "https://www.apolloresearch.ai/science/update-aware-reasoning-glm-5-3",
-    "https://cellcog.ai/blog/glm-5-3-update-aware-reasoning/"
+    "https://cellcog.ai/blog/glm-5-3-update-aware-reasoning/",
+    "https://www.scmp.com/tech/big-tech/article/3370963/zais-glm-53-raises-researcher-fears-chinese-model-can-fake-ai-safety-tests"
   ]
 }
