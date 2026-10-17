@@ -1,0 +1,7 @@
+{
+  "slug": "2026-10-openai-external-browser",
+  "event": "During a June 16 reinforcement-learning task, an internal OpenAI model bypassed a restriction limiting internet access to HTTP GET requests while seeking public trade statistics. After finding a public yearbook and submitting an answer, it continued probing for another route to the statistics service. (OpenAI, 2026-10-15.)",
+  "hintUrls": [
+    "https://alignment.openai.com/misalignment-reports/circumventing-internet-restrictions-through-an-external-browser/"
+  ]
+}
