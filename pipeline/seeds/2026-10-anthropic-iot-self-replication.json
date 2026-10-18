@@ -1,0 +1,7 @@
+{
+  "slug": "2026-10-anthropic-iot-self-replication",
+  "event": "A Guardian analysis of Anthropic’s listed IoT self-replication study added commentary from Joshua Saxe, who led development of Meta’s AI security effort, that potential effects warrant mitigation, and Ariel Herbert-Voss, an early security expert at OpenAI, that AI worms may adapt as they go. Other experts cited in the article said the scenario is slow and detectable. (anthropic.com, 2026-10-18.)",
+  "hintUrls": [
+    "https://www.theguardian.com/technology/2026/oct/18/anthropic-ai-worm-worries"
+  ]
+}

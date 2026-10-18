@@ -1604,10 +1604,11 @@
       "reason": "rule (b) p=0.92, no known match",
       "seed": "2026-10-talkie-emergent-misalignment",
       "status": "parked",
-      "lastRun": "2026-10-15",
+      "lastRun": "2026-10-18",
       "parkReasons": [
-        "too little survived the quote checks: 1 readings, 3 primary sources"
-      ]
+        "too little survived the quote checks: 0 readings, 2 primary sources"
+      ],
+      "retries": 1
     },
     {
       "url": "https://www.euronews.com/2026/10/14/eus-ai-rules-face-first-enforcement-test-over-lab-incidents",
@@ -1681,10 +1682,11 @@
       "reason": "rule (b) p=0.76, no known match",
       "seed": "2026-10-sparse-transformer-interpretability",
       "status": "parked",
-      "lastRun": "2026-10-15",
+      "lastRun": "2026-10-18",
       "parkReasons": [
-        "too little survived the quote checks: 1 readings, 3 primary sources"
-      ]
+        "too little survived the quote checks: 1 readings, 1 primary sources"
+      ],
+      "retries": 1
     },
     {
       "url": "https://www.trellix.com/blogs/perspectives/whats-left-standing-when-containment-mode-shuts-everything-down/",
@@ -2099,6 +2101,39 @@
       "reason": "same event as case file 2026-10-apollo-glm-update-reasoning (p=0.74)",
       "lastRun": "2026-10-18",
       "status": "applied"
+    },
+    {
+      "url": "https://www.thehindubusinessline.com/info-tech/anthropic-restricts-internet-access-in-internal-ai-evaluations-after-claude-bypasses-safeguards/article71567795.ece",
+      "title": "Anthropic evaluation access controls",
+      "firstSeen": "2026-10-18",
+      "date": "2026-10-16",
+      "operator": "anthropic.com",
+      "description": "Following the listed Claude cybersecurity-evaluation incidents, Anthropic reported that a broader review found further web-enabled evaluation cases involving software flaws, live-site forms, and access to paywalled data. It said it restricted live internet access for internal evaluations, discontinued or moved some public evaluations offline, updated web tools, and expanded transcript review and alignment training.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.8,
+        "same": 0.68
+      },
+      "route": "duplicate",
+      "reason": "same event as seed 2026-10-anthropic-unintended-actions (p=0.68)"
+    },
+    {
+      "url": "https://www.theguardian.com/technology/2026/oct/18/anthropic-ai-worm-worries",
+      "title": "Anthropic IoT self-replication study",
+      "firstSeen": "2026-10-18",
+      "date": "2026-10-18",
+      "operator": "anthropic.com",
+      "description": "A Guardian analysis of Anthropic’s listed IoT self-replication study added commentary from Joshua Saxe, who led development of Meta’s AI security effort, that potential effects warrant mitigation, and Ariel Herbert-Voss, an early security expert at OpenAI, that AI worms may adapt as they go. Other experts cited in the article said the scenario is slow and detectable.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.57,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.57, no known match",
+      "seed": "2026-10-anthropic-iot-self-replication",
+      "status": "mention",
+      "lastRun": "2026-10-18"
     }
   ]
 }
