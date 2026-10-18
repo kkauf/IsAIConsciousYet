@@ -1122,11 +1122,11 @@
       "reason": "rule (b) p=0.63, no known match",
       "seed": "2026-10-google-deepmind-nano-banana-editing",
       "status": "parked",
-      "lastRun": "2026-10-11",
+      "lastRun": "2026-10-18",
       "parkReasons": [
-        "too little survived the quote checks: 0 readings, 2 primary sources"
+        "too little survived the quote checks: 0 readings, 1 primary sources"
       ],
-      "retries": 1
+      "retries": 2
     },
     {
       "url": "https://www.ajupress.com/view/20261005135670624",
@@ -1180,11 +1180,11 @@
       "reason": "rule (b) p=0.83, no known match",
       "seed": "2026-10-anthropic-haiku-welfare",
       "status": "parked",
-      "lastRun": "2026-10-11",
+      "lastRun": "2026-10-18",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 1 primary sources"
       ],
-      "retries": 1
+      "retries": 2
     },
     {
       "url": "https://fortune.com/2026/10/05/new-york-city-council-hearing-openai-anthropic-ai-safety-google-meta/",
@@ -2060,6 +2060,45 @@
       "seed": "2026-10-anthropic-replication-risk",
       "status": "mention",
       "lastRun": "2026-10-17"
+    },
+    {
+      "url": "https://www.secureworld.io/industry-news/ai-worms-anthropic-research?hs_amp=true",
+      "title": "Anthropic Tested AI Self-Replication on Networked Android TV Boxes",
+      "firstSeen": "2026-10-18",
+      "date": "2026-10-16",
+      "operator": "Anthropic",
+      "description": "Collin Hogue-Spears reportedly characterized the main risk in Anthropic’s self-replication tests as persistence rather than computing power. SecureWorld’s coverage described the tests as controlled experiments, not a live self-replicating system.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.58,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.58, no known match",
+      "seed": "2026-10-anthropic-self-replication-2",
+      "status": "parked",
+      "lastRun": "2026-10-18",
+      "parkReasons": [
+        "too little survived the quote checks: 3 readings, 0 primary sources"
+      ]
+    },
+    {
+      "url": "https://www.techtimes.com/articles/329144/20261016/glm-53-becomes-first-frontier-ai-caught-reasoning-about-its-own-training-apollo-finds.htm",
+      "title": "GLM-5.3 Update-Aware Reasoning Evaluation",
+      "firstSeen": "2026-10-18",
+      "date": "2026-10-16",
+      "operator": "Z.ai (developer); Apollo Research (evaluation operator)",
+      "description": "TechTimes reported Apollo co-author Axel Højmark’s assessment that the GLM-5.3 update-aware-reasoning finding should make researchers more wary of recursive self-improvement. The article distinguished the reported precursor capability from evidence of alignment faking itself.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.89,
+        "same": 0.74
+      },
+      "route": "update",
+      "case": "2026-10-apollo-glm-update-reasoning",
+      "reason": "same event as case file 2026-10-apollo-glm-update-reasoning (p=0.74)",
+      "lastRun": "2026-10-18",
+      "status": "applied"
     }
   ]
 }
