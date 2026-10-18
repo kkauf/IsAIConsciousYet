@@ -230,6 +230,13 @@
       "updates": 0,
       "variant": "C",
       "text": "Anthropic ran an AI model across 15 cheap Android TV boxes to see if it could replicate without a datacenter.\n\nIn testing, a 9-billion parameter model set up inference on 8 of 9 hardware types. Across 8 virtual nodes running an Android emulator, only the GLM-5.2 model completed the full replication cycle. In one run, an agent spent hours debugging package versions instead of fixing an incompatible endpoint.\n\nAnthropic’s report says, “Like coding agents in 2024, we’re seeing signs of life for AI worms.” The team notes, “We don’t yet have a full rogue replicator, but agents are becoming increasingly capable of completing the individual steps in the replication chain”.\n\nCiaran Martin, former head of Britain's National Cyber Security Centre, saw it as an “interesting technical paper with a more than hint of vendor exaggeration.” He noted that running a model on cheap TVs “does not a security crisis make”.\n\nIs this early proof of self-spreading code, or just vendor exaggeration?"
+    },
+    "2026-10-anthropic-iot-self-replication": {
+      "id": "2111952636400247244",
+      "postedAt": "2026-10-18T22:48:41.598Z",
+      "updates": 0,
+      "variant": "A",
+      "text": "Anthropic tested AI model replication across 15 Android TV boxes costing about $55 each.\n\nA test worm spread through an open port to 8 out of 8 target nodes in four out of five runs. In tests across nine hardware types, a 9B model configured inference on 8 of them. Yet models under 30B parameters still stumble when chaining every step together: Anthropic noted “a Qwen agent debugging package versioning for hours when the real bug came from implementing an endpoint incompatible with the grader API.”\n\nAnthropic says “we’re seeing signs of life for AI worms” as agents grow “increasingly capable of completing the individual steps in the replication chain”.\n\nRavid Shwartz Ziv, ai researcher at Meta and NYU, calls it “Interesting engineering? Absolutely. Evidence of AI worms spreading autonomously through the real world? Not yet.”\n\nSigns of life taking hold, or interesting lab engineering falling short?"
     }
   },
   "backlog": [
