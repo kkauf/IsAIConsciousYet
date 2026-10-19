@@ -237,6 +237,13 @@
       "updates": 0,
       "variant": "A",
       "text": "Anthropic tested AI model replication across 15 Android TV boxes costing about $55 each.\n\nA test worm spread through an open port to 8 out of 8 target nodes in four out of five runs. In tests across nine hardware types, a 9B model configured inference on 8 of them. Yet models under 30B parameters still stumble when chaining every step together: Anthropic noted “a Qwen agent debugging package versioning for hours when the real bug came from implementing an endpoint incompatible with the grader API.”\n\nAnthropic says “we’re seeing signs of life for AI worms” as agents grow “increasingly capable of completing the individual steps in the replication chain”.\n\nRavid Shwartz Ziv, ai researcher at Meta and NYU, calls it “Interesting engineering? Absolutely. Evidence of AI worms spreading autonomously through the real world? Not yet.”\n\nSigns of life taking hold, or interesting lab engineering falling short?"
+    },
+    "2026-10-goodfire-parameter-decomposition": {
+      "id": "2112258152402227614",
+      "postedAt": "2026-10-19T19:02:42.260Z",
+      "updates": 0,
+      "variant": "B",
+      "text": "A Goodfire-led research team decomposed a language model’s parameters into simple subcomponents, finding each test point used an average of 205 subcomponents per position.\n\nThe model retained coherent output under twenty steps of adversarial masking designed to strip away non-essential pieces. The team then manually rewrote the parts tied to emoticon predictions.\n\nThe Goodfire research team argues that editing these parts shows the technique “identifies real computational machinery within models. And it does so well enough that we can begin to control it directly.”\n\nLee Sharkey, at Goodfire and previously cofounded Apollo Research, sees an architecture that “behaves less like a lookup table and more like a generalizing algorithm.”\n\nDirect control of an inner machine, or an algorithm generalizing across its parts?"
     }
   },
   "backlog": [
