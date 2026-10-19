@@ -1,0 +1,91 @@
+{
+  "slug": "2026-10-goodfire-inceptionv1",
+  "title": "Goodfire researcher argued neural network neurons are legible without untangling",
+  "status": "published",
+  "event": {
+    "dateStart": "2026-10-15",
+    "operator": "Goodfire",
+    "affectedParties": [],
+    "summary": "Nick Cammarata argued neural networks use recursive generalization instead of superposition to pack concepts. He reported that roughly 90% of neuron poles in Qwen3-32B have one main job. He noted similar findings in models with up to trillions of parameters, including Kimi K3. He stated that in a modern parameter-matched ConvNeXt, about 99% of last-layer neurons are legible.",
+    "summaryBasis": [
+      {
+        "sentence": "Nick Cammarata argued neural networks use recursive generalization instead of superposition to pack concepts.",
+        "quote": "The canonical evidence of polysemanticity and superposition that convinced much of the field, including me, that networks pack concepts arbitrarily was misread. What looked like arbitrary packing was mostly a motif I’ll call recursive generalization, which is much less concerning.",
+        "url": "https://already-clean.goodfire.com/"
+      },
+      {
+        "sentence": "He reported that roughly 90% of neuron poles in Qwen3-32B have one main job.",
+        "quote": "In preliminary audits of Qwen3-32B, we estimate that roughly 90% of neuron poles have one main job, often with small related offshoots; another ~7% have two related jobs; and only ~2-4% are not yet understood",
+        "url": "https://already-clean.goodfire.com/"
+      },
+      {
+        "sentence": "He noted similar findings in models with up to trillions of parameters, including Kimi K3.",
+        "quote": "We found similar results in models up to trillions of parameters, like Kimi K3, which the companion paper will cover in more detail.",
+        "url": "https://already-clean.goodfire.com/"
+      },
+      {
+        "sentence": "He stated that in a modern parameter-matched ConvNeXt, about 99% of last-layer neurons are legible.",
+        "quote": "In the ConvNeXt of the same size, it’s about 99%.",
+        "url": "https://already-clean.goodfire.com/"
+      }
+    ],
+    "unaskedBehaviour": "An \"iy\" detector grew during training to respond to \"diy\" and then to \"do it yourself\", which lacks \"iy\".",
+    "primarySources": [
+      {
+        "url": "https://already-clean.goodfire.com/",
+        "archivedUrl": "http://web.archive.org/web/20261019180700/https://already-clean.goodfire.com/",
+        "publisher": "Goodfire — Nick Cammarata",
+        "published": "2026-10-15",
+        "quote": "If we zero a neuron’s output whenever its gate exceeds its ordinary-text 99.9th percentile, recitation can fall apart. In one saved Qwen3.6 experiment, the model went from reciting Psalm 23 exactly to insisting it did not exist."
+      },
+      {
+        "url": "https://x.com/nickcammarata/status/2110757819427574056",
+        "publisher": "Nick Cammarata",
+        "published": "2026-10-15",
+        "quote": "the vast majority in models up to trillions of parameters are legible, and their circuits beautiful. many famous examples of tangled neurons turned out to be misunderstood."
+      }
+    ]
+  },
+  "tier": "mention",
+  "bearsOn": [
+    "intention-language"
+  ],
+  "agencyNote": "This research bears on whether neural networks form coherent, inspectable world representations or entangle concepts into unreadable knots. Legible representations could allow direct tracking of internal goals, while arbitrary entanglement would require separate models to decode the network.",
+  "consciousnessNote": "This event is evidence about what the system did. It does not establish or rule out that the system experiences anything. The readings on this page disagree about what the behaviour shows.",
+  "readings": [
+    {
+      "partyName": "Nick Cammarata (Goodfire)",
+      "partyType": "operator",
+      "stanceLabel": "Direct investigation of clean neural networks",
+      "quote": "The canonical evidence of polysemanticity and superposition that convinced much of the field, including me, that networks pack concepts arbitrarily was misread. What looked like arbitrary packing was mostly a motif I’ll call recursive generalization, which is much less concerning. This means we can study networks directly, instead of first untangling them.",
+      "url": "https://already-clean.goodfire.com/",
+      "archivedUrl": "http://web.archive.org/web/20261019180700/https://already-clean.goodfire.com/",
+      "date": "2026-10-15",
+      "speakerCheck": "pass",
+      "aboutNature": true
+    },
+    {
+      "partyName": "johnswentworth",
+      "partyType": "evaluator",
+      "stanceLabel": "Neuron patterns seem present but not obvious",
+      "quote": "Just looking at the microscope page, the semantics of each neuron are not quickly obvious to me (though most of them feel like there's probably some pattern there which I could understand if I spent a lot of time per neuron staring at them).",
+      "url": "https://www.lesswrong.com/posts/x4kvabkF2Jk8GLZp8/linkpost-neural-networks-are-already-clean/comment/TZAHrGgy3B8EiwQLg",
+      "archivedUrl": "https://web.archive.org/web/20261019222502/https://www.lesswrong.com/posts/x4kvabkF2Jk8GLZp8/linkpost-neural-networks-are-already-clean/comment/TZAHrGgy3B8EiwQLg",
+      "date": "2026-10-16",
+      "speakerCheck": "pass",
+      "aboutNature": false
+    }
+  ],
+  "whatWouldSettleIt": [
+    "Timed blind tests measuring whether independent observers quickly deduce neuron roles across sample sets would test if the semantics are obvious.",
+    "Systematic ablations tracking whether downstream circuits read out distinct semantic concepts independently would test whether polysemantic neurons represent superposition or shared features."
+  ],
+  "updates": [],
+  "provenance": {
+    "draftedBy": "gemini-3.8-flash",
+    "pipelineVersion": "0.3",
+    "checkedAt": "2026-10-19T22:25:36.993Z",
+    "humanReviewed": false
+  },
+  "missingCriterion": "No two named parties were found who disagree about the nature of the system."
+}
