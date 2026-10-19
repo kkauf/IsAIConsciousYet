@@ -2,7 +2,7 @@
 
 Status: queued idea, not designed (`docs/plan.md` § Queued ideas). Konstantin works on it in a focused session when he has time.
 
-Source: Voice Memos "README IACY", recorded 2026-10-18 14:23, 11 min 48 s. Transcribed 2026-10-19 with mlx-whisper (large-v3-turbo). On 2026-10-19 only the first 4 min 40 s had synced from the iPhone to the Mac, so the rest is not in this transcript yet. The words are as transcribed. The punctuation and paragraph breaks are the transcriber's, not his. An opening test phrase ("So low") is left out.
+Source: Voice Memos "README IACY", recorded 2026-10-18 14:23, 11 min 48 s. Transcribed 2026-10-19 with mlx-whisper (large-v3-turbo). Only the first 4 min 40 s survived: the rest is lost on the iPhone as well (Konstantin, 2026-10-19). The iPhone's saved audio ended at 4:40 although the memo listed 11:48; the Mac never uploaded a copy. The words are as transcribed. The punctuation and paragraph breaks are the transcriber's, not his. An opening test phrase ("So low") is left out.
 
 ## His framing
 
