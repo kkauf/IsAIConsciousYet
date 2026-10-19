@@ -59,7 +59,7 @@ Replies, when built: only when summoned (an @-mention of @AIConsciousYet, or a r
 | Account | [@AIConsciousYet](https://x.com/AIConsciousYet), display name "Is AI Conscious Yet", user id 2104734207075377153. Created by Konstantin by phone signup. Avatar: `src/app/icon.svg` rendered at 800 px; banner: the site's social card on black, right-aligned |
 | Automated label | Set 2026-09-28; the profile shows "Automated by @kgmkauf" |
 | Developer console | console.x.com account "Is AI Conscious Yet", app `iaicy-case-file-poster` (id 33480276), pay per use, Production. Permissions: Read and write; type: Web App, Automated App or Bot |
-| Keys | OAuth 1.0a consumer key and secret, access token and secret for @AIConsciousYet, as GitHub Actions secrets `X_API_KEY`, `X_API_SECRET`, `X_ACCESS_TOKEN`, `X_ACCESS_SECRET`; local copy `~/.claude/secrets/x-iaicy.env` |
+| Keys | OAuth 1.0a consumer key and secret, access token and secret for @AIConsciousYet, as GitHub Actions secrets `X_API_KEY`, `X_API_SECRET`, `X_ACCESS_TOKEN`, `X_ACCESS_SECRET`; local copy in 1Password vault Agents, item "X API @AIConsciousYet" (`~/.agents/skills/1password/agent-env x-iaicy -- <command>`) |
 | Premium | Bought by Konstantin 2026-09-28; the API reports `verified_type: blue`, `subscription_type: Premium` |
 | Credits | $5 prepaid by Konstantin 2026-09-28. Billing-cycle spending cap $10 in the console; auto-recharge off |
 | Bluesky | Not set up |
