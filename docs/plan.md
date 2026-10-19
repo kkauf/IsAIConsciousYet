@@ -103,3 +103,5 @@ The success test in `AGENTS.md` is traffic from people reading case files. Once 
 - Rights: the videos are other people's work on X. Embedding the post (X's own embed) keeps the maker credited and the video hosted by X; re-hosting does not.
 - Discovery and submission: finding them needs X read access (paid per read) or submissions. Submission design follows the contribution rules above: a submission attaches to something, here a model and a prompt.
 
+
+**A README for agents** (Konstantin, 2026-10-18, voice memo). The site would serve a `README.md` that agents read when they crawl or visit it: a short personal note that names the question and claims no answer. Konstantin called it "risky, opinionated". His dictated draft: `docs/readme-for-agents-2026-10.md`. Priority he set: a hobby item for a focused session when he has time; nothing is built. Parts of the site it touches: `llms.txt` (`src/app/llms.txt/route.ts`) and the decision that the makers give no reading (Decisions above, "Konstantin's own reading").
