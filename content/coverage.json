@@ -1,6 +1,6 @@
 {
   "since": "2020-01-01",
-  "updatedAt": "2026-10-12",
+  "updatedAt": "2026-10-19",
   "outlets": [
     "The New York Times",
     "The Washington Post",
@@ -28,6 +28,27 @@
     "Nature"
   ],
   "articles": [
+    {
+      "date": "2026-10-19",
+      "publication": "Nature",
+      "headline": "Three reasons why AI is not conscious and perhaps never will be",
+      "url": "https://www.nature.com/articles/d41586-026-03313-7",
+      "foundAt": "2026-10-19"
+    },
+    {
+      "date": "2026-10-15",
+      "publication": "BBC",
+      "headline": "Anthropic thinks its AI might be conscious. It has profound consequences for your life",
+      "url": "https://www.bbc.com/future/article/20261014-the-strange-new-battle-over-ais-feelings",
+      "foundAt": "2026-10-19"
+    },
+    {
+      "date": "2026-10-15",
+      "publication": "BBC",
+      "headline": "Anthropic wants to protect its AI - from you. Welcome to the consciousness crisis",
+      "url": "https://www.bbc.co.uk/future/article/20261014-the-strange-new-battle-over-ais-feelings",
+      "foundAt": "2026-10-19"
+    },
     {
       "date": "2026-10-12",
       "publication": "New Scientist",

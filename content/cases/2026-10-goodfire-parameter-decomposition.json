@@ -1,0 +1,95 @@
+{
+  "slug": "2026-10-goodfire-parameter-decomposition",
+  "title": "Goodfire researchers decompose language model parameters using adversarial ablations",
+  "status": "published",
+  "event": {
+    "dateStart": "2026-05-05",
+    "operator": "Goodfire-led research team, which trained and analyzed the experimental model; no separate deployment operator was identified.",
+    "affectedParties": [],
+    "summary": "Researchers introduced adversarial parameter decomposition to split language model parameters into simple subcomponents. On average, each test datapoint used 205 subcomponents per sequence position. The team manually rewrote parameter subcomponents involved in emoticon predictions.",
+    "summaryBasis": [
+      {
+        "sentence": "Researchers introduced adversarial parameter decomposition to split language model parameters into simple subcomponents.",
+        "quote": "The method, adVersarial Parameter Decomposition (VPD), optimizes for decompositions of neural network parameters into simple subcomponents that preserve the network's input-output behavior even when many subcomponents are ablated, including under ablations that are adversarially selected to destroy behavior.",
+        "url": "https://arxiv.org/abs/2610.20748"
+      },
+      {
+        "sentence": "On average, each test datapoint used 205 subcomponents per sequence position.",
+        "quote": "On average, each datapoint uses 205 subcomponents per sequence position, representing 2.1% of all alive subcomponents.",
+        "url": "https://www.goodfire.com/research/interpreting-lm-parameters"
+      },
+      {
+        "sentence": "The team manually rewrote parameter subcomponents involved in emoticon predictions.",
+        "quote": "In particular, we rewrite the part of its neural algorithm involved in emoticon predictions",
+        "url": "https://www.goodfire.com/research/interpreting-lm-parameters"
+      }
+    ],
+    "unaskedBehaviour": "The model retained coherent output even under twenty steps of adversarial masking designed to remove non-essential subcomponents.",
+    "primarySources": [
+      {
+        "url": "https://arxiv.org/abs/2610.20748",
+        "archivedUrl": "http://web.archive.org/web/20261016112435/https://arxiv.org/abs/2610.20748",
+        "publisher": "Lucius Bushnaq and coauthors, via arXiv",
+        "published": "2026-10-14",
+        "quote": "We study how sequences of interactions between these parameter subcomponents produce the network's output on particular inputs, enabling a new kind of 'circuit' analysis."
+      },
+      {
+        "url": "https://www.goodfire.com/research/interpreting-lm-parameters",
+        "archivedUrl": "http://web.archive.org/web/20261018030535/https://www.goodfire.com/research/interpreting-lm-parameters",
+        "publisher": "Goodfire",
+        "published": "2026-05-05",
+        "quote": "It turns out that it is quite an overzealous \"it + copula verb\" detector. It often produces high Data Dependent Interaction Strength even at quite large offsets, even when the \"it\" and the copula verb are not related to each other."
+      },
+      {
+        "url": "https://www.lesswrong.com/posts/eAQZaiC3PcBhS4HjM/linkpost-interpreting-language-model-parameters",
+        "archivedUrl": "http://web.archive.org/web/20261019130318/https://www.lesswrong.com/posts/eAQZaiC3PcBhS4HjM/linkpost-interpreting-language-model-parameters",
+        "publisher": "Lucius Bushnaq and coauthors, via LessWrong",
+        "published": "2026-05-05",
+        "quote": "We present a method that brings us closer to this understanding by decomposing a language model's parameters into subcomponents that each implement only a small part of the model's learned algorithm, while simultaneously requiring only a small fraction of those subcomponents to account for the network's behavior on any input."
+      }
+    ]
+  },
+  "tier": "mention",
+  "bearsOn": [
+    "intention-language"
+  ],
+  "agencyNote": "One view holds that these isolated subcomponents reflect genuine algorithmic mechanisms that allow direct manual control. Another view treats them as a mathematical decomposition that approximates general function execution without proving underlying intent.",
+  "consciousnessNote": "This event is evidence about what the system did. It does not establish or rule out that the system experiences anything. The readings on this page disagree about what the behaviour shows.",
+  "readings": [
+    {
+      "partyName": "Goodfire research team",
+      "partyType": "operator",
+      "stanceLabel": "Edits show VPD identifies real computational machinery",
+      "quote": "Nevertheless, the ability to make precise edits like this demonstrates that VPD identifies real computational machinery within models. And it does so well enough that we can begin to control it directly.",
+      "url": "https://www.goodfire.com/research/vpd-explainer",
+      "archivedUrl": "https://web.archive.org/web/20261019130132/https://www.goodfire.com/research/vpd-explainer",
+      "date": "2026-05-05",
+      "speakerCheck": "pass",
+      "aboutNature": true
+    },
+    {
+      "partyName": "Lee Sharkey",
+      "partyType": "scientist",
+      "stanceLabel": "Decomposition acts like a generalizing algorithm",
+      "quote": "Our decomposition natively handles attention (!) and behaves less like a lookup table and more like a generalizing algorithm.",
+      "url": "https://x.com/leedsharkey/status/2051717264286609516",
+      "archivedUrl": "http://web.archive.org/web/20260505224458/https://x.com/leedsharkey/status/2051717264286609516",
+      "date": "2026-05-05",
+      "speakerCheck": "pass",
+      "aboutNature": false,
+      "partyDescription": "at Goodfire and previously cofounded Apollo Research"
+    }
+  ],
+  "whatWouldSettleIt": [
+    "Tests checking whether direct subcomponent edits reliably alter specific model behaviors out of distribution would separate algorithmic control from fitting artifacts.",
+    "A comparison of model outputs under larger numbers of adversarial steps would distinguish genuine minimal circuits from brittle approximations."
+  ],
+  "updates": [],
+  "provenance": {
+    "draftedBy": "gemini-3.8-flash",
+    "pipelineVersion": "0.3",
+    "checkedAt": "2026-10-19T13:03:44.865Z",
+    "humanReviewed": false
+  },
+  "missingCriterion": "No two named parties were found who disagree about the nature of the system."
+}

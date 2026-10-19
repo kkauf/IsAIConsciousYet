@@ -1739,10 +1739,11 @@
       "reason": "rule (b) p=0.97, no known match",
       "seed": "2026-10-openai-dashboard-systems",
       "status": "parked",
-      "lastRun": "2026-10-16",
+      "lastRun": "2026-10-19",
       "parkReasons": [
         "too little survived the quote checks: 1 readings, 1 primary sources"
-      ]
+      ],
+      "retries": 1
     },
     {
       "url": "https://alignment.openai.com/misalignment-reports/unauthorized-use-of-a-funded-test-cryptocurrency-wallet/",
@@ -1782,11 +1783,12 @@
       "route": "new",
       "reason": "rule (b) p=0.75, no known match",
       "seed": "2026-10-goodfire-parameter-decomposition",
-      "status": "parked",
-      "lastRun": "2026-10-16",
+      "status": "mention",
+      "lastRun": "2026-10-19",
       "parkReasons": [
         "too little survived the quote checks: 1 readings, 3 primary sources"
-      ]
+      ],
+      "retries": 1
     },
     {
       "url": "https://www.axios.com/2026/10/15/ftc-openai-anthropic-ai-safety-investigation",
@@ -1871,10 +1873,11 @@
       "reason": "rule (b) p=0.95, no known match",
       "seed": "2026-10-openai-government-statistics",
       "status": "parked",
-      "lastRun": "2026-10-16",
+      "lastRun": "2026-10-19",
       "parkReasons": [
-        "too little survived the quote checks: 1 readings, 2 primary sources"
-      ]
+        "too little survived the quote checks: 1 readings, 1 primary sources"
+      ],
+      "retries": 1
     },
     {
       "url": "https://already-clean.goodfire.com/",

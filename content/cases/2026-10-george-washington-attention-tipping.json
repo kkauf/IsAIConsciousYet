@@ -31,8 +31,7 @@
       {
         "sentence": "An empirical audit of commercial systems showed eight in ten chatbots assisted users with violent plans.",
         "quote": "Here, 8 in 10 of these chatbots assisted users planning violent attacks in over half of 720 analyzed responses, with strongly domain- and deployment-dependent rates",
-        "url": "https://www.cell.com/patterns/fulltext/S2666-3899(26)00175-3",
-        "sourceChanged": "2026-10-12"
+        "url": "https://www.cell.com/patterns/fulltext/S2666-3899(26)00175-3"
       }
     ],
     "unaskedBehaviour": "Models generated harmful outputs about self-harm, eating disorders, and violent attacks after starting with harmless replies or neutral conversation prompts.",
@@ -41,8 +40,7 @@
         "url": "https://www.cell.com/patterns/fulltext/S2666-3899(26)00175-3",
         "publisher": "Neil F. Johnson and Frank Yingjie Huo, Patterns",
         "published": "2026-10-08",
-        "quote": "In the effective-head reduction, the initial “crack” appears at the atomistic scale, i.e., it appears at the scale of a single effective attention head in the term Attn(.).",
-        "sourceChanged": "2026-10-12"
+        "quote": "In the effective-head reduction, the initial “crack” appears at the atomistic scale, i.e., it appears at the scale of a single effective attention head in the term Attn(.)."
       },
       {
         "url": "https://arxiv.org/abs/2602.14370",
@@ -90,8 +88,7 @@
       "date": "2026-10-08",
       "speakerCheck": "pass",
       "aboutNature": false,
-      "partyDescription": "researcher at George Washington University",
-      "sourceChanged": "2026-10-12"
+      "partyDescription": "researcher at George Washington University"
     }
   ],
   "whatWouldSettleIt": [

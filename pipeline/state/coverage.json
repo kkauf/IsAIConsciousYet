@@ -1,5 +1,5 @@
 {
-  "lastRun": "2026-10-12",
+  "lastRun": "2026-10-19",
   "seen": {
     "nytimes.com/2023/09/18/science/ai-computers-consciousness.html": {
       "p": 0.81,
@@ -6236,6 +6236,70 @@
     "nytimes.com/2026/10/09/podcasts/hardfork-anthropic-ai-morals.html": {
       "p": 0.73,
       "kept": true
+    },
+    "nytimes.com/2026/10/14/opinion/artificial-intelligence-ai-manifesto.html": {
+      "p": 0.83,
+      "kept": false
+    },
+    "apnews.com/article/speaker-mike-johnson-midterms-big-beautiful-bill-5ce37406cfd8e10ed66aa5201b9fd4cd": {
+      "p": 0.02,
+      "kept": false
+    },
+    "nytimes.com/video/opinion/100000011200170/what-this-1959-novel-can-teach-us-about-ai.html": {
+      "p": 0.94,
+      "kept": false
+    },
+    "nytimes.com/2026/10/15/opinion/interesting-times-dwarkes-patel-tyler-cowen.html": {
+      "p": 0.17,
+      "kept": false
+    },
+    "nytimes.com/athletic/7622797/2026/09/25/kendry-paez-chelsea-alonso-ecuador-talent-future": {
+      "p": 0.02,
+      "kept": false
+    },
+    "foxnews.com/live-news/ai-news-safety-detection-tech-10-08": {
+      "p": 0.48,
+      "kept": false
+    },
+    "bbc.com/future/article/20261014-the-strange-new-battle-over-ais-feelings": {
+      "p": 0.96,
+      "kept": true
+    },
+    "bbc.co.uk/future/article/20261014-the-strange-new-battle-over-ais-feelings": {
+      "p": 0.95,
+      "kept": true
+    },
+    "telegraph.co.uk/business/2026/10/08/anthropic-bans-users-from-abusing-claude-chatbot": {
+      "p": 0.68,
+      "kept": false
+    },
+    "theatlantic.com/podcasts/2026/10/do-human-beings-have-souls/688931": {
+      "p": 0.05,
+      "kept": false
+    },
+    "theverge.com/ai-artificial-intelligence/1008100/anthropic-new-usage-policy-abuse-claude": {
+      "p": 0.61,
+      "kept": false
+    },
+    "nature.com/articles/d41586-026-03313-7": {
+      "p": 0.96,
+      "kept": true
+    },
+    "newscientist.com": {
+      "p": 0.14,
+      "kept": false
+    },
+    "newscientist.com/article/0-long-haul-flights-bad-for-the-planet-necessary-for-global-research": {
+      "p": 0.06,
+      "kept": false
+    },
+    "bloomberg.com/opinion/articles/2026-10-13/anthropic-has-bigger-safety-and-ipo-problems-than-claude-s-feelings": {
+      "p": 0.19,
+      "kept": false
+    },
+    "npr.org/2026/10/16/nx-s1-6001770/at-sf-tech-week-a-vibe-check-on-how-people-in-silicon-valley-feel-about-the-ai-boom": {
+      "p": 0.07,
+      "kept": false
     }
   }
 }
