@@ -131,7 +131,13 @@ if (!dryRun) {
   const state = loadCandidates();
   const byCase = new Map();
   for (const c of state.candidates.filter((c) => c.route === 'update' && !c.status)) byCase.set(c.case, [...(byCase.get(c.case) ?? []), c]);
-  for (const [slug, cands] of [...byCase].slice(0, config.maxUpdatesPerRun ?? 1)) {
+  // A case file is updated at most once per updateCooldownDays. New sources wait and join the next update as one batch.
+  // Before this rule one case was updated 15 times in October 2026 ($5.94 of $24.84), one press article at a time.
+  const cooldown = config.updateCooldownDays ?? 0;
+  const lastUpdate = (slug) => state.candidates.filter((c) => c.route === 'update' && c.case === slug && c.status && c.lastRun).map((c) => c.lastRun).sort().at(-1);
+  const due = [...byCase].filter(([slug]) => { const d = lastUpdate(slug); return !d || daysSince(d) >= cooldown; });
+  for (const [slug, cands] of byCase) if (!due.some(([s]) => s === slug)) log(`update of ${slug} waits: last update ${lastUpdate(slug)}, cooldown ${cooldown} days (${cands.length} source(s) queued)`);
+  for (const [slug, cands] of due.slice(0, config.maxUpdatesPerRun ?? 1)) {
     const stop = cap(`update of ${slug}`, config.worstCaseUsd.case);
     if (stop) { out.capStops.push(stop); log(stop); break; }
     const seedFile = path.join(root, 'pipeline', 'seeds', `${slug}.json`);
