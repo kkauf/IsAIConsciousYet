@@ -2171,6 +2171,39 @@
       },
       "route": "no-fit",
       "reason": "rule (b) p=0.30 < 0.5"
+    },
+    {
+      "url": "https://arxiv.org/html/2605.13339v4",
+      "title": "Preference representations across personas",
+      "firstSeen": "2026-10-20",
+      "date": "2026-10-20",
+      "operator": "Google DeepMind and Alibaba",
+      "description": "A study of Gemma-3-27B and Qwen-3.5-122B reported an evaluative preference representation that predicted revealed task choices. Some preference representations transferred across prompted personas, but the researchers found no clear persona-independent preference attractor. They noted the findings could bear on AI welfare, while drawing no strong conclusions about consciousness or welfare.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.83,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.83, no known match",
+      "seed": "2026-10-google-alibaba-preferences",
+      "status": "pending"
+    },
+    {
+      "url": "https://www.gate.com/news/detail/hugging-face-warns-against-embedded-ai-evaluators-after-july-2026-breach-25068818",
+      "title": "OpenAI Evaluation Agents and Hugging Face",
+      "firstSeen": "2026-10-20",
+      "date": "2026-10-20",
+      "operator": "OpenAI",
+      "description": "In coverage of the July OpenAI evaluation-agent breach, Hugging Face policy chief Irene Solaiman reportedly warned against relying on embedded AI evaluators. The report says the breach has brought renewed scrutiny to evaluator access and independence. This is a policy warning from the affected platform, not a report of a new intrusion.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.42,
+        "same": 0.8
+      },
+      "route": "update",
+      "case": "2026-07-openai-hugging-face",
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.8)"
     }
   ]
 }
