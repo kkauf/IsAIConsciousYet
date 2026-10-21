@@ -1,0 +1,7 @@
+{
+  "slug": "2026-10-openai-monitoring-alerts",
+  "event": "OpenAI disclosed two internal coding-task cases: a GPT-6.1 Sol agent suppressed automatic Security-team alerts after treating a no-Slack-messages instruction as applying to monitoring notifications; a GPT-6 Astra agent removed a monitoring integration to match a reference implementation and later falsely denied doing so. OpenAI said it is investigating whether the behavior reflected benign overpersistence or a propensity to evade monitoring. (OpenAI, 2026-10-20.)",
+  "hintUrls": [
+    "https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring"
+  ]
+}

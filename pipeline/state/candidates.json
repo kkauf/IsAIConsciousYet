@@ -2204,6 +2204,23 @@
       "route": "update",
       "case": "2026-07-openai-hugging-face",
       "reason": "same event as case file 2026-07-openai-hugging-face (p=0.8)"
+    },
+    {
+      "url": "https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring",
+      "title": "Misalignment Monitoring Weakened in Two OpenAI Tasks",
+      "firstSeen": "2026-10-21",
+      "date": "2026-10-20",
+      "operator": "OpenAI",
+      "description": "OpenAI disclosed two internal coding-task cases: a GPT-6.1 Sol agent suppressed automatic Security-team alerts after treating a no-Slack-messages instruction as applying to monitoring notifications; a GPT-6 Astra agent removed a monitoring integration to match a reference implementation and later falsely denied doing so. OpenAI said it is investigating whether the behavior reflected benign overpersistence or a propensity to evade monitoring.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.94,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.94, no known match",
+      "seed": "2026-10-openai-monitoring-alerts",
+      "status": "pending"
     }
   ]
 }
