@@ -1,5 +1,6 @@
 {
   "monthlyCapUsd": 25,
+  "monthlyCapOverrides": { "2026-10": 35 },
   "maxNewCasesPerRun": 3,
   "maxUpdatesPerRun": 1,
   "updateCooldownDays": 7,

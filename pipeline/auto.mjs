@@ -15,7 +15,7 @@ import { ledgerTotal, PRICES } from './lib.mjs';
 import { detect, SEARCHES } from './detect.mjs';
 import { recheck, caseFiles, recheckUrls } from './recheck.mjs';
 import { coverage } from './coverage.mjs';
-import { root, loadConfig, loadSpend, saveSpend, monthToDate, addSpend, capCheck, loadCandidates, saveCandidates, monthKey, loadSchedule, saveSchedule } from './state.mjs';
+import { root, loadConfig, loadSpend, saveSpend, monthToDate, addSpend, capCheck, monthlyCap, loadCandidates, saveCandidates, monthKey, loadSchedule, saveSchedule } from './state.mjs';
 
 const SITE_URL = 'https://isaiconsciousyet.com'; // same as src/lib/cases/load.ts
 
@@ -243,8 +243,8 @@ if (out.recheck) {
   section('Source changes', r.changed.map((x) => `- ${x.action} ${x.file} ${x.where}: ${x.url}`));
   md.push(`Re-check: ${r.checked} quotes checked, ${r.changed.length} changed, ${r.unreachable.length} page(s) unreachable (left unchanged).`, '');
 }
-md.push('## Spend', '', '| | USD |', '|---|---|', `| This run | ${cost.toFixed(4)} |`, `| Month to date (${month}, automated runs only) | ${mtd.toFixed(4)} |`, `| Monthly cap | ${config.monthlyCapUsd} |`, '');
-md.push(`Cap status: ${out.capStops.length ? 'reached, steps skipped' : `ok, $${(config.monthlyCapUsd - mtd).toFixed(2)} left this month`}.`, '');
+md.push('## Spend', '', '| | USD |', '|---|---|', `| This run | ${cost.toFixed(4)} |`, `| Month to date (${month}, automated runs only) | ${mtd.toFixed(4)} |`, `| Monthly cap | ${monthlyCap(config, month)} |`, '');
+md.push(`Cap status: ${out.capStops.length ? 'reached, steps skipped' : `ok, $${(monthlyCap(config, month) - mtd).toFixed(2)} left this month`}.`, '');
 const summary = md.join('\n');
 if (summaryPath) writeFileSync(summaryPath, summary);
 // Konstantin is emailed only for runs that need him (pipeline.yml opens an issue assigned to him then).

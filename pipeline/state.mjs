@@ -26,11 +26,16 @@ export function addSpend(spend, usd, month = monthKey()) {
   return spend;
 }
 
+// The cap for one month: a one-off raise in monthlyCapOverrides ("2026-10": 35) applies only to that month,
+// so the cap falls back to monthlyCapUsd on the 1st of the next month without a commit.
+export const monthlyCap = (config, month = monthKey()) => config.monthlyCapOverrides?.[month] ?? config.monthlyCapUsd;
+
 // Returns null when the step fits under the cap, else the reason it does not.
 export function capCheck({ config, spentBefore, spentThisRun, estimate, step }) {
   const would = spentBefore + spentThisRun + estimate;
-  if (would <= config.monthlyCapUsd) return null;
-  return `${step} skipped: month-to-date $${(spentBefore + spentThisRun).toFixed(2)} + worst case $${estimate.toFixed(2)} would exceed the $${config.monthlyCapUsd} monthly cap`;
+  const capUsd = monthlyCap(config);
+  if (would <= capUsd) return null;
+  return `${step} skipped: month-to-date $${(spentBefore + spentThisRun).toFixed(2)} + worst case $${estimate.toFixed(2)} would exceed the $${capUsd} monthly cap`;
 }
 
 // ── schedule: when detect and the weekly steps last ran (ISO timestamps) ──
