@@ -9,6 +9,7 @@
   "detectOverlapDays": 1,
   "weeklyStepsEveryDays": 7,
   "detectProcessor": "base",
+  "researchProcessor": "core",
   "social": { "enabled": true, "postMentions": true, "maxPostsPerRun": 3 },
   "worstCaseUsd": {
     "detectTriage": 0.01,
