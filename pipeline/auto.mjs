@@ -15,7 +15,7 @@ import { ledgerTotal, PRICES } from './lib.mjs';
 import { detect, SEARCHES } from './detect.mjs';
 import { recheck, caseFiles, recheckUrls } from './recheck.mjs';
 import { coverage } from './coverage.mjs';
-import { root, loadConfig, loadSpend, saveSpend, monthToDate, addSpend, capCheck, loadCandidates, saveCandidates, monthKey, loadSchedule, saveSchedule } from './state.mjs';
+import { root, loadConfig, loadSpend, saveSpend, monthToDate, addSpend, capCheck, monthlyCap, loadCandidates, saveCandidates, monthKey, loadSchedule, saveSchedule } from './state.mjs';
 
 const SITE_URL = 'https://isaiconsciousyet.com'; // same as src/lib/cases/load.ts
 
@@ -131,7 +131,13 @@ if (!dryRun) {
   const state = loadCandidates();
   const byCase = new Map();
   for (const c of state.candidates.filter((c) => c.route === 'update' && !c.status)) byCase.set(c.case, [...(byCase.get(c.case) ?? []), c]);
-  for (const [slug, cands] of [...byCase].slice(0, config.maxUpdatesPerRun ?? 1)) {
+  // A case file is updated at most once per updateCooldownDays. New sources wait and join the next update as one batch.
+  // Before this rule one case was updated 15 times in October 2026 ($5.94 of $24.84), one press article at a time.
+  const cooldown = config.updateCooldownDays ?? 0;
+  const lastUpdate = (slug) => state.candidates.filter((c) => c.route === 'update' && c.case === slug && c.status && c.lastRun).map((c) => c.lastRun).sort().at(-1);
+  const due = [...byCase].filter(([slug]) => { const d = lastUpdate(slug); return !d || daysSince(d) >= cooldown; });
+  for (const [slug, cands] of byCase) if (!due.some(([s]) => s === slug)) log(`update of ${slug} waits: last update ${lastUpdate(slug)}, cooldown ${cooldown} days (${cands.length} source(s) queued)`);
+  for (const [slug, cands] of due.slice(0, config.maxUpdatesPerRun ?? 1)) {
     const stop = cap(`update of ${slug}`, config.worstCaseUsd.case);
     if (stop) { out.capStops.push(stop); log(stop); break; }
     const seedFile = path.join(root, 'pipeline', 'seeds', `${slug}.json`);
@@ -237,8 +243,8 @@ if (out.recheck) {
   section('Source changes', r.changed.map((x) => `- ${x.action} ${x.file} ${x.where}: ${x.url}`));
   md.push(`Re-check: ${r.checked} quotes checked, ${r.changed.length} changed, ${r.unreachable.length} page(s) unreachable (left unchanged).`, '');
 }
-md.push('## Spend', '', '| | USD |', '|---|---|', `| This run | ${cost.toFixed(4)} |`, `| Month to date (${month}, automated runs only) | ${mtd.toFixed(4)} |`, `| Monthly cap | ${config.monthlyCapUsd} |`, '');
-md.push(`Cap status: ${out.capStops.length ? 'reached, steps skipped' : `ok, $${(config.monthlyCapUsd - mtd).toFixed(2)} left this month`}.`, '');
+md.push('## Spend', '', '| | USD |', '|---|---|', `| This run | ${cost.toFixed(4)} |`, `| Month to date (${month}, automated runs only) | ${mtd.toFixed(4)} |`, `| Monthly cap | ${monthlyCap(config, month)} |`, '');
+md.push(`Cap status: ${out.capStops.length ? 'reached, steps skipped' : `ok, $${(monthlyCap(config, month) - mtd).toFixed(2)} left this month`}.`, '');
 const summary = md.join('\n');
 if (summaryPath) writeFileSync(summaryPath, summary);
 // Konstantin is emailed only for runs that need him (pipeline.yml opens an issue assigned to him then).
