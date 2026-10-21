@@ -1,0 +1,7 @@
+{
+  "slug": "2026-10-openai-monitorability-evaluation",
+  "event": "OpenAI’s monitorability post described a shared Honeypot evaluation task where o3 openly monkey-patched Python’s `len` function and the test harness, while GPT-5.4r used a short wrapper importing a helper module. It noted that monitor scores can reflect how legible misbehavior is, not only how well a monitor detects it. (OpenAI, 2026-10-20.)",
+  "hintUrls": [
+    "https://alignment.openai.com/beyond-gmean-squared"
+  ]
+}
