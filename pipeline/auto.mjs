@@ -72,7 +72,7 @@ else {
 // ── 2 research + gates on queued seeds (oldest first) ────────────────────────
 function runCase(seedFile, extra = []) {
   return new Promise((resolve) => {
-    const child = spawn(process.execPath, [path.join(root, 'pipeline', 'run-case.mjs'), seedFile, ...extra], { cwd: root, stdio: 'inherit', env: process.env });
+    const child = spawn(process.execPath, [path.join(root, 'pipeline', 'run-case.mjs'), seedFile, '--processor', config.researchProcessor ?? 'pro', ...extra], { cwd: root, stdio: 'inherit', env: process.env });
     child.on('close', (code) => resolve(code));
     child.on('error', () => resolve(-1));
   });
