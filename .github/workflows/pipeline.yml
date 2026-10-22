@@ -18,8 +18,8 @@ jobs:
   run:
     runs-on: ubuntu-latest
     timeout-minutes: 150
+    # Secrets and the gh token live on the steps that use them, never job-wide (2026-10-22).
     env:
-      GH_TOKEN: ${{ github.token }}
       RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
     steps:
       - uses: actions/checkout@v7
@@ -29,7 +29,8 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
+      # --ignore-scripts: no package install script runs (supply-chain hardening, 2026-10-22); the build does not need any.
+      - run: npm ci --ignore-scripts
 
       - name: Detect, research, re-check
         run: node pipeline/auto.mjs --summary summary.md --actionable actionable.txt --new-urls new-urls.txt
@@ -70,6 +71,8 @@ jobs:
       # opens only when something needs a person: errors, the spend cap, or Dependabot PRs that CI
       # kept from merging for a week (Konstantin, 2026-09-26: failures and actionable items only).
       - name: Run summary, and an issue if something needs a person
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           cat summary.md >> "$GITHUB_STEP_SUMMARY"
           stuck=$(gh pr list --author "app/dependabot" --state open --json createdAt --jq '[.[] | select((now - (.createdAt | fromdateiso8601)) > 604800)] | length')
@@ -98,6 +101,8 @@ jobs:
 
       - name: Open failure issue
         if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           gh label create pipeline-run --color 5319e7 --description "Pipeline run summary" 2>/dev/null || true
           {

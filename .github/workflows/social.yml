@@ -15,13 +15,9 @@ jobs:
   post:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    # Secrets live on the steps that use them, never job-wide: npm ci and git steps never see them (2026-10-22).
     env:
       RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-      X_API_KEY: ${{ secrets.X_API_KEY }}
-      X_API_SECRET: ${{ secrets.X_API_SECRET }}
-      X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
-      X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
-      GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -30,10 +26,22 @@ jobs:
         with:
           node-version: 22
           cache: npm
-      - run: npm ci
+      # --ignore-scripts: no package install script runs (supply-chain hardening, 2026-10-22).
+      - run: npm ci --ignore-scripts
       - name: Post the next case file
         run: node pipeline/social.mjs --summary summary.md --actionable actionable.txt
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       - name: Reach by card variant (13:00 run only)
+        env:
+          X_API_KEY: ${{ secrets.X_API_KEY }}
+          X_API_SECRET: ${{ secrets.X_API_SECRET }}
+          X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
+          X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
         run: |
           [ "$(date -u +%H)" = "13" ] || { echo "not the 13:00 run"; exit 0; }
           node pipeline/social.mjs --metrics --summary summary.md
