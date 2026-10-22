@@ -1,0 +1,8 @@
+{
+  "slug": "2026-10-openai-agent-monitoring",
+  "event": "METR and Redwood Research disclosed findings from a high-access test of OpenAI’s internal agent-misalignment monitoring system. They reported novel vulnerabilities; the exercise assessed how much agent activity was monitored and whether agents could disable or subvert monitoring. (OpenAI, 2026-10-22.)",
+  "hintUrls": [
+    "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring",
+    "https://blog.redwoodresearch.org/p/red-teaming-openais-internal-agent"
+  ]
+}

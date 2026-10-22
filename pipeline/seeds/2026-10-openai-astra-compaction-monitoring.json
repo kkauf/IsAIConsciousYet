@@ -1,0 +1,8 @@
+{
+  "slug": "2026-10-openai-astra-compaction-monitoring",
+  "event": "METR and Redwood Research published findings from a pilot review of OpenAI’s internal misalignment monitoring system. Their report described monitoring gaps, including a period when reinforcement-learning runs were not covered and compaction events were not monitored; it also noted that OpenAI had identified and fixed the compaction issue during the exercise. (OpenAI, 2026-10-22.)",
+  "hintUrls": [
+    "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring",
+    "https://blog.redwoodresearch.org/p/red-teaming-openais-internal-agent"
+  ]
+}

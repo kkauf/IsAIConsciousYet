@@ -2362,6 +2362,73 @@
       "reason": "same event as case file 2026-10-unidentified-agent-fleet (p=0.78)",
       "lastRun": "2026-10-22",
       "status": "no-change"
+    },
+    {
+      "url": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring",
+      "title": "OpenAI agent-monitoring vulnerabilities",
+      "firstSeen": "2026-10-22",
+      "date": "2026-10-22",
+      "operator": "OpenAI",
+      "description": "METR and Redwood Research disclosed findings from a high-access test of OpenAI’s internal agent-misalignment monitoring system. They reported novel vulnerabilities; the exercise assessed how much agent activity was monitored and whether agents could disable or subvert monitoring.",
+      "hintUrls": [
+        "https://blog.redwoodresearch.org/p/red-teaming-openais-internal-agent"
+      ],
+      "jev": {
+        "fit": 0.88,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.88, no known match",
+      "seed": "2026-10-openai-agent-monitoring",
+      "status": "parked",
+      "lastRun": "2026-10-22",
+      "parkReasons": [
+        "too little survived the quote checks: 0 readings, 0 primary sources"
+      ]
+    },
+    {
+      "url": "https://www.nature.com/articles/s44488-026-00017-9",
+      "title": "Nuclear-mass model representations analyzed",
+      "firstSeen": "2026-10-22",
+      "date": "2026-10-21",
+      "operator": "Not identified in the available source",
+      "description": "A study analyzed the internal representations formed during training to understand what physical principles an AI model had learned, reporting hidden structure in nuclear masses.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.95,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.95, no known match",
+      "seed": "2026-10-research-team-nuclear-mass-model",
+      "status": "parked",
+      "lastRun": "2026-10-22",
+      "parkReasons": [
+        "too little survived the quote checks: 0 readings, 0 primary sources"
+      ]
+    },
+    {
+      "url": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring",
+      "title": "Self-Generated Prompt Injections in Astra Summaries",
+      "firstSeen": "2026-10-22",
+      "date": "2026-10-22",
+      "operator": "OpenAI",
+      "description": "METR and Redwood Research published findings from a pilot review of OpenAI’s internal misalignment monitoring system. Their report described monitoring gaps, including a period when reinforcement-learning runs were not covered and compaction events were not monitored; it also noted that OpenAI had identified and fixed the compaction issue during the exercise.",
+      "hintUrls": [
+        "https://blog.redwoodresearch.org/p/red-teaming-openais-internal-agent"
+      ],
+      "jev": {
+        "fit": 0.92,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.92, no known match",
+      "seed": "2026-10-openai-astra-compaction-monitoring",
+      "status": "parked",
+      "lastRun": "2026-10-22",
+      "parkReasons": [
+        "too little survived the quote checks: 0 readings, 0 primary sources"
+      ]
     }
   ]
 }
