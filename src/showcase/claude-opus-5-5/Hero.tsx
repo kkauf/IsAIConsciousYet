@@ -340,6 +340,8 @@ export default function Hero({ events, since, now, model, date }: HeroProps) {
   const canvas = useRef<HTMLCanvasElement>(null);
   const els = useRef(new Map<string, HTMLElement>());
   const reg = (id: string) => (el: HTMLElement | null) => {
+    // A callback ref: React calls it at commit, not during render (react-hooks/refs misreads reg(id) in JSX).
+    // eslint-disable-next-line react-hooks/refs
     if (el) els.current.set(id, el);
     else els.current.delete(id);
   };

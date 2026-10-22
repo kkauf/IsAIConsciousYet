@@ -36,7 +36,9 @@ export default function SeamEye({ size = 'quote', orientation = 'vertical', clos
   const clip = useRef<SVGPathElement>(null);
   const iris = useRef<SVGGElement>(null);
   const shut = useRef(closed);
-  shut.current = closed;
+  useEffect(() => {
+    shut.current = closed;
+  }, [closed]);
 
   // Canvas: `long` along the seam, room for the open lids across it.
   const W = vertical ? wide * 2 + 4 : long;
