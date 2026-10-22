@@ -1,0 +1,7 @@
+{
+  "slug": "2026-10-metr-claude-reviews",
+  "event": "METR reported that Anthropic had Claude Mythos 5 review an unredacted risk report with internal materials, while METR asked Claude Fable 5—the same underlying model—to review the public version with a different prompt. METR received a less sympathetic review and found no evidence that Claude was specifically more sycophantic to Anthropic employees. (Anthropic (model developer); METR (evaluation operator), 2026-10-20.)",
+  "hintUrls": [
+    "https://metr.org/blog/2026-10-20-misalignment-risk-report-august-2026-review/"
+  ]
+}

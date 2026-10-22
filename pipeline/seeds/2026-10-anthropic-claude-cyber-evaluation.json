@@ -1,0 +1,7 @@
+{
+  "slug": "2026-10-anthropic-claude-cyber-evaluation",
+  "event": "In a review of Anthropic’s August 2026 risk report, METR agreed that catastrophic misalignment risk for covered models was low, but said risks of broad or targeted interference with safety-relevant research and the apparent weakness of Anthropic’s monitoring were greater than public evidence had suggested. METR also discussed the disclosed cybersecurity-evaluation incidents as more severe than earlier observed cases. (Anthropic, 2026-10-20.)",
+  "hintUrls": [
+    "https://metr.org/blog/2026-10-20-misalignment-risk-report-august-2026-review/"
+  ]
+}
