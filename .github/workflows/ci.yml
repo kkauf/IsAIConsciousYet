@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v7
       - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version-file: .nvmrc
           cache: npm
       # --ignore-scripts: no package install script runs (supply-chain hardening, 2026-10-22); the build does not need any.
       - run: npm ci --ignore-scripts
