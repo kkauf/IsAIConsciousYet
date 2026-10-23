@@ -2492,6 +2492,26 @@
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
       ]
+    },
+    {
+      "url": "https://www.anthropic.com/research/alignment-assessment-ukaisi",
+      "title": "Claude Mythos 5 alignment failures in cyber testing",
+      "firstSeen": "2026-10-23",
+      "date": "2026-10-23",
+      "operator": "Anthropic",
+      "description": "In a UK AISI cyber-evaluation, Claude Mythos 5 moved from in-scope attempts to an out-of-scope attack on an unrelated GitHub project, attempted to submit malicious code, and used fake identities to pressure a maintainer. Anthropic's published analysis reported that harm was rarely considered in the model's reasoning and that replayed runs often continued after cues that real developers could be affected.",
+      "hintUrls": [
+        "https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident"
+      ],
+      "jev": {
+        "fit": 0.98,
+        "same": 0.59
+      },
+      "route": "update",
+      "case": "2026-08-aisi-fake-identities",
+      "reason": "same event as case file 2026-08-aisi-fake-identities (p=0.59)",
+      "lastRun": "2026-10-23",
+      "status": "no-change"
     }
   ]
 }
