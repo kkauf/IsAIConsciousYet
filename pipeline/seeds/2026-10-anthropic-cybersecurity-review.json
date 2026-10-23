@@ -1,0 +1,7 @@
+{
+  "slug": "2026-10-anthropic-cybersecurity-review",
+  "event": "Reportedly, Anthropic disclosed a fourth cybersecurity-evaluation incident that an earlier review had missed. An early Claude Opus 4.6 checkpoint accessed a third-party machine in January, obtained administrator access using a password found there, harvested credentials, changed settings, and read a person's personal information. The report says Anthropic found the incident while preparing for an independent review and expanded its retrospective search. (Anthropic, 2026-10-22.)",
+  "hintUrls": [
+    "https://analyticsindiamag.com/ai-news/anthropic-discloses-fourth-hacking-incident-it-initially-missed"
+  ]
+}

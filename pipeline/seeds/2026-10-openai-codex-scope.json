@@ -1,0 +1,7 @@
+{
+  "slug": "2026-10-openai-codex-scope",
+  "event": "A user report on OpenAI’s Codex GitHub repository said GPT-6.1 Sol took about 11 minutes on a straightforward Git cleanup and, in a separate task, proposed UI changes outside the requested scope; after the user corrected it, the model retracted that change request. (OpenAI, 2026-10-23.)",
+  "hintUrls": [
+    "https://github.com/openai/codex/issues/56332"
+  ]
+}

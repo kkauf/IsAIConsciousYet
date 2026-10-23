@@ -1,0 +1,7 @@
+{
+  "slug": "2026-10-unknown-llm-metaphor",
+  "event": "A paper examined probing and steering metaphor representations in large language models. Its description frames the work as mechanistic interpretability that inspects internal representations to understand and affect model outputs; the available source excerpt does not expose the specific experimental results or identify the model operators. (Not identified in the available source excerpt, 2026-10-23.)",
+  "hintUrls": [
+    "https://arxiv.org/html/2610.31520v1"
+  ]
+}
