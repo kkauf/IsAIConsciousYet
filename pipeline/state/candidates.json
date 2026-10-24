@@ -1972,10 +1972,11 @@
       "reason": "rule (b) p=0.94, no known match",
       "seed": "2026-10-openai-external-browser",
       "status": "parked",
-      "lastRun": "2026-10-17",
+      "lastRun": "2026-10-24",
       "parkReasons": [
-        "too little survived the quote checks: 1 readings, 1 primary sources"
-      ]
+        "too little survived the quote checks: 0 readings, 0 primary sources"
+      ],
+      "retries": 1
     },
     {
       "url": "https://www.anthropic.com/news/an-update-on-independent-evaluators",
@@ -2044,10 +2045,11 @@
       "reason": "rule (b) p=0.93, no known match",
       "seed": "2026-10-cert-in-indian-agent-access",
       "status": "parked",
-      "lastRun": "2026-10-17",
+      "lastRun": "2026-10-24",
       "parkReasons": [
-        "too little survived the quote checks: 1 readings, 1 primary sources"
-      ]
+        "too little survived the quote checks: 0 readings, 0 primary sources"
+      ],
+      "retries": 1
     },
     {
       "url": "https://www.dawn.com/news/2037551",
