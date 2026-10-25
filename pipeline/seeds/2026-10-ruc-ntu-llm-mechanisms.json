@@ -1,0 +1,8 @@
+{
+  "slug": "2026-10-ruc-ntu-llm-mechanisms",
+  "event": "In experiments on Gemma-2-9B, Llama-3-8B, and Llama-3.1-8B, the researchers traced contextual knowledge selection to interacting sparse-autoencoder features across layers. They reported that identifying causally connected key paths filtered redundant features; steering relevant features increased attention to context tokens containing the answer, and knowledge selection formed across multiple layers. (Renmin University of China and Nanyang Technological University research team, 2026-10-24.)",
+  "hintUrls": [
+    "https://aclanthology.org/2026.emnlp-main.857.pdf",
+    "https://aclanthology.org/2026.emnlp-main.857/"
+  ]
+}

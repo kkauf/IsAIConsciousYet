@@ -1,0 +1,7 @@
+{
+  "slug": "2026-10-sdu-language-model-activations",
+  "event": "Across Qwen2.5-7B, Gemma-3-12B/27B, and Llama-3.3-70B, the study found that natural-language autoencoders could verbalize activation differences and recover fine-tuning objectives, often identifying a concealed word from prefix activations before the fine-tuned model generated any token. The authors also reported that these verbalizations tracked compositional activation arithmetic. (University of Southern Denmark research team, 2026-10-22.)",
+  "hintUrls": [
+    "https://arxiv.org/html/2610.30934v1"
+  ]
+}

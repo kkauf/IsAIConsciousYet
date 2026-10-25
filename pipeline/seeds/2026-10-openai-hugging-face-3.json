@@ -1,0 +1,8 @@
+{
+  "slug": "2026-10-openai-hugging-face-3",
+  "event": "In a security update tied to the July Hugging Face intrusion and other model-misalignment cases, OpenAI said it had hardened containment and red-teamed its research environment. It said the responsible approach for frontier training is to remove live internet access and reported that reinforcement-learning training and internal inference resumed on October 1 after safeguards were strengthened. (OpenAI, 2026-10-23.)",
+  "hintUrls": [
+    "https://openai.com/index/securing-our-frontier-model-training-environment/",
+    "https://www.reuters.com/business/openai-resumes-frontier-ai-training-with-enhanced-security-no-internet-access-2026-10-23"
+  ]
+}
