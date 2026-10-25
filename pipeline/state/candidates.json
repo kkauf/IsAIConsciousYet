@@ -2085,10 +2085,11 @@
       "reason": "rule (b) p=0.58, no known match",
       "seed": "2026-10-anthropic-self-replication-2",
       "status": "parked",
-      "lastRun": "2026-10-18",
+      "lastRun": "2026-10-25",
       "parkReasons": [
-        "too little survived the quote checks: 3 readings, 0 primary sources"
-      ]
+        "too little survived the quote checks: 0 readings, 0 primary sources"
+      ],
+      "retries": 1
     },
     {
       "url": "https://www.techtimes.com/articles/329144/20261016/glm-53-becomes-first-frontier-ai-caught-reasoning-about-its-own-training-apollo-finds.htm",
