@@ -10,7 +10,8 @@
     "lint": "eslint",
     "typecheck": "tsc --noEmit",
     "check:cases": "node pipeline/check-cases.mjs",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "test:unit": "node --test pipeline/*.test.mjs"
   },
   "dependencies": {
     "next": "^16.4.1",

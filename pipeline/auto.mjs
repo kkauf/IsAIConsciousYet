@@ -64,6 +64,7 @@ else {
     out.detected = d.candidates;
     out.processor = d.processor;
     out.since = d.since;
+    for (const m of d.triageErrors ?? []) out.errors.push(`detect: ${m}`);
     if (!dryRun && !detectFrom) schedule.lastDetect = runStarted;
     for (const c of d.candidates) log(`  [${c.route}] ${c.title} (${c.reason})`);
   } catch (e) { out.errors.push(`detect: ${String(e.message ?? e).slice(0, 300)}`); log('detect failed:', out.errors.at(-1)); }

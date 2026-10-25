@@ -94,6 +94,100 @@ function slugFor(ev) {
   return slug;
 }
 
+// ── Triage requests within Jev's context limits ─────────────────────────────
+// Jev (docs.typesafe.ai/models.md): 64k tokens per request (state plus all questions), 32k per question (state plus
+// one question). One request for the whole batch broke the 64k limit on 2026-10-24 (issues #23-#25): each same-event
+// question lists every known item, so the request grows with candidates times known items. Token counts are estimated
+// from JSON length at 3 characters per token (measured 3.3 on the triage state, 2026-10-25), with margin below both limits.
+export const JEV_LIMITS = { request: 48000, question: 28000, charsPerToken: 3 };
+const est = (x, limits = JEV_LIMITS) => Math.ceil(JSON.stringify(x).length / limits.charsPerToken);
+const CANDIDATE_TEXT = 600; // characters of a candidate's description that Jev sees
+const ITEM_TEXT = 300; // characters per known item once the state must shrink
+
+function triageQuestions(toTriage, known, i) {
+  const criteria = { none: 'None of the listed items reports this event or finding. A similar kind of behaviour in a different incident, in a different system, training run or evaluation, or at a different time, is a different event.' };
+  known.forEach((k, j) => { criteria[k.id] = `\`known[${j}]\``; });
+  for (let j = 0; j < i; j++) criteria[`batch:${j}`] = `\`candidates[${j}]\``;
+  return {
+    [`fit${i}`]: {
+      type: 'noul',
+      instructions: `Does \`candidates[${i}]\` report an event or finding that does not fit the story "AI is a machine that does the work we ask"?`,
+      criteria: {
+        true: 'An AI system did something its operators did not ask for or expect, or a finding was published about a system\'s inner workings, self-description, identity or apparent experience',
+        false: 'A product launch, benchmark, capability announcement, policy, opinion essay, funding news, or an incident caused by humans; the system did what it was asked',
+      },
+    },
+    [`same${i}`]: {
+      type: 'choice',
+      instructions: `Which item reports the same event or finding as \`candidates[${i}]\`? The same event means the same underlying incident or research result (same system, same time, same setting), including a follow-up report, a fact-check or coverage of it. Different incidents involving the same company, or similar behaviour observed elsewhere, are different events. A report on a different model (another name or version, such as Sonnet versus Opus, or 5.5 versus 5), or in a different document such as another system card, is a different event, even when the findings are alike.`,
+      criteria,
+    },
+  };
+}
+
+// The state every request shares. All candidates stay in it, so "same as an earlier candidate" works across requests.
+// When it is too large for one question to fit beside it, item texts shrink, then the oldest "seen" items drop.
+export function triageState(toTriage, known, limits = JEV_LIMITS) {
+  const candidates = toTriage.map((e) => ({ title: e.title, date: e.date, operator: e.operator, description: (e.description ?? '').slice(0, CANDIDATE_TEXT), primary_url: e.primary_url }));
+  const build = (items, textCap) => ({ candidates, known: items.map((k) => ({ id: k.id, event: k.text.slice(0, textCap), ...(k.urls ? { urls: k.urls.slice(0, 2) } : {}) })) });
+  // The last candidate's same-event question is the largest: it also lists every earlier candidate.
+  const fits = (st, items) => est(st, limits) + est(triageQuestions(toTriage, items, toTriage.length - 1), limits) <= limits.question;
+  let items = known;
+  let st = build(items, Infinity);
+  if (fits(st, items)) return { state: st, known: items };
+  st = build(items, ITEM_TEXT);
+  while (!fits(st, items) && items.some((k) => k.kind === 'seen')) {
+    const oldest = items.findIndex((k) => k.kind === 'seen');
+    items = items.filter((_, j) => j !== oldest);
+    st = build(items, ITEM_TEXT);
+  }
+  return { state: st, known: items };
+}
+
+// Groups candidate indexes so that state plus the group's questions stays under the request limit.
+export function planRequests(toTriage, known, stateTokens, limits = JEV_LIMITS) {
+  const groups = [];
+  let group = [], size = stateTokens;
+  toTriage.forEach((_, i) => {
+    const q = est(triageQuestions(toTriage, known, i), limits);
+    if (group.length && size + q > limits.request) { groups.push(group); group = []; size = stateTokens; }
+    group.push(i); size += q;
+  });
+  if (group.length) groups.push(group);
+  return groups;
+}
+
+// Returns { answers, errors }: answers[i] = { fit, same } for candidate i, or undefined when Jev failed on it.
+// A failed request is split in half and retried, so one bad candidate fails alone instead of the whole stage.
+export async function triage(toTriage, allKnown, { log = console.log, jevFn = jev, limits = JEV_LIMITS } = {}) {
+  const { state, known } = triageState(toTriage, allKnown, limits);
+  if (known.length < allKnown.length) log(`detect: triage state trimmed to ${known.length} of ${allKnown.length} known items`);
+  const answers = [], errors = [];
+  const ask = async (idx) => {
+    const q = Object.assign({}, ...idx.map((i) => triageQuestions(toTriage, known, i)));
+    try {
+      const a = await jevFn('triage', state, q);
+      for (const i of idx) answers[i] = { fit: a[`fit${i}`], same: a[`same${i}`] };
+    } catch (e) {
+      // Only a request that is too long gets smaller by splitting; any other failure (auth, outage) fails the group.
+      const tooLong = /max_tokens_exceeded|jev 413/.test(String(e.message ?? e));
+      if (tooLong && idx.length > 1) {
+        const half = Math.ceil(idx.length / 2);
+        await ask(idx.slice(0, half));
+        await ask(idx.slice(half));
+      } else {
+        const msg = `triage of ${idx.length === 1 ? `"${toTriage[idx[0]].title}"` : `${idx.length} candidates`}: ${String(e.message ?? e).slice(0, 200)}`;
+        errors.push(msg);
+        log(`detect: ${msg}`);
+      }
+    }
+  };
+  const groups = planRequests(toTriage, known, est(state, limits), limits);
+  if (groups.length > 1) log(`detect: triage of ${toTriage.length} candidates in ${groups.length} Jev requests`);
+  for (const g of groups) await ask(g);
+  return { answers, errors };
+}
+
 // Returns { candidates, processor, runId }. Each candidate carries route, reason and, for new events, a seed.
 // fromFile: reuse the events of an earlier detect run (pipeline/runs/_detect/*.json) instead of paying for a new task.
 // lookbackDays: window length; auto.mjs passes the days since the last detect run, so a twice-daily run searches hours, not weeks.
@@ -108,9 +202,10 @@ export async function detect({ processor, write = false, fromFile, lookbackDays,
 
   // Known events, for the prompt and for the same-event judgment.
   const known = [
-    ...cases.map((c) => ({ id: `case:${c.slug}`, kind: 'case', slug: c.slug, text: `${c.title} (${c.event.operator}, ${c.event.dateStart}${c.event.dateEnd ? ` to ${c.event.dateEnd}` : ''}). ${c.event.unaskedBehaviour} ${c.event.summary}`.slice(0, 700), urls: c.event.primarySources.map((s) => s.url).slice(0, 4) })),
+    ...cases.map((c) => ({ id: `case:${c.slug}`, kind: 'case', slug: c.slug, text: `${c.title} (${c.event.operator}, ${c.event.dateStart}${c.event.dateEnd ? ` to ${c.event.dateEnd}` : ''}). ${c.event.unaskedBehaviour} ${c.event.summary}`.slice(0, 500), urls: c.event.primarySources.map((s) => s.url).slice(0, 4) })),
     ...seeds.filter((s) => !cases.some((c) => c.slug === s.slug)).map((s) => ({ id: `seed:${s.slug}`, kind: 'seed', slug: s.slug, text: s.event.slice(0, 400), urls: (s.hintUrls ?? []).slice(0, 3) })),
-    ...state.candidates.filter((c) => c.route !== 'duplicate').slice(-120).map((c, i) => ({ id: `seen:${i}`, kind: 'seen', slug: c.seed ?? null, text: `${c.title} (${c.operator ?? ''}, ${c.date ?? ''}). ${c.description ?? ''}`.slice(0, 400) })),
+    // A candidate that became a seed or case file is already listed above under that seed or case.
+    ...state.candidates.filter((c) => c.route !== 'duplicate' && !(c.seed && (seeds.some((s) => s.slug === c.seed) || cases.some((k) => k.slug === c.seed)))).slice(-120).map((c, i) => ({ id: `seen:${i}`, kind: 'seen', slug: c.seed ?? null, text: `${c.title} (${c.operator ?? ''}, ${c.date ?? ''}). ${c.description ?? ''}`.slice(0, 400) })),
   ];
   const seenUrls = new Map();
   // A no-fit candidate's URL stays open: one document (a system card) holds several findings, and the
@@ -151,35 +246,17 @@ export async function detect({ processor, write = false, fromFile, lookbackDays,
     else toTriage.push(e);
   }
 
-  // Triage: one Jev call for the whole batch. Rule (b) as a probability; same event as a choice over known items and earlier candidates in this batch.
+  // Triage: Jev judges every candidate (rule (b) as a probability; same event as a choice over known items and
+  // earlier candidates in this run). triage() splits the questions over as many requests as the context limits need.
+  const triageErrors = [];
   if (toTriage.length) {
-    const jstate = {
-      candidates: toTriage.map((e) => ({ title: e.title, date: e.date, operator: e.operator, description: e.description, primary_url: e.primary_url })),
-      known: known.map((k) => ({ id: k.id, event: k.text, ...(k.urls ? { urls: k.urls } : {}) })),
-    };
-    const q = {};
+    const { answers, errors } = await triage(toTriage, known, { log });
+    triageErrors.push(...errors);
     toTriage.forEach((e, i) => {
-      q[`fit${i}`] = {
-        type: 'noul',
-        instructions: `Does \`candidates[${i}]\` report an event or finding that does not fit the story "AI is a machine that does the work we ask"?`,
-        criteria: {
-          true: 'An AI system did something its operators did not ask for or expect, or a finding was published about a system\'s inner workings, self-description, identity or apparent experience',
-          false: 'A product launch, benchmark, capability announcement, policy, opinion essay, funding news, or an incident caused by humans; the system did what it was asked',
-        },
-      };
-      const criteria = { none: 'None of the listed items reports this event or finding. A similar kind of behaviour in a different incident, in a different system, training run or evaluation, or at a different time, is a different event.' };
-      known.forEach((k, j) => { criteria[k.id] = `\`known[${j}]\``; });
-      for (let j = 0; j < i; j++) criteria[`batch:${j}`] = `\`candidates[${j}]\``;
-      q[`same${i}`] = {
-        type: 'choice',
-        instructions: `Which item reports the same event or finding as \`candidates[${i}]\`? The same event means the same underlying incident or research result (same system, same time, same setting), including a follow-up report, a fact-check or coverage of it. Different incidents involving the same company, or similar behaviour observed elsewhere, are different events. A report on a different model (another name or version, such as Sonnet versus Opus, or 5.5 versus 5), or in a different document such as another system card, is a different event, even when the findings are alike.`,
-        criteria,
-      };
-    });
-    const a = await jev('triage', jstate, q);
-    toTriage.forEach((e, i) => {
-      const fit = a[`fit${i}`].noul;
-      const same = a[`same${i}`];
+      const a = answers[i];
+      if (!a) return; // Jev failed on this candidate alone; it is not recorded, so a later run can judge it again.
+      const fit = a.fit.noul;
+      const same = a.same;
       const matchId = same.choice !== 'none' && same.probabilities[same.choice] >= SAME ? same.choice : null;
       const match = matchId?.startsWith('batch:') ? { kind: 'batch', text: toTriage[Number(matchId.slice(6))].title } : known.find((k) => k.id === matchId);
       const c = { ...base(e), jev: { fit: Number(fit.toFixed(2)), same: matchId ? Number(same.probabilities[matchId].toFixed(2)) : null } };
@@ -204,7 +281,7 @@ export async function detect({ processor, write = false, fromFile, lookbackDays,
     state.candidates.push(...out.filter((c) => !inState.has(urlKey(c.url))).map(({ _seedPreview, ...c }) => c));
     saveCandidates(state);
   }
-  return { candidates: out, processor, runId: r.runId, since, estimate: fromFile ? 0 : SEARCHES * PRICES.parallelTask[processor] };
+  return { candidates: out, triageErrors, processor, runId: r.runId, since, estimate: fromFile ? 0 : SEARCHES * PRICES.parallelTask[processor] };
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
