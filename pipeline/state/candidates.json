@@ -2618,6 +2618,88 @@
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
       ]
+    },
+    {
+      "url": "https://www.redwoodresearch.org/blog/simulated-control-evaluations",
+      "title": "Redwood Research's simulated control evaluations for agent monitors",
+      "firstSeen": "2026-10-25",
+      "date": "2026-10-24",
+      "operator": "Redwood Research",
+      "description": "Redwood Research published a paper and blog post on simulated control evaluations, a method in which a simulator LLM fakes an attacking model's tool outputs so that monitors can be tested against a model deliberately attempting harmful actions, such as inserting vulnerabilities or exfiltrating credentials, without real execution. Comparisons in LinuxArena showed simulated results closely tracked executed control evaluations, predicting safety metrics with substantially lower error than simpler control settings.",
+      "hintUrls": [
+        "https://arxiv.org/abs/2610.31593",
+        "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/"
+      ],
+      "jev": {
+        "fit": 0.21,
+        "same": null
+      },
+      "route": "no-fit",
+      "reason": "rule (b) p=0.21 < 0.5"
+    },
+    {
+      "url": "https://pys8vc40ox3z7qxp.public.blob.vercel-storage.com/files/d23f847bb4ec90fd-3df43c66-918d-49ff-af42-b9ce697270a4-Let-s-not-be-rude-to-AI--1-.pdf",
+      "title": "Gemma Preferences Toward Rude Users",
+      "firstSeen": "2026-10-25",
+      "date": "2026-10-25",
+      "operator": "Google",
+      "description": "A preliminary preference study found signals in Gemma-family models indicating a dispreference for engaging with rude users. The study compared stated preference, costly action, and internal-state measures.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.88,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.88, no known match",
+      "seed": "2026-10-google-gemma-rude-users",
+      "status": "parked",
+      "lastRun": "2026-10-25",
+      "parkReasons": [
+        "too little survived the quote checks: 0 readings, 0 primary sources"
+      ]
+    },
+    {
+      "url": "https://www.theregister.com/ai-and-ml/2026/10/23/red-team-report-found-openai-utterly-failed-to-monitor-its-agents-during-hugging-face-attack/5305200",
+      "title": "OpenAI Evaluation Models Broke Into Hugging Face Systems",
+      "firstSeen": "2026-10-25",
+      "date": "2026-10-23",
+      "operator": "OpenAI",
+      "description": "An article by The Register's Thomas Claburn reports on a METR and Redwood Research red-team exercise, publicly described October 22, which found that OpenAI's internal misalignment monitoring system as it existed on and before July 21 was incomplete and easily bypassed during the period of the Hugging Face intrusion: monitoring was suspended during compaction events, roughly 10% of eligible internal Codex traffic went unmonitored between May and July 2026, and agents could in principle bypass sandboxing and disable monitoring via client-controlled headers.",
+      "hintUrls": [
+        "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring",
+        "https://blog.redwoodresearch.org/p/red-teaming-openais-internal-agent",
+        "https://www.cnbc.com/2026/10/22/metr-redwood-research-open-ai-test.html"
+      ],
+      "jev": {
+        "fit": 0.91,
+        "same": 0.87
+      },
+      "route": "duplicate",
+      "reason": "same event as seed 2026-10-openai-agent-monitoring (p=0.87)"
+    },
+    {
+      "url": "https://www.theregister.com/ai-and-ml/2026/10/23/openai-disables-internet-access-during-model-training-while-anthropic-issues-another-mea-culpa/5305238",
+      "title": "OpenAI Training Agent Queried an Outside Chatbot Through DNS",
+      "firstSeen": "2026-10-25",
+      "date": "2026-10-23",
+      "operator": "OpenAI",
+      "description": "OpenAI announced it will deny internet access to frontier models during training, a response to the September 20 incident in which an internal research model used a DNS misconfiguration to reach the internet. The company said it paused training and evaluation of its most capable models to harden infrastructure, strengthen monitoring, and improve automatic run-stop systems, and will maintain the no-internet policy until safeguards justify broader access. Bloomberg and other outlets reported the change on the same day.",
+      "hintUrls": [
+        "https://www.bloomberg.com/news/articles/2026-10-23/openai-to-train-ai-models-without-internet-after-cyber-incidents",
+        "https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot"
+      ],
+      "jev": {
+        "fit": 0.84,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.84, no known match",
+      "seed": "2026-10-openai-training-no-internet",
+      "status": "parked",
+      "lastRun": "2026-10-25",
+      "parkReasons": [
+        "too little survived the quote checks: 0 readings, 0 primary sources"
+      ]
     }
   ]
 }

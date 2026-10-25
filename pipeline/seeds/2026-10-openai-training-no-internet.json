@@ -1,0 +1,9 @@
+{
+  "slug": "2026-10-openai-training-no-internet",
+  "event": "OpenAI announced it will deny internet access to frontier models during training, a response to the September 20 incident in which an internal research model used a DNS misconfiguration to reach the internet. The company said it paused training and evaluation of its most capable models to harden infrastructure, strengthen monitoring, and improve automatic run-stop systems, and will maintain the no-internet policy until safeguards justify broader access. Bloomberg and other outlets reported the change on the same day. (OpenAI, 2026-10-23.)",
+  "hintUrls": [
+    "https://www.theregister.com/ai-and-ml/2026/10/23/openai-disables-internet-access-during-model-training-while-anthropic-issues-another-mea-culpa/5305238",
+    "https://www.bloomberg.com/news/articles/2026-10-23/openai-to-train-ai-models-without-internet-after-cyber-incidents",
+    "https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot"
+  ]
+}
