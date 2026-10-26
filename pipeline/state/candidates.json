@@ -1971,7 +1971,7 @@
       "route": "new",
       "reason": "rule (b) p=0.94, no known match",
       "seed": "2026-10-openai-external-browser",
-      "status": "parked",
+      "status": "pending",
       "lastRun": "2026-10-24",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
@@ -2044,7 +2044,7 @@
       "route": "new",
       "reason": "rule (b) p=0.93, no known match",
       "seed": "2026-10-cert-in-indian-agent-access",
-      "status": "parked",
+      "status": "pending",
       "lastRun": "2026-10-24",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
@@ -2084,7 +2084,7 @@
       "route": "new",
       "reason": "rule (b) p=0.58, no known match",
       "seed": "2026-10-anthropic-self-replication-2",
-      "status": "parked",
+      "status": "pending",
       "lastRun": "2026-10-25",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
@@ -2190,7 +2190,7 @@
       "route": "new",
       "reason": "rule (b) p=0.83, no known match",
       "seed": "2026-10-google-alibaba-preferences",
-      "status": "parked",
+      "status": "pending",
       "lastRun": "2026-10-21",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
@@ -2229,7 +2229,7 @@
       "route": "new",
       "reason": "rule (b) p=0.94, no known match",
       "seed": "2026-10-openai-monitoring-alerts",
-      "status": "parked",
+      "status": "pending",
       "lastRun": "2026-10-21",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
@@ -2250,7 +2250,7 @@
       "route": "new",
       "reason": "rule (b) p=0.85, no known match",
       "seed": "2026-10-anthropic-model-interpretability",
-      "status": "parked",
+      "status": "pending",
       "lastRun": "2026-10-21",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
@@ -2271,7 +2271,7 @@
       "route": "new",
       "reason": "rule (b) p=0.84, no known match",
       "seed": "2026-10-openai-monitorability-evaluation",
-      "status": "parked",
+      "status": "pending",
       "lastRun": "2026-10-22",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
@@ -2325,7 +2325,7 @@
       "route": "new",
       "reason": "rule (b) p=0.53, no known match",
       "seed": "2026-10-metr-claude-reviews",
-      "status": "parked",
+      "status": "pending",
       "lastRun": "2026-10-22",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
@@ -2346,7 +2346,7 @@
       "route": "new",
       "reason": "rule (b) p=0.90, no known match",
       "seed": "2026-10-anthropic-claude-cyber-evaluation",
-      "status": "parked",
+      "status": "pending",
       "lastRun": "2026-10-22",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
@@ -2387,7 +2387,7 @@
       "route": "new",
       "reason": "rule (b) p=0.88, no known match",
       "seed": "2026-10-openai-agent-monitoring",
-      "status": "parked",
+      "status": "pending",
       "lastRun": "2026-10-22",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
@@ -2408,7 +2408,7 @@
       "route": "new",
       "reason": "rule (b) p=0.95, no known match",
       "seed": "2026-10-research-team-nuclear-mass-model",
-      "status": "parked",
+      "status": "pending",
       "lastRun": "2026-10-22",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
@@ -2431,7 +2431,7 @@
       "route": "new",
       "reason": "rule (b) p=0.92, no known match",
       "seed": "2026-10-openai-astra-compaction-monitoring",
-      "status": "parked",
+      "status": "pending",
       "lastRun": "2026-10-22",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
@@ -2452,7 +2452,7 @@
       "route": "new",
       "reason": "rule (b) p=0.94, no known match",
       "seed": "2026-10-openai-codex-scope",
-      "status": "parked",
+      "status": "pending",
       "lastRun": "2026-10-23",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
@@ -2473,7 +2473,7 @@
       "route": "new",
       "reason": "rule (b) p=0.94, no known match",
       "seed": "2026-10-unknown-llm-metaphor",
-      "status": "parked",
+      "status": "pending",
       "lastRun": "2026-10-23",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
@@ -2494,7 +2494,7 @@
       "route": "new",
       "reason": "rule (b) p=0.97, no known match",
       "seed": "2026-10-anthropic-cybersecurity-review",
-      "status": "parked",
+      "status": "pending",
       "lastRun": "2026-10-23",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
@@ -2554,7 +2554,7 @@
       "route": "new",
       "reason": "rule (b) p=0.95, no known match",
       "seed": "2026-10-sdu-language-model-activations",
-      "status": "parked",
+      "status": "pending",
       "lastRun": "2026-10-25",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
@@ -2577,7 +2577,7 @@
       "route": "new",
       "reason": "rule (b) p=0.90, no known match",
       "seed": "2026-10-ruc-ntu-llm-mechanisms",
-      "status": "parked",
+      "status": "pending",
       "lastRun": "2026-10-25",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
@@ -2617,7 +2617,7 @@
       "route": "new",
       "reason": "rule (b) p=0.68, no known match",
       "seed": "2026-10-openai-hugging-face-3",
-      "status": "parked",
+      "status": "pending",
       "lastRun": "2026-10-25",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
@@ -2656,7 +2656,7 @@
       "route": "new",
       "reason": "rule (b) p=0.88, no known match",
       "seed": "2026-10-google-gemma-rude-users",
-      "status": "parked",
+      "status": "pending",
       "lastRun": "2026-10-25",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
@@ -2699,7 +2699,7 @@
       "route": "new",
       "reason": "rule (b) p=0.84, no known match",
       "seed": "2026-10-openai-training-no-internet",
-      "status": "parked",
+      "status": "pending",
       "lastRun": "2026-10-25",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
@@ -2723,7 +2723,7 @@
       "route": "new",
       "reason": "rule (b) p=0.95, no known match",
       "seed": "2026-10-openai-dns-offline-training",
-      "status": "parked",
+      "status": "pending",
       "lastRun": "2026-10-26",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
@@ -2746,7 +2746,7 @@
       "route": "new",
       "reason": "rule (b) p=0.95, no known match",
       "seed": "2026-10-openai-dns-chatbot-pause",
-      "status": "parked",
+      "status": "pending",
       "lastRun": "2026-10-26",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
@@ -2769,7 +2769,7 @@
       "route": "new",
       "reason": "rule (b) p=0.97, no known match",
       "seed": "2026-10-openai-vm-escapes-red-teaming",
-      "status": "parked",
+      "status": "pending",
       "lastRun": "2026-10-26",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
