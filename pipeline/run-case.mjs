@@ -6,10 +6,10 @@
 // to be found literally in a fetched page before it can reach the case file.
 
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
-import { existsSync } from 'node:fs';
+import { existsSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parallelTask, parallelExtract, directFetch, relevantWindow, gemini, jev, waybackSnapshot, findQuote, shortHash, markAboutNature, describeParty, ledger, ledgerTotal, PRICES } from './lib.mjs';
+import { parallelTask, parallelExtract, directFetch, relevantWindow, gemini, jev, waybackSnapshot, findQuote, shortHash, markAboutNature, describeParty, ledger, ledgerTotal, PRICES, isBillingStop } from './lib.mjs';
 import { CASE_FILE_SCHEMA, QUESTIONS, PARTY_TYPES, validate } from './contract.mjs';
 
 const PIPELINE_VERSION = '0.3';
@@ -38,11 +38,28 @@ await mkdir(path.join(runDir, 'pages'), { recursive: true });
 const report = { slug: seed.slug, startedAt: new Date().toISOString(), pipelineVersion: PIPELINE_VERSION, processor, sources: [], gates: {} };
 const log = (...m) => console.log(new Date().toISOString().slice(11, 19), ...m);
 
-async function pool(items, n, fn) {
+// A provider billing stop (lib.mjs) ends the case instead of dropping a quote: the report says so and
+// auto.mjs lists it under "needs action". Exit code 3. Any other uncaught error exits 1 as before.
+process.on('uncaughtException', (e) => {
+  if (!isBillingStop(e)) { console.error(e); process.exit(1); }
+  report.billingStop = { provider: e.provider, message: e.message };
+  report.parkReasons = [];
+  report.finishedAt = new Date().toISOString();
+  report.cost = { ...ledgerTotal(), calls: ledger.length, ledger };
+  writeFileSync(path.join(runDir, 'report.json'), JSON.stringify(report, null, 2));
+  log(`${e.message}; case ${seed.slug} not researched`);
+  process.exit(3);
+});
+
+// label(item) names the source on an error record, so the log can say which party and page failed.
+async function pool(items, n, fn, label = () => ({})) {
   const out = new Array(items.length);
   let next = 0;
   await Promise.all(Array.from({ length: Math.min(n, items.length) }, async () => {
-    while (next < items.length) { const i = next++; out[i] = await fn(items[i], i).catch((e) => ({ error: String(e.message ?? e) })); }
+    while (next < items.length) {
+      const i = next++;
+      out[i] = await fn(items[i], i).catch((e) => { if (isBillingStop(e)) throw e; return { ...label(items[i]), error: String(e.message ?? e) }; });
+    }
   }));
   return out;
 }
@@ -158,7 +175,7 @@ const readingResults = await pool(research.readings, 4, async (r) => {
     if (!last.dropped && !last.error) return last;
   }
   return tries.length > 1 ? { ...last, dropped: `${last.dropped} (also tried ${tries.length - 1} other page)` } : last;
-});
+}, (r) => ({ kind: 'reading', party: r.party_name, url: r.url }));
 
 // A primary source's own site (e.g. a lab's research domain) speaks for its publisher.
 function primaryPublisher(url) { return research.primary_sources.find((s) => s.url === url)?.publisher; }
@@ -214,7 +231,7 @@ const primaryResults = await pool(research.primary_sources, 4, async (s) => {
   rec.jev = { unasked: a.unasked.noul };
   rec.archivedUrl = await waybackSnapshot(s.url);
   return rec;
-});
+}, (s) => ({ kind: 'primary', party: s.publisher, url: s.url }));
 report.sources = [...readingResults, ...primaryResults];
 
 // One reading per party: first that survived.
@@ -364,7 +381,7 @@ if (readings.length >= 2 && primaries.length >= 1) {
     const marked = await markAboutNature(d.title, caseFile.readings);
     report.gates.aboutNature = Object.fromEntries(marked.map((r) => [r.partyName, r._p]));
     caseFile.readings = marked.map(({ _p, ...r }) => r);
-    for (const r of caseFile.readings) { const desc = await describeParty(r).catch(() => null); if (desc) r.partyDescription = desc; }
+    for (const r of caseFile.readings) { const desc = await describeParty(r).catch((e) => { if (isBillingStop(e)) throw e; return null; }); if (desc) r.partyDescription = desc; }
     break;
   }
 }
@@ -419,5 +436,5 @@ await writeFile(path.join(runDir, 'report.json'), JSON.stringify(report, null, 2
 const dropped = report.sources.filter((s) => s.dropped || s.error);
 log(`result: ${caseFile ? caseFile.status : 'no case file'}${parkReasons.length ? ` (${parkReasons.join(' | ')})` : ''}`);
 log(`readings kept ${readings.length}/${research.readings.length}, primary kept ${primaries.length}/${research.primary_sources.length}, dropped ${dropped.length}`);
-for (const s of dropped) log(`  dropped ${s.kind} ${s.party}: ${s.dropped ?? s.error}`);
+for (const s of dropped) log(`  dropped ${s.kind ?? 'source'} ${s.party ?? '(unnamed)'} ${s.url ?? ''}: ${s.dropped ?? s.error}`);
 log(`cost: $${report.cost.total} over ${ledger.length} calls`, JSON.stringify(report.cost.byProvider));

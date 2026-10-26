@@ -2,7 +2,7 @@
 // Design: docs/pipeline.md. Runs twice a day in .github/workflows/pipeline.yml; by hand: pipeline/run.sh auto.mjs …
 // Usage: node pipeline/auto.mjs [--summary summary.md] [--actionable actionable.txt] [--new-urls new-urls.txt] [--dry-run] [--detect-from <file>] [--weekly]
 // --weekly runs press coverage and the quote re-check even if their last run was less than weeklyStepsEveryDays ago.
-// --actionable gets one line per thing a person has to act on (errors, spend cap); empty file = nothing to do.
+// --actionable gets one line per thing a person has to act on (errors, spend cap, provider billing stop); empty file = nothing to do.
 // --dry-run stops after detect + triage and writes no seeds and no state (the summary is still written).
 // --detect-from reuses the events of an earlier detect run (pipeline/runs/_detect/*.json), no detect charge.
 //
@@ -11,7 +11,7 @@
 import { spawn } from 'node:child_process';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
-import { ledgerTotal, PRICES } from './lib.mjs';
+import { ledgerTotal, PRICES, isBillingStop, billingStops, noteBillingStop } from './lib.mjs';
 import { detect, SEARCHES } from './detect.mjs';
 import { recheck, caseFiles, recheckUrls } from './recheck.mjs';
 import { coverage } from './coverage.mjs';
@@ -37,7 +37,7 @@ let childCost = 0; // run-case children; in-process calls are in lib's ledger
 const runCost = () => ledgerTotal().total + childCost;
 const cap = (step, estimate) => capCheck({ config, spentBefore, spentThisRun: runCost(), estimate, step });
 
-const out = { capStops: [], errors: [], detected: [], published: [], mentions: [], parked: [], updated: [], recheck: null, coverage: null, processor: null };
+const out = { capStops: [], billingStops: [], errors: [], detected: [], published: [], mentions: [], parked: [], updated: [], recheck: null, coverage: null, processor: null };
 const today = new Date().toISOString().slice(0, 10);
 const daysSince = (d) => (Date.parse(today) - Date.parse(d)) / 864e5;
 // A parked event is retried on a schedule (parkedRetryDays, days after its last run): new events are often parked
@@ -54,6 +54,16 @@ const lookbackDays = schedule.lastDetect
 const weeklyDue = (key) => forceWeekly || !schedule[key] || hoursSince(schedule[key]) >= (config.weeklyStepsEveryDays ?? 7) * 24 - 2;
 const runStarted = new Date().toISOString();
 
+// A provider that is out of money (lib.mjs BillingStop: Gemini spend cap, Parallel or Jev credit) is not called again
+// this run, and every step that needs it is skipped with one "Billing:" line under "needs action".
+const addBilling = (line) => { if (!out.billingStops.includes(line)) { out.billingStops.push(line); log(line); } };
+const billingBlock = (providers) => billingStops().find((b) => providers.includes(b.provider));
+const CASE_PROVIDERS = ['parallel', 'gemini', 'jev'];
+const fail = (step, e, skipped) => {
+  if (isBillingStop(e)) addBilling(`${e.message}; ${skipped}`);
+  else out.errors.push(`${step}: ${String(e.message ?? e).slice(0, 300)}`);
+};
+
 // ── 1 detect + triage ────────────────────────────────────────────────────────
 const processor = config.detectProcessor ?? 'base';
 const detectStop = cap('detect', (detectFrom ? 0 : SEARCHES * (PRICES.parallelTask[processor] ?? 0.1)) + config.worstCaseUsd.detectTriage);
@@ -67,7 +77,7 @@ else {
     for (const m of d.triageErrors ?? []) out.errors.push(`detect: ${m}`);
     if (!dryRun && !detectFrom) schedule.lastDetect = runStarted;
     for (const c of d.candidates) log(`  [${c.route}] ${c.title} (${c.reason})`);
-  } catch (e) { out.errors.push(`detect: ${String(e.message ?? e).slice(0, 300)}`); log('detect failed:', out.errors.at(-1)); }
+  } catch (e) { fail('detect', e, 'detect not run, no new events found'); log('detect failed:', String(e.message ?? e).slice(0, 300)); }
 }
 
 // ── 2 research + gates on queued seeds (oldest first) ────────────────────────
@@ -86,6 +96,8 @@ if (!dryRun) {
     ...state.candidates.filter((c) => c.route === 'new' && retryDue(c)),
   ];
   for (const c of queue.slice(0, config.maxNewCasesPerRun)) {
+    const blocked = billingBlock(CASE_PROVIDERS);
+    if (blocked) { addBilling(`${blocked.message}; case ${c.seed} not researched`); break; }
     if (c.status === 'parked') { c.retries = (c.retries ?? 0) + 1; log(`retry ${c.retries} of parked ${c.seed} (parked ${c.lastRun})`); }
     const stop = cap(`research for ${c.seed}`, config.worstCaseUsd.case);
     if (stop) { out.capStops.push(stop); log(stop); break; }
@@ -100,6 +112,14 @@ if (!dryRun) {
     const fresh = report && report.startedAt >= started;
     // A run that crashed before its report is charged at the worst case, so the cap errs on the safe side.
     childCost += fresh ? report.cost.total : config.worstCaseUsd.case;
+    if (fresh && report.billingStop) {
+      // Not the case's fault: it stays queued (a parked retry keeps its turn) and runs once the account is topped up.
+      noteBillingStop(report.billingStop.provider);
+      if (c.status === 'parked') c.retries -= 1;
+      addBilling(`${report.billingStop.message}; case ${c.seed} not researched`);
+      saveCandidates(state);
+      break;
+    }
     c.lastRun = started.slice(0, 10);
     if (code !== 0 || !fresh) {
       c.status = 'error'; // not retried automatically; set back to "pending" in candidates.json to retry
@@ -139,6 +159,8 @@ if (!dryRun) {
   const due = [...byCase].filter(([slug]) => { const d = lastUpdate(slug); return !d || daysSince(d) >= cooldown; });
   for (const [slug, cands] of byCase) if (!due.some(([s]) => s === slug)) log(`update of ${slug} waits: last update ${lastUpdate(slug)}, cooldown ${cooldown} days (${cands.length} source(s) queued)`);
   for (const [slug, cands] of due.slice(0, config.maxUpdatesPerRun ?? 1)) {
+    const blocked = billingBlock(CASE_PROVIDERS);
+    if (blocked) { addBilling(`${blocked.message}; update of ${slug} not run`); break; }
     const stop = cap(`update of ${slug}`, config.worstCaseUsd.case);
     if (stop) { out.capStops.push(stop); log(stop); break; }
     const seedFile = path.join(root, 'pipeline', 'seeds', `${slug}.json`);
@@ -154,6 +176,12 @@ if (!dryRun) {
     const report = readJsonIf(path.join(root, 'pipeline', 'runs', slug, 'report.json'));
     const fresh = report && report.startedAt >= started;
     childCost += fresh ? report.cost.total : config.worstCaseUsd.case;
+    if (fresh && report.billingStop) {
+      // The rerun stopped before it could write; the sources stay queued for the next update.
+      noteBillingStop(report.billingStop.provider);
+      addBilling(`${report.billingStop.message}; update of ${slug} not run`);
+      break;
+    }
     for (const c of cands) c.lastRun = today;
     if (code !== 0 || !fresh) {
       for (const c of cands) c.status = 'error';
@@ -185,13 +213,15 @@ if (!dryRun) {
 // ── 2c press coverage for /timeline (pipeline/coverage.mjs), weekly ──────────
 if (!dryRun && weeklyDue('lastCoverage')) {
   const stop = cap('coverage', config.coverage.worstCaseUsd);
+  const blocked = billingBlock(['parallel', 'jev']);
   if (stop) { out.capStops.push(stop); log(stop); }
+  else if (blocked) addBilling(`${blocked.message}; press coverage not run`);
   else {
     try {
       out.coverage = await coverage({ log });
       out.errors.push(...out.coverage.errors.map((e) => `coverage: ${e}`));
       schedule.lastCoverage = runStarted;
-    } catch (e) { out.errors.push(`coverage: ${String(e.message ?? e).slice(0, 300)}`); }
+    } catch (e) { fail('coverage', e, 'press coverage not run'); }
   }
 }
 
@@ -200,9 +230,11 @@ if (!dryRun && weeklyDue('lastRecheck')) {
   const files = caseFiles();
   const n = recheckUrls(files).length;
   const stop = cap('recheck', n * config.worstCaseUsd.recheckPerUrl + 0.005);
+  const blocked = billingBlock(['parallel']);
   if (stop) { out.capStops.push(stop); log(stop); }
+  else if (blocked) addBilling(`${blocked.message}; weekly quote re-check not run`);
   else {
-    try { out.recheck = await recheck({ files, write: true, log }); schedule.lastRecheck = runStarted; } catch (e) { out.errors.push(`recheck: ${String(e.message ?? e).slice(0, 300)}`); }
+    try { out.recheck = await recheck({ files, write: true, log }); schedule.lastRecheck = runStarted; } catch (e) { fail('recheck', e, 'weekly quote re-check not run'); }
   }
 }
 
@@ -224,6 +256,7 @@ const md = [];
 md.push(`# Pipeline run ${today}${dryRun ? ' (dry run)' : ''}`, '');
 md.push(`Published ${out.published.length}, honorable mentions ${out.mentions.length}, parked ${out.parked.length}, updates found ${out.detected.filter((c) => c.route === 'update').length}, source changes ${out.recheck?.changed.length ?? 0}, errors ${out.errors.length}.`, '');
 if (out.capStops.length) md.push('**Spend cap reached.** ' + out.capStops.join('; ') + '.', '');
+if (out.billingStops.length) md.push('**Provider out of money.** ' + out.billingStops.join(' | ') + '.', '');
 const section = (title, lines) => { if (lines.length) md.push(`## ${title}`, '', ...lines, ''); };
 section('Published', out.published.map((p) => `- [${p.title}](${p.url}) (${p.readings} readings, $${p.cost})`));
 section('Honorable mentions', out.mentions.map((p) => `- [${p.title}](${p.url}): ${p.missing ?? ''} ($${p.cost})`));
@@ -249,6 +282,6 @@ md.push(`Cap status: ${out.capStops.length ? 'reached, steps skipped' : `ok, $${
 const summary = md.join('\n');
 if (summaryPath) writeFileSync(summaryPath, summary);
 // Konstantin is emailed only for runs that need him (pipeline.yml opens an issue assigned to him then).
-const actionable = [...out.errors.map((e) => `- Error: ${e}`), ...out.capStops.map((s) => `- Spend cap: ${s}`)];
+const actionable = [...out.billingStops.map((b) => `- ${b}`), ...out.errors.map((e) => `- Error: ${e}`), ...out.capStops.map((s) => `- Spend cap: ${s}`)];
 if (actionablePath) writeFileSync(actionablePath, actionable.join('\n') + (actionable.length ? '\n' : ''));
 console.log('\n' + summary);

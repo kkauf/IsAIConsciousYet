@@ -14,7 +14,7 @@ import crypto from 'node:crypto';
 import { appendFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { root, loadCases, loadConfig, loadSpend, saveSpend, addSpend, monthToDate, capCheck } from './state.mjs';
-import { gemini, normalise, ledgerTotal } from './lib.mjs';
+import { gemini, normalise, ledgerTotal, isBillingStop } from './lib.mjs';
 import { renderCard, VARIANTS } from './social-card.mjs';
 
 const args = process.argv.slice(2);
@@ -222,7 +222,7 @@ function recordSpend() {
   if (dryRun || usd === 0) return;
   saveSpend(addSpend(loadSpend(), usd));
 }
-const done = [], errors = [];
+const done = [], errors = [], billing = [];
 if (dryRun) mkdirSync(outDir, { recursive: true });
 for (const { kind, c } of todo) {
   const cap = capCheck({ config: fullConfig, spentBefore: monthToDate(loadSpend()), spentThisRun: ledgerTotal().total + xSpent, estimate: 0.05, step: `X post for ${c.slug}` });
@@ -246,6 +246,8 @@ for (const { kind, c } of todo) {
     done.push(`- ${kind === 'new' ? 'Posted' : 'Posted update'} (card ${k.variant}): [${c.title}](https://x.com/AIConsciousYet/status/${id})`);
     log(`X: posted ${kind} ${c.slug} card ${k.variant} (${id})`);
   } catch (e) {
+    // Gemini out of money (lib.mjs BillingStop): no later post can be written either; one "Billing:" line, not an error per post.
+    if (isBillingStop(e)) { billing.push(`${e.message}; X post for ${c.slug} not written`); log(billing.at(-1)); break; }
     errors.push(`X post for ${c.slug}: ${String(e.message ?? e).slice(0, 300)}`);
     log(errors.at(-1));
     if (/\bX (401|402|403|429)\b/.test(String(e.message))) break; // auth, credits or rate limit: the rest would fail too
@@ -254,5 +256,6 @@ for (const { kind, c } of todo) {
 if (waiting) log(`X: ${waiting} post(s) queued for later runs (${backlog.length - (fresh.length ? 0 : todo.length)} in the backlog)`);
 recordSpend();
 
-if (summaryPath && (done.length || errors.length)) appendFileSync(summaryPath, ['', '## Posted to X', '', ...done, ...errors.map((e) => `- Error: ${e}`), ''].join('\n'));
-if (actionablePath && errors.length) appendFileSync(actionablePath, errors.map((e) => `- Error: ${e}`).join('\n') + '\n');
+const actionLines = [...billing.map((b) => `- ${b}`), ...errors.map((e) => `- Error: ${e}`)];
+if (summaryPath && (done.length || actionLines.length)) appendFileSync(summaryPath, ['', '## Posted to X', '', ...done, ...actionLines, ''].join('\n'));
+if (actionablePath && actionLines.length) appendFileSync(actionablePath, actionLines.join('\n') + '\n');

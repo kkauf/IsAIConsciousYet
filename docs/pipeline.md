@@ -112,6 +112,7 @@ Paywalled or unfetchable page → the quote cannot be checked → the reading st
 - Built: "Report an error" on every case page → prefilled public GitHub issue.
 - Works: kill switch, `status: withdrawn` in the JSON, one commit, doable from a phone.
 - Built: monthly spend cap in `pipeline/config.json`; the run skips any paid step that would cross it and says so in the summary.
+- Built (2026-10-26): provider billing stops. A Gemini 429 "spending cap", or a Parallel or Jev 402 / "insufficient credit", is not a dropped quote: `lib.mjs` throws `BillingStop`, run-case ends with exit 3 and `report.billingStop`, the case stays queued, and that provider is not called again in the run. Each skipped step gets one `Billing: …` line under "needs action" (`auto.mjs`, `social.mjs`). Ordinary 429 rate limits keep their retries. Cause: 20–26 Oct 2026, a capped Gemini project parked every case as "too little survived" with no alarm.
 
 ## Storage and runtime
 

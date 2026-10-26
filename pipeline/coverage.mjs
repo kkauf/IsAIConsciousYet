@@ -12,7 +12,7 @@
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parallelSearch, parallelExtract, jev, ledgerTotal } from './lib.mjs';
+import { parallelSearch, parallelExtract, jev, ledgerTotal, isBillingStop } from './lib.mjs';
 import { root, loadConfig, urlKey, loadSpend, saveSpend, addSpend } from './state.mjs';
 import { articleUrl, outletFor, urlDate } from './urls.mjs';
 
@@ -173,7 +173,7 @@ export async function coverage({ backfill = false, search = true, sitemaps = tru
   log(`coverage: ${jobs.length} searches over ${outlets.length} outlets${backfill ? ` since ${cfg.since}` : ` after ${jobs[0]?.afterDate}`}`);
   let done = 0;
   const results = await pool(jobs, 4, async (j) => {
-    try { return await parallelSearch('coverage-search', j); } catch (e) { errors.push(`search ${j.domains.join(',')}: ${String(e.message ?? e).slice(0, 200)}`); return []; }
+    try { return await parallelSearch('coverage-search', j); } catch (e) { if (isBillingStop(e)) throw e; errors.push(`search ${j.domains.join(',')}: ${String(e.message ?? e).slice(0, 200)}`); return []; }
     finally { if (++done % 20 === 0) log(`coverage: ${done}/${jobs.length} searches`); }
   });
 
@@ -214,7 +214,7 @@ export async function coverage({ backfill = false, search = true, sitemaps = tru
 
   // 3 subject judgment
   let judged = [];
-  try { judged = await judge([...cands.values()].map((c) => ({ ...c, title: cleanTitle(c.title, c.outlet) }))); } catch (e) { errors.push(`judge: ${String(e.message ?? e).slice(0, 200)}`); }
+  try { judged = await judge([...cands.values()].map((c) => ({ ...c, title: cleanTitle(c.title, c.outlet) }))); } catch (e) { if (isBillingStop(e)) throw e; errors.push(`judge: ${String(e.message ?? e).slice(0, 200)}`); }
   const kept = judged.filter((a) => a.p >= cfg.threshold);
 
   // 4 headline and date, read by code, then the same-piece merge

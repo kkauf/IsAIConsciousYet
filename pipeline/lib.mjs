@@ -31,10 +31,44 @@ function need(name) {
   return v;
 }
 
+// ── provider billing stops ───────────────────────────────────────────────────
+// A provider that says the account is out of money (spend cap, no credit) fails every later call too.
+// Such an answer is not a dropped quote or a failed step: it stops that provider for the rest of the run
+// and lands in the run's "needs action" list (auto.mjs, social.mjs). Rate-limit 429s keep their retries in http().
+const BILLING = {
+  gemini: { name: 'Gemini', line: 'Gemini monthly spend cap reached (project spend cap at ai.studio/spend)',
+    test: (status, text) => (status === 429 || /RESOURCE_EXHAUSTED/.test(text)) && /spend(ing)? (cap|limit)|credits are depleted|prepayment credit/i.test(text) },
+  // Not "billing" alone: Google's per-minute quota 429 says "check your plan and billing details" too.
+  parallel: { name: 'Parallel', line: 'Parallel account out of credit (top up at platform.parallel.ai)',
+    test: (status, text) => status === 402 || /insufficient credit/i.test(text) },
+  jev: { name: 'Jev (TypeSafe)', line: 'Jev (TypeSafe) account out of credit or over its spend limit',
+    test: (status, text) => status === 402 || /insufficient (credit|balance|funds)|spend(ing)? (cap|limit)/i.test(text) },
+};
+export class BillingStop extends Error {
+  constructor(provider) { super(`Billing: ${BILLING[provider].line}`); this.name = 'BillingStop'; this.provider = provider; }
+}
+const stopped = new Map(); // provider → BillingStop, for this process
+export const isBillingStop = (e) => e instanceof BillingStop || e?.name === 'BillingStop';
+export function billingStops() { return [...stopped.values()]; }
+// Records a stop reported elsewhere (a run-case child), so this process stops calling that provider too.
+export function noteBillingStop(provider) { if (BILLING[provider] && !stopped.has(provider)) stopped.set(provider, new BillingStop(provider)); return stopped.get(provider); }
+function billingGuard(provider) { if (stopped.has(provider)) throw stopped.get(provider); }
+function billingCheck(provider, r) {
+  if (r.ok || !BILLING[provider].test(r.status, r.text ?? '')) return;
+  throw noteBillingStop(provider);
+}
+// Test hook: forget the stops of this process.
+export function _resetBillingStops() { stopped.clear(); }
+
 async function http(url, init, { timeoutMs = 120000, retries = 2 } = {}) {
   for (let attempt = 0; ; attempt++) {
     try {
       const res = await fetch(url, { ...init, signal: AbortSignal.timeout(timeoutMs) });
+      // A spend-cap 429 is not a rate limit: retrying cannot help, so it returns at once (billingCheck reads it).
+      if (res.status === 429 && attempt < retries) {
+        const text = await res.text();
+        if (BILLING.gemini.test(429, text)) { let json; try { json = JSON.parse(text); } catch { json = null; } return { ok: false, status: 429, json, text }; }
+      }
       if ((res.status === 429 || res.status >= 500) && attempt < retries) {
         await new Promise((r) => setTimeout(r, 2000 * (attempt + 1)));
         continue;
@@ -53,12 +87,14 @@ async function http(url, init, { timeoutMs = 120000, retries = 2 } = {}) {
 // ── parallel.ai ──────────────────────────────────────────────────────────────
 
 export async function parallelTask(step, { input, schema, processor = 'pro' }) {
+  billingGuard('parallel');
   const headers = { 'x-api-key': need('PARALLEL_API_KEY'), 'content-type': 'application/json' };
   const created = await http('https://api.parallel.ai/v1/tasks/runs', {
     method: 'POST',
     headers,
     body: JSON.stringify({ input, processor, task_spec: { output_schema: { type: 'json', json_schema: schema } } }),
   });
+  billingCheck('parallel', created);
   if (!created.ok) throw new Error(`parallel task create ${created.status}: ${created.text.slice(0, 300)}`);
   const runId = created.json.run_id;
   // The result endpoint blocks until done or its own timeout; poll until it returns a result.
@@ -68,6 +104,7 @@ export async function parallelTask(step, { input, schema, processor = 'pro' }) {
       charge(step, 'parallel', { kind: 'task', processor, runId }, PRICES.parallelTask[processor] ?? 0);
       return { runId, content: r.json.output.content, basis: r.json.output.basis ?? [] };
     }
+    billingCheck('parallel', r);
     if (r.status !== 408 && r.status !== 202 && r.status !== 504) {
       throw new Error(`parallel task result ${r.status}: ${r.text.slice(0, 300)}`);
     }
@@ -76,6 +113,7 @@ export async function parallelTask(step, { input, schema, processor = 'pro' }) {
 }
 
 export async function parallelExtract(step, urls) {
+  billingGuard('parallel');
   const out = {};
   for (let i = 0; i < urls.length; i += 5) {
     const batch = urls.slice(i, i + 5);
@@ -84,6 +122,7 @@ export async function parallelExtract(step, urls) {
       headers: { 'x-api-key': need('PARALLEL_API_KEY'), 'content-type': 'application/json' },
       body: JSON.stringify({ urls: batch, advanced_settings: { full_content: true } }),
     }, { timeoutMs: 180000 });
+    billingCheck('parallel', r);
     if (!r.ok) {
       for (const u of batch) out[u] = { error: `extract ${r.status}: ${r.text.slice(0, 200)}` };
       continue;
@@ -100,6 +139,7 @@ export async function parallelExtract(step, urls) {
 
 // Search restricted to a list of domains; used for press coverage (pipeline/coverage.mjs).
 export async function parallelSearch(step, { objective, queries, domains, afterDate, maxResults = 20 }) {
+  billingGuard('parallel');
   const r = await http('https://api.parallel.ai/v1beta/search', {
     method: 'POST',
     headers: { 'x-api-key': need('PARALLEL_API_KEY'), 'content-type': 'application/json', 'parallel-beta': 'search-extract-2025-10-10' },
@@ -109,6 +149,7 @@ export async function parallelSearch(step, { objective, queries, domains, afterD
       source_policy: { include_domains: domains, ...(afterDate ? { after_date: afterDate } : {}) },
     }),
   });
+  billingCheck('parallel', r);
   if (!r.ok) throw new Error(`parallel search ${r.status}: ${r.text.slice(0, 300)}`);
   const n = (sku) => (r.json.usage ?? []).find((u) => u.name === sku)?.count ?? 0;
   const P = PRICES.parallelSearch;
@@ -152,6 +193,7 @@ export function relevantWindow(text, terms, size = 120000) {
 // ── Gemini (Google AI Studio) ────────────────────────────────────────────────
 
 export async function gemini(step, { system, prompt, schema }) {
+  billingGuard('gemini');
   const model = process.env.DRAFT_MODEL || PRICES.gemini.model;
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
   const body = {
@@ -168,6 +210,7 @@ export async function gemini(step, { system, prompt, schema }) {
   }, { timeoutMs: 180000 });
   let r = await call();
   if (r.status === 400 && /thinking/i.test(r.text)) { delete body.generationConfig.thinkingConfig; r = await call(); }
+  billingCheck('gemini', r);
   if (!r.ok) throw new Error(`gemini ${r.status}: ${r.text.slice(0, 300)}`);
   const u = r.json.usageMetadata ?? {};
   const inTok = u.promptTokenCount ?? 0;
@@ -180,11 +223,13 @@ export async function gemini(step, { system, prompt, schema }) {
 // ── Jev (TypeSafe): typed judgments, no generated text ───────────────────────
 
 export async function jev(step, state, questions) {
+  billingGuard('jev');
   const r = await http('https://api.typesafe.ai/v1/systemone', {
     method: 'POST',
     headers: { authorization: `Bearer ${need('TYPESAFE_API_KEY')}`, 'content-type': 'application/json' },
     body: JSON.stringify({ state, model: PRICES.jev.model, questions }),
   });
+  billingCheck('jev', r);
   if (!r.ok) throw new Error(`jev ${r.status}: ${r.text.slice(0, 300)}`);
   const inTok = r.json.usage?.input_tokens ?? 0;
   charge(step, 'jev', { model: r.json.model, inTok }, (inTok * PRICES.jev.inPerM) / 1e6);

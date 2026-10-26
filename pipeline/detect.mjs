@@ -7,7 +7,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parallelTask, jev, PRICES } from './lib.mjs';
+import { parallelTask, jev, PRICES, isBillingStop } from './lib.mjs';
 import { root, loadConfig, loadCandidates, saveCandidates, loadCases, loadSeeds, writeSeed, seedExists, urlKey } from './state.mjs';
 
 const FIT = 0.5; // rule (b) probability at or above which a candidate goes on to research
@@ -169,6 +169,7 @@ export async function triage(toTriage, allKnown, { log = console.log, jevFn = je
       const a = await jevFn('triage', state, q);
       for (const i of idx) answers[i] = { fit: a[`fit${i}`], same: a[`same${i}`] };
     } catch (e) {
+      if (isBillingStop(e)) throw e; // out of money: every later group would fail too; auto.mjs reports it
       // Only a request that is too long gets smaller by splitting; any other failure (auth, outage) fails the group.
       const tooLong = /max_tokens_exceeded|jev 413/.test(String(e.message ?? e));
       if (tooLong && idx.length > 1) {
