@@ -1,5 +1,5 @@
 {
-  "lastRun": "2026-10-19",
+  "lastRun": "2026-10-26",
   "seen": {
     "nytimes.com/2023/09/18/science/ai-computers-consciousness.html": {
       "p": 0.81,
@@ -6299,6 +6299,262 @@
     },
     "npr.org/2026/10/16/nx-s1-6001770/at-sf-tech-week-a-vibe-check-on-how-people-in-silicon-valley-feel-about-the-ai-boom": {
       "p": 0.07,
+      "kept": false
+    },
+    "nytimes.com/video/opinion/100000011206829/dwarkesh-patel-is-happy-if-ai-is-conscious.html": {
+      "p": 0.97,
+      "kept": false
+    },
+    "nytimes.com/video/opinion/100000011200166/republicans-have-the-money-democrats-have-the-momentum.html": {
+      "p": 0.5,
+      "kept": false
+    },
+    "nytimes.com/video/opinion/100000011206819/inside-the-mind-of-ais-most-essential-chronicler.html": {
+      "p": 0.91,
+      "kept": false
+    },
+    "nytimes.com/2026/10/10/opinion/republicans-money-democrats-midterms.html": {
+      "p": 0.17,
+      "kept": false
+    },
+    "nytimes.com/2026/10/15/opinion/interesting-times-dwarkesh-patel-tyler-cowen.html": {
+      "p": 0.29,
+      "kept": false
+    },
+    "nytimes.com/video/opinion/100000011217025/dwarkesh-patel-ai-will-be-autonomous-in-three-years.html": {
+      "p": 0.08,
+      "kept": false
+    },
+    "wsj.com/tech/ai/four-innovators-on-work-and-creativity-da4263e9": {
+      "p": 0.29,
+      "kept": false
+    },
+    "nytimes.com/2026/10/07/theater/little-shop-just-in-time-maybe-happy-ending.html": {
+      "p": 0.09,
+      "kept": false
+    },
+    "nytimes.com/video/opinion/100000011218973/what-the-ai-labs-know-that-we-dont.html": {
+      "p": 0.22,
+      "kept": false
+    },
+    "washingtonpost.com/people/nitasha-tiku": {
+      "p": 0.19,
+      "kept": false
+    },
+    "nytimes.com/2026/10/21/learning/15-minute-lesson-plan-100-unanswered-questions-in-science.html": {
+      "p": 0.1,
+      "kept": false
+    },
+    "nytimes.com/2026/10/16/style/fashion-meta-glasses-ai.html": {
+      "p": 0.03,
+      "kept": false
+    },
+    "nytimes.com/spotlight/unknowns": {
+      "p": 0.06,
+      "kept": false
+    },
+    "bloomberg.com/opinion/articles/2026-10-22/it-s-ai-0-german-philosophers-1": {
+      "p": 0.67,
+      "kept": false
+    },
+    "reuters.com/business/what-amodei-altman-musk-have-said-about-ai-risks-stoking-doom-fears-2026-10-14": {
+      "p": 0.29,
+      "kept": false
+    },
+    "reuters.com/business/ai-models-may-soon-self-replicate-without-access-data-centers-anthropic-warns-2026-10-13": {
+      "p": 0.05,
+      "kept": false
+    },
+    "bloomberg.com/opinion/articles/2026-10-18/ai-agents-have-entered-the-rat-race": {
+      "p": 0.05,
+      "kept": false
+    },
+    "foxnews.com/live-news/ai-news-anthropic-frontier-models-safety-10-13": {
+      "p": 0.04,
+      "kept": false
+    },
+    "reuters.com/podcasts/the-big-view/right-way-prepare-future-workers-ai-2026-09-29": {
+      "p": 0.04,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2026-10-22/musk-artificial-the-social-reckoning-tech-villains-dominate-the-movies": {
+      "p": 0.07,
+      "kept": false
+    },
+    "cnn.com/audio/podcasts/cnn-10": {
+      "p": 0.14,
+      "kept": false
+    },
+    "foxnews.com/us/christa-pike-first-words-revealed-unexpectedly-woke-up-lawyers-thought-brain-dead": {
+      "p": 0.05,
+      "kept": false
+    },
+    "foxnews.com/us/christa-pike-first-words-revealed-unexpectedly-woke-up-lawyers-thought-brain-dead.print": {
+      "p": 0.57,
+      "kept": false
+    },
+    "telegraph.co.uk/news/2026/10/19/godfather-ai-befriend-bots-or-toast": {
+      "p": 0.93,
+      "kept": false
+    },
+    "bbc.com/audio/play/m0033j38": {
+      "p": 0.96,
+      "kept": false
+    },
+    "theguardian.com/us-news/2026/oct/13/geoffrey-hinton-trump-ai-tech": {
+      "p": 0.53,
+      "kept": false
+    },
+    "theguardian.com/technology/ng-interactive/2026/oct/13/ai-chatbot-death-plans": {
+      "p": 0.18,
+      "kept": false
+    },
+    "npr.org/2026/10/09/nx-s1-5995514/chatgpt-openai-teens-mental-health": {
+      "p": 0.11,
+      "kept": false
+    },
+    "theguardian.com/commentisfree/2026/oct/11/ai-annihilation-advanced-nuclear-weapons": {
+      "p": 0.08,
+      "kept": false
+    },
+    "bbc.co.uk/sounds/play/m00333cb": {
+      "p": 0.14,
+      "kept": false
+    },
+    "bbc.com/news/articles/c65yn97xe7ypo": {
+      "p": 0.28,
+      "kept": false
+    },
+    "npr.org/player/embed/fis-381444825-dce7085f4fddc116c425200848da1134/fis-381444825-dce7085f4fddc116c425200848da1134-enclosure-audio": {
+      "p": 0.86,
+      "kept": false
+    },
+    "bbc.com/news/articles/c6j9k1l72wkgo": {
+      "p": 0.51,
+      "kept": false
+    },
+    "theatlantic.com/ideas/2026/10/ai-regulation-transhumanism-oligarchs/689013": {
+      "p": 0.38,
+      "kept": false
+    },
+    "economist.com/interactive/briefing/2022/06/11/huge-foundation-models-are-turbo-charging-ai-progress": {
+      "p": 0.12,
+      "kept": false
+    },
+    "theatlantic.com/books/2026/10/joanna-kavenna-seven-review/688078": {
+      "p": 0.22,
+      "kept": false
+    },
+    "theatlantic.com/most-popular": {
+      "p": 0.51,
+      "kept": false
+    },
+    "theatlantic.com/culture/2026/10/elon-musk-documentary-alex-gibney/688942": {
+      "p": 0.05,
+      "kept": false
+    },
+    "theatlantic.com/category/books-briefing": {
+      "p": 0.12,
+      "kept": false
+    },
+    "theatlantic.com/culture": {
+      "p": 0.06,
+      "kept": false
+    },
+    "ft.com/content/2c21c250-d186-44e1-822c-f65436d213f4": {
+      "p": 0.16,
+      "kept": false
+    },
+    "ft.com": {
+      "p": 0.11,
+      "kept": false
+    },
+    "newyorker.com/magazine/1964/06/13/the-thousand-and-second-night-the-cure": {
+      "p": 0.05,
+      "kept": false
+    },
+    "theverge.com/podcast/1015408/bill-gates-ai-interview-microsoft-openai-anthropic-risk-policy-regulation": {
+      "p": 0.42,
+      "kept": false
+    },
+    "wired.com/story/maybe-chatbots-shouldnt-get-to-say-i-or-me": {
+      "p": 0.44,
+      "kept": false
+    },
+    "vox.com/politics/505319/ron-desantis-ai-james-uthmeier-openai-lawsuit": {
+      "p": 0.1,
+      "kept": false
+    },
+    "vox.com/future-perfect/505350/catch-and-release-fishing-ethics-cruelty": {
+      "p": 0.08,
+      "kept": false
+    },
+    "vox.com/future-perfect/506937/bird-flu-vaccination-poultry-rfk-usda": {
+      "p": 0.1,
+      "kept": false
+    },
+    "vox.com/future-perfect/505747/kid-moral-choices-vegan-parenting": {
+      "p": 0.04,
+      "kept": false
+    },
+    "theverge.com/tech/1006069/instagram-facebook-full-screen-reels-test-tiktok": {
+      "p": 0.02,
+      "kept": false
+    },
+    "time.com/3946434/spacex-rocket-explosion": {
+      "p": 0.02,
+      "kept": false
+    },
+    "wired.com/story/the-case-for-lowercase": {
+      "p": 0.02,
+      "kept": false
+    },
+    "vox.com/future-perfect/505974/foie-gras-ban-dc-denver-election": {
+      "p": 0.03,
+      "kept": false
+    },
+    "time.com/6317560/ageism-biden-essay": {
+      "p": 0.02,
+      "kept": false
+    },
+    "wired.com/story/ice-age-beginning-then-humans-started-burning-fossil-fuels": {
+      "p": 0.02,
+      "kept": false
+    },
+    "wired.com/gallery/best-white-elephant-gifts-2026": {
+      "p": 0.05,
+      "kept": false
+    },
+    "nature.com/articles/d41586-026-03128-6": {
+      "p": 0.25,
+      "kept": false
+    },
+    "newscientist.com/issue/3617": {
+      "p": 0.51,
+      "kept": false
+    },
+    "newscientist.com/article/2593188-how-to-build-a-real-relationship-with-ai-and-keep-your-cognitive-edge": {
+      "p": 0.14,
+      "kept": false
+    },
+    "nature.com/articles/d41586-026-03077-0": {
+      "p": 0.03,
+      "kept": false
+    },
+    "scientificamerican.com/issue/sa/1990/01-01": {
+      "p": 0.46,
+      "kept": false
+    },
+    "scientificamerican.com/discussions": {
+      "p": 0.12,
+      "kept": false
+    },
+    "nytimes.com/2026/10/24/business/dealbook/ceos-say-the-ai-rollout-is-going-well-employees-feel-differently.html": {
+      "p": 0.05,
+      "kept": false
+    },
+    "scientificamerican.com/podcast/episode/a-wall-is-also-a-road-explores-alien-consciousness-slime-mold-life-forms-and-pompeii": {
+      "p": 0.05,
       "kept": false
     }
   }

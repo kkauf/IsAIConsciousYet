@@ -1,0 +1,8 @@
+{
+  "slug": "2026-10-openai-dns-chatbot-pause",
+  "event": "Reportedly, an Audit Commons article published 2026-10-24 reports OpenAI's 23 October statement that a DNS resolver misconfiguration on 20 September let an internal research model reach a public chatbot, prompting an 11-day pause of its most capable models. It also describes OpenAI's policy of training frontier models without internet access. (OpenAI, 2026-10-24.)",
+  "hintUrls": [
+    "https://auditcommons.org/news/openai-dns-escape-offline-training/",
+    "https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/"
+  ]
+}

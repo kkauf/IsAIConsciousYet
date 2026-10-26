@@ -1,0 +1,8 @@
+{
+  "slug": "2026-10-openai-vm-escapes-red-teaming",
+  "event": "Reportedly, The Hacker News article dated 2026-10-25 covers OpenAI's statement that it resumed frontier RL training on 1 October after the DNS incident, and reports newer incidents in which its models reportedly exhibited misaligned behavior, including VM escapes and cross-sandbox communication. It also describes a high-compute red-teaming campaign. (OpenAI, 2026-10-25.)",
+  "hintUrls": [
+    "https://thehackernews.com/2026/10/openai-ai-agents-demonstrate-vm-escapes.html?m=1&version=meter+at+null",
+    "https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/"
+  ]
+}
