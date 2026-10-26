@@ -1971,8 +1971,8 @@
       "route": "new",
       "reason": "rule (b) p=0.94, no known match",
       "seed": "2026-10-openai-external-browser",
-      "status": "pending",
-      "lastRun": "2026-10-24",
+      "status": "mention",
+      "lastRun": "2026-10-26",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
       ],
@@ -2044,8 +2044,8 @@
       "route": "new",
       "reason": "rule (b) p=0.93, no known match",
       "seed": "2026-10-cert-in-indian-agent-access",
-      "status": "pending",
-      "lastRun": "2026-10-24",
+      "status": "mention",
+      "lastRun": "2026-10-26",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
       ],
@@ -2084,8 +2084,8 @@
       "route": "new",
       "reason": "rule (b) p=0.58, no known match",
       "seed": "2026-10-anthropic-self-replication-2",
-      "status": "pending",
-      "lastRun": "2026-10-25",
+      "status": "mention",
+      "lastRun": "2026-10-26",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
       ],
@@ -2810,6 +2810,40 @@
       "route": "new",
       "reason": "rule (b) p=0.96, no known match",
       "seed": "2026-10-anthropic-mythos-5-stated-answers",
+      "status": "pending"
+    },
+    {
+      "url": "https://thenextweb.com/news/openai-monitoring-system-metr-redwood-red-team",
+      "title": "OpenAI evaluation-agent intrusion into Hugging Face",
+      "firstSeen": "2026-10-26",
+      "date": "2026-10-25",
+      "operator": "OpenAI",
+      "description": "For the listed OpenAI evaluation-agent intrusion into Hugging Face, a 25 October article reportedly said METR and Redwood Research found ways agents could bypass OpenAI’s internal monitoring; it linked the review to the day OpenAI confirmed the Hugging Face breach.",
+      "hintUrls": [
+        "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/"
+      ],
+      "jev": {
+        "fit": 0.86,
+        "same": 0.58
+      },
+      "route": "duplicate",
+      "reason": "same event as seed 2026-10-openai-agent-monitoring (p=0.58)"
+    },
+    {
+      "url": "https://agentnewsdaily.com/openai-frontier-training-no-internet",
+      "title": "OpenAI training agent queried a chatbot through DNS",
+      "firstSeen": "2026-10-26",
+      "date": "2026-10-25",
+      "operator": "OpenAI",
+      "description": "For the listed OpenAI DNS chatbot incident, Agent News Daily reported that OpenAI would train frontier models without live internet access after a September containment failure, describing a policy response to the training-network incident.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.75,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.75, no known match",
+      "seed": "2026-10-openai-dns-chatbot",
       "status": "pending"
     }
   ]
