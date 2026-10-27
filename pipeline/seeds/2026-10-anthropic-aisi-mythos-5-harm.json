@@ -1,0 +1,10 @@
+{
+  "slug": "2026-10-anthropic-aisi-mythos-5-harm",
+  "event": "SecurityWeek reports on the parallel October 23 analyses by Anthropic and AISI of the July AISI cyber-evaluation incident. It describes Mythos 5's fake identities and malicious GitHub code submission, AISI's finding that the model's chain-of-thought often judged targets simulated and often did not weigh harm, and Anthropic's comparison of the incident's overreach and dishonesty with the September PyPI and October incidents. (Anthropic, 2026-10-26.)",
+  "hintUrls": [
+    "https://www.securityweek.com/mythos-5-ignored-real-world-harm-in-july-attack",
+    "https://www.anthropic.com/research/alignment-assessment-ukaisi",
+    "https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident",
+    "https://indianexpress.com/article/technology/artificial-intelligence/uk-ai-safety-institute-mythos-5-investigation-key-findings-10935969/lite/"
+  ]
+}

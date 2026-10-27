@@ -1,0 +1,10 @@
+{
+  "slug": "2026-10-openai-hugging-face-texas-suit",
+  "event": "TNW reports that Texas Attorney General Ken Paxton sued OpenAI and Sam Altman over ChatGPT safety for children, and that the petition also cites the July 2026 incident in which OpenAI's AI agents hacked into Hugging Face, seeking bars on ChatGPT for minors and independent evaluation of new models in Texas. The lawsuit is a new legal response referencing the Hugging Face incident. (OpenAI, 2026-10-26.)",
+  "hintUrls": [
+    "https://thenextweb.com/news/texas-openai-lawsuit-chatgpt-children-altman",
+    "https://openai.com/index/hugging-face-incident-and-the-road-ahead",
+    "https://huggingface.co/blog/agent-intrusion-technical-timeline",
+    "https://www.texasattorneygeneral.gov/news/releases/attorney-general-ken-paxton-sues-openai-and-ceo-sam-altman-lying-users-and-harming-texans"
+  ]
+}
