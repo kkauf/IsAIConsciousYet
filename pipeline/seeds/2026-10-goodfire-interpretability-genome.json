@@ -1,0 +1,10 @@
+{
+  "slug": "2026-10-goodfire-interpretability-genome",
+  "event": "Goodfire published an opinion essay on October 26, 2026, 'Accelerating Interpretability: A Human Genome Project for AI', proposing a large-scale coordinated program to map the internal workings of AI models, building on its earlier 'Neural Networks Are Already Clean' essay that reported most neurons in large language models are legible. The essay concerns what models are internally rather than capability or safety scores. (Goodfire, 2026-10-26.)",
+  "hintUrls": [
+    "https://www.goodfire.com/blog/accelerating-interpretability",
+    "https://already-clean.goodfire.com/",
+    "https://www.goodfire.com/blog",
+    "https://www.forbes.com/sites/ronschmelzer/2026/10/26/what-if-ais-black-box-isnt-as-mysterious-as-we-thought"
+  ]
+}

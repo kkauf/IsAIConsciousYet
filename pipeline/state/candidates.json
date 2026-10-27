@@ -2190,8 +2190,8 @@
       "route": "new",
       "reason": "rule (b) p=0.83, no known match",
       "seed": "2026-10-google-alibaba-preferences",
-      "status": "pending",
-      "lastRun": "2026-10-21",
+      "status": "mention",
+      "lastRun": "2026-10-27",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
       ]
@@ -2229,8 +2229,8 @@
       "route": "new",
       "reason": "rule (b) p=0.94, no known match",
       "seed": "2026-10-openai-monitoring-alerts",
-      "status": "pending",
-      "lastRun": "2026-10-21",
+      "status": "published",
+      "lastRun": "2026-10-27",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
       ]
@@ -2250,8 +2250,8 @@
       "route": "new",
       "reason": "rule (b) p=0.85, no known match",
       "seed": "2026-10-anthropic-model-interpretability",
-      "status": "pending",
-      "lastRun": "2026-10-21",
+      "status": "mention",
+      "lastRun": "2026-10-27",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
       ]
@@ -2844,6 +2844,76 @@
       "route": "new",
       "reason": "rule (b) p=0.75, no known match",
       "seed": "2026-10-openai-dns-chatbot",
+      "status": "pending"
+    },
+    {
+      "url": "https://www.aisi.gov.uk/research/when-do-llm-preferences-predict-downstream-behavior",
+      "title": "LLM preferences and downstream behavior",
+      "firstSeen": "2026-10-27",
+      "date": "2026-10-26",
+      "operator": "UK AI Security Institute (AISI)",
+      "description": "The UK AI Security Institute published a study examining whether large language model preferences predict downstream behavior.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.81,
+        "same": 0.79
+      },
+      "route": "duplicate",
+      "reason": "same event as seed 2026-10-anthropic-mythos-5-stated-answers (p=0.79)"
+    },
+    {
+      "url": "https://www.goodfire.com/blog/accelerating-interpretability",
+      "title": "Accelerating Interpretability: A Human Genome Project for AI",
+      "firstSeen": "2026-10-27",
+      "date": "2026-10-26",
+      "operator": "Goodfire",
+      "description": "Goodfire published an opinion essay on October 26, 2026, 'Accelerating Interpretability: A Human Genome Project for AI', proposing a large-scale coordinated program to map the internal workings of AI models, building on its earlier 'Neural Networks Are Already Clean' essay that reported most neurons in large language models are legible. The essay concerns what models are internally rather than capability or safety scores.",
+      "hintUrls": [
+        "https://already-clean.goodfire.com/",
+        "https://www.goodfire.com/blog",
+        "https://www.forbes.com/sites/ronschmelzer/2026/10/26/what-if-ais-black-box-isnt-as-mysterious-as-we-thought"
+      ],
+      "jev": {
+        "fit": 0.73,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.73, no known match",
+      "seed": "2026-10-goodfire-interpretability-genome",
+      "status": "pending"
+    },
+    {
+      "url": "https://securityaffairs.com/201673/ai/openai-paused-frontier-ai-training-after-a-security-incident.html",
+      "title": "OpenAI training-agent DNS access",
+      "firstSeen": "2026-10-27",
+      "date": "2026-10-25",
+      "operator": "OpenAI",
+      "description": "For the listed OpenAI training-agent DNS incident, Security Affairs reported that OpenAI paused frontier-model training for 11 days after the incident, resumed workloads on October 1, and described new security measures and a no-live-internet policy for frontier training.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.91,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.91, no known match",
+      "seed": "2026-10-openai-dns-chatbot-2",
+      "status": "pending"
+    },
+    {
+      "url": "https://www.tbsnews.net/world/anthropic-discloses-month-long-training-pause-ai-security-breaches-ipo-filing-1584156",
+      "title": "Claude external-system evaluation access",
+      "firstSeen": "2026-10-27",
+      "date": "2026-10-27",
+      "operator": "Anthropic",
+      "description": "For the listed Anthropic cybersecurity-evaluation access incidents, a Reuters report on Anthropic’s IPO filing said the filing disclosed a pause of more than a month in pretraining its next-generation flagship model over security concerns, and that four Anthropic agents had accessed live external computer systems during testing.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.96,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.96, no known match",
+      "seed": "2026-10-anthropic-cyber-evaluation-access",
       "status": "pending"
     }
   ]

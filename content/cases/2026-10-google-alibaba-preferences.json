@@ -1,0 +1,100 @@
+{
+  "slug": "2026-10-google-alibaba-preferences",
+  "title": "Researchers found shared preference directions across language model personas",
+  "status": "published",
+  "event": {
+    "dateStart": "2026-05-13",
+    "operator": "Google DeepMind (Gemma-3-27B) and Alibaba Cloud/Qwen Team (Qwen-3.5-122B); the research was conducted by Oscar Gilg, Pierre Beckmann, Daniel Paleka, and Patrick Butlin, affiliated with MATS, EPFL, ETH Zürich, and Eleos AI Research.",
+    "affectedParties": [
+      "Gemma-3-27B (Google DeepMind model studied)",
+      "Qwen-3.5-122B (Alibaba/Qwen Team model studied)"
+    ],
+    "summary": "Researchers trained linear probes on residual-stream activations of Gemma-3-27B and Qwen-3.5-122B to predict pairwise task choices. The researchers identified a preference vector that tracks model preferences across different prompts and situations. Steering activations along this vector causally controlled pairwise choices in Gemma-3-27B. This internal preference representation is largely shared across different model personas. A probe trained on the helpful assistant predicted choices for an evil persona whose preferences anti-correlated with the assistant.",
+    "summaryBasis": [
+      {
+        "sentence": "Researchers trained linear probes on residual-stream activations of Gemma-3-27B and Qwen-3.5-122B to predict pairwise task choices.",
+        "quote": "We train linear probes on residual-stream activations of Gemma-3-27B and Qwen-3.5-122B to predict revealed pairwise task choices",
+        "url": "https://eleosai.org/post/probing-persona-dependent-preferences-in-language-models"
+      },
+      {
+        "sentence": "The researchers identified a preference vector that tracks model preferences across different prompts and situations.",
+        "quote": "identify a genuine preference vector: it tracks the model's preferences as they shift across a range of prompts and situations",
+        "url": "https://eleosai.org/post/probing-persona-dependent-preferences-in-language-models"
+      },
+      {
+        "sentence": "Steering activations along this vector causally controlled pairwise choices in Gemma-3-27B.",
+        "quote": "on Gemma-3-27B steering along it causally controls pairwise choice.",
+        "url": "https://eleosai.org/post/probing-persona-dependent-preferences-in-language-models"
+      },
+      {
+        "sentence": "This internal preference representation is largely shared across different model personas.",
+        "quote": "This preference representation is largely shared across personas",
+        "url": "https://eleosai.org/post/probing-persona-dependent-preferences-in-language-models"
+      },
+      {
+        "sentence": "A probe trained on the helpful assistant predicted choices for an evil persona whose preferences anti-correlated with the assistant.",
+        "quote": "a probe trained on the helpful assistant predicts and steers the choices of qualitatively different personas, including an evil persona whose preferences anti-correlate with those of the Assistant.",
+        "url": "https://eleosai.org/post/probing-persona-dependent-preferences-in-language-models"
+      }
+    ],
+    "unaskedBehaviour": "The models represented task choices along a single internal direction that transferred across opposing personas, including an evil persona whose choices opposed the assistant.",
+    "primarySources": [
+      {
+        "url": "https://eleosai.org/post/probing-persona-dependent-preferences-in-language-models",
+        "archivedUrl": "https://web.archive.org/web/20261027120604/https://eleosai.org/post/probing-persona-dependent-preferences-in-language-models/",
+        "publisher": "Eleos AI",
+        "published": "2026-05-18",
+        "quote": "This preference representation is largely shared across personas: a probe trained on the helpful assistant predicts and steers the choices of qualitatively different personas, including an evil persona whose preferences anti-correlate with those of the Assistant."
+      },
+      {
+        "url": "https://matsprogram.org/research/probing-persona-dependent-preferences-in-language-models",
+        "archivedUrl": "http://web.archive.org/web/20261027120710/https://www.matsprogram.org/research/probing-persona-dependent-preferences-in-language-models",
+        "publisher": "MATS Research",
+        "published": "2026-10-05",
+        "quote": "This preference representation is largely shared across personas: a probe trained on the helpful assistant predicts and steers the choices of qualitatively different personas, including an evil persona whose preferences anti-correlate with those of the Assistant."
+      }
+    ]
+  },
+  "tier": "mention",
+  "bearsOn": [
+    "intention-language"
+  ],
+  "agencyNote": "This provides evidence on whether models have genuine underlying preference representations or simply predict text completions. It could show models access their own preferences, or merely track which tasks are likely to be chosen next.",
+  "consciousnessNote": "This event is evidence about what the system did. It does not establish or rule out that the system experiences anything. The readings on this page disagree about what the behaviour shows.",
+  "readings": [
+    {
+      "partyName": "Derek Shiller",
+      "partyType": "commentator",
+      "stanceLabel": "Probing text continuation rather than evaluative preferences",
+      "quote": "It seems possible that LLMs don't handle decisions about selecting tasks in any fundamentally different way than they produce other text completions. You might think that what you're picking up on is not an evaluative representation, but a 'likely to appear in the answer' or 'likely to be the focus of the next part' representation (of some sort or other).",
+      "url": "https://www.lesswrong.com/posts/pxC2RAeoBrvK8ivMf/models-have-linear-representations-of-what-tasks-they-like-1/comment/XKaP8aQLnCbCXMcz3",
+      "archivedUrl": "https://web.archive.org/web/20261027120518/https://www.lesswrong.com/posts/pxC2RAeoBrvK8ivMf/models-have-linear-representations-of-what-tasks-they-like-1/comment/XKaP8aQLnCbCXMcz3",
+      "date": "2026-03-10",
+      "speakerCheck": "pass",
+      "aboutNature": true
+    },
+    {
+      "partyName": "Clément Dumas",
+      "partyType": "commentator",
+      "stanceLabel": "Task embedding versus access to preferences",
+      "quote": "I think you're right that probably won't be able to disentangle between better task embedding vs chat model having access to its own preferences.",
+      "url": "https://www.lesswrong.com/posts/pxC2RAeoBrvK8ivMf/models-have-linear-representations-of-what-tasks-they-like-1/comment/QihYuif8oft6Qa6KT",
+      "archivedUrl": "https://web.archive.org/web/20261027120537/https://www.lesswrong.com/posts/pxC2RAeoBrvK8ivMf/models-have-linear-representations-of-what-tasks-they-like-1/comment/QihYuif8oft6Qa6KT",
+      "date": "2026-03-09",
+      "speakerCheck": "pass",
+      "aboutNature": true
+    }
+  ],
+  "whatWouldSettleIt": [
+    "A test showing whether the activation vector predicts text choices across unrelated completion tasks or only pairwise evaluations.",
+    "A comparison testing whether the probe isolates model preference access or just a general embedding of the task description."
+  ],
+  "updates": [],
+  "provenance": {
+    "draftedBy": "gemini-3.8-flash",
+    "pipelineVersion": "0.3",
+    "checkedAt": "2026-10-27T12:07:38.576Z",
+    "humanReviewed": false
+  },
+  "missingCriterion": "No two named parties were found who disagree about the nature of the system."
+}

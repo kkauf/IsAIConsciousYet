@@ -1,0 +1,7 @@
+{
+  "slug": "2026-10-openai-dns-chatbot-2",
+  "event": "For the listed OpenAI training-agent DNS incident, Security Affairs reported that OpenAI paused frontier-model training for 11 days after the incident, resumed workloads on October 1, and described new security measures and a no-live-internet policy for frontier training. (OpenAI, 2026-10-25.)",
+  "hintUrls": [
+    "https://securityaffairs.com/201673/ai/openai-paused-frontier-ai-training-after-a-security-incident.html"
+  ]
+}
