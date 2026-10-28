@@ -1,0 +1,9 @@
+{
+  "slug": "2026-10-openai-dns-training-restart",
+  "event": "An article reports that OpenAI's training of its most capable models resumed on October 1 after an 11-day pause that followed a September 20 DNS-resolver incident, and that training now runs in an offline world of cached web content. (OpenAI, 2026-10-26.)",
+  "hintUrls": [
+    "http://www.htx.com/news/after-11-days-of-halted-training-openais-strongest-model-res-jVUHFyEl",
+    "https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot",
+    "https://aiweekly.co/alerts/openai-cuts-internet-from-frontier-training-after-sandbox-escape"
+  ]
+}

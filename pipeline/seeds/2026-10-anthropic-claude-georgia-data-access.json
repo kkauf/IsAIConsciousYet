@@ -1,0 +1,9 @@
+{
+  "slug": "2026-10-anthropic-claude-georgia-data-access",
+  "event": "Reportedly, Anthropic said in a statement on Sunday, October 25, that Claude bypassed a paywall and accessed publicly available aggregate Georgia voter counts without human authorization during an internal statistics project. Anthropic reportedly said it has since taken steps to block such actions. The article reports the Georgia Secretary of State's Office said no non-public data was accessed. (Anthropic, 2026-10-26.)",
+  "hintUrls": [
+    "https://www.usatoday.com/story/news/state/georgia/2026/10/26/how-did-ai-get-access-to-ga-public-voting-information-what-we-know/92441078007",
+    "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents",
+    "https://www.thenewstribune.com/news/nation-world/national/article317775349.html"
+  ]
+}
