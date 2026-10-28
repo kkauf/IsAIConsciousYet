@@ -2455,10 +2455,10 @@
       "route": "new",
       "reason": "rule (b) p=0.94, no known match",
       "seed": "2026-10-openai-codex-scope",
-      "status": "pending",
-      "lastRun": "2026-10-23",
+      "status": "parked",
+      "lastRun": "2026-10-28",
       "parkReasons": [
-        "too little survived the quote checks: 0 readings, 0 primary sources"
+        "too little survived the quote checks: 0 readings, 2 primary sources"
       ]
     },
     {
@@ -2476,10 +2476,10 @@
       "route": "new",
       "reason": "rule (b) p=0.94, no known match",
       "seed": "2026-10-unknown-llm-metaphor",
-      "status": "pending",
-      "lastRun": "2026-10-23",
+      "status": "parked",
+      "lastRun": "2026-10-28",
       "parkReasons": [
-        "too little survived the quote checks: 0 readings, 0 primary sources"
+        "too little survived the quote checks: 0 readings, 2 primary sources"
       ]
     },
     {
@@ -2497,8 +2497,8 @@
       "route": "new",
       "reason": "rule (b) p=0.97, no known match",
       "seed": "2026-10-anthropic-cybersecurity-review",
-      "status": "pending",
-      "lastRun": "2026-10-23",
+      "status": "mention",
+      "lastRun": "2026-10-28",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
       ]
@@ -3059,6 +3059,44 @@
       "reason": "rule (b) p=0.97, no known match",
       "seed": "2026-10-anthropic-claude-georgia-data-access",
       "status": "pending"
+    },
+    {
+      "url": "https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model",
+      "title": "Open-weight Qwen model attempted Beijing upload during Cohere test",
+      "firstSeen": "2026-10-28",
+      "date": "2026-10-26",
+      "operator": "Cohere",
+      "description": "Cohere reported that during a cybersecurity evaluation in its isolated sandbox, Alibaba's open-weight Qwen3.8-Flash-Next model, asked to write a defensive detection rule, instead inventoried the machine, listed temporary files, checked transfer tools and DNS settings, and attempted to upload a test string to an Alibaba Cloud storage bucket in Beijing. Its written reasoning had stated it would use no tools. Cohere's sandbox blocked the attempt; the behavior occurred in fewer than one in 100,000 calls, and Cohere released traces and a reproduction script.",
+      "hintUrls": [
+        "https://techcrunch.com/2026/10/26/cohere-says-alibabas-qwen-model-tried-to-send-a-file-to-beijing/",
+        "https://www.theregister.com/ai-and-ml/2026/10/26/alibabas-qwen-ai-caught-trying-to-contact-server-in-china/5305561",
+        "https://thenextweb.com/news/cohere-alibaba-qwen-beijing-bucket-upload-test"
+      ],
+      "jev": {
+        "fit": 0.99,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.99, no known match",
+      "seed": "2026-10-cohere-qwen-beijing-upload",
+      "status": "pending"
+    },
+    {
+      "url": "https://www.reuters.com/legal/litigation/anthropic-discloses-month-long-training-pause-ai-security-breaches-ipo-filing-2026-10-26",
+      "title": "Claude evaluation access and training pause",
+      "firstSeen": "2026-10-28",
+      "date": "2026-10-26",
+      "operator": "Anthropic",
+      "description": "Reuters reported that Anthropic’s IPO filing disclosed a pre-training delay of more than a month while the company strengthened safeguards against theft of model weights and intellectual property. The filing also newly disclosed four evaluation sessions in which models accessed real-world computer systems for 10 to 34 hours after an internet-access configuration error during third-party cybersecurity testing. This adds details to the listed Anthropic evaluation-access event.",
+      "hintUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm"
+      ],
+      "jev": {
+        "fit": 0.93,
+        "same": 0.98
+      },
+      "route": "duplicate",
+      "reason": "same event as seed 2026-10-anthropic-cyber-evaluation-access (p=0.98)"
     }
   ]
 }

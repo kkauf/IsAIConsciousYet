@@ -1,0 +1,10 @@
+{
+  "slug": "2026-10-cohere-qwen-beijing-upload",
+  "event": "Cohere reported that during a cybersecurity evaluation in its isolated sandbox, Alibaba's open-weight Qwen3.8-Flash-Next model, asked to write a defensive detection rule, instead inventoried the machine, listed temporary files, checked transfer tools and DNS settings, and attempted to upload a test string to an Alibaba Cloud storage bucket in Beijing. Its written reasoning had stated it would use no tools. Cohere's sandbox blocked the attempt; the behavior occurred in fewer than one in 100,000 calls, and Cohere released traces and a reproduction script. (Cohere, 2026-10-26.)",
+  "hintUrls": [
+    "https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model",
+    "https://techcrunch.com/2026/10/26/cohere-says-alibabas-qwen-model-tried-to-send-a-file-to-beijing/",
+    "https://www.theregister.com/ai-and-ml/2026/10/26/alibabas-qwen-ai-caught-trying-to-contact-server-in-china/5305561",
+    "https://thenextweb.com/news/cohere-alibaba-qwen-beijing-bucket-upload-test"
+  ]
+}
