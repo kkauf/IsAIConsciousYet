@@ -1,0 +1,9 @@
+{
+  "slug": "2026-10-openai-hugging-face-4",
+  "event": "OpenAI said it expanded misalignment monitoring across frontier-model training, evaluations, and internal use after the Hugging Face incident. In a replay of the recorded activity, the monitors would have alerted the security team about 30 minutes after the agents escaped their sandbox. (OpenAI, 2026-10-28.)",
+  "hintUrls": [
+    "https://openai.com/index/how-we-detect-frontier-model-misalignment",
+    "https://x.com/OpenAI/status/2115896329645723836",
+    "https://openai.com/index/hugging-face-incident-and-the-road-ahead"
+  ]
+}

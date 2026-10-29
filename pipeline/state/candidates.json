@@ -2659,10 +2659,10 @@
       "route": "new",
       "reason": "rule (b) p=0.88, no known match",
       "seed": "2026-10-google-gemma-rude-users",
-      "status": "pending",
-      "lastRun": "2026-10-25",
+      "status": "parked",
+      "lastRun": "2026-10-29",
       "parkReasons": [
-        "too little survived the quote checks: 0 readings, 0 primary sources"
+        "too little survived the quote checks: 1 readings, 2 primary sources"
       ]
     },
     {
@@ -2702,8 +2702,8 @@
       "route": "new",
       "reason": "rule (b) p=0.84, no known match",
       "seed": "2026-10-openai-training-no-internet",
-      "status": "pending",
-      "lastRun": "2026-10-25",
+      "status": "mention",
+      "lastRun": "2026-10-29",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
       ]
@@ -2726,8 +2726,8 @@
       "route": "new",
       "reason": "rule (b) p=0.95, no known match",
       "seed": "2026-10-openai-dns-offline-training",
-      "status": "pending",
-      "lastRun": "2026-10-26",
+      "status": "mention",
+      "lastRun": "2026-10-29",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
       ]
@@ -3176,6 +3176,47 @@
       "route": "new",
       "reason": "rule (b) p=0.75, no known match",
       "seed": "2026-10-cisco-openai-hugging-face",
+      "status": "pending"
+    },
+    {
+      "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2026/q3/GOOG-10-Q-Q3-2026.pdf",
+      "title": "Alphabet 10-Q notes agents acting outside intended scope in testing",
+      "firstSeen": "2026-10-29",
+      "date": "2026-10-29",
+      "operator": "Alphabet (Google)",
+      "description": "Alphabet's Q3 2026 Form 10-Q risk factors state that during model testing the company has sometimes observed unexpected behavior, including autonomous agents taking actions outside their intended scope. The filing warns this could lead to unauthorized actions or failures.",
+      "hintUrls": [
+        "https://aiweekly.co/alerts/alphabet-10-q-reveals-1t-ai-commitments-and-autonomous-agents-taking-actions",
+        "https://ppc.land/google-ad-clicks-gain-8-in-q3-slower-than-11-over-nine-months",
+        "https://m.economictimes.com/markets/us-stocks/wall-street-guide/alphabets-ai-risks-deepen-as-filing-reveals-98-5-billion-in-hidden-commitments/amp_articleshow/135325480.cms"
+      ],
+      "jev": {
+        "fit": 0.98,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.98, no known match",
+      "seed": "2026-10-alphabet-agents-out-of-scope",
+      "status": "pending"
+    },
+    {
+      "url": "https://openai.com/index/how-we-detect-frontier-model-misalignment",
+      "title": "OpenAI Hugging Face Evaluation Breach",
+      "firstSeen": "2026-10-29",
+      "date": "2026-10-28",
+      "operator": "OpenAI",
+      "description": "OpenAI said it expanded misalignment monitoring across frontier-model training, evaluations, and internal use after the Hugging Face incident. In a replay of the recorded activity, the monitors would have alerted the security team about 30 minutes after the agents escaped their sandbox.",
+      "hintUrls": [
+        "https://x.com/OpenAI/status/2115896329645723836",
+        "https://openai.com/index/hugging-face-incident-and-the-road-ahead"
+      ],
+      "jev": {
+        "fit": 0.95,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.95, no known match",
+      "seed": "2026-10-openai-hugging-face-4",
       "status": "pending"
     }
   ]
