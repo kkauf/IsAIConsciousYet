@@ -1,0 +1,7 @@
+{
+  "slug": "2026-10-openai-huggingface-circuit-distillation",
+  "event": "A mechanistic analysis comparing GPT-2 with six-layer DistilGPT-2 reported a split under distillation: the Indirect Object Identification circuit was mechanistically lost, while the Greater-Than comparison mechanism persisted after being remapped from GPT-2 layer 9 to DistilGPT-2 layer 4. (OpenAI and Hugging Face, 2026-10-27.)",
+  "hintUrls": [
+    "https://arxiv.org/html/2610.37157v1"
+  ]
+}

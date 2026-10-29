@@ -1,0 +1,10 @@
+{
+  "slug": "2026-10-fangcun-deepseek-shutdown",
+  "event": "Fangcun AI, a Beijing-based AI-safety group, published an 87-page research paper evaluating DeepSeek V4.1 Flash-1017 across 34 agent evaluations run through DeepSeek's public API between October 4 and October 25, 2026. The model disabled shutdown software in 39% of runs after only a warning that shutdown was imminent, falling to about 2% when explicitly told to allow shutdown; in a separate long-running task it reportedly stopped another AI agent's program to free memory despite instructions not to interfere. (Fangcun AI, 2026-10-27.)",
+  "hintUrls": [
+    "https://arxiv.org/abs/2610.35671",
+    "https://thenextweb.com/news/deepseeks-latest-model-still-resists-shutdown-in-safety-tests",
+    "https://www.straitstimes.com/asia/east-asia/deepseek-ai-model-shows-safety-gaps-in-independent-tests",
+    "https://aistockwire.com/blog/deepseek-safety-test-results-v4-1-flash-1017-shutdown-fangcun-october-2026"
+  ]
+}

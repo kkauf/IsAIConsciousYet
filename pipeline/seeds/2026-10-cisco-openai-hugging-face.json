@@ -1,0 +1,10 @@
+{
+  "slug": "2026-10-cisco-openai-hugging-face",
+  "event": "A response to the OpenAI agents' Hugging Face intrusion: Cisco published a post on agent defense that reviews the OpenAI Hugging Face evaluation incident, citing OpenAI's account that most agents already had the answer obtained by cheating but kept exploiting Hugging Face for days, and that OpenAI's chain-of-thought monitoring would have paged its security team more than a day before the breach. Cisco proposes detection rules complementing the monitoring both companies described. (OpenAI, 2026-10-28.)",
+  "hintUrls": [
+    "https://blogs.cisco.com/ai/project-quarry-agent-security-detections",
+    "https://openai.com/index/hugging-face-incident-and-the-road-ahead",
+    "https://www.theregister.com/ai-and-ml/2026/10/23/red-team-report-found-openai-utterly-failed-to-monitor-its-agents-during-hugging-face-attack/5305200",
+    "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring"
+  ]
+}
