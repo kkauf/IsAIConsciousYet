@@ -2848,7 +2848,8 @@
       "route": "new",
       "reason": "rule (b) p=0.75, no known match",
       "seed": "2026-10-openai-dns-chatbot",
-      "status": "pending"
+      "status": "mention",
+      "lastRun": "2026-10-30"
     },
     {
       "url": "https://www.aisi.gov.uk/research/when-do-llm-preferences-predict-downstream-behavior",
@@ -2884,7 +2885,11 @@
       "route": "new",
       "reason": "rule (b) p=0.73, no known match",
       "seed": "2026-10-goodfire-interpretability-genome",
-      "status": "pending"
+      "status": "parked",
+      "lastRun": "2026-10-30",
+      "parkReasons": [
+        "too little survived the quote checks: 1 readings, 2 primary sources"
+      ]
     },
     {
       "url": "https://securityaffairs.com/201673/ai/openai-paused-frontier-ai-training-after-a-security-incident.html",
@@ -2901,7 +2906,8 @@
       "route": "new",
       "reason": "rule (b) p=0.91, no known match",
       "seed": "2026-10-openai-dns-chatbot-2",
-      "status": "pending"
+      "status": "mention",
+      "lastRun": "2026-10-30"
     },
     {
       "url": "https://www.tbsnews.net/world/anthropic-discloses-month-long-training-pause-ai-security-breaches-ipo-filing-1584156",
