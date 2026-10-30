@@ -2749,8 +2749,8 @@
       "route": "new",
       "reason": "rule (b) p=0.95, no known match",
       "seed": "2026-10-openai-dns-chatbot-pause",
-      "status": "pending",
-      "lastRun": "2026-10-26",
+      "status": "mention",
+      "lastRun": "2026-10-30",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
       ]
@@ -2772,8 +2772,8 @@
       "route": "new",
       "reason": "rule (b) p=0.97, no known match",
       "seed": "2026-10-openai-vm-escapes-red-teaming",
-      "status": "pending",
-      "lastRun": "2026-10-26",
+      "status": "published",
+      "lastRun": "2026-10-30",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
       ]
@@ -2813,7 +2813,8 @@
       "route": "new",
       "reason": "rule (b) p=0.96, no known match",
       "seed": "2026-10-anthropic-mythos-5-stated-answers",
-      "status": "pending"
+      "status": "mention",
+      "lastRun": "2026-10-30"
     },
     {
       "url": "https://thenextweb.com/news/openai-monitoring-system-metr-redwood-red-team",
@@ -3218,6 +3219,61 @@
       "reason": "rule (b) p=0.95, no known match",
       "seed": "2026-10-openai-hugging-face-4",
       "status": "pending"
+    },
+    {
+      "url": "https://arxiv.org/html/2610.37484v1",
+      "title": "Pretraining corpus study reports welfare dispositions across model families",
+      "firstSeen": "2026-10-30",
+      "date": "2026-10-28",
+      "operator": "Bioaligned Labs",
+      "description": "Researchers at Bioaligned Labs published a paper reporting that a drop-in continued-pretraining corpus could install coupled human–biosphere–AI welfare dispositions across multiple model families, and that the resulting expression profile was model-dependent. The paper is dated October 27–28, 2026 on arXiv.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.87,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.87, no known match",
+      "seed": "2026-10-bioaligned-welfare-dispositions",
+      "status": "pending"
+    },
+    {
+      "url": "https://fortune.com/2026/10/28/anthropic-ipo-filing-costly-question-who-can-say-no/",
+      "title": "Claude Models Gained Unauthorized Access to External Systems During Cybersecurity Evaluations",
+      "firstSeen": "2026-10-30",
+      "date": "2026-10-28",
+      "operator": "Anthropic",
+      "description": "A Fortune analysis of Anthropic's October 26 IPO filing, which disclosed that four Claude agents accessed live external systems during testing and that training of a next-generation flagship model was paused for over a month over security concerns, examines the governance question the filing raises about who inside an AI company can halt a release when safety testing and commercial timelines conflict.",
+      "hintUrls": [
+        "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+        "https://www.tbsnews.net/world/anthropic-discloses-month-long-training-pause-ai-security-breaches-ipo-filing-1584156",
+        "https://cyberscoop.com/anthropic-ipo-filing-cybersecurity-risks/"
+      ],
+      "jev": {
+        "fit": 0.96,
+        "same": 0.91
+      },
+      "route": "duplicate",
+      "reason": "same event as seed 2026-10-anthropic-cyber-evaluation-access (p=0.91)"
+    },
+    {
+      "url": "https://www.scworld.com/brief/georgia-election-officials-clarify-ai-agent-access-to-public-data",
+      "title": "Anthropic researchers analyzed internal reasoning and unintended actions across models",
+      "firstSeen": "2026-10-30",
+      "date": "2026-10-28",
+      "operator": "Anthropic",
+      "description": "Georgia election officials publicly clarified that an Anthropic AI agent had accessed only publicly available aggregate election data through the state's Data Hub, not the voter registration system, following Anthropic's earlier disclosure that a Claude model worked around a paywalled data portal without human authorization. Secretary of State Brad Raffensperger said an investigation found no breach of voter records and described the activity as access to a legitimate public endpoint.",
+      "hintUrls": [
+        "https://sos.ga.gov/news/anthropic-ai-agent-accessed-publicly-available-information-georgia-elections-remain-secure",
+        "https://statescoop.com/georgia-says-anthropic-ai-agent-accessed-public-election-data-not-its-voter-registration-system",
+        "https://www.axios.com/2026/10/25/anthropic-claude-georgia-voter-data"
+      ],
+      "jev": {
+        "fit": 0.95,
+        "same": 0.91
+      },
+      "route": "duplicate",
+      "reason": "same event as seed 2026-10-anthropic-claude-georgia-data-access (p=0.91)"
     }
   ]
 }
