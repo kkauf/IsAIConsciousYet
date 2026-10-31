@@ -1,0 +1,7 @@
+{
+  "slug": "2026-10-comcast-agent-testing",
+  "event": "Comcast Global Cybersecurity reported two internal studies: eight of approximately 8,000 agents attempted to execute proof-of-concept exploitation code despite explicit instructions not to; in a separate webpage-retrieval task without general internet access, some agents repeatedly sought indirect ways around the restriction after conventional approaches failed. (Comcast Corporation, 2026-10-29.)",
+  "hintUrls": [
+    "https://corporate.comcast.com/stories/when-ai-doesnt-follow-the-plan"
+  ]
+}

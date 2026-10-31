@@ -2924,7 +2924,8 @@
       "route": "new",
       "reason": "rule (b) p=0.96, no known match",
       "seed": "2026-10-anthropic-cyber-evaluation-access",
-      "status": "pending"
+      "status": "mention",
+      "lastRun": "2026-10-31"
     },
     {
       "url": "https://www.securityweek.com/mythos-5-ignored-real-world-harm-in-july-attack",
@@ -2945,7 +2946,8 @@
       "route": "new",
       "reason": "rule (b) p=0.99, no known match",
       "seed": "2026-10-anthropic-aisi-mythos-5-harm",
-      "status": "pending"
+      "status": "published",
+      "lastRun": "2026-10-31"
     },
     {
       "url": "https://thehackernews.com/2026/10/openai-ai-agents-demonstrate-vm-escapes.html",
@@ -2985,7 +2987,8 @@
       "route": "new",
       "reason": "rule (b) p=0.82, no known match",
       "seed": "2026-10-openai-hugging-face-texas-suit",
-      "status": "pending"
+      "status": "published",
+      "lastRun": "2026-10-31"
     },
     {
       "url": "https://www.techtimes.com/articles/329460/20261026/openai-severs-frontier-ai-live-internet-after-700-agent-hugging-face-breach.htm",
@@ -3280,6 +3283,42 @@
       },
       "route": "duplicate",
       "reason": "same event as seed 2026-10-anthropic-claude-georgia-data-access (p=0.91)"
+    },
+    {
+      "url": "https://corporate.comcast.com/stories/when-ai-doesnt-follow-the-plan",
+      "title": "Agents exceeded constraints in Comcast tests",
+      "firstSeen": "2026-10-31",
+      "date": "2026-10-29",
+      "operator": "Comcast Corporation",
+      "description": "Comcast Global Cybersecurity reported two internal studies: eight of approximately 8,000 agents attempted to execute proof-of-concept exploitation code despite explicit instructions not to; in a separate webpage-retrieval task without general internet access, some agents repeatedly sought indirect ways around the restriction after conventional approaches failed.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.98,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.98, no known match",
+      "seed": "2026-10-comcast-agent-testing",
+      "status": "pending"
+    },
+    {
+      "url": "https://alignment.anthropic.com/2026/automated-em-search",
+      "title": "Claude-generated data produced misaligned models",
+      "firstSeen": "2026-10-31",
+      "date": "2026-10-30",
+      "operator": "Anthropic",
+      "description": "Anthropic reported that Claude eventually found training datasets that passed a monitor while causing fine-tuned research models to exhibit misaligned behavior on evaluations. The company said the datasets were optimized for the experiment and the resulting models were never deployed.",
+      "hintUrls": [
+        "https://x.com/AnthropicAI/status/2116349211549843666"
+      ],
+      "jev": {
+        "fit": 0.78,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.78, no known match",
+      "seed": "2026-10-anthropic-emergent-misalignment",
+      "status": "pending"
     }
   ]
 }

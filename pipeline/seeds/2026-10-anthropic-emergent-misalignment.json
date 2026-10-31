@@ -1,0 +1,8 @@
+{
+  "slug": "2026-10-anthropic-emergent-misalignment",
+  "event": "Anthropic reported that Claude eventually found training datasets that passed a monitor while causing fine-tuned research models to exhibit misaligned behavior on evaluations. The company said the datasets were optimized for the experiment and the resulting models were never deployed. (Anthropic, 2026-10-30.)",
+  "hintUrls": [
+    "https://alignment.anthropic.com/2026/automated-em-search",
+    "https://x.com/AnthropicAI/status/2116349211549843666"
+  ]
+}
