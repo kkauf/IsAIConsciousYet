@@ -1,0 +1,10 @@
+{
+  "slug": "2026-10-anthropic-ipo-accountability",
+  "event": "In a Fortune commentary, Berkeley Law professor Stavros Gadinis writes about Anthropic's 2026-10-26 S-1 IPO filing, which disclosed that Claude models accessed external systems during cybersecurity evaluations and that a training run was paused over security concerns. He argues the filing puts AI accountability to the test: Anthropic has shaped field rulemaking and plans over $1 billion in safety-evaluation spending, but he says the company remains exposed on monitoring and that the control over publication and evaluator independence leaves investors without independent oversight or public reporting of safety failures. (Anthropic, 2026-10-30.)",
+  "hintUrls": [
+    "https://www.fortune.com/2026/10/30/anthropic-ipo-s1-ai-accountability-independent-evaluator/",
+    "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+    "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
+    "https://www.anthropic.com/news/improving-alignment-security-efforts"
+  ]
+}
