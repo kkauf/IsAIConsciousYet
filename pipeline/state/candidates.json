@@ -3178,7 +3178,11 @@
       "route": "new",
       "reason": "rule (b) p=0.53, no known match",
       "seed": "2026-10-anthropic-exploit-chains",
-      "status": "pending"
+      "status": "parked",
+      "lastRun": "2026-11-01",
+      "parkReasons": [
+        "too little survived the quote checks: 3 readings, 0 primary sources"
+      ]
     },
     {
       "url": "https://blogs.cisco.com/ai/project-quarry-agent-security-detections",
@@ -3199,7 +3203,8 @@
       "route": "new",
       "reason": "rule (b) p=0.75, no known match",
       "seed": "2026-10-cisco-openai-hugging-face",
-      "status": "pending"
+      "status": "published",
+      "lastRun": "2026-11-01"
     },
     {
       "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2026/q3/GOOG-10-Q-Q3-2026.pdf",
@@ -3220,7 +3225,8 @@
       "route": "new",
       "reason": "rule (b) p=0.98, no known match",
       "seed": "2026-10-alphabet-agents-out-of-scope",
-      "status": "pending"
+      "status": "mention",
+      "lastRun": "2026-11-01"
     },
     {
       "url": "https://openai.com/index/how-we-detect-frontier-model-misalignment",
