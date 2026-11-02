@@ -11,7 +11,8 @@
       {
         "sentence": "Anthropic researchers reported that small AI models may soon replicate without datacenter access.",
         "quote": "AI models may be capable of self-replicating without access to a datacenter",
-        "url": "https://www.anthropic.com/research/self-replicating-ai"
+        "url": "https://www.anthropic.com/research/self-replicating-ai",
+        "sourceChanged": "2026-11-02"
       },
       {
         "sentence": "The researchers ran a model across 15 cheap Android TV boxes.",

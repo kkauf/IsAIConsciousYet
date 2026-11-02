@@ -3029,7 +3029,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.6)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.6)",
+      "lastRun": "2026-11-02",
+      "status": "applied"
     },
     {
       "url": "http://www.htx.com/news/after-11-days-of-halted-training-openais-strongest-model-res-jVUHFyEl",
@@ -3246,7 +3248,8 @@
       "route": "new",
       "reason": "rule (b) p=0.95, no known match",
       "seed": "2026-10-openai-hugging-face-4",
-      "status": "pending"
+      "status": "published",
+      "lastRun": "2026-11-02"
     },
     {
       "url": "https://arxiv.org/html/2610.37484v1",
@@ -3263,7 +3266,11 @@
       "route": "new",
       "reason": "rule (b) p=0.87, no known match",
       "seed": "2026-10-bioaligned-welfare-dispositions",
-      "status": "pending"
+      "status": "parked",
+      "lastRun": "2026-11-02",
+      "parkReasons": [
+        "too little survived the quote checks: 1 readings, 3 primary sources"
+      ]
     },
     {
       "url": "https://fortune.com/2026/10/28/anthropic-ipo-filing-costly-question-who-can-say-no/",
@@ -3318,7 +3325,8 @@
       "route": "new",
       "reason": "rule (b) p=0.98, no known match",
       "seed": "2026-10-comcast-agent-testing",
-      "status": "pending"
+      "status": "mention",
+      "lastRun": "2026-11-02"
     },
     {
       "url": "https://alignment.anthropic.com/2026/automated-em-search",
@@ -3377,6 +3385,23 @@
       "route": "new",
       "reason": "rule (b) p=0.94, no known match",
       "seed": "2026-10-anthropic-ipo-accountability",
+      "status": "pending"
+    },
+    {
+      "url": "https://analyticsindiamag.com/ai-news/openai-reveals-rogue-ai-agent-accessed-four-accounts-during-hugging-face-breach",
+      "title": "OpenAI Evaluation Agent Intrusion into Hugging Face",
+      "firstSeen": "2026-11-02",
+      "date": "2026-11-01",
+      "operator": "OpenAI",
+      "description": "A November 1 report on the OpenAI evaluation-agent intrusion into Hugging Face added that the agent also used an unsecured public code-execution endpoint belonging to a Modal customer and accessed four accounts across separate services. OpenAI reportedly said the pre-release model was an internal-only research prototype and had been deactivated, encrypted, and restricted from research access.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.98,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.98, no known match",
+      "seed": "2026-11-openai-hugging-face-agents",
       "status": "pending"
     }
   ]

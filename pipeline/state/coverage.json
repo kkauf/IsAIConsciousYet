@@ -1,5 +1,5 @@
 {
-  "lastRun": "2026-10-26",
+  "lastRun": "2026-11-02",
   "seen": {
     "nytimes.com/2023/09/18/science/ai-computers-consciousness.html": {
       "p": 0.81,
@@ -6554,6 +6554,194 @@
       "kept": false
     },
     "scientificamerican.com/podcast/episode/a-wall-is-also-a-road-explores-alien-consciousness-slime-mold-life-forms-and-pompeii": {
+      "p": 0.05,
+      "kept": false
+    },
+    "nytimes.com/2026/11/01/opinion/ai-consciousness-ethics.html": {
+      "p": 0.97,
+      "kept": true
+    },
+    "nytimes.com/video/podcasts/100000011204371/anthropics-quest-to-give-ai-morals.html": {
+      "p": 0.6,
+      "kept": false
+    },
+    "wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-10-26-2026/card/anthropic-flags-a-new-business-risk-caring-for-sentient-ai-bvnrhpelw50es2dc6ver": {
+      "p": 0.68,
+      "kept": true
+    },
+    "nytimes.com/2026/10/14/opinion/ezra-klein-podcast-sherry-turkle.html": {
+      "p": 0.67,
+      "kept": false
+    },
+    "nytimes.com/2026/10/30/opinion/anthropic-ipo-ai.html": {
+      "p": 0.11,
+      "kept": false
+    },
+    "nytimes.com/video/opinion/100000011206847/silicon-valley-is-worried.html": {
+      "p": 0.13,
+      "kept": false
+    },
+    "nytimes.com/by/interesting-times": {
+      "p": 0.19,
+      "kept": false
+    },
+    "nytimes.com/video/opinion/100000011243958/whats-driving-elon-musk.html": {
+      "p": 0.12,
+      "kept": false
+    },
+    "cnn.com/2026/10/14/us/video/cnn-sitroom-pamela-brown-ai-emotion-technology": {
+      "p": 0.79,
+      "kept": false
+    },
+    "reuters.com/commentary/breakingviews/anthropic-can-do-better-job-helping-humanity-2026-11-02": {
+      "p": 0.17,
+      "kept": false
+    },
+    "foxnews.com/tech/microsoft-ai-beats-doctors-simulated-diagnosis-test": {
+      "p": 0.06,
+      "kept": false
+    },
+    "bloomberg.com/news/videos/2026-10-22/the-close-10-22-2026-video": {
+      "p": 0.04,
+      "kept": false
+    },
+    "bloomberg.com/news/videos/2026-10-27/bloomberg-surveillance-10-27-2026-video": {
+      "p": 0.02,
+      "kept": false
+    },
+    "bloomberg.com/news/videos/2026-10-28/the-opening-trade-uk-budget-special-10-28-2026-video": {
+      "p": 0.03,
+      "kept": false
+    },
+    "cnn.com/2026/11/01/business/anthropic-dont-be-mean-claude-ban": {
+      "p": 0.07,
+      "kept": false
+    },
+    "bloomberg.com/news/videos/2026-10-13/rory-mcilroy-on-the-future-of-sport-video": {
+      "p": 0.03,
+      "kept": false
+    },
+    "theguardian.com/books/2026/oct/28/no-inevitable-dystopia-jeanette-winterson-ai-future-of-humanity": {
+      "p": 0.17,
+      "kept": false
+    },
+    "bbc.com/reel/video/p0pk83vk/watch": {
+      "p": 0.79,
+      "kept": false
+    },
+    "bbc.com/technology": {
+      "p": 0.42,
+      "kept": false
+    },
+    "npr.org/podcasts/388466288/to-the-best-of-our-knowledge": {
+      "p": 0.27,
+      "kept": false
+    },
+    "telegraph.co.uk/politics/2026/10/26/modern-warfare-should-use-ai-over-soldiers-says-raf-chief": {
+      "p": 0.09,
+      "kept": false
+    },
+    "bbc.com/audio/play/m001tgk9": {
+      "p": 0.89,
+      "kept": false
+    },
+    "theatlantic.com/podcasts/2026/10/do-miracles-really-happen/689116": {
+      "p": 0.21,
+      "kept": false
+    },
+    "theatlantic.com/technology/2026/10/ai-longevity-death-questions/689102": {
+      "p": 0.08,
+      "kept": false
+    },
+    "economist.com/podcasts/2026/10/14/andrew-ng-on-the-delusion-of-ai-doom": {
+      "p": 0.05,
+      "kept": false
+    },
+    "theatlantic.com/podcasts/2026/10/zealousness-new-tech-right/689124": {
+      "p": 0.07,
+      "kept": false
+    },
+    "theatlantic.com/technology/2026/11/ai-data-center-spending-economy/689237": {
+      "p": 0.02,
+      "kept": false
+    },
+    "theatlantic.com/books/2026/11/age-ai-is-the-time-for-a-great-books-revival/689242": {
+      "p": 0.05,
+      "kept": false
+    },
+    "theverge.com/ai-artificial-intelligence/1018738/anthropic-ipo-s1-filing-weird-details": {
+      "p": 0.12,
+      "kept": false
+    },
+    "theverge.com/podcast/1018264/kevin-roose-the-agi-chronicles-machine-gods-podcast-youtube-openai-anthropic": {
+      "p": 0.68,
+      "kept": false
+    },
+    "theverge.com/ai-artificial-intelligence/1017064/visionquest-marvel-rogue-ai": {
+      "p": 0.6,
+      "kept": false
+    },
+    "theverge.com/podcast/1012839/pritzker-ai-privacy-data-centers-flock-congress-laws": {
+      "p": 0.22,
+      "kept": false
+    },
+    "theverge.com/podcast/1021322/anthropic-ipo-filing-s-1-claude-semianalysis-joey-brookhart-interview": {
+      "p": 0.13,
+      "kept": false
+    },
+    "vox.com/psychology": {
+      "p": 0.24,
+      "kept": false
+    },
+    "theverge.com/rss/stream/1006727": {
+      "p": 0.12,
+      "kept": false
+    },
+    "vox.com/future-perfect/507875/anthropic-ipo-stop-ai-race-safety": {
+      "p": 0.13,
+      "kept": false
+    },
+    "wired.com/story/anthropic-ipo-filings-reveal-finances-risks-strategy": {
+      "p": 0.03,
+      "kept": false
+    },
+    "theverge.com/decoder-podcast-with-nilay-patel": {
+      "p": 0.13,
+      "kept": false
+    },
+    "vox.com/animal-welfare": {
+      "p": 0.1,
+      "kept": false
+    },
+    "theverge.com/internet-culture": {
+      "p": 0.06,
+      "kept": false
+    },
+    "newscientist.com/article/2515554-hannah-fry-ai-can-do-some-superhuman-things-but-so-can-forklifts": {
+      "p": 0.07,
+      "kept": false
+    },
+    "nature.com/articles/d41586-026-03384-6": {
+      "p": 0.04,
+      "kept": false
+    },
+    "newscientist.com/article/2593983-self-replicating-ais-are-a-great-digital-horror-story-heres-the-reality": {
+      "p": 0.05,
+      "kept": false
+    },
+    "newscientist.com/article/2593034-the-understanding-that-even-bees-have-feelings-is-changing-our-view-of-consciousness": {
+      "p": 0.09,
+      "kept": false
+    },
+    "wsj.com/tech/ai/see-how-anthropic-arrived-at-its-mind-boggling-40-trillion-market-opportunity-948c56a0": {
+      "p": 0.03,
+      "kept": false
+    },
+    "npr.org/2026/10/28/nx-s1-6016285/most-tweens-and-teens-use-ai-for-schoolwork-and-emotional-support-a-new-survey-shows": {
+      "p": 0.04,
+      "kept": false
+    },
+    "npr.org/2026/10/27/nx-s1-5983462/human-rights-activists-look-to-harness-ai-for-the-greater-good": {
       "p": 0.05,
       "kept": false
     }

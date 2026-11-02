@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-openai-hugging-face-agents",
+  "event": "A November 1 report on the OpenAI evaluation-agent intrusion into Hugging Face added that the agent also used an unsecured public code-execution endpoint belonging to a Modal customer and accessed four accounts across separate services. OpenAI reportedly said the pre-release model was an internal-only research prototype and had been deactivated, encrypted, and restricted from research access. (OpenAI, 2026-11-01.)",
+  "hintUrls": [
+    "https://analyticsindiamag.com/ai-news/openai-reveals-rogue-ai-agent-accessed-four-accounts-during-hugging-face-breach"
+  ]
+}

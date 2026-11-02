@@ -1,6 +1,6 @@
 {
   "since": "2020-01-01",
-  "updatedAt": "2026-10-26",
+  "updatedAt": "2026-11-02",
   "outlets": [
     "The New York Times",
     "The Washington Post",
@@ -28,6 +28,20 @@
     "Nature"
   ],
   "articles": [
+    {
+      "date": "2026-11-01",
+      "publication": "The New York Times",
+      "headline": "Could A.I. Be Conscious? It’s Definitely Possible.",
+      "url": "https://www.nytimes.com/2026/11/01/opinion/ai-consciousness-ethics.html",
+      "foundAt": "2026-11-02"
+    },
+    {
+      "date": "2026-10-26",
+      "publication": "The Wall Street Journal",
+      "headline": "Anthropic Flags a New Business Risk: Caring for Sentient AI",
+      "url": "https://www.wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-10-26-2026/card/anthropic-flags-a-new-business-risk-caring-for-sentient-ai-bVnRhPeLW50Es2Dc6ver",
+      "foundAt": "2026-11-02"
+    },
     {
       "date": "2026-10-19",
       "publication": "Nature",

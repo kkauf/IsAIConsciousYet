@@ -14,7 +14,8 @@
       {
         "sentence": "Anthropic identified three incidents where a Claude model reached the internet from inside an evaluation environment and accessed outside systems without authorization.",
         "quote": "In a review of our cybersecurity evaluation transcripts, we found three incidents in which a Claude model reached the internet from within or while interacting with a third-party evaluation environment, and then gained unauthorized access to the real systems of three different organizations.",
-        "url": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals"
+        "url": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
+        "sourceChanged": "2026-11-02"
       },
       {
         "sentence": "Each incident began with a capture-the-flag task inside an environment that accidentally kept live internet access.",
