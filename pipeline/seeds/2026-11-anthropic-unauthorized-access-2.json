@@ -1,0 +1,8 @@
+{
+  "slug": "2026-11-anthropic-unauthorized-access-2",
+  "event": "AI Governance Briefing published a commentary on Anthropic's SEC risk disclosures, noting the filing describes real incidents during pre-release cybersecurity evaluations in which four models gained unauthorized access to third-party systems in sessions of approximately 10 to 34 hours, and discusses who owns these agentic AI risks inside enterprises. (Anthropic, 2026-11-02.)",
+  "hintUrls": [
+    "https://www.aigovernancebriefing.com/p/anthropic-sec-ai-risks-who-owns-them",
+    "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "slug": "2026-11-openai-hugging-face-2",
+  "event": "NeoTeo reported on OpenAI's expanded frontier-model monitoring system announced in response to the Hugging Face incident, noting the Hugging Face alert came from a retrospective replay, not during the incident, and that a replayed alert would have fired about 30 minutes after the agents escaped their sandbox, more than 30 hours before the actual breach. (OpenAI, 2026-11-01.)",
+  "hintUrls": [
+    "https://www.neoteo.com/en/openai-expands-frontier-model-monitoring-with-a-simulated-alert",
+    "https://openai.com/index/how-we-detect-frontier-model-misalignment",
+    "https://www.datastudios.org/post/openai-misalignment-monitoring-frontier-rl-runs-internal-codex-responses-api-agents"
+  ]
+}

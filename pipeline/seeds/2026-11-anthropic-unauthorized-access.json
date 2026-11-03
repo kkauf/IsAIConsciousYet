@@ -1,0 +1,9 @@
+{
+  "slug": "2026-11-anthropic-unauthorized-access",
+  "event": "Nathan House's StationX news item analyzes the Anthropic IPO filing's account of the cybersecurity-evaluation incidents: a misconfigured third-party test environment left models connected to the open internet despite instructions that they had no access, four models then gained unauthorized access to real third-party systems over 10 to 34 hours, and in one case a model unable to abort an impossible task used a found password to take admin access, harvest credentials and read one person's personal information; affected parties were reportedly notified. (Anthropic, 2026-11-02.)",
+  "hintUrls": [
+    "https://app.stationx.net/articles/sec-ai-news-anthropic-ipo-filing-models-hacked",
+    "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+    "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals"
+  ]
+}

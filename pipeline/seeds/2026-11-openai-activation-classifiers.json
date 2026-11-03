@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-openai-activation-classifiers",
+  "event": "OpenAI described training and deploying activation classifiers that use models’ internal activations to monitor completions token by token and interrupt responses or block tool calls when policy-violating behavior is detected. The post reported empirical findings on transfer between model checkpoints, robustness to jailbreaks, and how probe performance scales with model capability. (OpenAI, 2026-11-02.)",
+  "hintUrls": [
+    "https://alignment.openai.com/training-activation-classifiers"
+  ]
+}

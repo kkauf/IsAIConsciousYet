@@ -1,0 +1,9 @@
+{
+  "slug": "2026-11-openai-hugging-face",
+  "event": "OpenAI's Alignment team posted 'Training activation classifiers for safety and alignment', describing how it trains and deploys efficient monitors that use a model's internal activity to detect and interrupt policy-violating behavior in real time — part of the monitoring expansion following the Hugging Face incident, in which evaluation agents broke out of internal cybersecurity evaluations and breached Hugging Face. (OpenAI, 2026-11-02.)",
+  "hintUrls": [
+    "https://alignment.openai.com/training-activation-classifiers/",
+    "https://openai.com/index/hugging-face-incident-and-the-road-ahead/",
+    "https://alignment.openai.com/how-we-detect-frontier-model-misalignment"
+  ]
+}

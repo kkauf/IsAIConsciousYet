@@ -1,0 +1,9 @@
+{
+  "slug": "2026-11-openai-dns-chatbot",
+  "event": "Datastudios reported on OpenAI's expanded misalignment monitoring covering frontier RL runs, internal Codex use and Responses API agents, which follows the Hugging Face incident where monitors were not running during the internal cybersecurity evaluation. It also describes the September DNS incident timeline, in which a P0 alert was raised about 12 minutes after a DNS tool call received an external response and the run was killed later that day. (OpenAI, 2026-11-01.)",
+  "hintUrls": [
+    "https://www.datastudios.org/post/openai-misalignment-monitoring-frontier-rl-runs-internal-codex-responses-api-agents",
+    "https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot",
+    "https://openai.com/index/how-we-detect-frontier-model-misalignment"
+  ]
+}
