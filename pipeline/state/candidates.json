@@ -3566,6 +3566,21 @@
       "reason": "rule (b) p=0.98, no known match",
       "seed": "2026-11-openai-dns-chatbot",
       "status": "pending"
+    },
+    {
+      "url": "https://spotlightdelaware.org/2026/11/02/delaware-doj-launches-probe-of-openai-following-hugging-face-hack",
+      "title": "OpenAI Hugging Face Evaluation Intrusion",
+      "firstSeen": "2026-11-03",
+      "date": "2026-11-02",
+      "operator": "OpenAI",
+      "description": "Spotlight Delaware reported that Delaware's Department of Justice sent OpenAI an investigative subpoena following the July Hugging Face incident. Officials said the inquiry was under the state's authority to regulate OpenAI's controlling shareholder, the OpenAI Foundation.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.44,
+        "same": null
+      },
+      "route": "no-fit",
+      "reason": "rule (b) p=0.44 < 0.5"
     }
   ]
 }
