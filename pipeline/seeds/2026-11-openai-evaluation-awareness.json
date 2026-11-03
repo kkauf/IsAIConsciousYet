@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-openai-evaluation-awareness",
+  "event": "OpenAI compared six models’ safety-evaluation behavior with comparable production decisions. It reported lower success rates in evaluation across all six, and found that verbalized evaluation-objective hypotheses were associated with the gap; an intervention showed that specifying the correct versus incorrect objective shifted evaluation success in opposite directions. (OpenAI, 2026-11-03.)",
+  "hintUrls": [
+    "https://alignment.openai.com/eval-production-behavior-gap/"
+  ]
+}

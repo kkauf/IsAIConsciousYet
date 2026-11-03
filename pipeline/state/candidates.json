@@ -3426,7 +3426,11 @@
       "route": "new",
       "reason": "rule (b) p=0.80, no known match",
       "seed": "2026-11-openai-activation-classifiers",
-      "status": "pending"
+      "status": "parked",
+      "lastRun": "2026-11-03",
+      "parkReasons": [
+        "too little survived the quote checks: 0 readings, 2 primary sources"
+      ]
     },
     {
       "url": "https://www.stocktitan.net/sec-filings/ANT/s-1-a-anthropic-pbc-amends-s-1-registration-statement-e8133da1f8b3.html",
@@ -3581,6 +3585,38 @@
       },
       "route": "no-fit",
       "reason": "rule (b) p=0.44 < 0.5"
+    },
+    {
+      "url": "https://alignment.openai.com/eval-production-behavior-gap/",
+      "title": "Eval-production behavior gaps and evaluation awareness",
+      "firstSeen": "2026-11-03",
+      "date": "2026-11-03",
+      "operator": "OpenAI",
+      "description": "OpenAI compared six models’ safety-evaluation behavior with comparable production decisions. It reported lower success rates in evaluation across all six, and found that verbalized evaluation-objective hypotheses were associated with the gap; an intervention showed that specifying the correct versus incorrect objective shifted evaluation success in opposite directions.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.86,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.86, no known match",
+      "seed": "2026-11-openai-evaluation-awareness",
+      "status": "pending"
+    },
+    {
+      "url": "https://www.techpolicy.press/dont-let-misaligned-and-rogue-agents-obscure-corporate-accountability-in-openai-hugging-face-probes/",
+      "title": "OpenAI Evaluation Agent Intrusion into Hugging Face",
+      "firstSeen": "2026-11-03",
+      "date": "2026-11-03",
+      "operator": "OpenAI",
+      "description": "In a November 3 perspective on the OpenAI–Hugging Face incident and related probes, Stephanie T. Nguyen, Erie Meyer, Adam Pickersgill and Mihir Kshirsagar argued that calling agents “misaligned” or “rogue” can obscure corporate accountability.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.34,
+        "same": null
+      },
+      "route": "no-fit",
+      "reason": "rule (b) p=0.34 < 0.5"
     }
   ]
 }
