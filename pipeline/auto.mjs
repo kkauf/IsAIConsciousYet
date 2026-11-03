@@ -59,6 +59,8 @@ const runStarted = new Date().toISOString();
 const addBilling = (line) => { if (!out.billingStops.includes(line)) { out.billingStops.push(line); log(line); } };
 const billingBlock = (providers) => billingStops().find((b) => providers.includes(b.provider));
 const CASE_PROVIDERS = ['parallel', 'gemini', 'jev'];
+// Providers that answered normally this run: a run-case without a billing stop reached all three.
+const answered = new Set();
 const fail = (step, e, skipped) => {
   if (isBillingStop(e)) addBilling(`${e.message}; ${skipped}`);
   else out.errors.push(`${step}: ${String(e.message ?? e).slice(0, 300)}`);
@@ -114,12 +116,13 @@ if (!dryRun) {
     childCost += fresh ? report.cost.total : config.worstCaseUsd.case;
     if (fresh && report.billingStop) {
       // Not the case's fault: it stays queued (a parked retry keeps its turn) and runs once the account is topped up.
-      noteBillingStop(report.billingStop.provider);
+      noteBillingStop(report.billingStop.provider, report.billingStop.detail);
       if (c.status === 'parked') c.retries -= 1;
       addBilling(`${report.billingStop.message}; case ${c.seed} not researched`);
       saveCandidates(state);
       break;
     }
+    if (fresh) CASE_PROVIDERS.forEach((p) => answered.add(p));
     c.lastRun = started.slice(0, 10);
     if (code !== 0 || !fresh) {
       c.status = 'error'; // not retried automatically; set back to "pending" in candidates.json to retry
@@ -178,7 +181,7 @@ if (!dryRun) {
     childCost += fresh ? report.cost.total : config.worstCaseUsd.case;
     if (fresh && report.billingStop) {
       // The rerun stopped before it could write; the sources stay queued for the next update.
-      noteBillingStop(report.billingStop.provider);
+      noteBillingStop(report.billingStop.provider, report.billingStop.detail);
       addBilling(`${report.billingStop.message}; update of ${slug} not run`);
       break;
     }
@@ -239,6 +242,24 @@ if (!dryRun && weeklyDue('lastRecheck')) {
 }
 
 // ── 4 state ──────────────────────────────────────────────────────────────────
+// A billing stop opens an issue only once it has lasted about a day (two scheduled runs), then at most weekly.
+// The case it blocked stays queued and runs again each run, so a stop that clears by itself (a provider
+// hiccup, Google's spend cap resetting on the 1st) mails nobody. schedule.billing: provider → { since, lastSeen, alerted }.
+const billingState = (schedule.billing ??= {});
+for (const p of answered) if (!billingStops().some((b) => b.provider === p)) delete billingState[p];
+const billingAlerts = [];
+for (const b of billingStops()) {
+  // A stop last seen more than two days ago is a new stop (the provider may not have been called in between).
+  const prev = billingState[b.provider];
+  const st = billingState[b.provider] = prev && hoursSince(prev.lastSeen ?? prev.since) < 48 ? prev : { since: runStarted };
+  st.lastSeen = runStarted;
+  const lines = out.billingStops.filter((l) => l.startsWith(b.message));
+  const said = b.detail ? ` (provider said ${b.detail})` : '';
+  if (hoursSince(st.since) >= 22 && (!st.alerted || hoursSince(st.alerted) >= 7 * 24 - 2)) {
+    billingAlerts.push(...lines.map((l) => `${l}; stopped since ${st.since.slice(0, 16).replace('T', ' ')} UTC${said}`));
+    if (!dryRun) st.alerted = runStarted;
+  } else out.billingWaiting = `first seen ${st.since.slice(0, 16).replace('T', ' ')} UTC; queued work retries every run, ${st.alerted ? `issue opened ${st.alerted.slice(0, 10)}, repeated weekly` : 'an issue opens if it lasts a day'}${said}`;
+}
 const cost = Number(runCost().toFixed(4));
 if (!dryRun) {
   addSpend(spend, cost, month);
@@ -256,7 +277,7 @@ const md = [];
 md.push(`# Pipeline run ${today}${dryRun ? ' (dry run)' : ''}`, '');
 md.push(`Published ${out.published.length}, honorable mentions ${out.mentions.length}, parked ${out.parked.length}, updates found ${out.detected.filter((c) => c.route === 'update').length}, source changes ${out.recheck?.changed.length ?? 0}, errors ${out.errors.length}.`, '');
 if (out.capStops.length) md.push('**Spend cap reached.** ' + out.capStops.join('; ') + '.', '');
-if (out.billingStops.length) md.push('**Provider out of money.** ' + out.billingStops.join(' | ') + '.', '');
+if (out.billingStops.length) md.push('**Provider out of money.** ' + out.billingStops.join(' | ') + '.' + (out.billingWaiting ? ` Not yet an issue: ${out.billingWaiting}.` : ''), '');
 const section = (title, lines) => { if (lines.length) md.push(`## ${title}`, '', ...lines, ''); };
 section('Published', out.published.map((p) => `- [${p.title}](${p.url}) (${p.readings} readings, $${p.cost})`));
 section('Honorable mentions', out.mentions.map((p) => `- [${p.title}](${p.url}): ${p.missing ?? ''} ($${p.cost})`));
@@ -265,6 +286,7 @@ section('Updates found', out.detected.filter((c) => c.route === 'update').map((c
 section('Updates applied', out.updated.map((u) => `- \`${u.slug}\` ${u.url ? `[${u.title}](${u.url})` : u.title}: ${u.change} ($${u.cost})`));
 section(`Press coverage (${out.coverage?.added.length ?? 0} new articles for /timeline)`, (out.coverage?.added ?? []).map((a) => `- ${a.date} ${a.publication}: [${a.headline.replace(/[[\]]/g, '')}](${a.url})`));
 section('Errors', out.errors.map((e) => `- ${e}`));
+section('Warnings (no action needed)', (out.coverage?.warnings ?? []).map((w) => `- coverage: ${w}`));
 if (out.detected.length) {
   md.push(`## Detected (${out.processor ?? 'no'} tasks, since ${out.since ?? '?'})`, '', '| Route | Date | Candidate | Reason |', '|---|---|---|---|');
   for (const c of out.detected) md.push(`| ${c.route} | ${c.date ?? ''} | [${c.title.replace(/\|/g, '/')}](${c.url})${c.seed ? ` → \`${c.seed}\`` : ''} | ${c.reason.replace(/\|/g, '/')} |`);
@@ -282,6 +304,6 @@ md.push(`Cap status: ${out.capStops.length ? 'reached, steps skipped' : `ok, $${
 const summary = md.join('\n');
 if (summaryPath) writeFileSync(summaryPath, summary);
 // Konstantin is emailed only for runs that need him (pipeline.yml opens an issue assigned to him then).
-const actionable = [...out.billingStops.map((b) => `- ${b}`), ...out.errors.map((e) => `- Error: ${e}`), ...out.capStops.map((s) => `- Spend cap: ${s}`)];
+const actionable = [...billingAlerts.map((b) => `- ${b}`), ...out.errors.map((e) => `- Error: ${e}`), ...out.capStops.map((s) => `- Spend cap: ${s}`)];
 if (actionablePath) writeFileSync(actionablePath, actionable.join('\n') + (actionable.length ? '\n' : ''));
 console.log('\n' + summary);

@@ -55,3 +55,8 @@ test('triage passes a billing stop up instead of listing it as a triage error', 
   const cand = { title: 'Event', date: '2026-10-24', operator: 'Lab', description: 'x', primary_url: 'https://e.example' };
   await assert.rejects(triage([cand], [], { log: () => {} }), isBillingStop);
 });
+
+test('a billing stop keeps the provider\'s own words, so a spend cap and a depleted prepayment can be told apart', async () => {
+  respond(429, GEMINI_CAP);
+  await assert.rejects(gemini('select-reading', args), (e) => isBillingStop(e) && e.detail.startsWith('429: Your project has exceeded its monthly spending cap.'));
+});

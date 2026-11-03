@@ -258,4 +258,7 @@ recordSpend();
 
 const actionLines = [...billing.map((b) => `- ${b}`), ...errors.map((e) => `- Error: ${e}`)];
 if (summaryPath && (done.length || actionLines.length)) appendFileSync(summaryPath, ['', '## Posted to X', '', ...done, ...actionLines, ''].join('\n'));
-if (actionablePath && actionLines.length) appendFileSync(actionablePath, actionLines.join('\n') + '\n');
+// A Gemini billing stop does not fail the run: the post stays queued for the next run, and the pipeline run
+// (auto.mjs) opens the issue once the stop has lasted a day. Three failed runs a day would mail for the same thing.
+const failLines = errors.map((e) => `- Error: ${e}`);
+if (actionablePath && failLines.length) appendFileSync(actionablePath, failLines.join('\n') + '\n');

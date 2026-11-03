@@ -44,18 +44,21 @@ const BILLING = {
   jev: { name: 'Jev (TypeSafe)', line: 'Jev (TypeSafe) account out of credit or over its spend limit',
     test: (status, text) => status === 402 || /insufficient (credit|balance|funds)|spend(ing)? (cap|limit)/i.test(text) },
 };
+// detail: the provider's own words (error.message, cut to 200 characters), so a spend cap, a depleted prepayment
+// and a failed payment can be told apart; the line alone matches all three.
 export class BillingStop extends Error {
-  constructor(provider) { super(`Billing: ${BILLING[provider].line}`); this.name = 'BillingStop'; this.provider = provider; }
+  constructor(provider, detail) { super(`Billing: ${BILLING[provider].line}`); this.name = 'BillingStop'; this.provider = provider; if (detail) this.detail = String(detail).slice(0, 200); }
 }
 const stopped = new Map(); // provider → BillingStop, for this process
 export const isBillingStop = (e) => e instanceof BillingStop || e?.name === 'BillingStop';
 export function billingStops() { return [...stopped.values()]; }
 // Records a stop reported elsewhere (a run-case child), so this process stops calling that provider too.
-export function noteBillingStop(provider) { if (BILLING[provider] && !stopped.has(provider)) stopped.set(provider, new BillingStop(provider)); return stopped.get(provider); }
+export function noteBillingStop(provider, detail) { if (BILLING[provider] && !stopped.has(provider)) stopped.set(provider, new BillingStop(provider, detail)); return stopped.get(provider); }
 function billingGuard(provider) { if (stopped.has(provider)) throw stopped.get(provider); }
 function billingCheck(provider, r) {
   if (r.ok || !BILLING[provider].test(r.status, r.text ?? '')) return;
-  throw noteBillingStop(provider);
+  const said = r.json?.error?.message ?? r.json?.message ?? r.text;
+  throw noteBillingStop(provider, `${r.status}: ${String(said ?? '').replace(/\s+/g, ' ').trim()}`);
 }
 // Test hook: forget the stops of this process.
 export function _resetBillingStops() { stopped.clear(); }

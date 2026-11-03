@@ -152,6 +152,7 @@ export async function coverage({ backfill = false, search = true, sitemaps = tru
   const known = new Set(data.articles.map((a) => urlKey(a.url)));
   const today = new Date().toISOString().slice(0, 10);
   const errors = [];
+  const warnings = []; // reported in the run summary, never an issue
   const costBefore = ledgerTotal().total; // auto.mjs runs this in-process, after other steps
 
   // 1 search. Backfill: one search per outlet and year, since the index favours recent pages.
@@ -180,10 +181,11 @@ export async function coverage({ backfill = false, search = true, sitemaps = tru
   // 1b sitemaps: every address an outlet lists for the period, filtered by words in the address
   // (pipeline/sitemaps.mjs). Free, and the same effort for every year, which search is not.
   if (sitemaps) {
-    const { sitemapUrls, isCandidate, hasSitemap } = await import('./sitemaps.mjs');
+    const { sitemapUrls, isCandidate, hasSitemap, isBlocked } = await import('./sitemaps.mjs');
     const from = (backfill ? cfg.since : state.lastRun ? daysBefore(state.lastRun, 14) : daysBefore(today, 30)).slice(0, 7);
     const listed = await pool(outlets.filter(hasSitemap), 3, async (o) => {
-      try { return (await sitemapUrls(o, from)).filter((e) => isCandidate(e.url)); } catch (e) { errors.push(`sitemap ${o.name}: ${String(e.message ?? e).slice(0, 200)}`); return []; }
+      // A bot wall on a sitemap is a warning: search (step 1a) still covers the outlet, and next week's run tries again.
+      try { return (await sitemapUrls(o, from)).filter((e) => isCandidate(e.url)); } catch (e) { (isBlocked(e) ? warnings : errors).push(`sitemap ${o.name}: ${String(e.message ?? e).slice(0, 200)}`); return []; }
     });
     // A day file dates what it lists; a month file only through a lastmod inside that month.
     const listedDate = (e) => (/^\d{4}-\d{2}-\d{2}$/.test(e.period ?? '') ? e.period : e.period && e.lastmod?.startsWith(e.period) ? e.lastmod.slice(0, 10) : null);
@@ -242,7 +244,7 @@ export async function coverage({ backfill = false, search = true, sitemaps = tru
   mkdirSync(dir, { recursive: true });
   writeJson(path.join(dir, `${today}${backfill ? '-backfill' : ''}.json`), { searches: jobs.length, judged: judged.map(({ outlet, excerpt, ...a }) => a), errors, cost });
   log(`coverage: ${judged.length} judged, ${kept.length} about the subject, ${added.length} added, ${undated.length} left out (not an article, or no date), ${kept.filter(valid).length - added.length} merged as the same piece, $${cost}`);
-  return { searches: jobs.length, candidates: cands.size, added, undated: undated.map((a) => a.url), errors, cost };
+  return { searches: jobs.length, candidates: cands.size, added, undated: undated.map((a) => a.url), errors, warnings, cost };
 }
 
 // After a rule change: drops stored articles the rules now refuse, and reads placeholder headlines

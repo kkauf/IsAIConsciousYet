@@ -42,7 +42,7 @@ const log = (...m) => console.log(new Date().toISOString().slice(11, 19), ...m);
 // auto.mjs lists it under "needs action". Exit code 3. Any other uncaught error exits 1 as before.
 process.on('uncaughtException', (e) => {
   if (!isBillingStop(e)) { console.error(e); process.exit(1); }
-  report.billingStop = { provider: e.provider, message: e.message };
+  report.billingStop = { provider: e.provider, message: e.message, ...(e.detail ? { detail: e.detail } : {}) };
   report.parkReasons = [];
   report.finishedAt = new Date().toISOString();
   report.cost = { ...ledgerTotal(), calls: ledger.length, ledger };

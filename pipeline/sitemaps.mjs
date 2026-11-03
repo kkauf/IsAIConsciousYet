@@ -100,7 +100,8 @@ async function slot(host) {
   return () => { s.active--; s.wait.shift()?.(); };
 }
 
-class Blocked extends Error {}
+class Blocked extends Error { name = 'Blocked'; }
+export const isBlocked = (e) => e instanceof Blocked || e?.name === 'Blocked';
 // Bot walls answer 402/403/406, or 200 with a challenge page instead of XML.
 const WALL = /<title>\s*(just a moment|attention required|access denied|your access has been blocked)|access issue help/i;
 
@@ -131,7 +132,12 @@ async function fetchText(url, { plain = false } = {}) {
       const text = buf.toString('utf8');
       // time.com answers every second browser-headed request with 406, New Scientist every one; both serve a plain client.
       if (res.status === 406 && !plain) { plain = true; continue; }
-      if ([402, 403, 406].includes(res.status) || WALL.test(text.slice(0, 5000))) throw new Blocked(`${res.status} bot wall at ${url}`);
+      if ([402, 403, 406].includes(res.status) || WALL.test(text.slice(0, 5000))) {
+        // Some walls are intermittent (MIT Technology Review, 2026-11-03: the same file answered 403, then 200,
+        // for either client): two more tries, 10 and 20 seconds apart, switching the client each time.
+        if (attempt < 2) { stats.retries++; plain = !plain; await sleep(10000 * 2 ** attempt); continue; }
+        throw new Blocked(`${res.status} bot wall at ${url}`);
+      }
       return { status: res.status, text };
     }
   } finally { release(); }
