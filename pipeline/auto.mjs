@@ -15,6 +15,7 @@ import { ledgerTotal, PRICES, isBillingStop, billingStops, noteBillingStop } fro
 import { detect, SEARCHES } from './detect.mjs';
 import { recheck, caseFiles, recheckUrls } from './recheck.mjs';
 import { coverage } from './coverage.mjs';
+import { precheck } from './precheck.mjs';
 import { root, loadConfig, loadSpend, saveSpend, monthToDate, addSpend, capCheck, monthlyCap, loadCandidates, saveCandidates, monthKey, loadSchedule, saveSchedule } from './state.mjs';
 
 const SITE_URL = 'https://isaiconsciousyet.com'; // same as src/lib/cases/load.ts
@@ -37,7 +38,7 @@ let childCost = 0; // run-case children; in-process calls are in lib's ledger
 const runCost = () => ledgerTotal().total + childCost;
 const cap = (step, estimate) => capCheck({ config, spentBefore, spentThisRun: runCost(), estimate, step });
 
-const out = { capStops: [], billingStops: [], errors: [], detected: [], published: [], mentions: [], parked: [], updated: [], recheck: null, coverage: null, processor: null };
+const out = { capStops: [], billingStops: [], errors: [], detected: [], prechecked: [], published: [], mentions: [], parked: [], updated: [], recheck: null, coverage: null, processor: null };
 const today = new Date().toISOString().slice(0, 10);
 const daysSince = (d) => (Date.parse(today) - Date.parse(d)) / 864e5;
 // A parked event is retried on a schedule (parkedRetryDays, days after its last run): new events are often parked
@@ -58,7 +59,7 @@ const runStarted = new Date().toISOString();
 // this run, and every step that needs it is skipped with one "Billing:" line under "needs action".
 const addBilling = (line) => { if (!out.billingStops.includes(line)) { out.billingStops.push(line); log(line); } };
 const billingBlock = (providers) => billingStops().find((b) => providers.includes(b.provider));
-const CASE_PROVIDERS = ['parallel', 'gemini', 'jev'];
+const CASE_PROVIDERS = ['parallel', 'gemini', 'openrouter', 'jev'];
 // Providers that answered normally this run: a run-case without a billing stop reached all three.
 const answered = new Set();
 const fail = (step, e, skipped) => {
@@ -97,13 +98,34 @@ if (!dryRun) {
     ...state.candidates.filter((c) => c.route === 'new' && c.status === 'pending'),
     ...state.candidates.filter((c) => c.route === 'new' && retryDue(c)),
   ];
-  for (const c of queue.slice(0, config.maxNewCasesPerRun)) {
+  // Pre-checked-out seeds do not use up one of the run's maxNewCasesPerRun research slots.
+  let researched = 0;
+  for (const c of queue) {
+    if (researched >= config.maxNewCasesPerRun) break;
     const blocked = billingBlock(CASE_PROVIDERS);
     if (blocked) { addBilling(`${blocked.message}; case ${c.seed} not researched`); break; }
+    const seedFile = path.join('pipeline', 'seeds', `${c.seed}.json`);
+    // Pre-check (precheck.mjs): one Jev call on the seed text before research is paid for. Once per candidate.
+    // A Jev error other than billing lets the case run, so a pre-check outage never blocks research.
+    if (!c.precheck && existsSync(path.join(root, seedFile))) {
+      try {
+        const pc = await precheck(JSON.parse(readFileSync(path.join(root, seedFile), 'utf8')), c);
+        c.precheck = { p: pc.p, date: today };
+        if (!pc.pass) {
+          c.status = 'prechecked-out'; c.precheck.reason = pc.reason;
+          out.prechecked.push({ slug: c.seed, title: c.title, reason: pc.reason });
+          log(`skip ${c.seed}: ${pc.reason}`);
+          saveCandidates(state); continue;
+        }
+      } catch (e) {
+        if (isBillingStop(e)) { addBilling(`${e.message}; case ${c.seed} not researched`); break; }
+        log(`pre-check ${c.seed} failed, researching anyway: ${String(e.message ?? e).slice(0, 200)}`);
+      }
+    }
     if (c.status === 'parked') { c.retries = (c.retries ?? 0) + 1; log(`retry ${c.retries} of parked ${c.seed} (parked ${c.lastRun})`); }
     const stop = cap(`research for ${c.seed}`, config.worstCaseUsd.case);
     if (stop) { out.capStops.push(stop); log(stop); break; }
-    const seedFile = path.join('pipeline', 'seeds', `${c.seed}.json`);
+    researched += 1;
     const target = path.join(root, 'content', 'cases', `${c.seed}.json`);
     const existed = existsSync(target);
     const started = new Date().toISOString();
@@ -275,12 +297,13 @@ if (newUrlsPath) writeFileSync(newUrlsPath, newUrls.join('\n') + (newUrls.length
 // ── 5 summary ────────────────────────────────────────────────────────────────
 const md = [];
 md.push(`# Pipeline run ${today}${dryRun ? ' (dry run)' : ''}`, '');
-md.push(`Published ${out.published.length}, honorable mentions ${out.mentions.length}, parked ${out.parked.length}, updates found ${out.detected.filter((c) => c.route === 'update').length}, source changes ${out.recheck?.changed.length ?? 0}, errors ${out.errors.length}.`, '');
+md.push(`Published ${out.published.length}, honorable mentions ${out.mentions.length}, parked ${out.parked.length}, skipped by pre-check ${out.prechecked.length}, updates found ${out.detected.filter((c) => c.route === 'update').length}, source changes ${out.recheck?.changed.length ?? 0}, errors ${out.errors.length}.`, '');
 if (out.capStops.length) md.push('**Spend cap reached.** ' + out.capStops.join('; ') + '.', '');
 if (out.billingStops.length) md.push('**Provider out of money.** ' + out.billingStops.join(' | ') + '.' + (out.billingWaiting ? ` Not yet an issue: ${out.billingWaiting}.` : ''), '');
 const section = (title, lines) => { if (lines.length) md.push(`## ${title}`, '', ...lines, ''); };
 section('Published', out.published.map((p) => `- [${p.title}](${p.url}) (${p.readings} readings, $${p.cost})`));
 section('Honorable mentions', out.mentions.map((p) => `- [${p.title}](${p.url}): ${p.missing ?? ''} ($${p.cost})`));
+section('Skipped by the pre-check (no research paid)', out.prechecked.map((p) => `- \`${p.slug}\` ${p.title}: ${p.reason}`));
 section('Parked', out.parked.map((p) => `- \`${p.slug}\` ${p.title}: ${p.reasons.join('; ')} ($${p.cost})`));
 section('Updates found', out.detected.filter((c) => c.route === 'update').map((c) => `- \`${c.case}\` ← [${c.title}](${c.url}), ${c.date}`));
 section('Updates applied', out.updated.map((u) => `- \`${u.slug}\` ${u.url ? `[${u.title}](${u.url})` : u.title}: ${u.change} ($${u.cost})`));

@@ -2,7 +2,7 @@
 // Bodies are the real ones seen on 2026-10-26: Gemini 429 spend cap, Parallel 402 insufficient credit.
 import { test, beforeEach, afterEach } from 'node:test';
 import assert from 'node:assert/strict';
-import { gemini, jev, parallelTask, parallelExtract, isBillingStop, billingStops, _resetBillingStops } from './lib.mjs';
+import { gemini, jev, ledger, parallelTask, parallelExtract, isBillingStop, billingStops, _resetBillingStops } from './lib.mjs';
 import { triage } from './detect.mjs';
 
 const GEMINI_CAP = JSON.stringify({ error: { code: 429, message: 'Your project has exceeded its monthly spending cap. Please go to AI Studio at https://ai.studio/spend to manage your project spend cap.', status: 'RESOURCE_EXHAUSTED' } });
@@ -15,7 +15,7 @@ const respond = (status, body) => { globalThis.fetch = async (url) => { calls.pu
 beforeEach(() => {
   calls = [];
   _resetBillingStops();
-  Object.assign(process.env, { GEMINI_API_KEY: 'k', PARALLEL_API_KEY: 'k', TYPESAFE_API_KEY: 'k' });
+  Object.assign(process.env, { GEMINI_API_KEY: 'k', PARALLEL_API_KEY: 'k', TYPESAFE_API_KEY: 'k', OPENROUTER_API_KEY: 'k', DRAFT_MODEL: 'gemini-3.8-flash' });
 });
 afterEach(() => { globalThis.fetch = realFetch; });
 const args = { system: 's', prompt: 'p', schema: { type: 'object' } };
@@ -59,4 +59,25 @@ test('triage passes a billing stop up instead of listing it as a triage error', 
 test('a billing stop keeps the provider\'s own words, so a spend cap and a depleted prepayment can be told apart', async () => {
   respond(429, GEMINI_CAP);
   await assert.rejects(gemini('select-reading', args), (e) => isBillingStop(e) && e.detail.startsWith('429: Your project has exceeded its monthly spending cap.'));
+});
+
+test('Gemini 402 "prepayment credits are depleted" (seen 2026-11-03) is a billing stop', async () => {
+  respond(402, JSON.stringify({ error: { code: 402, message: 'Your prepayment credits are depleted. Please go to AI Studio at https://ai.studio/projects to manage your project and billing.', status: 'RESOURCE_EXHAUSTED' } }));
+  await assert.rejects(gemini('select-reading', args), (e) => isBillingStop(e) && e.provider === 'gemini');
+});
+
+test('a model id with a slash goes to OpenRouter; the ledger charges usage.cost', async () => {
+  process.env.DRAFT_MODEL = 'deepseek/deepseek-v4.1-flash';
+  respond(200, JSON.stringify({ model: 'deepseek/deepseek-v4.1-flash', choices: [{ message: { content: '{"found":true}' } }], usage: { prompt_tokens: 100, completion_tokens: 10, cost: 0.0123 } }));
+  const before = ledger.length;
+  assert.deepEqual(await gemini('select-reading', { ...args, schema: { type: 'object', required: ['found'] } }), { found: true });
+  assert.match(calls[0], /^https:\/\/openrouter\.ai\/api\/v1\/chat\/completions/);
+  assert.deepEqual(ledger.slice(before).map((l) => [l.provider, l.usd]), [['openrouter', 0.0123]]);
+});
+
+test('OpenRouter 402 is a billing stop for OpenRouter only', async () => {
+  process.env.DRAFT_MODEL = 'deepseek/deepseek-v4.1-flash';
+  respond(402, JSON.stringify({ error: { code: 402, message: 'Insufficient credits. Add more using https://openrouter.ai/settings/credits' } }));
+  await assert.rejects(gemini('select-reading', args), (e) => isBillingStop(e) && e.provider === 'openrouter');
+  assert.deepEqual(billingStops().map((b) => b.provider), ['openrouter']);
 });

@@ -28,6 +28,8 @@ const log = (...m) => console.log(new Date().toISOString().slice(11, 19), ...m);
 
 const fullConfig = loadConfig();
 const config = fullConfig.social ?? {};
+// social.model in config.json, if set, gives posts their own model instead of the case-file draftModel.
+if (config.model && !process.env.DRAFT_MODEL) process.env.DRAFT_MODEL = config.model;
 const statePath = path.join(root, 'pipeline', 'state', 'social.json');
 const state = existsSync(statePath) ? JSON.parse(readFileSync(statePath, 'utf8')) : { x: {} };
 const saveState = () => writeFileSync(statePath, JSON.stringify(state, null, 2) + '\n');

@@ -2,11 +2,18 @@
 // Design: docs/pipeline.md. Keys come from process.env only and are never logged.
 
 import { createHash } from 'node:crypto';
+import { readFileSync } from 'node:fs';
 
 // Unit prices in USD, checked 2026-09-21 against the providers' pricing pages.
 // Gemini 3.8 Flash doubles on 2027-01-01.
 export const PRICES = {
   gemini: { model: 'gemini-3.8-flash', inPerM: 0.75, outPerM: 3.75 },
+  // OpenRouter bills each call at its own price; the ledger charges the cost the response reports (usage.cost).
+  // Checked 2026-11-04 on openrouter.ai/api/v1/models, USD per million tokens in / out.
+  openrouter: {
+    'deepseek/deepseek-v4.1-flash': [0.045, 0.5], 'qwen/qwen3.8-flash': [0.15, 0.47],
+    'openai/gpt-5.4-nano': [0.2, 1.25], 'google/gemini-3.5-flash-lite': [0.3, 2.5], 'google/gemini-3.8-flash': [0.825, 4.125],
+  },
   jev: { model: 'jev-latest', inPerM: 0.042 },
   parallelTask: { lite: 0.005, base: 0.01, core: 0.025, core2x: 0.05, pro: 0.1, ultra: 0.3 },
   parallelExtractPerUrl: 0.001,
@@ -37,10 +44,12 @@ function need(name) {
 // and lands in the run's "needs action" list (auto.mjs, social.mjs). Rate-limit 429s keep their retries in http().
 const BILLING = {
   gemini: { name: 'Gemini', line: 'Gemini monthly spend cap reached (project spend cap at ai.studio/spend)',
-    test: (status, text) => (status === 429 || /RESOURCE_EXHAUSTED/.test(text)) && /spend(ing)? (cap|limit)|credits are depleted|prepayment credit/i.test(text) },
+    test: (status, text) => (status === 429 || status === 402 || /RESOURCE_EXHAUSTED/.test(text)) && /spend(ing)? (cap|limit)|credits are depleted|prepayment credit/i.test(text) },
   // Not "billing" alone: Google's per-minute quota 429 says "check your plan and billing details" too.
   parallel: { name: 'Parallel', line: 'Parallel account out of credit (top up at platform.parallel.ai)',
     test: (status, text) => status === 402 || /insufficient credit/i.test(text) },
+  openrouter: { name: 'OpenRouter', line: 'OpenRouter account out of credit (top up at openrouter.ai/settings/credits)',
+    test: (status, text) => status === 402 || /insufficient (credit|balance|funds)/i.test(text) },
   jev: { name: 'Jev (TypeSafe)', line: 'Jev (TypeSafe) account out of credit or over its spend limit',
     test: (status, text) => status === 402 || /insufficient (credit|balance|funds)|spend(ing)? (cap|limit)/i.test(text) },
 };
@@ -195,9 +204,31 @@ export function relevantWindow(text, terms, size = 120000) {
 
 // ── Gemini (Google AI Studio) ────────────────────────────────────────────────
 
-export async function gemini(step, { system, prompt, schema }) {
+// Two model slots (config.json): `selectModel` copies passages from whole pages (select-reading, select-primary,
+// three quarters of the model cost), `draftModel` writes site-voice text, labels, party descriptions and posts.
+// Env DRAFT_MODEL / SELECT_MODEL override them; SELECT_MODEL falls back to the draft model. An id with a slash
+// ("deepseek/deepseek-v4.1-flash") goes to OpenRouter, a bare id ("gemini-3.8-flash") to Google AI Studio.
+let configModels;
+function models() {
+  if (configModels === undefined) {
+    try { const c = JSON.parse(readFileSync(new URL('./config.json', import.meta.url), 'utf8')); configModels = { draft: c.draftModel, select: c.selectModel }; } catch { configModels = {}; }
+  }
+  return configModels;
+}
+export function draftModel() { return process.env.DRAFT_MODEL || models().draft || PRICES.gemini.model; }
+export function selectModel() { return process.env.SELECT_MODEL || (process.env.DRAFT_MODEL ? null : models().select) || draftModel(); }
+export const modelFor = (step) => (step.startsWith('select-') ? selectModel() : draftModel());
+export const providerOf = (model) => (model.includes('/') ? 'openrouter' : 'gemini');
+
+// Every selection and drafting call goes through here (the name stays from the Gemini-only pipeline).
+export async function gemini(step, opts) {
+  const model = modelFor(step);
+  if (providerOf(model) === 'openrouter') return openrouter(step, { ...opts, model });
+  return geminiDirect(step, { ...opts, model });
+}
+
+async function geminiDirect(step, { system, prompt, schema, model }) {
   billingGuard('gemini');
-  const model = process.env.DRAFT_MODEL || PRICES.gemini.model;
   const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`;
   const body = {
     systemInstruction: { parts: [{ text: system }] },
@@ -221,6 +252,47 @@ export async function gemini(step, { system, prompt, schema }) {
   charge(step, 'gemini', { model, inTok, outTok }, (inTok * PRICES.gemini.inPerM + outTok * PRICES.gemini.outPerM) / 1e6);
   const text = r.json.candidates?.[0]?.content?.parts?.map((p) => p.text ?? '').join('') ?? '';
   try { return JSON.parse(text); } catch { throw new Error(`gemini returned non-JSON at ${step}: ${text.slice(0, 200)}`); }
+}
+
+// ── OpenRouter (OpenAI-compatible chat completions) ──────────────────────────
+// Structured output via json_schema where the model supports it; a 400 about response_format falls back to
+// JSON mode, and a reply that misses a required key is asked for once more. Cost: the response's usage.cost (USD).
+function missingKeys(schema, out) {
+  return (schema?.required ?? []).filter((k) => out == null || typeof out !== 'object' || !(k in out));
+}
+export async function openrouter(step, { system, prompt, schema, model }) {
+  billingGuard('openrouter');
+  const headers = { authorization: `Bearer ${need('OPENROUTER_API_KEY')}`, 'content-type': 'application/json', 'x-title': 'IsAIConsciousYet pipeline', 'http-referer': 'https://isaiconsciousyet.com' };
+  const messages = [{ role: 'system', content: system }, { role: 'user', content: prompt }];
+  const base = { model, messages, temperature: 0, usage: { include: true }, reasoning: { effort: 'low', exclude: true }, provider: { require_parameters: true } };
+  let format = { type: 'json_schema', json_schema: { name: step.replace(/[^a-zA-Z0-9_-]/g, '_'), strict: false, schema } };
+  const call = (extra = {}) => http('https://openrouter.ai/api/v1/chat/completions', { method: 'POST', headers, body: JSON.stringify({ ...base, response_format: format, ...extra }) }, { timeoutMs: 240000 });
+  let r = await call();
+  if (r.status === 400 || r.status === 404) {
+    // No provider for this model takes json_schema (or reasoning): JSON mode, schema in the prompt, any provider.
+    format = { type: 'json_object' };
+    base.messages = [{ role: 'system', content: `${system}\n\nAnswer with one JSON object that matches this JSON Schema, and nothing else:\n${JSON.stringify(schema)}` }, { role: 'user', content: prompt }];
+    delete base.provider; delete base.reasoning;
+    r = await call();
+  }
+  billingCheck('openrouter', r);
+  if (!r.ok) throw new Error(`openrouter ${r.status}: ${r.text.slice(0, 300)}`);
+  const bill = (res) => {
+    const u = res.json?.usage ?? {};
+    charge(step, 'openrouter', { model: res.json?.model ?? model, inTok: u.prompt_tokens ?? 0, outTok: u.completion_tokens ?? 0 }, Number(u.cost ?? 0));
+  };
+  bill(r);
+  const parse = (res) => { const t = res.json?.choices?.[0]?.message?.content ?? ''; try { return JSON.parse(t.replace(/^```(?:json)?\s*|\s*```$/g, '')); } catch { return undefined; } };
+  let outJson = parse(r);
+  if (outJson === undefined || missingKeys(schema, outJson).length) {
+    const again = await call();
+    billingCheck('openrouter', again);
+    if (again.ok) { bill(again); const o = parse(again); if (o !== undefined && !missingKeys(schema, o).length) outJson = o; }
+  }
+  if (outJson === undefined) throw new Error(`openrouter returned non-JSON at ${step} (${model})`);
+  const miss = missingKeys(schema, outJson);
+  if (miss.length) throw new Error(`openrouter reply at ${step} (${model}) misses ${miss.join(', ')}`);
+  return outJson;
 }
 
 // ── Jev (TypeSafe): typed judgments, no generated text ───────────────────────

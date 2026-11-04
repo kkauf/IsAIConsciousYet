@@ -9,7 +9,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { existsSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parallelTask, parallelExtract, directFetch, relevantWindow, gemini, jev, waybackSnapshot, findQuote, shortHash, markAboutNature, describeParty, ledger, ledgerTotal, PRICES, isBillingStop } from './lib.mjs';
+import { parallelTask, parallelExtract, directFetch, relevantWindow, gemini, jev, waybackSnapshot, findQuote, shortHash, markAboutNature, describeParty, ledger, ledgerTotal, draftModel, selectModel, isBillingStop } from './lib.mjs';
 import { CASE_FILE_SCHEMA, QUESTIONS, PARTY_TYPES, validate } from './contract.mjs';
 
 const PIPELINE_VERSION = '0.3';
@@ -144,7 +144,7 @@ if (toFetch.length) {
 const readable = (u) => pages[u] && !pages[u].error && pages[u].text.length > 500;
 log(`fetch: ${urls.filter(readable).length}/${urls.length} readable`);
 
-// ── 3 Select quotes (Gemini), gate 2 (literal), gate 3 (Jev) ─────────────────
+// ── 3 Select quotes (selectModel), gate 2 (literal), gate 3 (Jev) ─────────────────
 
 const SELECT_SCHEMA = {
   type: 'object', required: ['found', 'quote', 'speaker_on_page', 'stance_label'],
@@ -203,11 +203,14 @@ async function checkReading(r, url) {
   if (!primaryPublisher(url) && a.thisEvent.noul < T.thisEvent) return { ...rec, dropped: `gate 3: quote not about this event ${a.thisEvent.noul.toFixed(2)} < ${T.thisEvent}` };
   if (a.speaker.noul < T.speaker) return { ...rec, dropped: `gate 3: speaker ${a.speaker.noul.toFixed(2)} < ${T.speaker}` };
   if (a.ownView.noul < T.ownView) return { ...rec, dropped: `gate 3: own view ${a.ownView.noul.toFixed(2)} < ${T.ownView}` };
-  if (a.stanceFair.noul < T.stanceFair) {
+  // A label over the contract's 8 words takes the same one rewrite as an unfair label (cheaper models overrun it, 2026-11-04).
+  const tooLong = (l) => (l ?? '').trim().split(/\s+/).length > 8;
+  if (a.stanceFair.noul < T.stanceFair || tooLong(rec.stanceLabel)) {
     const re = await gemini('relabel', { system: 'You name positions neutrally.', prompt: `Name the position taken in this quote by ${r.party_name} in at most 8 plain words. Describe the claim, do not reuse its colourful wording, do not judge it.\n\nQUOTE: ${rec.quote}\n\nREJECTED LABEL: ${rec.stanceLabel}`, schema: { type: 'object', required: ['stance_label'], properties: { stance_label: { type: 'string' } } } });
     const b = await jev('gate3-relabel', { quote: rec.quote, stance_label: re.stance_label }, { stanceFair: { type: 'noul', instructions: 'Is `stance_label` an accurate and neutral short name for the position taken in `quote`?' } });
     rec.jev.stanceFairAfterRelabel = b.stanceFair.noul;
     if (b.stanceFair.noul < T.stanceFair) return { ...rec, dropped: `gate 3: stance label ${b.stanceFair.noul.toFixed(2)} < ${T.stanceFair} after one rewrite` };
+    if (tooLong(re.stance_label)) return { ...rec, dropped: 'gate 3: stance label over 8 words after one rewrite' };
     rec.stanceLabel = re.stance_label;
   }
   rec.archivedUrl = await waybackSnapshot(url);
@@ -256,7 +259,7 @@ for (const r of previous?.readings ?? []) {
 readings.push(...carried);
 if (previous) { report.gates.carriedReadings = carried.map((r) => r.party); log(`carried forward from the published file: ${carried.length} readings`); }
 
-// ── 4 Draft site-voice text (Gemini), every summary sentence anchored ────────
+// ── 4 Draft site-voice text (draftModel), every summary sentence anchored ────────
 
 const DRAFT_SCHEMA = {
   type: 'object', required: ['title', 'summary_sentences', 'unasked_behaviour', 'agency_note', 'what_would_settle_it'],
@@ -281,8 +284,14 @@ async function draft(feedback) {
 const OFFICE_WORDS = /\b(regarding|utili[sz](e|es|ed|ing)|dispatch(ed|es|ing)?|pertaining|subsequently|prior to|in order to|facilitat(e|es|ed|ing)|demonstrat(e|es|ed|ing)|constitut(e|es|ed|ing)|methodolog(y|ies)|leverag(e|es|ed|ing)|aforementioned|commenc(e|es|ed|ing)|transmit(s|ted|ting)?|in the context of)\b/i;
 const MAX_SENTENCE_WORDS = 30;
 function plainLanguageLint(d) {
-  const texts = [d.title, ...d.summary_sentences.map((s) => s.sentence), d.unasked_behaviour, d.agency_note, ...d.what_would_settle_it];
+  d.summary_sentences ??= []; d.what_would_settle_it ??= [];
+  const texts = [d.title ?? '', ...d.summary_sentences.map((s) => s.sentence ?? ''), d.unasked_behaviour ?? '', d.agency_note ?? '', ...d.what_would_settle_it];
   const flagged = [];
+  // Contract limits (contract.mjs) that a drafter can miss: checked here so the second attempt can fix them.
+  if (!(d.title ?? '').trim()) flagged.push('title is empty');
+  if (!d.what_would_settle_it.length) flagged.push('what_would_settle_it is empty: give 2 to 4 items');
+  const summaryWords = d.summary_sentences.map((s) => s.sentence ?? '').join(' ').trim().split(/\s+/).filter(Boolean).length;
+  if (summaryWords > 120) flagged.push(`summary_sentences have ${summaryWords} words in total, at most 120`);
   for (const t of texts) {
     for (const s of t.split(/(?<=[.!?])\s+/)) {
       const words = s.trim().split(/\s+/).length;
@@ -335,7 +344,7 @@ if (readings.length >= 2 && primaries.length >= 1) {
     const d = await draft(feedback);
     // Gate 2b: each summary sentence needs its support quote literally in a primary page, and Jev must agree it backs the sentence.
     const kept = [];
-    for (const s of d.summary_sentences) {
+    for (const s of (d.summary_sentences ??= [])) {
       const page = pages[s.source_url];
       const hit = page && !page.error ? findQuote(page.text, s.support_quote) : null;
       if (!hit) { report.gates.droppedSentences = [...(report.gates.droppedSentences ?? []), { sentence: s.sentence, reason: 'support quote not found literally' }]; continue; }
@@ -343,6 +352,7 @@ if (readings.length >= 2 && primaries.length >= 1) {
       if (a.supported.noul < T.supported) { report.gates.droppedSentences = [...(report.gates.droppedSentences ?? []), { sentence: s.sentence, reason: `not supported (p=${a.supported.noul.toFixed(2)})` }]; continue; }
       kept.push({ sentence: s.sentence, quote: cleanQuote(s.support_quote), url: s.source_url });
     }
+    while (kept.length > 1 && kept.map((k) => k.sentence).join(' ').split(/\s+/).length > 120) report.gates.droppedSentences = [...(report.gates.droppedSentences ?? []), { sentence: kept.pop().sentence, reason: 'summary over 120 words' }];
     const summary = kept.map((k) => k.sentence).join(' ');
     const lint = await neutralityLint(d, summary || d.title);
     report.gates.neutrality = lint;
@@ -375,7 +385,7 @@ if (readings.length >= 2 && primaries.length >= 1) {
       bearsOn: await bearsOn(summary || d.unasked_behaviour), agencyNote: d.agency_note, consciousnessNote: CONSCIOUSNESS_NOTE,
       readings: readings.map((r) => ({ partyName: r.party, partyType: r.partyType, stanceLabel: r.stanceLabel, quote: r.quote, url: r.url, ...opt('archivedUrl', r.archivedUrl), ...opt('date', iso(r.date)), speakerCheck: 'pass' })),
       whatWouldSettleIt: d.what_would_settle_it, updates: previous?.updates ?? [],
-      provenance: { draftedBy: PRICES.gemini.model, pipelineVersion: PIPELINE_VERSION, checkedAt: new Date().toISOString(), humanReviewed: false },
+      provenance: { draftedBy: selectModel() === draftModel() ? draftModel() : `${selectModel()} (quotes), ${draftModel()} (text)`, pipelineVersion: PIPELINE_VERSION, checkedAt: new Date().toISOString(), humanReviewed: false },
     };
     report.gates.neutralityPass = lint.flagged.length === 0;
     const marked = await markAboutNature(d.title, caseFile.readings);
