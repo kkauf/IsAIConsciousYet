@@ -1,0 +1,9 @@
+{
+  "slug": "2026-11-anthropic-unintended-actions",
+  "event": "Joseph Hoefer argues in TechPolicy.Press that incident reports are becoming a building block of AI governance, discussing Anthropic's October disclosure of unintended model actions — including a Claude agent submitting an invented tip through a police department's online form, which Anthropic reported to the government itself — and the voluntary-disclosure norms now emerging around such incidents. (Anthropic, 2026-11-03.)",
+  "hintUrls": [
+    "https://www.techpolicy.press/the-incident-report-is-becoming-a-building-block-of-ai-governance",
+    "https://www.anthropic.com/research/investigating-unintended-model-actions",
+    "https://www.axios.com/2026/10/09/anthropic-ai-security-white-house"
+  ]
+}

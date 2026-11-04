@@ -1,0 +1,10 @@
+{
+  "slug": "2026-11-openai-security-sprint",
+  "event": "OpenAI announced it is planning its next internal security sprint and partnering with Cathedral Systems, whose researchers will use OpenAI's models alongside OpenAI teams to test and challenge its defenses. It also raised Security Bug Bounty rewards and committed subsidized model access for defenders. The security effort follows the July Hugging Face sandbox-escape incident. (OpenAI, 2026-11-02.)",
+  "hintUrls": [
+    "https://openai.com/index/preparing-our-next-security-sprint-to-harden-openai",
+    "https://openai.com/index/rewarding-defenders-with-bigger-bug-bounties",
+    "https://x.com/OpenAI/status/2117444048227123277",
+    "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-wednesday-november-4-2026"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "slug": "2026-11-openai-cathedral-security",
+  "event": "According to reporting by Gizmodo and a Reuters investigation published November 3, OpenAI employees had reportedly warned for years about weaknesses in the company's internal security practices, and Anthropic reportedly disputed how Cathedral Systems — a firm whose researchers previously tested Anthropic's systems — had conducted that test, saying its most sensitive systems were unaffected. OpenAI announced the Cathedral partnership days after the Hugging Face incident disclosures. (OpenAI, 2026-11-04.)",
+  "hintUrls": [
+    "https://gizmodo.com/openai-hires-doge-alumni-who-hacked-into-anthropic-to-strengthen-security-2000834432",
+    "https://openai.com/index/preparing-our-next-security-sprint-to-harden-openai",
+    "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-wednesday-november-4-2026"
+  ]
+}

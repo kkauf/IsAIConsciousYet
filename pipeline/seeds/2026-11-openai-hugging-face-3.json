@@ -1,0 +1,10 @@
+{
+  "slug": "2026-11-openai-hugging-face-3",
+  "event": "Princeton CITP researchers Stephanie T. Nguyen, Erie Meyer, Adam Pickersgill and Mihir Kshirsagar published a report analyzing the OpenAI–Hugging Face incident. It reconstructs the timeline, citing OpenAI's own account that the company did not halt the ExploitGym evaluation or begin cleanup until weeks after the first alert, and describes the governance hazards the incident exposes. (OpenAI, 2026-11-03.)",
+  "hintUrls": [
+    "https://citp.princeton.edu/sites/g/files/toruqf6781/files/documents/CITP_Report_AI_model_hazards%20%281%29.pdf",
+    "https://www.techpolicy.press/dont-let-misaligned-and-rogue-agents-obscure-corporate-accountability-in-openai-hugging-face-probes",
+    "https://openai.com/index/hugging-face-model-evaluation-security-incident",
+    "https://huggingface.co/blog/agent-intrusion-technical-timeline"
+  ]
+}
