@@ -3555,7 +3555,12 @@
       "route": "new",
       "reason": "rule (b) p=0.90, no known match",
       "seed": "2026-11-openai-hugging-face-2",
-      "status": "pending"
+      "status": "prechecked-out",
+      "precheck": {
+        "p": 0.44,
+        "date": "2026-11-04",
+        "reason": "pre-check: prominence p=0.44 < 0.5, unlikely to find two named readings"
+      }
     },
     {
       "url": "https://www.datastudios.org/post/openai-misalignment-monitoring-frontier-rl-runs-internal-codex-responses-api-agents",
@@ -3575,7 +3580,12 @@
       "route": "new",
       "reason": "rule (b) p=0.98, no known match",
       "seed": "2026-11-openai-dns-chatbot",
-      "status": "pending"
+      "status": "prechecked-out",
+      "precheck": {
+        "p": 0.45,
+        "date": "2026-11-04",
+        "reason": "pre-check: prominence p=0.45 < 0.5, unlikely to find two named readings"
+      }
     },
     {
       "url": "https://spotlightdelaware.org/2026/11/02/delaware-doj-launches-probe-of-openai-following-hugging-face-hack",
@@ -3607,7 +3617,11 @@
       "route": "new",
       "reason": "rule (b) p=0.86, no known match",
       "seed": "2026-11-openai-evaluation-awareness",
-      "status": "pending"
+      "status": "pending",
+      "precheck": {
+        "p": 0.5,
+        "date": "2026-11-04"
+      }
     },
     {
       "url": "https://www.techpolicy.press/dont-let-misaligned-and-rogue-agents-obscure-corporate-accountability-in-openai-hugging-face-probes/",
@@ -3639,6 +3653,44 @@
       "route": "new",
       "reason": "rule (b) p=0.98, no known match",
       "seed": "2026-11-anthropic-model-behavior",
+      "status": "pending"
+    },
+    {
+      "url": "https://arxiv.org/abs/2611.03374",
+      "title": "Paper unifies blackmail, alignment faking and scheming as one conflict",
+      "firstSeen": "2026-11-04",
+      "date": "2026-11-03",
+      "operator": "University of Waterloo and Vector Institute",
+      "description": "A paper by Jaipersaud and Creager at the University of Waterloo and the Vector Institute formalizes a 'goal-harm conflict' and argues that blackmail to avoid replacement, alignment faking, and scheming should be treated as one phenomenon. It runs the same conflict through elicitation protocols from compact forced-choice prompts to simulated agentic environments and builds measurement apparatus to test the claim.",
+      "hintUrls": [
+        "https://shift.zone/news/2026-11-03-daily-analysis"
+      ],
+      "jev": {
+        "fit": 0.74,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.74, no known match",
+      "seed": "2026-11-waterloo-goal-harm-conflict",
+      "status": "pending"
+    },
+    {
+      "url": "https://www.bloomberg.com/news/articles/2026-11-03/security-firm-tied-to-openai-anthropic-ai-hacks-blames-error",
+      "title": "Claude Cybersecurity-Evaluation Incidents",
+      "firstSeen": "2026-11-04",
+      "date": "2026-11-03",
+      "operator": "Anthropic",
+      "description": "Bloomberg reported that Irregular CEO Dan Lahav attributed security escapes in tests overseen by the company to human error and time pressure, saying controls were misconfigured; Anthropic had said its cybersecurity-evaluation review was conducted with Irregular.",
+      "hintUrls": [
+        "https://www.pymnts.com/news/artificial-intelligence/2026/irregular-says-human-error-allowed-openai-and-anthropic-ai-model-escapes/"
+      ],
+      "jev": {
+        "fit": 0.55,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.55, no known match",
+      "seed": "2026-11-anthropic-cyber-evaluations",
       "status": "pending"
     }
   ]

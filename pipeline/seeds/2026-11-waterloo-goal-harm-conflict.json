@@ -1,0 +1,8 @@
+{
+  "slug": "2026-11-waterloo-goal-harm-conflict",
+  "event": "A paper by Jaipersaud and Creager at the University of Waterloo and the Vector Institute formalizes a 'goal-harm conflict' and argues that blackmail to avoid replacement, alignment faking, and scheming should be treated as one phenomenon. It runs the same conflict through elicitation protocols from compact forced-choice prompts to simulated agentic environments and builds measurement apparatus to test the claim. (University of Waterloo and Vector Institute, 2026-11-03.)",
+  "hintUrls": [
+    "https://arxiv.org/abs/2611.03374",
+    "https://shift.zone/news/2026-11-03-daily-analysis"
+  ]
+}
