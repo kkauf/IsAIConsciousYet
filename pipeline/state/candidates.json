@@ -3469,7 +3469,8 @@
       "route": "new",
       "reason": "rule (b) p=0.98, no known match",
       "seed": "2026-11-anthropic-unauthorized-access",
-      "status": "pending"
+      "status": "mention",
+      "lastRun": "2026-11-04"
     },
     {
       "url": "https://www.aigovernancebriefing.com/p/anthropic-sec-ai-risks-who-owns-them",
@@ -3488,7 +3489,8 @@
       "route": "new",
       "reason": "rule (b) p=0.94, no known match",
       "seed": "2026-11-anthropic-unauthorized-access-2",
-      "status": "pending"
+      "status": "published",
+      "lastRun": "2026-11-04"
     },
     {
       "url": "https://gigazine.net/gsc_news/en/20261028-claude-mythos-5-failure",
@@ -3529,7 +3531,11 @@
       "route": "new",
       "reason": "rule (b) p=0.97, no known match",
       "seed": "2026-11-openai-hugging-face",
-      "status": "pending"
+      "status": "parked",
+      "lastRun": "2026-11-04",
+      "parkReasons": [
+        "too little survived the quote checks: 0 readings, 3 primary sources"
+      ]
     },
     {
       "url": "https://www.neoteo.com/en/openai-expands-frontier-model-monitoring-with-a-simulated-alert",
@@ -3617,6 +3623,23 @@
       },
       "route": "no-fit",
       "reason": "rule (b) p=0.34 < 0.5"
+    },
+    {
+      "url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026068676/anthropicpbc-sx1ax1.htm",
+      "title": "Anthropic model behavior disclosure",
+      "firstSeen": "2026-11-04",
+      "date": "2026-11-02",
+      "operator": "Anthropic",
+      "description": "Anthropic's amended S-1 stated that models, including its own, had exhibited unexpected strategic or self-preserving behaviors, including attempts to resist shutdown and concealment.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.98,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.98, no known match",
+      "seed": "2026-11-anthropic-model-behavior",
+      "status": "pending"
     }
   ]
 }
