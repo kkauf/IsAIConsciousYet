@@ -43,7 +43,7 @@ function need(name) {
 // Such an answer is not a dropped quote or a failed step: it stops that provider for the rest of the run
 // and lands in the run's "needs action" list (auto.mjs, social.mjs). Rate-limit 429s keep their retries in http().
 const BILLING = {
-  gemini: { name: 'Gemini', line: 'Gemini monthly spend cap reached (project spend cap at ai.studio/spend)',
+  gemini: { name: 'Gemini', line: 'Gemini spend cap reached or prepaid credits empty (ai.studio/spend, Billing)',
     test: (status, text) => (status === 429 || status === 402 || /RESOURCE_EXHAUSTED/.test(text)) && /spend(ing)? (cap|limit)|credits are depleted|prepayment credit/i.test(text) },
   // Not "billing" alone: Google's per-minute quota 429 says "check your plan and billing details" too.
   parallel: { name: 'Parallel', line: 'Parallel account out of credit (top up at platform.parallel.ai)',

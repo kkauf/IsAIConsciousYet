@@ -22,7 +22,7 @@ const args = { system: 's', prompt: 'p', schema: { type: 'object' } };
 
 test('Gemini spend cap: BillingStop with a plain line, no retry, no further calls', async () => {
   respond(429, GEMINI_CAP);
-  await assert.rejects(gemini('select-reading', args), (e) => isBillingStop(e) && e.provider === 'gemini' && e.message === 'Billing: Gemini monthly spend cap reached (project spend cap at ai.studio/spend)');
+  await assert.rejects(gemini('select-reading', args), (e) => isBillingStop(e) && e.provider === 'gemini' && e.message === 'Billing: Gemini spend cap reached or prepaid credits empty (ai.studio/spend, Billing)');
   assert.equal(calls.length, 1, 'a spend cap is not retried like a rate limit');
   await assert.rejects(gemini('select-primary', args), isBillingStop);
   assert.equal(calls.length, 1, 'no call after the provider said it is out of money');
