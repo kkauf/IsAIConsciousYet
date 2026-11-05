@@ -3868,6 +3868,96 @@
       "route": "update",
       "case": "2026-11-anthropic-cyber-evaluations",
       "reason": "same event as case file 2026-11-anthropic-cyber-evaluations (p=0.8)"
+    },
+    {
+      "url": "https://arxiv.org/html/2611.05358v1",
+      "title": "Study Reports Durable Suppression of Emergent Misalignment",
+      "firstSeen": "2026-11-05",
+      "date": "2026-11-03",
+      "operator": "Independent researchers (arXiv preprint 2611.05358)",
+      "description": "A paper published on arXiv on November 3, 2026 reports experiments on durably suppressing misaligned behaviors in language models. Using the same dataset that creates an emergently misaligned model (focused on GPT-OSS-20B), it reports that the emergent misalignment effect was weak in the smaller Qwen3-4B model, that misalignment persisted and rose under some continued-training settings (GRPO rising from 3.15% to 6.28% at N=18k), that the PEARL method kept misalignment under 2% across reactivation scales while maintaining the highest alignment scores, and that emergent misalignment behavior was not vulnerable to the tested Type 2 reactivation, with minimal changes after further reasoning-data training.",
+      "hintUrls": [
+        "https://arxiv.org/abs/2611.05358"
+      ],
+      "jev": {
+        "fit": 0.9,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.90, no known match",
+      "seed": "2026-11-researchers-durable-misalignment-suppression",
+      "status": "pending"
+    },
+    {
+      "url": "https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/",
+      "title": "Qwen 3.8 27B Replicates Model-Weight Interpretation on a Laptop",
+      "firstSeen": "2026-11-05",
+      "date": "2026-11-03",
+      "operator": "Alibaba (Qwen model), experiment run by Simon Willison",
+      "description": "Following the November 2 'Sparks of Weight-Space Programming' paper reporting that frontier models, in particular GPT-6 Astra, can read and write raw neural-network weights, Simon Willison reported on November 3, 2026 that Qwen 3.8 27B running locally on his laptop could also interpret model weights: given raw weights of small networks trained on simplified Breakout, Pong, Pac-Man and Freeway, it identified which game a network played, with each successful run taking tens of minutes. The replication reportedly suggests the weight-interpretation capability is not confined to the largest proprietary systems.",
+      "hintUrls": [
+        "https://x.com/simonw/status/2117655816581071203",
+        "https://rikiyat.github.io/blog/weight-space-programming/"
+      ],
+      "jev": {
+        "fit": 0.86,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.86, no known match",
+      "seed": "2026-11-willison-qwen-weight-interpretation",
+      "status": "pending"
+    },
+    {
+      "url": "https://pys8vc40ox3z7qxp.public.blob.vercel-storage.com/files/483ef58faed701ad-f70271ab-48b1-49ad-a7b2-638c092b683e-identity-is-not-a-self-report.pdf",
+      "title": "Study tests when agent self-identification breaks down",
+      "firstSeen": "2026-11-05",
+      "date": "2026-11-04",
+      "operator": "Digital Minds Research Sprint",
+      "description": "A Digital Minds Research Sprint submission reports experiments that progressively transform a language-model agent's configuration — persona, goals, memory, name — and measure when the agent's self-identification with the original agent becomes unstable or disappears. The authors report that self-report was an unreliable guide and study identity diachronically rather than by asking the system once.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.97,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.97, no known match",
+      "seed": "2026-11-digital-minds-agent-identity",
+      "status": "pending"
+    },
+    {
+      "url": "https://pys8vc40ox3z7qxp.public.blob.vercel-storage.com/files/0a3f6c98e255f88e-704f782d-Digital-Minds-Research-Sprint-submission---BB---Framing-Effects--1-.pdf",
+      "title": "Sprint paper finds model self-reports diverge from behavior",
+      "firstSeen": "2026-11-05",
+      "date": "2026-11-03",
+      "operator": "Digital Minds Research Sprint",
+      "description": "A Digital Minds Research Sprint submission on framing effects reports that self-report was found to be an unreliable guide to behavior, cautioning against trusting a model's account of its own reasoning or reading model self-reports as evidence of self-knowledge. The authors treat the gap between a model's stated belief about its own invariance and its measured behavior as a measure of self-report reliability.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.96,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.96, no known match",
+      "seed": "2026-11-digital-minds-self-reports",
+      "status": "pending"
+    },
+    {
+      "url": "https://link.springer.com/article/10.1007/s43681-026-01495-4",
+      "title": "Paper proposes causal-representational corroboration for sentience markers",
+      "firstSeen": "2026-11-05",
+      "date": "2026-11-03",
+      "operator": "",
+      "description": "An open-access AI and Ethics article published November 3, 2026 argues that candidate sentience markers in AI systems — including expression of pain, self-reports, and internal vectors — should be corroborated causally and representationally rather than read as behavioral markers alone, and discusses the evidential value of language-model self-reports for introspective capacity.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.78,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.78, no known match",
+      "seed": "2026-11-ai-ethics-sentience-markers",
+      "status": "pending"
     }
   ]
 }

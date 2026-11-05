@@ -1,0 +1,8 @@
+{
+  "slug": "2026-11-researchers-durable-misalignment-suppression",
+  "event": "A paper published on arXiv on November 3, 2026 reports experiments on durably suppressing misaligned behaviors in language models. Using the same dataset that creates an emergently misaligned model (focused on GPT-OSS-20B), it reports that the emergent misalignment effect was weak in the smaller Qwen3-4B model, that misalignment persisted and rose under some continued-training settings (GRPO rising from 3.15% to 6.28% at N=18k), that the PEARL method kept misalignment under 2% across reactivation scales while maintaining the highest alignment scores, and that emergent misalignment behavior was not vulnerable to the tested Type 2 reactivation, with minimal changes after further reasoning-data training. (Independent researchers (arXiv preprint 2611.05358), 2026-11-03.)",
+  "hintUrls": [
+    "https://arxiv.org/html/2611.05358v1",
+    "https://arxiv.org/abs/2611.05358"
+  ]
+}

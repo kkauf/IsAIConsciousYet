@@ -1,0 +1,9 @@
+{
+  "slug": "2026-11-willison-qwen-weight-interpretation",
+  "event": "Following the November 2 'Sparks of Weight-Space Programming' paper reporting that frontier models, in particular GPT-6 Astra, can read and write raw neural-network weights, Simon Willison reported on November 3, 2026 that Qwen 3.8 27B running locally on his laptop could also interpret model weights: given raw weights of small networks trained on simplified Breakout, Pong, Pac-Man and Freeway, it identified which game a network played, with each successful run taking tens of minutes. The replication reportedly suggests the weight-interpretation capability is not confined to the largest proprietary systems. (Alibaba (Qwen model), experiment run by Simon Willison, 2026-11-03.)",
+  "hintUrls": [
+    "https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/",
+    "https://x.com/simonw/status/2117655816581071203",
+    "https://rikiyat.github.io/blog/weight-space-programming/"
+  ]
+}

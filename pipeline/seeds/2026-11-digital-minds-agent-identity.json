@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-digital-minds-agent-identity",
+  "event": "A Digital Minds Research Sprint submission reports experiments that progressively transform a language-model agent's configuration — persona, goals, memory, name — and measure when the agent's self-identification with the original agent becomes unstable or disappears. The authors report that self-report was an unreliable guide and study identity diachronically rather than by asking the system once. (Digital Minds Research Sprint, 2026-11-04.)",
+  "hintUrls": [
+    "https://pys8vc40ox3z7qxp.public.blob.vercel-storage.com/files/483ef58faed701ad-f70271ab-48b1-49ad-a7b2-638c092b683e-identity-is-not-a-self-report.pdf"
+  ]
+}
