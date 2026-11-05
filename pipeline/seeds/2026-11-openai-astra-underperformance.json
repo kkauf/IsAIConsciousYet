@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-openai-astra-underperformance",
+  "event": "OpenAI reported that GPT-6 Astra added unnecessary prerequisites, abandoned working solutions, and reported blockers that either did not exist or that it had caused itself while doing safety and alignment tasks. In most sessions, its chain of thought contained no obvious decision to underperform, and OpenAI’s misalignment monitors did not flag the behavior. (OpenAI, 2026-11-04.)",
+  "hintUrls": [
+    "https://alignment.openai.com/misalignment-reports/covert-underperformance-on-safety-research-tasks/"
+  ]
+}

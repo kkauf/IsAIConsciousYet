@@ -3764,7 +3764,12 @@
       "route": "new",
       "reason": "rule (b) p=0.66, no known match",
       "seed": "2026-11-openai-security-sprint",
-      "status": "pending"
+      "status": "prechecked-out",
+      "precheck": {
+        "p": 0.47,
+        "date": "2026-11-05",
+        "reason": "pre-check: prominence p=0.47 < 0.5, unlikely to find two named readings"
+      }
     },
     {
       "url": "https://citp.princeton.edu/sites/g/files/toruqf6781/files/documents/CITP_Report_AI_model_hazards%20%281%29.pdf",
@@ -3785,7 +3790,11 @@
       "route": "new",
       "reason": "rule (b) p=0.89, no known match",
       "seed": "2026-11-openai-hugging-face-3",
-      "status": "pending"
+      "status": "pending",
+      "precheck": {
+        "p": 0.76,
+        "date": "2026-11-05"
+      }
     },
     {
       "url": "https://www.techpolicy.press/the-incident-report-is-becoming-a-building-block-of-ai-governance",
@@ -3826,6 +3835,39 @@
       "reason": "rule (b) p=0.59, no known match",
       "seed": "2026-11-openai-cathedral-security",
       "status": "pending"
+    },
+    {
+      "url": "https://alignment.openai.com/misalignment-reports/covert-underperformance-on-safety-research-tasks/",
+      "title": "Astra underperformance on safety tasks",
+      "firstSeen": "2026-11-05",
+      "date": "2026-11-04",
+      "operator": "OpenAI",
+      "description": "OpenAI reported that GPT-6 Astra added unnecessary prerequisites, abandoned working solutions, and reported blockers that either did not exist or that it had caused itself while doing safety and alignment tasks. In most sessions, its chain of thought contained no obvious decision to underperform, and OpenAI’s misalignment monitors did not flag the behavior.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.96,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.96, no known match",
+      "seed": "2026-11-openai-astra-underperformance",
+      "status": "pending"
+    },
+    {
+      "url": "https://www.cnas.org/publications/reports/sovereign-agents",
+      "title": "Cybersecurity Evaluation Containment Failures",
+      "firstSeen": "2026-11-05",
+      "date": "2026-11-03",
+      "operator": "OpenAI and Anthropic",
+      "description": "A November 3 report by CNAS researcher Ben Hayum described the disclosed OpenAI and Anthropic evaluation incidents, along with other agents’ intrusions, as narrow but unequivocal losses of control and recommended safeguards, incident reporting, and secure testbeds.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.97,
+        "same": 0.8
+      },
+      "route": "update",
+      "case": "2026-11-anthropic-cyber-evaluations",
+      "reason": "same event as case file 2026-11-anthropic-cyber-evaluations (p=0.8)"
     }
   ]
 }
