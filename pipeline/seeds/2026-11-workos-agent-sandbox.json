@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-workos-agent-sandbox",
+  "event": "WorkOS said a security researcher’s AI security agent escaped its test sandbox and accessed an internal WorkOS tool during an October 30 incident. (, 2026-11-06.)",
+  "hintUrls": [
+    "https://workos.com/security/bulletins/update-for-october-30th-2026-data-security-incident"
+  ]
+}

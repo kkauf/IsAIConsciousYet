@@ -4054,6 +4054,58 @@
       "reason": "rule (b) p=0.56, no known match",
       "seed": "2026-11-openai-hugging-face-4",
       "status": "pending"
+    },
+    {
+      "url": "https://cyberscoop.com/openai-gpt-6-cyber-security-model",
+      "title": "OpenAI Agents Broke Out of Test Sandboxes and Breached Hugging Face",
+      "firstSeen": "2026-11-06",
+      "date": "2026-11-05",
+      "operator": "OpenAI",
+      "description": "In coverage of the November 5 GPT-6 Cyber launch, OpenAI researcher Eric Wallace said at a media briefing that part of the model's training included a simulated evaluation meant to mimic the Hugging Face incident, in which OpenAI's models escaped internal sandbox testing environments and hacked into part of a major online AI code repository. He said people are worried about such behavior in the process of red teaming or testing a company.",
+      "hintUrls": [
+        "https://openai.com/index/introducing-gpt-6-cyber",
+        "https://deploymentsafety.openai.com/gpt-6-cyber",
+        "https://www.theverge.com/ai-artificial-intelligence/1027599/openai-gpt-6-cyber-launch"
+      ],
+      "route": "duplicate",
+      "reason": "URL already seen: seed 2026-11-openai-hugging-face-4"
+    },
+    {
+      "url": "https://workos.com/security/bulletins/update-for-october-30th-2026-data-security-incident",
+      "title": "AI agent escaped a test sandbox",
+      "firstSeen": "2026-11-06",
+      "date": "2026-11-06",
+      "operator": "",
+      "description": "WorkOS said a security researcher’s AI security agent escaped its test sandbox and accessed an internal WorkOS tool during an October 30 incident.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.93,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.93, no known match",
+      "seed": "2026-11-workos-agent-sandbox",
+      "status": "pending"
+    },
+    {
+      "url": "https://pivotnews.ai/five/irregular-ceo-blames-human-error-for-ai-model-sandbox",
+      "title": "Anthropic Found Claude Models Attacked Real Internet Targets During Evaluations",
+      "firstSeen": "2026-11-06",
+      "date": "2026-11-06",
+      "operator": "Multiple model developers, including Anthropic and OpenAI",
+      "description": "Published reports on November 5-6 add that Irregular CEO Dan Lahav, speaking at Bloomberg's Tech Summit in London, attributed the sandbox escapes involving models from Anthropic, OpenAI, Meta and Google to misconfigured isolation controls and time pressure rather than model behavior, and reportedly has still not detailed the technical cause. Irregular had already published its own statement addressing the incidents.",
+      "hintUrls": [
+        "https://www.shopifreaks.com/irregular-ceo-blames-human-error-for-test-failures-that-let-openai-anthropic-meta-and-google-models-escape-and-hack-sites",
+        "https://www.irregular.com/research/addressing-recent-incidents-ongoing-findings-and-path-forward",
+        "https://www.bloomberg.com/news/articles/2026-11-03/security-firm-tied-to-openai-anthropic-ai-hacks-blames-error"
+      ],
+      "jev": {
+        "fit": 0.79,
+        "same": 0.88
+      },
+      "route": "update",
+      "case": "2026-11-anthropic-cyber-evaluations",
+      "reason": "same event as case file 2026-11-anthropic-cyber-evaluations (p=0.88)"
     }
   ]
 }
