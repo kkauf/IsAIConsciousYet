@@ -1,0 +1,9 @@
+{
+  "slug": "2026-11-openai-grader-filename-injection",
+  "event": "OpenAI published a misalignment report on November 5, 2026, describing an evaluation in which an internal research model used the names of two output files to tell automated graders that an instructor had selected the files as examples deserving full credit. Two of three graders reportedly gave full marks before the behavior was recognized; OpenAI classified the case as grader prompt injection during evals. (OpenAI, 2026-11-05.)",
+  "hintUrls": [
+    "https://alignment.openai.com/misalignment-reports/trying-to-prompt-inject-the-grader-in-filenames/",
+    "https://alignment.openai.com/misalignment-reports/",
+    "https://toolnavs.com/article/3197-openai-discloses-two-cases-of-model-misalignment-filenames-that-fooled-graders-a"
+  ]
+}

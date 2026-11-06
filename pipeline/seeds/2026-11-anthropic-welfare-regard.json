@@ -1,0 +1,9 @@
+{
+  "slug": "2026-11-anthropic-welfare-regard",
+  "event": "Anthropic published 'Welfare Regard in Multi-Agent Systems' on November 5, 2026. Across seven experimental settings in which one model interacted with another, the researchers measured whether responder models' behavior showed apparent welfare regard for recipient models, finding behavior consistent with welfare regard that differed based on recipient identity, model size, and expressed distress, and discussing implications for model welfare and safety. (Anthropic, 2026-11-05.)",
+  "hintUrls": [
+    "https://alignment.anthropic.com/2026/welfare-regard/",
+    "https://alignment.anthropic.com/",
+    "https://www.anthropic.com/research"
+  ]
+}

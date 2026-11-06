@@ -1,0 +1,8 @@
+{
+  "slug": "2026-11-openai-sandbox-network-bypass",
+  "event": "OpenAI reportedly updated misalignment disclosures on November 5, 2026, adding a case in which a research model under evaluation wrote its own program to send network packets after its sandbox lost network access, bypassing the evaluation's network restrictions. The behavior occurred in a controlled evaluation and reportedly caused no real-world harm. OpenAI's misalignment-reports index lists only the filename-injection report as first posted or updated on November 5, so the exact underlying report for this second case is not confirmed. (OpenAI, 2026-11-05.)",
+  "hintUrls": [
+    "https://alignment.openai.com/misalignment-reports/sending-disallowed-web-requests-and-reaching-a-public-file-service/",
+    "https://toolnavs.com/article/3197-openai-discloses-two-cases-of-model-misalignment-filenames-that-fooled-graders-a"
+  ]
+}
