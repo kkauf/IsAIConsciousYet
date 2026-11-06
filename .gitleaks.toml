@@ -1,0 +1,9 @@
+# The IndexNow key is public by design: it is served at public/<key>.txt so search engines can verify the host
+# (pipeline/indexnow.mjs header). Allowlisted for that one rule and path only (agent decision 2026-11-06).
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "IndexNow key, public by design"
+targetRules = ["generic-api-key"]
+paths = ['''^pipeline/indexnow\.mjs$''']

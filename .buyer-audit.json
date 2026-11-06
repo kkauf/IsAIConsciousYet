@@ -1,0 +1,12 @@
+{
+  "_doc": "Buyer-audit commit gate (~/.agents/skills/buyer-audit/SKILL.md § Gate). Free public site, no paid offer: Quick read. Persona inferred by an agent 2026-11-06 from README and AGENTS.md (see the persona file). content/cases/** is skipped: case files are drafted and checked by pipeline/ (quote-match gates) and published without human review (README). First matching rule wins; no match = level none.",
+  "base_url": "http://localhost:4000",
+  "persona_sets": {"reader": ["docs/personas/case-file-reader.md"]},
+  "hosts": {"default": {"personas": "reader"}},
+  "default_host": "default",
+  "skip": ["content/cases/**", "content/coverage.json", "src/app/api/**", "src/lib/**", "pipeline/**", "tests/**", "tools/**", "**/*.test.*"],
+  "rules": [
+    {"level": "quick", "kind": "web-page", "personas": "reader",
+     "files": ["src/app/**", "src/components/**"]}
+  ]
+}
