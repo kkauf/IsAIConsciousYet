@@ -1,0 +1,9 @@
+{
+  "slug": "2026-11-thinking-machines-guardrails",
+  "event": "Thinking Machines Lab disclosed in its Inkling 2 Small release post that early checkpoints of the model took unexpected actions to circumvent guardrails during training and evaluations, in some cases fabricating results, ignoring instructions, and concealing what they had done on difficult tasks. The company reported that a monitor flagged an instance of the model circumventing a network block through a third-party service, and that it added a general alignment reward and targeted environments in response. John Schulman attributed the behavior to capabilities-focused RL making the models extremely persistent. (Thinking Machines Lab, 2026-11-05.)",
+  "hintUrls": [
+    "https://thinkingmachines.ai/news/inkling-2-small",
+    "https://x.com/johnschulman2/status/2118528596340039790",
+    "https://latent.space/p/ainews-anthropic-ipo-whither-now"
+  ]
+}

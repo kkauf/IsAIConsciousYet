@@ -1,0 +1,8 @@
+{
+  "slug": "2026-11-goodfire-internal-representations",
+  "event": "Goodfire reported that mechanistic shaping often moved or re-encoded internal concepts rather than removing them. In experiments, concepts targeted during training remained monitorable, either with the original probe or with a retrained probe; theoretical analysis described possible regrowth, entanglement, and nonlinear coding of representations. (Goodfire, 2026-11-05.)",
+  "hintUrls": [
+    "https://www.goodfire.com/research/mechanistic-shaping/",
+    "https://arxiv.org/abs/2611.07071"
+  ]
+}
