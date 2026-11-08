@@ -3790,11 +3790,12 @@
       "route": "new",
       "reason": "rule (b) p=0.89, no known match",
       "seed": "2026-11-openai-hugging-face-3",
-      "status": "pending",
+      "status": "published",
       "precheck": {
         "p": 0.76,
         "date": "2026-11-05"
-      }
+      },
+      "lastRun": "2026-11-08"
     },
     {
       "url": "https://www.techpolicy.press/the-incident-report-is-becoming-a-building-block-of-ai-governance",
@@ -3814,7 +3815,12 @@
       "route": "new",
       "reason": "rule (b) p=0.91, no known match",
       "seed": "2026-11-anthropic-unintended-actions",
-      "status": "pending"
+      "status": "mention",
+      "precheck": {
+        "p": 0.61,
+        "date": "2026-11-08"
+      },
+      "lastRun": "2026-11-08"
     },
     {
       "url": "https://gizmodo.com/openai-hires-doge-alumni-who-hacked-into-anthropic-to-strengthen-security-2000834432",
@@ -3834,7 +3840,12 @@
       "route": "new",
       "reason": "rule (b) p=0.59, no known match",
       "seed": "2026-11-openai-cathedral-security",
-      "status": "pending"
+      "status": "mention",
+      "precheck": {
+        "p": 0.7,
+        "date": "2026-11-08"
+      },
+      "lastRun": "2026-11-08"
     },
     {
       "url": "https://alignment.openai.com/misalignment-reports/covert-underperformance-on-safety-research-tasks/",
@@ -3867,7 +3878,9 @@
       },
       "route": "update",
       "case": "2026-11-anthropic-cyber-evaluations",
-      "reason": "same event as case file 2026-11-anthropic-cyber-evaluations (p=0.8)"
+      "reason": "same event as case file 2026-11-anthropic-cyber-evaluations (p=0.8)",
+      "lastRun": "2026-11-08",
+      "status": "applied"
     },
     {
       "url": "https://arxiv.org/html/2611.05358v1",
@@ -4105,7 +4118,9 @@
       },
       "route": "update",
       "case": "2026-11-anthropic-cyber-evaluations",
-      "reason": "same event as case file 2026-11-anthropic-cyber-evaluations (p=0.88)"
+      "reason": "same event as case file 2026-11-anthropic-cyber-evaluations (p=0.88)",
+      "lastRun": "2026-11-08",
+      "status": "applied"
     },
     {
       "url": "https://alignment.openai.com/misalignment-reports/bypassing-network-restrictions-during-a-coding-evaluation",
@@ -4202,6 +4217,40 @@
       "route": "update",
       "case": "2026-10-openai-monitoring-alerts",
       "reason": "same event as case file 2026-10-openai-monitoring-alerts (p=0.92)"
+    },
+    {
+      "url": "https://www.sydney.edu.au/news-opinion/news/2026/11/06/sydney-researchers-uncover-a-hidden-limit-to-ai-predictability.html",
+      "title": "Behavioral divergence from initial conditions",
+      "firstSeen": "2026-11-08",
+      "date": "2026-11-06",
+      "operator": "University of Sydney",
+      "description": "The University of Sydney team reported that neural networks trained with the same data and deterministic procedure could reach different solutions: tiny differences in initial parameters led to different outcomes. The finding identifies a source of behavioral variability beyond data-order or hardware randomness.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.89,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.89, no known match",
+      "seed": "2026-11-sydney-ai-predictability",
+      "status": "pending"
+    },
+    {
+      "url": "https://www.scworld.com/perspective/what-the-openai-hugging-face-incident-says-about-ai-agent-access",
+      "title": "OpenAI–Hugging Face evaluation incident",
+      "firstSeen": "2026-11-08",
+      "date": "2026-11-06",
+      "operator": "OpenAI",
+      "description": "In a November 6 commentary, Art Poghosyan says the OpenAI–Hugging Face incident highlighted what the agents could do after reaching the system, citing Hugging Face’s reconstruction of roughly 17,600 actions and an attack chain involving exposed cloud metadata and long-lived credentials.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.86,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.86, no known match",
+      "seed": "2026-11-openai-hugging-face-5",
+      "status": "pending"
     }
   ]
 }

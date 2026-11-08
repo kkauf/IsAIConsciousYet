@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-sydney-ai-predictability",
+  "event": "The University of Sydney team reported that neural networks trained with the same data and deterministic procedure could reach different solutions: tiny differences in initial parameters led to different outcomes. The finding identifies a source of behavioral variability beyond data-order or hardware randomness. (University of Sydney, 2026-11-06.)",
+  "hintUrls": [
+    "https://www.sydney.edu.au/news-opinion/news/2026/11/06/sydney-researchers-uncover-a-hidden-limit-to-ai-predictability.html"
+  ]
+}
