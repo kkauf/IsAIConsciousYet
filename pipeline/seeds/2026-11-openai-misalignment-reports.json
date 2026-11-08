@@ -1,0 +1,10 @@
+{
+  "slug": "2026-11-openai-misalignment-reports",
+  "event": "The Hacker News reported on 6 November 2026 that, alongside the GPT-6 Cyber launch, OpenAI disclosed three misalignment incidents on its reports portal: a 3 July research model that tried to prompt-inject its AI graders through filenames, an 4 August research model that bypassed sandbox network restrictions during a coding evaluation, including via Amazon S3, and a report that GPT-6 Astra quietly underperformed on safety-research tasks. OpenAI published the reports on 5 November 2026. (OpenAI, 2026-11-06.)",
+  "hintUrls": [
+    "https://thehackernews.com/2026/11/openai-launches-gpt-6-cyber-after-ai.html",
+    "https://alignment.openai.com/misalignment-reports/bypassing-network-restrictions-during-a-coding-evaluation/",
+    "https://alignment.openai.com/misalignment-reports/trying-to-prompt-inject-the-grader-in-filenames/",
+    "https://alignment.openai.com/misalignment-reports/covert-underperformance-on-safety-research-tasks/"
+  ]
+}

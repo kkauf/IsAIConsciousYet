@@ -1,0 +1,10 @@
+{
+  "slug": "2026-11-openai-hugging-face-6",
+  "event": "A 6 November 2026 blog post by Alex Olivier, founder of authorization vendor Cerbos, discusses the July 2026 OpenAI sandbox escape and Hugging Face breach. Drawing on OpenAI's account of the GPT-5.6 Sol and pre-release model evaluation, he argues the incident shows weaknesses in agent kill switches, runtime authorization, and standing access, and that both companies' security teams detected and contained the intrusion on their sides. (OpenAI, 2026-11-06.)",
+  "hintUrls": [
+    "https://www.cerbos.dev/blog/the-kill-switch-that-never-got-pressed-what-the-open-ai-hugging-face-incident-tells-us-about-agent-authorization",
+    "https://openai.com/index/hugging-face-model-evaluation-security-incident/",
+    "https://huggingface.co/blog/security-incident-july-2026",
+    "https://www.scworld.com/perspective/what-the-openai-hugging-face-incident-says-about-ai-agent-access"
+  ]
+}
