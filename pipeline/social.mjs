@@ -82,6 +82,9 @@ const haveKeys = ['X_API_KEY', 'X_API_SECRET', 'X_ACCESS_TOKEN', 'X_ACCESS_SECRE
 // ── --metrics: reach of every post so far ──
 if (metricsMode) {
   if (!haveKeys) { log('X: secrets not set, metrics skipped'); process.exit(0); }
+  // Once a day: GitHub starts scheduled runs hours late, so an hour check never matched (0 reads to 2026-11-08).
+  const lastRead = Math.max(0, ...Object.values(state.x).map((s) => Date.parse(s.metrics?.at ?? '') || 0));
+  if (Date.now() - lastRead < 20 * 3600e3) { log('X: reach read less than 20 h ago, skipped'); process.exit(0); }
   const posted = Object.entries(state.x).filter(([, s]) => s.id);
   for (let i = 0; i < posted.length; i += 100) {
     const batch = posted.slice(i, i + 100);

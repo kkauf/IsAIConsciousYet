@@ -1,5 +1,5 @@
 # Posts case files to X as the eye (pipeline/social.mjs): one post a run, three runs a day, so new case files and
-# the backlog spread over the day. The 13:00 run also reads the reach of every post so far, by card variant.
+# the backlog spread over the day. Once a day, a run also reads the reach of every post so far, by card variant.
 # Design: docs/social-posting.md. Logs are public: no keys, no page text.
 name: Social
 on:
@@ -37,14 +37,13 @@ jobs:
           X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-      - name: Reach by card variant (13:00 run only)
+      - name: Reach by card variant (once a day; social.mjs skips if read < 20 h ago)
         env:
           X_API_KEY: ${{ secrets.X_API_KEY }}
           X_API_SECRET: ${{ secrets.X_API_SECRET }}
           X_ACCESS_TOKEN: ${{ secrets.X_ACCESS_TOKEN }}
           X_ACCESS_SECRET: ${{ secrets.X_ACCESS_SECRET }}
         run: |
-          [ "$(date -u +%H)" = "13" ] || { echo "not the 13:00 run"; exit 0; }
           node pipeline/social.mjs --metrics --summary summary.md
       - name: Commit state
         if: always()
