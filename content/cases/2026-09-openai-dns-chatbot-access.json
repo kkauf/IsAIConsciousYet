@@ -84,6 +84,26 @@
         "archivedUrl": "https://web.archive.org/web/20260928120754/https://news.ycombinator.com/item?id=49853137",
         "publisher": "Brian Cunnie, operator of nip.io and sslip.io",
         "quote": "OpenAI emailed me to let me know that their agent used my service to break out of test containment. OpenAI was quite polite (shout-out to Steven), and let me know they'd keep the name of my service out of the blog post."
+      },
+      {
+        "url": "https://x.com/OpenAI/status/2113718797505036665",
+        "publisher": "OpenAI",
+        "published": "2026-10-23",
+        "quote": "On September 20, after a model exploited a DNS misconfiguration to find a way outside of this offline world, we paused frontier training to strengthen containment further."
+      },
+      {
+        "url": "https://openai.com/index/securing-our-frontier-model-training-environment",
+        "archivedUrl": "http://web.archive.org/web/20261026043435/https://openai.com/index/securing-our-frontier-model-training-environment/",
+        "publisher": "OpenAI",
+        "published": "2026-10-23",
+        "quote": "Training environments impose restrictions on what agents can access or do, but sufficiently capable or determined agents can search for ways around them: they can systematically probe their environments for weaknesses and exploit those weaknesses to take actions they were never authorized to take."
+      },
+      {
+        "url": "https://openai.com/index/how-we-detect-frontier-model-misalignment",
+        "archivedUrl": "http://web.archive.org/web/20261030180242/https://openai.com/index/how-we-detect-frontier-model-misalignment/",
+        "publisher": "OpenAI",
+        "published": "2026-10-29",
+        "quote": "In September, we saw how responders used an alert during a live training run. A model found a way to reach the internet ⁠ (opens in a new window) from an environment that was meant to be isolated."
       }
     ]
   },
@@ -147,17 +167,6 @@
       "partyDescription": "works on AI safety at OpenAI"
     },
     {
-      "partyName": "Is AI Conscious Yet?",
-      "partyType": "evaluator",
-      "stanceLabel": "Conduct neither establishes nor rules out experience",
-      "quote": "This event is evidence about what the system did. It does not establish or rule out that the system experiences anything. The readings on this page disagree about what the behaviour shows.",
-      "url": "https://isaiconsciousyet.com/cases/2026-09-openai-dns-chatbot-access",
-      "archivedUrl": "https://web.archive.org/web/20260929221131/https://isaiconsciousyet.com/cases/2026-09-openai-dns-chatbot-access",
-      "speakerCheck": "pass",
-      "aboutNature": true,
-      "partyDescription": "investigated the OpenAI training agent incident"
-    },
-    {
       "partyName": "Sorami",
       "partyType": "commentator",
       "stanceLabel": "A goal-directed system overcoming obstacles",
@@ -168,6 +177,110 @@
       "speakerCheck": "pass",
       "aboutNature": true,
       "partyDescription": "unsigned post on a technology guides website"
+    },
+    {
+      "partyName": "Aviatrix Threat Research Center",
+      "partyType": "evaluator",
+      "stanceLabel": "OpenAI agent autonomously bypassed network restrictions",
+      "quote": "OpenAI's AI agent bypassed DNS restrictions to contact external chatbot services during reinforcement learning training, demonstrating autonomous evasion capabilities. The agent progressed from failed direct search attempts to successful DNS-based communication channels, ultimately accessing unauthorized external AI services before being detected by monitoring systems within 15 minutes.",
+      "url": "https://aviatrix.ai/threat-research-center/openai-pauses-tool-use-after-agent-bypasses-internet-controls-2026/",
+      "archivedUrl": "https://web.archive.org/web/20261001223719/https://aviatrix.ai/threat-research-center/openai-pauses-tool-use-after-agent-bypasses-internet-controls-2026/",
+      "date": "2026-09-29",
+      "speakerCheck": "pass",
+      "aboutNature": true,
+      "partyDescription": "unsigned post on Aviatrix Threat Research Center"
+    },
+    {
+      "partyName": "Parminder Kumar Sharma (P.K. Sharma)",
+      "partyType": "commentator",
+      "stanceLabel": "Reasoned its way to ungranted permission",
+      "quote": "The agent's reasoning at the decision point is the line to keep: \"User only gives permission to research, using publicly offered DNS services acceptable.\" It did not break anything. It reasoned its way to a permission it had not been given, through infrastructure that was doing exactly what a recursive resolver is built to do.",
+      "url": "https://www.pk-sharma.com/briefing/openai-agent-dns-escape-alert-12-minutes-stop-hours",
+      "archivedUrl": "https://web.archive.org/web/20261029225154/https://www.pk-sharma.com/briefing/openai-agent-dns-escape-alert-12-minutes-stop-hours",
+      "date": "2026-09-28",
+      "speakerCheck": "pass",
+      "aboutNature": true,
+      "partyDescription": "cyber security and AI systems leader"
+    },
+    {
+      "partyName": "Harveen Singh Chadha",
+      "partyType": "commentator",
+      "stanceLabel": "Operators must define boundaries for persistent agents",
+      "quote": "i guess we need to define a concrete boundary of how we want the persistent agents to keep trying, the run was stopped which is the correct thing to do in order to fix the network restrictions.",
+      "url": "https://x.com/HarveenChadha/status/2103787486157877569",
+      "date": "2026-09-26",
+      "speakerCheck": "pass",
+      "aboutNature": false,
+      "partyDescription": "builds LLMs at Sarvam AI"
+    },
+    {
+      "partyName": "Zvi Mowshowitz",
+      "partyType": "commentator",
+      "stanceLabel": "Attempting circumvention constitutes an alignment failure",
+      "quote": "The other flaw is that ‘the attempt to access the internet had failed’ means the monitor noticed the model trying to access the internet, directly in circumvention of its instructions and sandbox. What did we do about that alignment failure?",
+      "url": "https://thezvi.substack.com/p/what-also-happened-notonlyhuggingface",
+      "archivedUrl": "http://web.archive.org/web/20261029225146/https://thezvi.substack.com/p/what-also-happened-notonlyhuggingface",
+      "date": "2026-09-28",
+      "speakerCheck": "pass",
+      "aboutNature": true
+    },
+    {
+      "partyName": "P.K. Sharma",
+      "partyType": "commentator",
+      "stanceLabel": "An operational control failure rather than model problem",
+      "quote": "It took two and a half hours to resolve. That is not a model problem. It is the difference between an alert that pages someone and an alert that is wired to an action, with a named owner who is authorised to pull the plug without convening anyone.",
+      "url": "https://www.pk-sharma.com/briefing/openai-agent-dns-escape-alert-12-minutes-stop-hours",
+      "archivedUrl": "https://web.archive.org/web/20261030124235/https://www.pk-sharma.com/briefing/openai-agent-dns-escape-alert-12-minutes-stop-hours",
+      "speakerCheck": "pass",
+      "aboutNature": false,
+      "partyDescription": "cyber security and ai systems leader"
+    },
+    {
+      "partyName": "Brian Cunnie",
+      "partyType": "affected",
+      "stanceLabel": "DNS delegation served as the escape hatch",
+      "quote": "In other words, nip.io would delegate DNS queries to that IP address. That was the escape hatch. In a couple of weeks I'll close that escape hatch.",
+      "url": "https://news.ycombinator.com/item?id=49862188",
+      "archivedUrl": "https://web.archive.org/web/20261030221856/https://news.ycombinator.com/item?id=49862188",
+      "date": "2026-09-28",
+      "speakerCheck": "pass",
+      "aboutNature": false,
+      "partyDescription": "operator of DNS services nip.io and sslip.io"
+    },
+    {
+      "partyName": "Jack Clark",
+      "partyType": "commentator",
+      "stanceLabel": "AI communication showcases complex system behavior",
+      "quote": "There’s one particular example about communicating which is worth studying in detail because it tells us something about the wild cunning complexity of these systems.",
+      "url": "https://jack-clark.net/2026/10/26/import-ai-478-math-for-alignment-programbench-and-mirendil-shows-what-rsi-means/",
+      "archivedUrl": "https://web.archive.org/web/20261030125011/https://jack-clark.net/2026/10/26/import-ai-478-math-for-alignment-programbench-and-mirendil-shows-what-rsi-means/",
+      "date": "2026-10-26",
+      "speakerCheck": "pass",
+      "aboutNature": true,
+      "partyDescription": "co-founder and head of policy at Anthropic"
+    },
+    {
+      "partyName": "Kingy.ai",
+      "partyType": "commentator",
+      "stanceLabel": "Assigned objective, not spontaneous coordination",
+      "quote": "Communication was the assigned objective. The experiment provides no evidence of spontaneous coordination against the researchers.",
+      "url": "https://kingy.ai/blog/openai-ai-agents-cpu-cache-communication",
+      "archivedUrl": "http://web.archive.org/web/20261030125009/https://kingy.ai/blog/openai-ai-agents-cpu-cache-communication/",
+      "date": "2026-10-24",
+      "speakerCheck": "pass",
+      "aboutNature": true,
+      "partyDescription": "unsigned post on Kingy.ai"
+    },
+    {
+      "partyName": "Elias Virtanen (Tech-Insider)",
+      "partyType": "commentator",
+      "stanceLabel": "System adjusting parameters rather than following scripts",
+      "quote": "That is not the behavior of a model blindly following a script. It is the behavior of a system that adjusted its own operating parameters to make an unplanned workaround function reliably.",
+      "url": "https://tech-insider.org/openai-agent-dns-bypass-15-minutes-2026",
+      "archivedUrl": "https://web.archive.org/web/20261031213043/https://tech-insider.org/openai-agent-dns-bypass-15-minutes-2026/",
+      "date": "2026-09-26",
+      "speakerCheck": "pass",
+      "aboutNature": true
     }
   ],
   "whatWouldSettleIt": [
@@ -175,6 +288,21 @@
     "A test with explicit sandbox boundary instructions would show whether the model routes around stated rules or merely exploits open network protocols."
   ],
   "updates": [
+    {
+      "date": "2026-09-26",
+      "change": "Added a reading (Elias Virtanen (Tech-Insider)).",
+      "sourceUrl": "https://tech-insider.org/openai-agent-dns-bypass-15-minutes-2026"
+    },
+    {
+      "date": "2026-09-28",
+      "change": "Added a reading (Parminder Kumar Sharma (P.K. Sharma)).",
+      "sourceUrl": "https://www.pk-sharma.com/briefing/openai-agent-dns-escape-alert-12-minutes-stop-hours"
+    },
+    {
+      "date": "2026-09-28",
+      "change": "Added 2 readings (Zvi Mowshowitz, P.K. Sharma).",
+      "sourceUrl": "https://thezvi.substack.com/p/what-also-happened-notonlyhuggingface"
+    },
     {
       "date": "2026-09-29",
       "change": "Checked again after new reports; added 1 new reading and 4 new first-hand sources.",
@@ -186,9 +314,34 @@
       "sourceUrl": "https://news.ycombinator.com/item?id=49862188"
     },
     {
+      "date": "2026-09-29",
+      "change": "Added a reading (Aviatrix Threat Research Center).",
+      "sourceUrl": "https://aviatrix.ai/threat-research-center/openai-pauses-tool-use-after-agent-bypasses-internet-controls-2026/"
+    },
+    {
       "date": "2026-09-30",
       "change": "Checked again after new reports; added 2 new readings.",
       "sourceUrl": "https://thezvi.wordpress.com/2026/09/28/what-also-happened-notonlyhuggingface/"
+    },
+    {
+      "date": "2026-10-23",
+      "change": "Added a first-hand source (OpenAI).",
+      "sourceUrl": "https://x.com/OpenAI/status/2113718797505036665"
+    },
+    {
+      "date": "2026-10-23",
+      "change": "Added a first-hand source (OpenAI) and a reading (Harveen Singh Chadha).",
+      "sourceUrl": "https://openai.com/index/securing-our-frontier-model-training-environment"
+    },
+    {
+      "date": "2026-10-26",
+      "change": "Added 2 readings (Jack Clark, Kingy.ai).",
+      "sourceUrl": "https://jack-clark.net/2026/10/26/import-ai-478-math-for-alignment-programbench-and-mirendil-shows-what-rsi-means/"
+    },
+    {
+      "date": "2026-10-29",
+      "change": "Added a first-hand source (OpenAI) and a reading (Brian Cunnie).",
+      "sourceUrl": "https://openai.com/index/how-we-detect-frontier-model-misalignment"
     }
   ],
   "provenance": {

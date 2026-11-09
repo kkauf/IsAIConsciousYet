@@ -7,3 +7,10 @@ useDefault = true
 description = "IndexNow key, public by design"
 targetRules = ["generic-api-key"]
 paths = ['''^pipeline/indexnow\.mjs$''']
+
+# content/redirects.json maps case slugs to case slugs ("…-cyber-evaluation-access": "…"); the word "access" before a
+# long hyphenated value trips generic-api-key. It holds no secrets (written by pipeline/merge-cases.mjs, 2026-11-08).
+[[allowlists]]
+description = "Case slug redirects"
+targetRules = ["generic-api-key"]
+paths = ['''^content/redirects\.json$''']

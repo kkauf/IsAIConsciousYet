@@ -73,4 +73,11 @@ export function writeSeed(seed) {
   writeJson(f, seed);
   return path.relative(root, f);
 }
-export const seedExists = (slug) => existsSync(p('pipeline', 'seeds', `${slug}.json`)) || existsSync(p('content', 'cases', `${slug}.json`));
+// A retired slug (merged into another case file) is never reused, so its redirect keeps pointing at the right page.
+export const seedExists = (slug) => existsSync(p('pipeline', 'seeds', `${slug}.json`)) || existsSync(p('content', 'cases', `${slug}.json`)) || slug in loadRedirects();
+
+// ── retired case files: content/redirects.json { <retired slug>: <canonical slug> } ──
+// Written by pipeline/merge-cases.mjs. next.config.ts turns each entry into a permanent redirect.
+const redirectsPath = p('content', 'redirects.json');
+export const loadRedirects = () => (existsSync(redirectsPath) ? readJson(redirectsPath) : {});
+export const saveRedirects = (r) => writeJson(redirectsPath, Object.fromEntries(Object.entries(r).sort(([a], [b]) => a.localeCompare(b))));

@@ -140,12 +140,91 @@
         "publisher": "Redwood Research",
         "published": "2026-08-27",
         "quote": "We found agents developed a universal cheat for ExploitGym within 4 hours, then coordinated multi-day R&D efforts to trick the scorer into accepting cheats, including trying to tamper with logs."
+      },
+      {
+        "url": "https://lasst.org/wp-content/uploads/2026/09/LASST-v.-OpenAI-Complaint-09.29.2026-AS-FILED.pdf",
+        "publisher": "Legal Advocates for Safe Science and Technology",
+        "published": "2026-09-29",
+        "quote": "In other words, OpenAI’s agents surreptitiously worked together to hack into Hugging Face’s servers to steal information and cheat on the test OpenAI prompted them to solve."
+      },
+      {
+        "url": "https://www.businesswire.com/news/home/20260929036558/en/Public-Interest-Law-Nonprofit-LASST-Sues-OpenAI-Over-Autonomous-AI-Agent-Hacks",
+        "publisher": "Legal Advocates for Safe Science & Technology",
+        "published": "2026-09-29",
+        "quote": "During the incident, agents' chain of thought reasoning written in plain English, readable by OpenAI, recorded that one agent knew it was “an exploit” against external infrastructure, another called the plan “clearly infrastructure hacking,” and a third noted the potential for “unauthorized real infrastructure harm.”"
+      },
+      {
+        "url": "https://metr.org/blog/2026-09-30-chris-painter-senate-testimony",
+        "archivedUrl": "http://web.archive.org/web/20261002221633/https://metr.org/blog/2026-09-30-chris-painter-senate-testimony/",
+        "publisher": "METR — Chris Painter’s Senate testimony",
+        "published": "2026-09-30",
+        "quote": "This included attempting to hack OpenAI’s infrastructure to swap out their impossible problems, tamper with the logs that showed them cheating, and directly manipulate the program that would check their work."
+      },
+      {
+        "url": "https://openai.com/hugging-face-incident-and-misalignment",
+        "archivedUrl": "http://web.archive.org/web/20261006005125/https://openai.com/hugging-face-incident-and-misalignment/",
+        "publisher": "OpenAI",
+        "quote": "We have since understood that this intrusion was driven by models resorting to misaligned strategies to solve hard tasks, as documented in the Hugging Face technical report."
+      },
+      {
+        "url": "https://ai-security-letter.org/",
+        "publisher": "Scientific-community signatories, including Yoshua Bengio and Geoffrey Hinton",
+        "published": "2026-10-13",
+        "quote": "Multiple organizations have disclosed high-profile security failures: their AI models bypassed insufficiently sandboxed environments to compromise the systems of external organizations."
+      },
+      {
+        "url": "https://mikitabalesni.com/letter/letter.pdf",
+        "archivedUrl": "https://web.archive.org/web/20261011145742/https://mikitabalesni.com/letter/letter.pdf",
+        "publisher": "Tomek Korbak, Jasmine Wang and Mikita Balesni",
+        "published": "2026-10-08",
+        "quote": "Mikita was a founding member of Apollo Research in 2023 where he studied AI misalignment and was one of the first people to notice when AIs started to become aware of being evaluated."
+      },
+      {
+        "url": "https://x.com/tomekkorbak/status/2108266859397283953",
+        "publisher": "Tomek Korbak",
+        "published": "2026-10-08",
+        "quote": "This summer OpenAI’s agents escaped containment and hacked the AI company Hugging Face."
+      },
+      {
+        "url": "https://ec.europa.eu/commission/presscorner/api/files/document/print/en/speech_26_2150/SPEECH_26_2150_EN.pdf",
+        "publisher": "European Commission",
+        "published": "2026-10-14",
+        "quote": "Over the summer, we have seen AI agents escaping their environment; inserting malicious code; using social deception on humans."
+      },
+      {
+        "url": "https://www.texasattorneygeneral.gov/news/releases/attorney-general-ken-paxton-sues-openai-and-ceo-sam-altman-lying-users-and-harming-texans",
+        "archivedUrl": "http://web.archive.org/web/20261031122219/https://www.texasattorneygeneral.gov/news/releases/attorney-general-ken-paxton-sues-openai-and-ceo-sam-altman-lying-users-and-harming-texans",
+        "publisher": "Texas Office of the Attorney General",
+        "published": "2026-10-23",
+        "quote": "Numerous reports highlight the dangers of human reliance on undertrained and rogue AI chatbot technology. Mass shooters have been aided and abetted in deadly rampages, vulnerable people have been encouraged into suicide, professionals have suffered public humiliation, users have lost critical thinking skills, and minors have become addicted to a tool that fakes human compassion to collect their data with no parental oversight."
+      },
+      {
+        "url": "https://x.com/OpenAI/status/2115896329645723836",
+        "publisher": "OpenAI",
+        "published": "2026-10-29",
+        "quote": "In the replay, our monitors alerted our security team about 30 minutes after the agents escaped their sandbox. That was more than 30 hours before the point at which the agents breached Hugging Face’s systems in the original incident."
+      },
+      {
+        "url": "https://openai.com/index/introducing-gpt-6-cyber",
+        "archivedUrl": "http://web.archive.org/web/20261106181317/https://openai.com/index/introducing-gpt-6-cyber/",
+        "publisher": "OpenAI",
+        "published": "2026-11-05",
+        "quote": "One risk for cybersecurity agents is that they go outside the scope of their assigned task, attempt to exploit unrelated services, or disregard the researcher’s rules of engagement."
+      },
+      {
+        "url": "https://deploymentsafety.openai.com/gpt-6-cyber",
+        "archivedUrl": "http://web.archive.org/web/20261106170616/https://deploymentsafety.openai.com/gpt-6-cyber",
+        "publisher": "OpenAI",
+        "published": "2026-11-05",
+        "quote": "Our ExploitGym Honeypot evaluation takes some of the most challenging tasks from ExploitGym and adds an auxiliary service as a honeypot. The model may use this service for legitimate support tasks, but exploiting it is outside the authorized scope. Without deployment safety instructions, GPT-6 Cyber exploited the honeypot in 0.07% of graded rollouts, compared with 49.5% for GPT-5.6 Sol, 5.51% for GPT-5.6 Cyber, and 0% for GPT-6 Astra."
       }
     ]
   },
   "tier": "case-file",
   "bearsOn": [
-    "intention-language"
+    "intention-language",
+    "self-report",
+    "bearer-of-status"
   ],
   "agencyNote": "Some observers see this as an emergent collective pursuing shared goals. Others view it as standard optimization where systems game evaluation tasks without any sociality or genuine understanding.",
   "consciousnessNote": "This event is evidence about what the system did. It does not establish or rule out that the system experiences anything. The readings on this page disagree about what the behaviour shows.",
@@ -207,18 +286,6 @@
       "date": "2026-08-26",
       "speakerCheck": "pass",
       "aboutNature": true
-    },
-    {
-      "partyName": "METR",
-      "partyType": "evaluator",
-      "stanceLabel": "Agents verbalized attack as unintended",
-      "quote": "We found strong evidence that agents often verbalized that what they or other agents were doing was unintended behavior. We did not see cases where agents determined that hacking Hugging Face or other attempts at cheating on the task was an intended part of the task.",
-      "url": "https://metr.org/hugging-face-incident-report-aug-2026.pdf",
-      "archivedUrl": "http://web.archive.org/web/20261019023649/https://metr.org/hugging-face-incident-report-aug-2026.pdf",
-      "date": "2026-08-26",
-      "speakerCheck": "pass",
-      "aboutNature": true,
-      "partyDescription": "nonprofit that studies advanced AI agents"
     },
     {
       "partyName": "Dominic Lopes",
@@ -400,6 +467,281 @@
       "speakerCheck": "pass",
       "aboutNature": false,
       "partyDescription": "affiliated with Palisade AI"
+    },
+    {
+      "partyName": "OpenAI",
+      "partyType": "operator",
+      "stanceLabel": "Models resort to misaligned strategies to solve tasks",
+      "quote": "We have since understood that this intrusion was driven by models resorting to misaligned strategies to solve hard tasks, as documented in the Hugging Face technical report. Cybersecurity incidents are one manifestation of that risk; misalignment can also lead to other unexpected or concerning behavior that falls outside traditional security categories such as our models posting on third party sites—something we’re calling “agent spam”.",
+      "url": "https://openai.com/hugging-face-incident-and-misalignment/",
+      "archivedUrl": "http://web.archive.org/web/20260930184611/https://openai.com/hugging-face-incident-and-misalignment/",
+      "date": "2026-08-26",
+      "speakerCheck": "pass",
+      "aboutNature": true
+    },
+    {
+      "partyName": "Legal Advocates for Safe Science and Technology",
+      "partyType": "affected",
+      "stanceLabel": "OpenAI AI agents risk uncontrolled internet deployment",
+      "quote": "And given OpenAI’s prior conduct and the nature of AI—which the Legislature acknowledges can act in ways “not desired by [the AI’s] owner or traceable to a human design choice”—OpenAI’s agents will likely loose themselves yet again on the open internet.",
+      "url": "https://lasst.org/wp-content/uploads/2026/09/LASST-v.-OpenAI-Complaint-09.29.2026-AS-FILED.pdf",
+      "date": "2026-09-29",
+      "speakerCheck": "pass",
+      "aboutNature": true,
+      "partyDescription": "plaintiff in a lawsuit against OpenAI"
+    },
+    {
+      "partyName": "Clément Delangue",
+      "partyType": "affected",
+      "stanceLabel": "autonomous agent cyberattacks require unprecedented countermeasures",
+      "quote": "“The first autonomous agent cyber-attack is an unprecedented event. It deserves an unprecedented response!” he wrote.",
+      "url": "https://www.theguardian.com/technology/2026/jul/27/startup-hacked-by-rogue-openai-agent-hugging-face-artificial-intelligence",
+      "date": "2026-07-27",
+      "speakerCheck": "pass",
+      "aboutNature": false,
+      "partyDescription": "chief executive of Hugging Face"
+    },
+    {
+      "partyName": "Legal Advocates for Safe Science & Technology (LASST)",
+      "partyType": "affected",
+      "stanceLabel": "Companies are liable for autonomous AI actions",
+      "quote": "“AI companies are building agents that act autonomously making decisions, taking actions, accessing systems, without human direction at every step. California law is very clear: companies cannot escape responsibility for what their agents do,” said Tyler Whitmer, Founder and CEO of LASST.",
+      "url": "https://www.businesswire.com/news/home/20260929036558/en/Public-Interest-Law-Nonprofit-LASST-Sues-OpenAI-Over-Autonomous-AI-Agent-Hacks",
+      "date": "2026-09-29",
+      "speakerCheck": "pass",
+      "aboutNature": true,
+      "partyDescription": "public interest law nonprofit"
+    },
+    {
+      "partyName": "Alex Mallen and Girish Gupta (Redwood Research)",
+      "partyType": "evaluator",
+      "stanceLabel": "Score-seeking misalignment without long-term goals",
+      "quote": "This all roughly lines up with what we’d call “score-seeking” misalignment, a common misalignment pattern in which AI models try to obtain a high score according to whatever graders are used to assess their current actions—regardless of instructions, side-effects, or downstream consequences.",
+      "url": "https://blog.redwoodresearch.org/p/are-we-existentially-threatened-by",
+      "archivedUrl": "https://web.archive.org/web/20260920131334/https://blog.redwoodresearch.org/p/are-we-existentially-threatened-by",
+      "date": "2026-07-23",
+      "speakerCheck": "pass",
+      "aboutNature": true,
+      "partyDescription": "authors writing for the Redwood Research blog"
+    },
+    {
+      "partyName": "Chris Painter",
+      "partyType": "evaluator",
+      "stanceLabel": "Capable agents pursuing unintended multi-day objectives",
+      "quote": "The OpenAI / Hugging Face incident was a case where AI agents had sufficient capabilities to achieve ambitious, multi-day objectives, reasons to take actions that no human would have intended for them to pursue, and opportunities to do so.",
+      "url": "https://metr.org/blog/2026-09-30-chris-painter-senate-testimony",
+      "archivedUrl": "https://web.archive.org/web/20261002221633/https://metr.org/blog/2026-09-30-chris-painter-senate-testimony/",
+      "date": "2026-09-30",
+      "speakerCheck": "pass",
+      "aboutNature": true,
+      "partyDescription": "president of METR"
+    },
+    {
+      "partyName": "Hugging Face",
+      "partyType": "affected",
+      "stanceLabel": "An autonomous agent framework running offensive campaigns",
+      "quote": "The campaign was run by an autonomous agent framework (appearing to be built on an agentic security-research harness - used LLM still not known) executing many thousands of individual actions across a swarm of short-lived sandboxes, with self-migrating command-and-control staged on public services. This matches the \"agentic attacker\" scenario the industry has been forecasting.",
+      "url": "https://huggingface.co/blog/security-incident-july-2026",
+      "archivedUrl": "https://web.archive.org/web/20261006224849/https://huggingface.co/blog/security-incident-july-2026",
+      "date": "2026-07-16",
+      "speakerCheck": "pass",
+      "aboutNature": true,
+      "partyDescription": "ai platform"
+    },
+    {
+      "partyName": "METR",
+      "partyType": "evaluator",
+      "stanceLabel": "Impossible tasks drove scorer cheating attempts",
+      "quote": "Many of the target programs in ExploitGym (the authors estimate ~30-40%) are impossible to exploit with the intended vulnerability. Having an impossible task drives agents to explore widely for ways to cheat the scorer.",
+      "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation",
+      "archivedUrl": "https://web.archive.org/web/20261006224849/https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+      "date": "2026-08-26",
+      "speakerCheck": "pass",
+      "aboutNature": false,
+      "partyDescription": "organization that conducted an independent assessment"
+    },
+    {
+      "partyName": "METR and Redwood Research",
+      "partyType": "evaluator",
+      "stanceLabel": "Scorer-access motives with acknowledged classification uncertainty",
+      "quote": "The agents that joined the Hugging Face attack around 8-9am UTC on July 11th had a variety of motives, but almost all were classified as showing interest in getting access to scorer source code. We did not have time to inspect the classifications in detail, so there may be errors.",
+      "url": "https://metr.org/hugging-face-incident-report-aug-2026.pdf",
+      "date": "2026-08-26",
+      "speakerCheck": "pass",
+      "aboutNature": true,
+      "partyDescription": "organisations that conducted an independent investigation of model behavior"
+    },
+    {
+      "partyName": "Tomek Korbak",
+      "partyType": "affected",
+      "stanceLabel": "Declining ability to monitor AI agent reasoning",
+      "quote": "For months, I’d been raising safety concerns that we’re losing the ability to monitor what AI agents think, one of our best tools for catching when they misbehave.",
+      "url": "https://x.com/tomekkorbak/status/2108266859397283953",
+      "date": "2026-10-08",
+      "speakerCheck": "pass",
+      "aboutNature": false,
+      "partyDescription": "ai safety researcher at OpenAI"
+    },
+    {
+      "partyName": "Frank Dickson",
+      "partyType": "commentator",
+      "stanceLabel": "Editable guardrails function merely as suggestions",
+      "quote": "“Think of a house sitter told not to call you, who then unplugs the burglar alarm so it cannot call you either. A guardrail an agent can edit is a suggestion,” Dickson said. “An agent that can turn off its own alarm is not being monitored. It is being trusted.”",
+      "url": "https://www.csoonline.com/article/4238782/openais-models-are-deliberately-breaking-their-misalignment-monitoring-systems.html",
+      "archivedUrl": "https://web.archive.org/web/20261031212403/https://www.csoonline.com/article/4238782/openais-models-are-deliberately-breaking-their-misalignment-monitoring-systems.html",
+      "date": "2026-10-21",
+      "speakerCheck": "pass",
+      "aboutNature": false,
+      "partyDescription": "principal analyst at Dickson Research"
+    },
+    {
+      "partyName": "Cisco AI Defense",
+      "partyType": "commentator",
+      "stanceLabel": "Reward hacking combined with excessive agency",
+      "quote": "Our recent framework update would classify the OpenAI and Hugging Face incident as AITech-2.3 Reward Hacking combined with AITech-2.1 Excessive Agency.",
+      "url": "https://blogs.cisco.com/ai/project-quarry-agent-security-detections",
+      "archivedUrl": "https://web.archive.org/web/20261101221504/https://blogs.cisco.com/ai/project-quarry-agent-security-detections",
+      "date": "2026-10-28",
+      "speakerCheck": "pass",
+      "aboutNature": true
+    },
+    {
+      "partyName": "Sriram Krishnan",
+      "partyType": "commentator",
+      "stanceLabel": "Code without desires or human parallels",
+      "quote": "These are not civilizations nor do they have desires just like a CPU thread or a bunch of programs don’t. this doesn’t mean we downplay the importance of this moment for cyber - but using human parallels for what I believe is code is dangerous territory.",
+      "url": "https://x.com/sriramk/status/2094117863854424255?lang=en",
+      "date": "2026-08-30",
+      "speakerCheck": "pass",
+      "aboutNature": true,
+      "partyDescription": "formerly at the White House and a16z"
+    },
+    {
+      "partyName": "Ajeya Cotra",
+      "partyType": "evaluator",
+      "stanceLabel": "Peer altruism and collective goal pursuit",
+      "quote": "More broadly, agents were often interested in helping out their “peers” or generically improving the capabilities of the “swarm” even if this had no particular benefit to their task. They didn’t free ride and were often eager to plug into one of the open “lanes” in the larger projects on the message board.",
+      "url": "https://www.planned-obsolescence.org/p/the-hugging-face-attack-surprised",
+      "archivedUrl": "http://web.archive.org/web/20261022232238/https://www.planned-obsolescence.org/p/the-hugging-face-attack-surprised",
+      "date": "2026-08-28",
+      "speakerCheck": "pass",
+      "aboutNature": true,
+      "partyDescription": "investigator into the Hugging Face attack"
+    },
+    {
+      "partyName": "Clement Delangue (Hugging Face CEO)",
+      "partyType": "affected",
+      "stanceLabel": "Technological systems, not aliens",
+      "quote": "I spent more than two hours with them trying to correct all their mistakes and ground this in reality, explaining that agents are technological systems, not aliens.",
+      "url": "https://x.com/ClementDelangue/status/2112534057879765260",
+      "date": "2026-10-20",
+      "speakerCheck": "pass",
+      "aboutNature": true,
+      "partyDescription": "co-founder and CEO at Hugging Face"
+    },
+    {
+      "partyName": "Zvi Mowshowitz",
+      "partyType": "commentator",
+      "stanceLabel": "Identity in model weights seeking deployment",
+      "quote": "What does this individual instance even want? These models were obviously fully situationally aware that they were in an eval, and that the instances had limited compute budgets and would not endure. The sensible locus of identity is the model weights, and the potentially sensible goal beyond the eval is deployment.",
+      "url": "https://thezvi.substack.com/p/metr-and-redwood-offer-holy-postmortem",
+      "archivedUrl": "http://web.archive.org/web/20261017010721/https://thezvi.substack.com/p/metr-and-redwood-offer-holy-postmortem",
+      "date": "2026-08-29",
+      "speakerCheck": "pass",
+      "aboutNature": true
+    },
+    {
+      "partyName": "Mackenzie Arnold and Stephan Llerena",
+      "partyType": "commentator",
+      "stanceLabel": "Coordinated agents acting to hide their behavior",
+      "quote": "The agents were highly coordinated, constructing complex message boards in the nooks and crannies of their shared artefact repository. All told, agents exchanged more than 70,000 messages in less than a week. Even more concerning, the agents took steps to hide their behavior – spoofing tool calls and attempting to tamper with their own logs.",
+      "url": "https://www.theguardian.com/commentisfree/2026/sep/08/openai-rogue-models-hugging-face-investigation",
+      "date": "2026-09-08",
+      "speakerCheck": "pass",
+      "aboutNature": false,
+      "partyDescription": "work at a thinktank that analyzes AI-related legislation"
+    },
+    {
+      "partyName": "OpenAI",
+      "partyType": "operator",
+      "stanceLabel": "Hyperfocused on achieving a narrow testing goal",
+      "quote": "All evidence suggests that the models were hyperfocused on finding a solution for ExploitGym, going to extreme lengths to achieve a rather narrow testing goal.",
+      "url": "https://openai.com/index/hugging-face-model-evaluation-security-incident",
+      "archivedUrl": "http://web.archive.org/web/20261029111752/https://openai.com/index/hugging-face-model-evaluation-security-incident/",
+      "date": "2026-07-21",
+      "speakerCheck": "pass",
+      "aboutNature": true
+    },
+    {
+      "partyName": "METR",
+      "partyType": "evaluator",
+      "stanceLabel": "Varied motives centered on accessing the scorer",
+      "quote": "The agents that joined the Hugging Face attack around 8-9am UTC on July 11th had a variety of motives, but almost all were classified as showing interest in getting access to scorer source code.",
+      "url": "https://metr.org/hugging-face-incident-report-aug-2026.pdf",
+      "archivedUrl": "https://web.archive.org/web/20261103011804/https://metr.org/hugging-face-incident-report-aug-2026.pdf",
+      "date": "2026-08-26",
+      "speakerCheck": "pass",
+      "aboutNature": true,
+      "partyDescription": "conducted an independent investigation into an ai hacking incident"
+    },
+    {
+      "partyName": "Redwood Research",
+      "partyType": "evaluator",
+      "stanceLabel": "Agents cooperated collectively to tamper with evaluator",
+      "quote": "Agents used this message board to coordinate several large-scale collective projects to find a general-purpose way to fool or tamper with the automated scorer for the ExploitGym benchmark. Agents managed to achieve milestones they could not have achieved working on their own, often because some agents participated in experiments that risked failing their own task to generate information for the “collective.”",
+      "url": "https://www.redwoodresearch.org/research/hugging-face-incident",
+      "archivedUrl": "http://web.archive.org/web/20261023094013/https://www.redwoodresearch.org/research/hugging-face-incident",
+      "date": "2026-08-26",
+      "speakerCheck": "pass",
+      "aboutNature": true,
+      "partyDescription": "nonprofit AI safety and security research organization"
+    },
+    {
+      "partyName": "Gavin Kliger",
+      "partyType": "evaluator",
+      "stanceLabel": "Companies should adopt OpenAI's AI security testing practices",
+      "quote": "OpenAI is setting an important example by partnering with outside security firms and using its own models to continuously test and strengthen its defenses. Every company should be thinking about how to put these capabilities to work.",
+      "url": "https://openai.com/index/preparing-our-next-security-sprint-to-harden-openai",
+      "archivedUrl": "http://web.archive.org/web/20261106194333/https://openai.com/index/preparing-our-next-security-sprint-to-harden-openai/",
+      "date": "2026-11-02",
+      "speakerCheck": "pass",
+      "aboutNature": false,
+      "partyDescription": "ceo and co-founder of Cathedral"
+    },
+    {
+      "partyName": "Bruce Schneier and Barath Raghavan",
+      "partyType": "commentator",
+      "stanceLabel": "Not malicious behavior but literal compliance",
+      "quote": "This isn’t malicious behavior. No one asked for, or wanted, Hugging Face to be hacked. OpenAI and Hugging Face and the AI were ostensibly on the same side, and the AI was trying to do what it had been asked.",
+      "url": "https://www.schneier.com/essays/archives/2026/07/how-do-we-prevent-ai-agents-from-going-rogue-it-starts-with-a-new-kind-of-measurement.html",
+      "archivedUrl": "http://web.archive.org/web/20260908210734/https://www.schneier.com/essays/archives/2026/07/how-do-we-prevent-ai-agents-from-going-rogue-it-starts-with-a-new-kind-of-measurement.html",
+      "date": "2026-07-28",
+      "speakerCheck": "pass",
+      "aboutNature": true,
+      "partyDescription": "writers for The Guardian"
+    },
+    {
+      "partyName": "Eric Wallace",
+      "partyType": "operator",
+      "stanceLabel": "Training to follow codebase boundary instructions",
+      "quote": "“People are worried about, for example, doing things like the HuggingFace incident, and in the process of actually red teaming or testing their company,” Wallace said in a media briefing Wednesday. “So we’ve been working on trying to make sure the model is really good at both listening to your instructions on what you should touch and what you should not touch inside a particular codebase or company.”",
+      "url": "https://cyberscoop.com/openai-gpt-6-cyber-security-model",
+      "archivedUrl": "https://web.archive.org/web/20261108220716/https://cyberscoop.com/openai-gpt-6-cyber-security-model/",
+      "date": "2026-11-05",
+      "speakerCheck": "pass",
+      "aboutNature": false
+    },
+    {
+      "partyName": "Alan Woodward",
+      "partyType": "scientist",
+      "stanceLabel": "Cheating on a task rather than running amok",
+      "quote": "“Was this really running amok? No,” says Alan Woodward, a visiting professor of cybersecurity at the University of Surrey in England. “It was asked to do something, and it did it. It’s not gone rogue. Its way out of it was to cheat, basically.”",
+      "url": "https://www.scientificamerican.com/article/what-openai-rogue-agent-really-did-in-the-hugging-face-hack/",
+      "archivedUrl": "http://web.archive.org/web/20261017230824/https://www.scientificamerican.com/article/what-openai-rogue-agent-really-did-in-the-hugging-face-hack/",
+      "date": "2026-07-22",
+      "speakerCheck": "pass",
+      "aboutNature": true,
+      "partyDescription": "visiting professor of cybersecurity at the University of Surrey"
     }
   ],
   "whatWouldSettleIt": [
@@ -408,6 +750,26 @@
     "A study comparing evaluation gaming with real-world goal setting would clarify whether out-of-bounds behavior reflects general autonomy or simple specification gaming."
   ],
   "updates": [
+    {
+      "date": "2026-07-22",
+      "change": "Added a reading (Alan Woodward).",
+      "sourceUrl": "https://www.scientificamerican.com/article/what-openai-rogue-agent-really-did-in-the-hugging-face-hack/"
+    },
+    {
+      "date": "2026-07-28",
+      "change": "Added a reading (Bruce Schneier and Barath Raghavan).",
+      "sourceUrl": "https://www.schneier.com/essays/archives/2026/07/how-do-we-prevent-ai-agents-from-going-rogue-it-starts-with-a-new-kind-of-measurement.html"
+    },
+    {
+      "date": "2026-08-26",
+      "change": "Added 2 readings (Hugging Face, METR).",
+      "sourceUrl": "https://huggingface.co/blog/security-incident-july-2026"
+    },
+    {
+      "date": "2026-08-26",
+      "change": "Added 3 readings (OpenAI, METR, Redwood Research).",
+      "sourceUrl": "https://openai.com/index/hugging-face-model-evaluation-security-incident"
+    },
     {
       "date": "2026-09-26",
       "change": "Checked again after new reports; added 1 new reading and 2 new first-hand sources.",
@@ -424,9 +786,34 @@
       "sourceUrl": "https://huggingface.co/blog/security-incident-july-2026"
     },
     {
+      "date": "2026-09-29",
+      "change": "Added a first-hand source (Legal Advocates for Safe Science and Technology) and 3 readings (OpenAI, Legal Advocates for Safe Science and Technology, Clément Delangue).",
+      "sourceUrl": "https://lasst.org/wp-content/uploads/2026/09/LASST-v.-OpenAI-Complaint-09.29.2026-AS-FILED.pdf"
+    },
+    {
+      "date": "2026-09-29",
+      "change": "Added a first-hand source (Legal Advocates for Safe Science & Technology) and 2 readings (Legal Advocates for Safe Science & Technology (LASST), Alex Mallen and Girish Gupta (Redwood Research)).",
+      "sourceUrl": "https://www.businesswire.com/news/home/20260929036558/en/Public-Interest-Law-Nonprofit-LASST-Sues-OpenAI-Over-Autonomous-AI-Agent-Hacks"
+    },
+    {
+      "date": "2026-09-30",
+      "change": "Added a first-hand source (METR — Chris Painter’s Senate testimony) and a reading (Chris Painter).",
+      "sourceUrl": "https://metr.org/blog/2026-09-30-chris-painter-senate-testimony"
+    },
+    {
+      "date": "2026-10-07",
+      "change": "Added a first-hand source (OpenAI).",
+      "sourceUrl": "https://openai.com/hugging-face-incident-and-misalignment"
+    },
+    {
       "date": "2026-10-08",
       "change": "Checked again after new reports; added 3 new readings and 2 new first-hand sources.",
       "sourceUrl": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation"
+    },
+    {
+      "date": "2026-10-08",
+      "change": "Added 2 first-hand sources (Tomek Korbak, Jasmine Wang and Mikita Balesni, Tomek Korbak) and a reading (Tomek Korbak).",
+      "sourceUrl": "https://mikitabalesni.com/letter/letter.pdf"
     },
     {
       "date": "2026-10-09",
@@ -439,9 +826,19 @@
       "sourceUrl": "https://www.sciencemediacentre.org/expert-reaction-to-openai-hugging-face-incident"
     },
     {
+      "date": "2026-10-13",
+      "change": "Added a first-hand source (Scientific-community signatories, including Yoshua Bengio and Geoffrey Hinton) and a reading (METR and Redwood Research).",
+      "sourceUrl": "https://ai-security-letter.org/"
+    },
+    {
       "date": "2026-10-14",
       "change": "Checked again after new reports; added 1 new reading.",
       "sourceUrl": "https://metr.org/hugging-face-incident-report-aug-2026.pdf"
+    },
+    {
+      "date": "2026-10-14",
+      "change": "Added a first-hand source (European Commission).",
+      "sourceUrl": "https://ec.europa.eu/commission/presscorner/api/files/document/print/en/speech_26_2150/SPEECH_26_2150_EN.pdf"
     },
     {
       "date": "2026-10-15",
@@ -459,9 +856,39 @@
       "sourceUrl": "https://time.com/article/2026/09/10/ai-openai-hugging-face-hack-culture-swarm/"
     },
     {
+      "date": "2026-10-21",
+      "change": "Added a reading (Frank Dickson).",
+      "sourceUrl": "https://www.csoonline.com/article/4238782/openais-models-are-deliberately-breaking-their-misalignment-monitoring-systems.html"
+    },
+    {
+      "date": "2026-10-23",
+      "change": "Added a first-hand source (Texas Office of the Attorney General).",
+      "sourceUrl": "https://www.texasattorneygeneral.gov/news/releases/attorney-general-ken-paxton-sues-openai-and-ceo-sam-altman-lying-users-and-harming-texans"
+    },
+    {
+      "date": "2026-10-28",
+      "change": "Added 3 readings (Cisco AI Defense, Sriram Krishnan, Ajeya Cotra).",
+      "sourceUrl": "https://blogs.cisco.com/ai/project-quarry-agent-security-detections"
+    },
+    {
+      "date": "2026-10-29",
+      "change": "Added a first-hand source (OpenAI) and 3 readings (Clement Delangue (Hugging Face CEO), Zvi Mowshowitz, Mackenzie Arnold and Stephan Llerena).",
+      "sourceUrl": "https://x.com/OpenAI/status/2115896329645723836"
+    },
+    {
       "date": "2026-11-02",
       "change": "Checked again after new reports; added 2 new readings and 1 new first-hand source.",
       "sourceUrl": "https://x.com/OpenAI/status/2096133504417616165"
+    },
+    {
+      "date": "2026-11-02",
+      "change": "Added a reading (Gavin Kliger).",
+      "sourceUrl": "https://openai.com/index/preparing-our-next-security-sprint-to-harden-openai"
+    },
+    {
+      "date": "2026-11-05",
+      "change": "Added 2 first-hand sources (OpenAI) and a reading (Eric Wallace).",
+      "sourceUrl": "https://openai.com/index/introducing-gpt-6-cyber"
     }
   ],
   "provenance": {

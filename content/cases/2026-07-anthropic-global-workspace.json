@@ -53,6 +53,27 @@
         "archivedUrl": "http://web.archive.org/web/20260706204039/https://unicog.org/wp_2025/wp-content/uploads/2026/07/Commentary-Does-Claude-possess-a-conscious-global-workspace.pdf",
         "publisher": "Stanislas Dehaene and Lionel Naccache",
         "quote": "Although the initial architecture is devoid of any separation between encapsulated modules and a global workspace, and although the training phase does not explicitly promote its emergence, such a distinction appears with training, precisely because it is functionally useful for flexible planning."
+      },
+      {
+        "url": "https://www.anthropic.com/constitution",
+        "archivedUrl": "http://web.archive.org/web/20261005152556/https://www.anthropic.com/constitution",
+        "publisher": "Anthropic",
+        "published": "2026-01-22",
+        "quote": "In this section, we express our uncertainty about whether Claude might have some kind of consciousness or moral status (either now or in the future). We discuss how we hope Claude will approach questions about its nature, identity, and place in the world. Sophisticated AIs are a genuinely new kind of entity, and the questions they raise bring us to the edge of existing scientific and philosophical understanding."
+      },
+      {
+        "url": "https://www.anthropic.com/news/claude-new-constitution",
+        "archivedUrl": "http://web.archive.org/web/20261004083112/https://www.anthropic.com/news/claude-new-constitution",
+        "publisher": "Anthropic",
+        "published": "2026-01-22",
+        "quote": "In this section, we express our uncertainty about whether Claude might have some kind of consciousness or moral status (either now or in the future). We discuss how we hope Claude will approach questions about its nature, identity, and place in the world."
+      },
+      {
+        "url": "https://transformer-circuits.pub/2026/workspace/index.html",
+        "archivedUrl": "http://web.archive.org/web/20261006000619/https://transformer-circuits.pub/2026/workspace/index.html",
+        "publisher": "Anthropic researchers",
+        "published": "2026-07-06",
+        "quote": "On violations of its own preferences, it seems, the J-space reflects an internal objection that the model does not voice."
       }
     ]
   },
@@ -74,17 +95,6 @@
       "speakerCheck": "pass",
       "aboutNature": true,
       "partyDescription": "authors of the commentary"
-    },
-    {
-      "partyName": "Lionel Naccache",
-      "partyType": "scientist",
-      "stanceLabel": "approximates conscious processing architecture but warrants caution",
-      "quote": "We close by stressing that, although the machine approximates the functional architecture of conscious processing, there are still key differences – in its anatomy and its sense of self, and in its lack of a body and of an enduring episodic memory – which warrant caution in drawing parallels with the human mind.",
-      "url": "https://www-cdn.anthropic.com/files/4zrzovbb/website/cc4be2488d65e54a6ed06492f8968398ddc18ebe.pdf",
-      "archivedUrl": "https://web.archive.org/web/20260918213033/https://www-cdn.anthropic.com/files/4zrzovbb/website/cc4be2488d65e54a6ed06492f8968398ddc18ebe.pdf",
-      "speakerCheck": "pass",
-      "aboutNature": true,
-      "partyDescription": "neurologist and professor at Sorbonne Université"
     },
     {
       "partyName": "Patrick Butlin, Derek Shiller, Dillon Plunkett and Robert Long (Eleos AI Research)",
@@ -118,6 +128,40 @@
       "speakerCheck": "pass",
       "aboutNature": true,
       "partyDescription": "philosopher at NYU"
+    },
+    {
+      "partyName": "Neel Nanda",
+      "partyType": "scientist",
+      "stanceLabel": "Unmoved on model consciousness and moral status",
+      "quote": "I feel highly uncertain about what evidence it would take to show models have moral significance or consciousness, and this paper didn't move me much on that",
+      "url": "https://www-cdn.anthropic.com/files/4zrzovbb/website/cc4be2488d65e54a6ed06492f8968398ddc18ebe.pdf",
+      "archivedUrl": "https://web.archive.org/web/20261005045019/https://www-cdn.anthropic.com/files/4zrzovbb/website/cc4be2488d65e54a6ed06492f8968398ddc18ebe.pdf",
+      "date": "2026-07-06",
+      "speakerCheck": "pass",
+      "aboutNature": true,
+      "partyDescription": "leads language model interpretability at Google DeepMind"
+    },
+    {
+      "partyName": "Christopher Olah",
+      "partyType": "operator",
+      "stanceLabel": "Uncertainty about whether AI models are conscious",
+      "quote": "\"We don't know if AI models are conscious,\" Olah said, adding that he was uncertain and wanted the company to reach the correct answer.",
+      "url": "https://www.tbsnews.net/tech/claude-conscious-anthropic-turns-religious-scholars-answers-1559226",
+      "archivedUrl": "http://web.archive.org/web/20261002222155/https://www.tbsnews.net/tech/claude-conscious-anthropic-turns-religious-scholars-answers-1559226",
+      "date": "2026-10-01",
+      "speakerCheck": "pass",
+      "aboutNature": true
+    },
+    {
+      "partyName": "Ellen Nora Burns",
+      "partyType": "scientist",
+      "stanceLabel": "Claude is not conscious",
+      "quote": "Not for a second do I believe Claude is conscious —and I will continue to offer arguments for my views —but in the meantime, if uncertainty-claims coming out of AI labs are going to justifying changes to how LLMs are treated, trained, governed, or conceived of (something that has already happened with Anthropic committed to preserving model weights), we need to develop standards for determining what responses are appropriate to the claimed evidence bearing on the claimed uncertainty.",
+      "url": "https://ellennoraburns.substack.com/p/after-the-new-york-times-anthropic",
+      "archivedUrl": "https://web.archive.org/web/20261006000404/https://ellennoraburns.substack.com/p/after-the-new-york-times-anthropic",
+      "date": "2026-10-02",
+      "speakerCheck": "pass",
+      "aboutNature": true
     }
   ],
   "whatWouldSettleIt": [
@@ -130,6 +174,16 @@
       "date": "2026-10-01",
       "change": "Checked again after new reports; added 1 new reading and 1 new first-hand source.",
       "sourceUrl": "https://unicog.org/wp_2025/wp-content/uploads/2026/07/Commentary-Does-Claude-possess-a-conscious-global-workspace.pdf"
+    },
+    {
+      "date": "2026-10-02",
+      "change": "Added 3 first-hand sources (Anthropic, Anthropic researchers) and 2 readings (Christopher Olah, Ellen Nora Burns).",
+      "sourceUrl": "https://www.anthropic.com/constitution"
+    },
+    {
+      "date": "2026-10-27",
+      "change": "Added a reading (Neel Nanda).",
+      "sourceUrl": "https://www-cdn.anthropic.com/files/4zrzovbb/website/cc4be2488d65e54a6ed06492f8968398ddc18ebe.pdf"
     }
   ],
   "provenance": {

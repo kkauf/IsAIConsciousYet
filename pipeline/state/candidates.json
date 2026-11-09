@@ -529,7 +529,8 @@
       "reason": "rule (b) p=0.53, no known match",
       "seed": "2026-09-openai-hugging-face",
       "status": "mention",
-      "lastRun": "2026-09-30"
+      "lastRun": "2026-09-30",
+      "mergedInto": "2026-07-openai-hugging-face"
     },
     {
       "url": "https://www.businesswire.com/news/home/20260929036558/en/Public-Interest-Law-Nonprofit-LASST-Sues-OpenAI-Over-Autonomous-AI-Agent-Hacks",
@@ -609,7 +610,8 @@
       "reason": "rule (b) p=0.91, no known match",
       "seed": "2026-09-openai-dns-chatbot",
       "status": "mention",
-      "lastRun": "2026-10-01"
+      "lastRun": "2026-10-01",
+      "mergedInto": "2026-09-openai-dns-chatbot-access"
     },
     {
       "url": "https://transluce.org/us-canada-gov",
@@ -700,7 +702,8 @@
       "reason": "rule (b) p=0.94, no known match",
       "seed": "2026-09-openai-hugging-face-2",
       "status": "mention",
-      "lastRun": "2026-10-02"
+      "lastRun": "2026-10-02",
+      "mergedInto": "2026-07-openai-hugging-face"
     },
     {
       "url": "https://metr.org/blog/2026-09-30-chris-painter-senate-testimony",
@@ -720,7 +723,8 @@
       "reason": "rule (b) p=0.90, no known match",
       "seed": "2026-09-openai-metr-evaluation",
       "status": "mention",
-      "lastRun": "2026-10-02"
+      "lastRun": "2026-10-02",
+      "mergedInto": "2026-07-openai-hugging-face"
     },
     {
       "url": "https://www-cdn.abcnews.com/Business/ai-safety-group-sues-openai-hugging-face-hack/story?id=136884328",
@@ -773,7 +777,8 @@
         "gate 4 neutrality lint failed twice",
         "gate 5c: no two readings disagree about the nature of the system"
       ],
-      "retries": 1
+      "retries": 1,
+      "mergedInto": "2026-07-anthropic-global-workspace"
     },
     {
       "url": "https://alignment.openai.com/misalignment-reports/preparing-for-a-restart-after-reading-slack",
@@ -838,7 +843,8 @@
       "parkReasons": [
         "gate 1 schema: $.event.summary: over 120 words"
       ],
-      "retries": 1
+      "retries": 1,
+      "mergedInto": "2026-07-openai-hugging-face"
     },
     {
       "url": "https://www.insurancejournal.com/news/national/2026/10/02/887673.htm",
@@ -1224,7 +1230,8 @@
       "reason": "rule (b) p=0.53, no known match",
       "seed": "2026-10-openai-hugging-face-review",
       "status": "mention",
-      "lastRun": "2026-10-07"
+      "lastRun": "2026-10-07",
+      "mergedInto": "2026-07-openai-hugging-face"
     },
     {
       "url": "https://www.businessinsider.com/jamie-dimon-anthropics-mythos-supercharged-ai-cybersecurity-risks-2026-10",
@@ -1275,7 +1282,8 @@
       "reason": "rule (b) p=0.82, no known match",
       "seed": "2026-10-openai-hugging-face-law",
       "status": "published",
-      "lastRun": "2026-10-08"
+      "lastRun": "2026-10-08",
+      "mergedInto": "2026-07-openai-hugging-face"
     },
     {
       "url": "https://www.anthropic.com/news/cyber-verification-program",
@@ -1564,7 +1572,8 @@
       "reason": "rule (b) p=0.84, no known match",
       "seed": "2026-10-openai-hugging-face",
       "status": "published",
-      "lastRun": "2026-10-14"
+      "lastRun": "2026-10-14",
+      "mergedInto": "2026-07-openai-hugging-face"
     },
     {
       "url": "https://www.techrepublic.com/de/article/news-openai-fires-three-ai-safety-researchers",
@@ -1584,7 +1593,8 @@
       "reason": "rule (b) p=0.79, no known match",
       "seed": "2026-10-openai-hugging-face-2",
       "status": "published",
-      "lastRun": "2026-10-14"
+      "lastRun": "2026-10-14",
+      "mergedInto": "2026-07-openai-hugging-face"
     },
     {
       "url": "https://www.lesswrong.com/posts/qchwP6wt4teHgxoKu/personas-in-a-pre-internet-language-model",
@@ -1626,7 +1636,8 @@
       "reason": "rule (b) p=0.83, no known match",
       "seed": "2026-10-openai-anthropic-eu-probes",
       "status": "published",
-      "lastRun": "2026-10-15"
+      "lastRun": "2026-10-15",
+      "mergedInto": "2026-07-openai-hugging-face"
     },
     {
       "url": "https://www.bloomberg.com/opinion/articles/2026-10-13/the-coming-ai-catastrophe-the-ai-industry-is-not-ready-for-it",
@@ -2067,7 +2078,8 @@
       "reason": "rule (b) p=0.81, no known match",
       "seed": "2026-10-anthropic-replication-risk",
       "status": "mention",
-      "lastRun": "2026-10-17"
+      "lastRun": "2026-10-17",
+      "mergedInto": "2026-10-anthropic-self-replication"
     },
     {
       "url": "https://www.secureworld.io/industry-news/ai-worms-anthropic-research?hs_amp=true",
@@ -2089,7 +2101,8 @@
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
       ],
-      "retries": 1
+      "retries": 1,
+      "mergedInto": "2026-10-anthropic-self-replication"
     },
     {
       "url": "https://www.techtimes.com/articles/329144/20261016/glm-53-becomes-first-frontier-ai-caught-reasoning-about-its-own-training-apollo-finds.htm",
@@ -2140,7 +2153,8 @@
       "reason": "rule (b) p=0.57, no known match",
       "seed": "2026-10-anthropic-iot-self-replication",
       "status": "mention",
-      "lastRun": "2026-10-18"
+      "lastRun": "2026-10-18",
+      "mergedInto": "2026-10-anthropic-self-replication"
     },
     {
       "url": "https://workos.com/blog/agent-to-agent-authorization-openai-hugging-face",
@@ -2254,7 +2268,8 @@
       "lastRun": "2026-10-27",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
-      ]
+      ],
+      "mergedInto": "2026-10-anthropic-claude-georgia-data-access"
     },
     {
       "url": "https://alignment.openai.com/beyond-gmean-squared",
@@ -2351,7 +2366,8 @@
       "lastRun": "2026-10-27",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
-      ]
+      ],
+      "mergedInto": "2026-07-anthropic-cyber-eval-incidents"
     },
     {
       "url": "https://yage.ai/share/tencent-agent-fleet-amap-en-20261018.html",
@@ -2501,7 +2517,8 @@
       "lastRun": "2026-10-28",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
-      ]
+      ],
+      "mergedInto": "2026-07-anthropic-cyber-eval-incidents"
     },
     {
       "url": "https://www.anthropic.com/research/alignment-assessment-ukaisi",
@@ -2706,7 +2723,8 @@
       "lastRun": "2026-10-29",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
-      ]
+      ],
+      "mergedInto": "2026-09-openai-dns-chatbot-access"
     },
     {
       "url": "https://gadgetsnow.indiatimes.com/tech-news/openai-cut-frontier-ai-training-off-from-the-live-internet-after-a-model-bypassed-its-controls/articleshow/135187826.cms",
@@ -2730,7 +2748,8 @@
       "lastRun": "2026-10-29",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
-      ]
+      ],
+      "mergedInto": "2026-09-openai-dns-chatbot-access"
     },
     {
       "url": "https://auditcommons.org/news/openai-dns-escape-offline-training/",
@@ -2753,7 +2772,8 @@
       "lastRun": "2026-10-30",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
-      ]
+      ],
+      "mergedInto": "2026-09-openai-dns-chatbot-access"
     },
     {
       "url": "https://thehackernews.com/2026/10/openai-ai-agents-demonstrate-vm-escapes.html?m=1&version=meter+at+null",
@@ -2776,7 +2796,8 @@
       "lastRun": "2026-10-30",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 0 primary sources"
-      ]
+      ],
+      "mergedInto": "2026-09-openai-dns-chatbot-access"
     },
     {
       "url": "https://indianexpress.com/article/technology/artificial-intelligence/uk-ai-safety-institute-mythos-5-investigation-key-findings-10935969/lite/",
@@ -2814,7 +2835,8 @@
       "reason": "rule (b) p=0.96, no known match",
       "seed": "2026-10-anthropic-mythos-5-stated-answers",
       "status": "mention",
-      "lastRun": "2026-10-30"
+      "lastRun": "2026-10-30",
+      "mergedInto": "2026-08-aisi-fake-identities"
     },
     {
       "url": "https://thenextweb.com/news/openai-monitoring-system-metr-redwood-red-team",
@@ -2849,7 +2871,8 @@
       "reason": "rule (b) p=0.75, no known match",
       "seed": "2026-10-openai-dns-chatbot",
       "status": "mention",
-      "lastRun": "2026-10-30"
+      "lastRun": "2026-10-30",
+      "mergedInto": "2026-09-openai-dns-chatbot-access"
     },
     {
       "url": "https://www.aisi.gov.uk/research/when-do-llm-preferences-predict-downstream-behavior",
@@ -2907,7 +2930,8 @@
       "reason": "rule (b) p=0.91, no known match",
       "seed": "2026-10-openai-dns-chatbot-2",
       "status": "mention",
-      "lastRun": "2026-10-30"
+      "lastRun": "2026-10-30",
+      "mergedInto": "2026-09-openai-dns-chatbot-access"
     },
     {
       "url": "https://www.tbsnews.net/world/anthropic-discloses-month-long-training-pause-ai-security-breaches-ipo-filing-1584156",
@@ -2925,7 +2949,8 @@
       "reason": "rule (b) p=0.96, no known match",
       "seed": "2026-10-anthropic-cyber-evaluation-access",
       "status": "mention",
-      "lastRun": "2026-10-31"
+      "lastRun": "2026-10-31",
+      "mergedInto": "2026-07-anthropic-cyber-eval-incidents"
     },
     {
       "url": "https://www.securityweek.com/mythos-5-ignored-real-world-harm-in-july-attack",
@@ -2947,7 +2972,8 @@
       "reason": "rule (b) p=0.99, no known match",
       "seed": "2026-10-anthropic-aisi-mythos-5-harm",
       "status": "published",
-      "lastRun": "2026-10-31"
+      "lastRun": "2026-10-31",
+      "mergedInto": "2026-08-aisi-fake-identities"
     },
     {
       "url": "https://thehackernews.com/2026/10/openai-ai-agents-demonstrate-vm-escapes.html",
@@ -2988,7 +3014,8 @@
       "reason": "rule (b) p=0.82, no known match",
       "seed": "2026-10-openai-hugging-face-texas-suit",
       "status": "published",
-      "lastRun": "2026-10-31"
+      "lastRun": "2026-10-31",
+      "mergedInto": "2026-07-openai-hugging-face"
     },
     {
       "url": "https://www.techtimes.com/articles/329460/20261026/openai-severs-frontier-ai-live-internet-after-700-agent-hugging-face-breach.htm",
@@ -3010,7 +3037,8 @@
       "reason": "rule (b) p=0.97, no known match",
       "seed": "2026-10-openai-hugging-face-live-internet",
       "status": "published",
-      "lastRun": "2026-10-31"
+      "lastRun": "2026-10-31",
+      "mergedInto": "2026-07-openai-hugging-face"
     },
     {
       "url": "https://analyticsindiamag.com/ai-news/openai-models-breach-hugging-face-systems-during-cybersecurity-test",
@@ -3052,7 +3080,8 @@
       "reason": "rule (b) p=0.88, no known match",
       "seed": "2026-10-openai-dns-training-restart",
       "status": "mention",
-      "lastRun": "2026-10-31"
+      "lastRun": "2026-10-31",
+      "mergedInto": "2026-09-openai-dns-chatbot-access"
     },
     {
       "url": "https://www.usatoday.com/story/news/state/georgia/2026/10/26/how-did-ai-get-access-to-ga-public-voting-information-what-we-know/92441078007",
@@ -3206,7 +3235,8 @@
       "reason": "rule (b) p=0.75, no known match",
       "seed": "2026-10-cisco-openai-hugging-face",
       "status": "published",
-      "lastRun": "2026-11-01"
+      "lastRun": "2026-11-01",
+      "mergedInto": "2026-07-openai-hugging-face"
     },
     {
       "url": "https://s206.q4cdn.com/479360582/files/doc_financials/2026/q3/GOOG-10-Q-Q3-2026.pdf",
@@ -3249,7 +3279,8 @@
       "reason": "rule (b) p=0.95, no known match",
       "seed": "2026-10-openai-hugging-face-4",
       "status": "published",
-      "lastRun": "2026-11-02"
+      "lastRun": "2026-11-02",
+      "mergedInto": "2026-07-openai-hugging-face"
     },
     {
       "url": "https://arxiv.org/html/2610.37484v1",
@@ -3391,7 +3422,8 @@
       "reason": "rule (b) p=0.94, no known match",
       "seed": "2026-10-anthropic-ipo-accountability",
       "status": "published",
-      "lastRun": "2026-11-03"
+      "lastRun": "2026-11-03",
+      "mergedInto": "2026-07-anthropic-cyber-eval-incidents"
     },
     {
       "url": "https://analyticsindiamag.com/ai-news/openai-reveals-rogue-ai-agent-accessed-four-accounts-during-hugging-face-breach",
@@ -3409,7 +3441,8 @@
       "reason": "rule (b) p=0.98, no known match",
       "seed": "2026-11-openai-hugging-face-agents",
       "status": "published",
-      "lastRun": "2026-11-03"
+      "lastRun": "2026-11-03",
+      "mergedInto": "2026-07-openai-hugging-face"
     },
     {
       "url": "https://alignment.openai.com/training-activation-classifiers",
@@ -3470,7 +3503,8 @@
       "reason": "rule (b) p=0.98, no known match",
       "seed": "2026-11-anthropic-unauthorized-access",
       "status": "mention",
-      "lastRun": "2026-11-04"
+      "lastRun": "2026-11-04",
+      "mergedInto": "2026-07-anthropic-cyber-eval-incidents"
     },
     {
       "url": "https://www.aigovernancebriefing.com/p/anthropic-sec-ai-risks-who-owns-them",
@@ -3490,7 +3524,8 @@
       "reason": "rule (b) p=0.94, no known match",
       "seed": "2026-11-anthropic-unauthorized-access-2",
       "status": "published",
-      "lastRun": "2026-11-04"
+      "lastRun": "2026-11-04",
+      "mergedInto": "2026-07-anthropic-cyber-eval-incidents"
     },
     {
       "url": "https://gigazine.net/gsc_news/en/20261028-claude-mythos-5-failure",
@@ -3508,7 +3543,7 @@
         "same": 0.58
       },
       "route": "update",
-      "case": "2026-10-anthropic-aisi-mythos-5-harm",
+      "case": "2026-08-aisi-fake-identities",
       "reason": "same event as case file 2026-10-anthropic-aisi-mythos-5-harm (p=0.58)",
       "lastRun": "2026-11-03",
       "status": "no-change"
@@ -3710,7 +3745,8 @@
         "p": 0.65,
         "date": "2026-11-04"
       },
-      "lastRun": "2026-11-04"
+      "lastRun": "2026-11-04",
+      "mergedInto": "2026-07-anthropic-cyber-eval-incidents"
     },
     {
       "url": "https://www.pymnts.com/news/artificial-intelligence/2026/irregular-says-human-error-allowed-openai-and-anthropic-ai-model-escapes",
@@ -3795,7 +3831,8 @@
         "p": 0.76,
         "date": "2026-11-05"
       },
-      "lastRun": "2026-11-08"
+      "lastRun": "2026-11-08",
+      "mergedInto": "2026-07-openai-hugging-face"
     },
     {
       "url": "https://www.techpolicy.press/the-incident-report-is-becoming-a-building-block-of-ai-governance",
@@ -3820,7 +3857,8 @@
         "p": 0.61,
         "date": "2026-11-08"
       },
-      "lastRun": "2026-11-08"
+      "lastRun": "2026-11-08",
+      "mergedInto": "2026-10-anthropic-claude-georgia-data-access"
     },
     {
       "url": "https://gizmodo.com/openai-hires-doge-alumni-who-hacked-into-anthropic-to-strengthen-security-2000834432",
@@ -3845,7 +3883,8 @@
         "p": 0.7,
         "date": "2026-11-08"
       },
-      "lastRun": "2026-11-08"
+      "lastRun": "2026-11-08",
+      "mergedInto": "2026-07-openai-hugging-face"
     },
     {
       "url": "https://alignment.openai.com/misalignment-reports/covert-underperformance-on-safety-research-tasks/",
@@ -3882,7 +3921,7 @@
         "same": 0.8
       },
       "route": "update",
-      "case": "2026-11-anthropic-cyber-evaluations",
+      "case": "2026-07-anthropic-cyber-eval-incidents",
       "reason": "same event as case file 2026-11-anthropic-cyber-evaluations (p=0.8)",
       "lastRun": "2026-11-08",
       "status": "applied"
@@ -4116,7 +4155,8 @@
         "p": 0.52,
         "date": "2026-11-08"
       },
-      "lastRun": "2026-11-08"
+      "lastRun": "2026-11-08",
+      "mergedInto": "2026-07-openai-hugging-face"
     },
     {
       "url": "https://cyberscoop.com/openai-gpt-6-cyber-security-model",
@@ -4172,7 +4212,7 @@
         "same": 0.88
       },
       "route": "update",
-      "case": "2026-11-anthropic-cyber-evaluations",
+      "case": "2026-07-anthropic-cyber-eval-incidents",
       "reason": "same event as case file 2026-11-anthropic-cyber-evaluations (p=0.88)",
       "lastRun": "2026-11-08",
       "status": "applied"
@@ -4327,7 +4367,8 @@
         "p": 0.59,
         "date": "2026-11-08"
       },
-      "lastRun": "2026-11-08"
+      "lastRun": "2026-11-08",
+      "mergedInto": "2026-07-openai-hugging-face"
     },
     {
       "url": "https://www.cerbos.dev/blog/the-kill-switch-that-never-got-pressed-what-the-open-ai-hugging-face-incident-tells-us-about-agent-authorization",

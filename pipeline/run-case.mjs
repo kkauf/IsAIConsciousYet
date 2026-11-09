@@ -33,6 +33,9 @@ const seed = JSON.parse(await readFile(seedPath, 'utf8'));
 const previousPath = path.join(root, 'content', 'cases', `${seed.slug}.json`);
 const previous = existsSync(previousPath) ? JSON.parse(await readFile(previousPath, 'utf8')) : null;
 if (previous && previous.status !== 'published') { console.error(`${seed.slug} is ${previous.status}; not rerun`); process.exit(2); }
+// A retired slug was merged into another case file (content/redirects.json); writing it again would undo the merge.
+const retiredInto = existsSync(path.join(root, 'content', 'redirects.json')) ? JSON.parse(await readFile(path.join(root, 'content', 'redirects.json'), 'utf8'))[seed.slug] : null;
+if (retiredInto) { console.error(`${seed.slug} was merged into ${retiredInto}; not rerun`); process.exit(2); }
 const runDir = path.join(root, 'pipeline', 'runs', seed.slug);
 await mkdir(path.join(runDir, 'pages'), { recursive: true });
 const report = { slug: seed.slug, startedAt: new Date().toISOString(), pipelineVersion: PIPELINE_VERSION, processor, sources: [], gates: {} };

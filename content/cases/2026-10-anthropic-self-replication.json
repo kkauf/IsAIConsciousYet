@@ -94,13 +94,100 @@
       "speakerCheck": "pass",
       "aboutNature": false,
       "partyDescription": "lawyer and co-founder of the AI, Tech & Privacy Academy"
+    },
+    {
+      "partyName": "Anthropic",
+      "partyType": "operator",
+      "stanceLabel": "Signs of life without a rogue replicator",
+      "quote": "Like coding agents in 2024, we’re seeing signs of life for AI worms. We don’t yet have a full rogue replicator, but agents are becoming increasingly capable of completing the individual steps in the replication chain (and passing on their adaptations to future copies of themselves).",
+      "url": "https://www.anthropic.com/research/self-replicating-ai",
+      "date": "2026-10-12",
+      "speakerCheck": "pass",
+      "aboutNature": true
+    },
+    {
+      "partyName": "Zhengxiong Li",
+      "partyType": "scientist",
+      "stanceLabel": "A worm improvising device hijacks",
+      "quote": "Zhengxiong Li, an assistant professor of computer science and engineering at the University of Colorado Denver, said that while the testing had been done in controlled conditions, he still found it ​worrying that an AI could effectively become ​a “worm,” a self-replicating program that could ⁠improvise ways to hijack devices on the fly.",
+      "url": "https://www.dawn.com/news/2037551",
+      "date": "2026-10-16",
+      "speakerCheck": "pass",
+      "aboutNature": true,
+      "partyDescription": "assistant professor of computer science at UC Denver"
+    },
+    {
+      "partyName": "Ciaran Martin",
+      "partyType": "commentator",
+      "stanceLabel": "Technical experiment not a security crisis",
+      "quote": "“‘We managed to run a small model on cheap TVs,’ does not a security crisis make,” said Ciaran Martin, a former head of Britain’s National Cyber Security Centre. He said the post came across as an “interesting technical paper with a more than hint of vendor exaggeration.”",
+      "url": "https://www.dawn.com/news/2037551",
+      "date": "2026-10-16",
+      "speakerCheck": "pass",
+      "aboutNature": false,
+      "partyDescription": "former head of Britain's National Cyber Security Centre"
+    },
+    {
+      "partyName": "Jessica Ji",
+      "partyType": "commentator",
+      "stanceLabel": "Autonomous proliferation remains an unproven hypothetical",
+      "quote": "It made sense to consider the possibility of AI ⁠models proliferating ​autonomously given the past three months of revelations over rogue AI activity, said Jessica Ji, a ​senior research analyst at Georgetown’s Centre for Security and Emerging Technology. But she said, “We don’t know yet what the likelihood of that actually happening is — it’s not zero, but nor is it ​guaranteed.”",
+      "url": "https://www.dawn.com/news/2037551",
+      "date": "2026-10-16",
+      "speakerCheck": "pass",
+      "aboutNature": false
+    },
+    {
+      "partyName": "Marco Figueroa",
+      "partyType": "evaluator",
+      "stanceLabel": "No fully autonomous rogue replicator demonstrated",
+      "quote": "Now read the actual research: • No fully autonomous rogue replicator demonstrated. • Cyber exploitation deliberately simplified. • Real-world replication remains unproven.",
+      "url": "https://x.com/MarcoFigueroa/status/2109925749394227378",
+      "date": "2026-10-13",
+      "speakerCheck": "pass",
+      "aboutNature": false,
+      "partyDescription": "GenAI bug bounty programs manager at Mozilla"
+    },
+    {
+      "partyName": "Joshua Saxe",
+      "partyType": "scientist",
+      "stanceLabel": "Comparable to other waves of cyber attacks",
+      "quote": "“It’s something to worry about just like every other wave of cyber-attacks. We need to mitigate the possible effects,” said Joshua Saxe, who led development of Meta’s AI security effort. “I’m concerned right now that folks in the cybersecurity community are not taking these kinds of real risks as seriously as they should be.”",
+      "url": "https://www.theguardian.com/technology/2026/oct/18/anthropic-ai-worm-worries",
+      "archivedUrl": "https://web.archive.org/web/20261018203414/https://www.theguardian.com/technology/2026/oct/18/anthropic-ai-worm-worries",
+      "date": "2026-10-18",
+      "speakerCheck": "pass",
+      "aboutNature": false,
+      "partyDescription": "led development of Meta's AI security effort"
+    },
+    {
+      "partyName": "Ethan Mollick",
+      "partyType": "commentator",
+      "stanceLabel": "Capability thresholds matter more than steady climbs",
+      "quote": "A worthwhile (and unnerving) reminder from Anthropic that we should be paying attention to AI ability thresholds, not just steady climbs In this case, the threshold is the capability needed for a self-replicating AI worm on IoT devices like off-brand TVs",
+      "url": "https://bsky.app/profile/emollick.bsky.social/post/3mxr77gpvik2q",
+      "archivedUrl": "https://web.archive.org/web/20261018203428/https://bsky.app/profile/emollick.bsky.social/post/3mxr77gpvik2q",
+      "date": "2026-10-13",
+      "speakerCheck": "pass",
+      "aboutNature": false
     }
   ],
   "whatWouldSettleIt": [
     "A log of an unauthorized model spreading across independent networks without human prompting would distinguish autonomous replication from staged evaluations.",
     "A network audit showing small models replicating without instructions or external model guidance would separate self-directed behavior from directed execution."
   ],
-  "updates": [],
+  "updates": [
+    {
+      "date": "2026-10-16",
+      "change": "Added 5 readings (Anthropic, Zhengxiong Li, Ciaran Martin, Jessica Ji, Marco Figueroa).",
+      "sourceUrl": "https://www.anthropic.com/research/self-replicating-ai"
+    },
+    {
+      "date": "2026-10-18",
+      "change": "Added 2 readings (Joshua Saxe, Ethan Mollick).",
+      "sourceUrl": "https://www.theguardian.com/technology/2026/oct/18/anthropic-ai-worm-worries"
+    }
+  ],
   "provenance": {
     "draftedBy": "gemini-3.8-flash",
     "pipelineVersion": "0.3",

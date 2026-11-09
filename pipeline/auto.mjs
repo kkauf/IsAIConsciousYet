@@ -12,11 +12,11 @@ import { spawn } from 'node:child_process';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { ledgerTotal, PRICES, isBillingStop, billingStops, noteBillingStop } from './lib.mjs';
-import { detect, SEARCHES } from './detect.mjs';
+import { detect, SEARCHES, nameMatch, slugBase } from './detect.mjs';
 import { recheck, caseFiles, recheckUrls } from './recheck.mjs';
 import { coverage } from './coverage.mjs';
 import { precheck } from './precheck.mjs';
-import { root, loadConfig, loadSpend, saveSpend, monthToDate, addSpend, capCheck, monthlyCap, loadCandidates, saveCandidates, monthKey, loadSchedule, saveSchedule } from './state.mjs';
+import { root, loadConfig, loadSpend, saveSpend, monthToDate, addSpend, capCheck, monthlyCap, loadCandidates, saveCandidates, monthKey, loadSchedule, saveSchedule, loadCases, loadRedirects } from './state.mjs';
 
 const SITE_URL = 'https://isaiconsciousyet.com'; // same as src/lib/cases/load.ts
 
@@ -38,7 +38,7 @@ let childCost = 0; // run-case children; in-process calls are in lib's ledger
 const runCost = () => ledgerTotal().total + childCost;
 const cap = (step, estimate) => capCheck({ config, spentBefore, spentThisRun: runCost(), estimate, step });
 
-const out = { capStops: [], billingStops: [], errors: [], detected: [], prechecked: [], published: [], mentions: [], parked: [], updated: [], recheck: null, coverage: null, processor: null };
+const out = { capStops: [], billingStops: [], errors: [], detected: [], rerouted: [], prechecked: [], published: [], mentions: [], parked: [], updated: [], recheck: null, coverage: null, processor: null };
 const today = new Date().toISOString().slice(0, 10);
 const daysSince = (d) => (Date.parse(today) - Date.parse(d)) / 864e5;
 // A parked event is retried on a schedule (parkedRetryDays, days after its last run): new events are often parked
@@ -100,8 +100,20 @@ if (!dryRun) {
   ];
   // Pre-checked-out seeds do not use up one of the run's maxNewCasesPerRun research slots.
   let researched = 0;
+  const cases = loadCases().filter((k) => k.status !== 'withdrawn');
+  const redirects = loadRedirects();
   for (const c of queue) {
     if (researched >= config.maxNewCasesPerRun) break;
+    // Same event as a case file published since this seed was queued, or a seed whose slug was merged away:
+    // the seed's source becomes an update of that case file instead of a second case file (detect.mjs nameMatch).
+    const named = redirects[c.seed] ? { slug: redirects[c.seed] } : nameMatch({ short_name: slugBase(c.seed), title: c.title, operator: c.operator }, cases, redirects);
+    if (named && named.slug !== c.seed) {
+      Object.assign(c, { route: 'update', case: named.slug, reason: `${c.reason}; rerouted to case file ${named.slug} before research` });
+      delete c.status; delete c.retries;
+      out.rerouted.push({ slug: c.seed, title: c.title, case: named.slug });
+      log(`reroute ${c.seed} → update of ${named.slug}`);
+      saveCandidates(state); continue;
+    }
     const blocked = billingBlock(CASE_PROVIDERS);
     if (blocked) { addBilling(`${blocked.message}; case ${c.seed} not researched`); break; }
     const seedFile = path.join('pipeline', 'seeds', `${c.seed}.json`);
@@ -303,6 +315,7 @@ if (out.billingStops.length) md.push('**Provider out of money.** ' + out.billing
 const section = (title, lines) => { if (lines.length) md.push(`## ${title}`, '', ...lines, ''); };
 section('Published', out.published.map((p) => `- [${p.title}](${p.url}) (${p.readings} readings, $${p.cost})`));
 section('Honorable mentions', out.mentions.map((p) => `- [${p.title}](${p.url}): ${p.missing ?? ''} ($${p.cost})`));
+section('Rerouted to an existing case file (no research paid)', out.rerouted.map((p) => `- \`${p.slug}\` ${p.title} → \`${p.case}\``));
 section('Skipped by the pre-check (no research paid)', out.prechecked.map((p) => `- \`${p.slug}\` ${p.title}: ${p.reason}`));
 section('Parked', out.parked.map((p) => `- \`${p.slug}\` ${p.title}: ${p.reasons.join('; ')} ($${p.cost})`));
 section('Updates found', out.detected.filter((c) => c.route === 'update').map((c) => `- \`${c.case}\` ← [${c.title}](${c.url}), ${c.date}`));

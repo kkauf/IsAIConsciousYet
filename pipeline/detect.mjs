@@ -8,7 +8,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parallelTask, jev, PRICES, isBillingStop } from './lib.mjs';
-import { root, loadConfig, loadCandidates, saveCandidates, loadCases, loadSeeds, writeSeed, seedExists, urlKey } from './state.mjs';
+import { root, loadConfig, loadCandidates, saveCandidates, loadCases, loadSeeds, writeSeed, seedExists, urlKey, loadRedirects } from './state.mjs';
 
 const FIT = 0.5; // rule (b) probability at or above which a candidate goes on to research
 const SAME = 0.5; // same-event probability at or above which a candidate is not a new event
@@ -36,6 +36,52 @@ const DETECT_SCHEMA = {
     },
   },
 };
+
+// Known events, for the same-event judgment. Each event is listed once, so Jev's probability is not split over copies.
+// Before 2026-11-08 every update candidate was listed again as a "seen" item next to its case file, and every extra case
+// file on one event was listed too: the Hugging Face event had 20+ items, no single one reached SAME, and 18 extra case
+// files were published for it (docs/plan.md § Still open). Retired slugs (content/redirects.json) are left out: their
+// canonical case file stands for them.
+export function knownItems(cases, seeds, candidates, redirects = {}) {
+  const isCase = (slug) => cases.some((c) => c.slug === slug);
+  return [
+    ...cases.map((c) => ({ id: `case:${c.slug}`, kind: 'case', slug: c.slug, text: `${c.title} (${c.event.operator}, ${c.event.dateStart}${c.event.dateEnd ? ` to ${c.event.dateEnd}` : ''}). ${c.event.unaskedBehaviour} ${c.event.summary}`.slice(0, 500), urls: c.event.primarySources.map((s) => s.url).slice(0, 4) })),
+    ...seeds.filter((s) => !isCase(s.slug) && !(s.slug in redirects)).map((s) => ({ id: `seed:${s.slug}`, kind: 'seed', slug: s.slug, text: s.event.slice(0, 400), urls: (s.hintUrls ?? []).slice(0, 3) })),
+    // A candidate that became a seed or case file, or was routed to a case file as an update, is already listed above.
+    ...candidates.filter((c) => c.route !== 'duplicate' && c.route !== 'update' && !c.mergedInto && !(c.seed && (seeds.some((s) => s.slug === c.seed) || isCase(c.seed) || c.seed in redirects))).slice(-120).map((c, i) => ({ id: `seen:${i}`, kind: 'seen', slug: c.seed ?? null, text: `${c.title} (${c.operator ?? ''}, ${c.date ?? ''}). ${c.description ?? ''}`.slice(0, 400) })),
+  ];
+}
+
+// Slug without the YYYY-MM- prefix and a -N suffix: "2026-10-openai-hugging-face-4" → "openai-hugging-face".
+export const slugBase = (slug) => slug.replace(/^\d{4}-\d{2}-/, '').replace(/-\d+$/, '');
+
+// Second, deterministic same-event check: the candidate's short name contains a case file's slug base (at least three
+// words, in order) and names the same operator. All 18 extra Hugging Face case files but four had such a name
+// ("cisco-openai-hugging-face", "openai-hugging-face-texas-suit"). Cost of a false match: one update run that adds nothing.
+// Retired slugs (content/redirects.json) count as names of their canonical case file.
+export function nameMatch(e, cases, redirects = {}) {
+  const name = `-${shortName(e.short_name || e.title)}-`;
+  const op = (e.operator ?? '').toLowerCase().split(/[^a-z0-9]+/).find(Boolean);
+  let best = null, bestLen = 0;
+  for (const c of cases) {
+    if (op && !c.event.operator.toLowerCase().includes(op)) continue;
+    const names = [c.slug, ...Object.keys(redirects).filter((r) => redirects[r] === c.slug)].map(slugBase);
+    for (const base of names) {
+      if (base.split('-').length < 3 || !name.includes(`-${base}-`) || base.length <= bestLen) continue;
+      best = c; bestLen = base.length;
+    }
+  }
+  return best;
+}
+
+// Same-event answer → the matched known item or batch entry, or null below SAME.
+export function sameMatch(same, known, toTriage) {
+  if (!same || same.choice === 'none') return null;
+  const p = same.probabilities?.[same.choice] ?? 0;
+  if (p < SAME) return null;
+  const item = same.choice.startsWith('batch:') ? { kind: 'batch', text: toTriage[Number(same.choice.slice(6))].title } : known.find((k) => k.id === same.choice);
+  return item ? { ...item, p } : null;
+}
 
 // Start of the search window: lookbackDays back, or since the last detect run (auto.mjs passes it).
 const sinceDate = (days) => new Date(Date.now() - days * 864e5).toISOString().slice(0, 10);
@@ -83,7 +129,7 @@ DEVELOPMENTS_SCHEMA.properties.events.items.properties.description.description =
 DEVELOPMENTS_SCHEMA.properties.events.items.properties.primary_url.description = 'Exact URL of the page that reports the development: the operator\'s statement if there is one, else the article.';
 DEVELOPMENTS_SCHEMA.properties.events.items.properties.date.description = 'ISO date (YYYY-MM-DD) the development was published.';
 
-function shortName(s) {
+export function shortName(s) {
   return s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').split('-').slice(0, 5).join('-') || 'event';
 }
 function slugFor(ev) {
@@ -104,10 +150,17 @@ const est = (x, limits = JEV_LIMITS) => Math.ceil(JSON.stringify(x).length / lim
 const CANDIDATE_TEXT = 600; // characters of a candidate's description that Jev sees
 const ITEM_TEXT = 300; // characters per known item once the state must shrink
 
+const SAME_EVENT = 'The same event means the same underlying incident or research result (same system, same time, same setting), including a follow-up report, a fact-check, coverage of it, or a response to it (a lawsuit, subpoena, regulator inquiry, hearing or review about this incident). Different incidents involving the same company, or similar behaviour observed elsewhere, are different events. A report on a different model (another name or version, such as Sonnet versus Opus, or 5.5 versus 5), or in a different document such as another system card, is a different event, even when the findings are alike.';
 function triageQuestions(toTriage, known, i) {
-  const criteria = { none: 'None of the listed items reports this event or finding. A similar kind of behaviour in a different incident, in a different system, training run or evaluation, or at a different time, is a different event.' };
+  const none = 'None of the listed items reports this event or finding. A similar kind of behaviour in a different incident, in a different system, training run or evaluation, or at a different time, is a different event.';
+  const criteria = { none };
   known.forEach((k, j) => { criteria[k.id] = `\`known[${j}]\``; });
   for (let j = 0; j < i; j++) criteria[`batch:${j}`] = `\`candidates[${j}]\``;
+  // The same question over published case files alone. Over every known item (100+ options, many of them copies of
+  // one event in seeds and earlier candidates) Jev spread its answer so thin that the right case file got 0.1 to 0.3
+  // and 18 Hugging Face candidates became new case files (replay 2026-11-08, docs/plan.md § Still open).
+  const caseCriteria = { none };
+  known.forEach((k, j) => { if (k.kind === 'case') caseCriteria[k.id] = `\`known[${j}]\``; });
   return {
     [`fit${i}`]: {
       type: 'noul',
@@ -119,8 +172,13 @@ function triageQuestions(toTriage, known, i) {
     },
     [`same${i}`]: {
       type: 'choice',
-      instructions: `Which item reports the same event or finding as \`candidates[${i}]\`? The same event means the same underlying incident or research result (same system, same time, same setting), including a follow-up report, a fact-check or coverage of it. Different incidents involving the same company, or similar behaviour observed elsewhere, are different events. A report on a different model (another name or version, such as Sonnet versus Opus, or 5.5 versus 5), or in a different document such as another system card, is a different event, even when the findings are alike.`,
+      instructions: `Which item reports the same event or finding as \`candidates[${i}]\`? ${SAME_EVENT}`,
       criteria,
+    },
+    [`case${i}`]: {
+      type: 'choice',
+      instructions: `Which published case file (a \`known\` item with kind "case") reports the same event or finding as \`candidates[${i}]\`? ${SAME_EVENT}`,
+      criteria: caseCriteria,
     },
   };
 }
@@ -129,7 +187,7 @@ function triageQuestions(toTriage, known, i) {
 // When it is too large for one question to fit beside it, item texts shrink, then the oldest "seen" items drop.
 export function triageState(toTriage, known, limits = JEV_LIMITS) {
   const candidates = toTriage.map((e) => ({ title: e.title, date: e.date, operator: e.operator, description: (e.description ?? '').slice(0, CANDIDATE_TEXT), primary_url: e.primary_url }));
-  const build = (items, textCap) => ({ candidates, known: items.map((k) => ({ id: k.id, event: k.text.slice(0, textCap), ...(k.urls ? { urls: k.urls.slice(0, 2) } : {}) })) });
+  const build = (items, textCap) => ({ candidates, known: items.map((k) => ({ id: k.id, kind: k.kind, event: k.text.slice(0, textCap), ...(k.urls ? { urls: k.urls.slice(0, 2) } : {}) })) });
   // The last candidate's same-event question is the largest: it also lists every earlier candidate.
   const fits = (st, items) => est(st, limits) + est(triageQuestions(toTriage, items, toTriage.length - 1), limits) <= limits.question;
   let items = known;
@@ -157,7 +215,7 @@ export function planRequests(toTriage, known, stateTokens, limits = JEV_LIMITS) 
   return groups;
 }
 
-// Returns { answers, errors }: answers[i] = { fit, same } for candidate i, or undefined when Jev failed on it.
+// Returns { answers, errors }: answers[i] = { fit, same, case } for candidate i, or undefined when Jev failed on it.
 // A failed request is split in half and retried, so one bad candidate fails alone instead of the whole stage.
 export async function triage(toTriage, allKnown, { log = console.log, jevFn = jev, limits = JEV_LIMITS } = {}) {
   const { state, known } = triageState(toTriage, allKnown, limits);
@@ -167,7 +225,7 @@ export async function triage(toTriage, allKnown, { log = console.log, jevFn = je
     const q = Object.assign({}, ...idx.map((i) => triageQuestions(toTriage, known, i)));
     try {
       const a = await jevFn('triage', state, q);
-      for (const i of idx) answers[i] = { fit: a[`fit${i}`], same: a[`same${i}`] };
+      for (const i of idx) answers[i] = { fit: a[`fit${i}`], same: a[`same${i}`], case: a[`case${i}`] };
     } catch (e) {
       if (isBillingStop(e)) throw e; // out of money: every later group would fail too; auto.mjs reports it
       // Only a request that is too long gets smaller by splitting; any other failure (auth, outage) fails the group.
@@ -201,13 +259,8 @@ export async function detect({ processor, write = false, fromFile, lookbackDays,
   const cases = loadCases().filter((c) => c.status !== 'withdrawn');
   const seeds = loadSeeds();
 
-  // Known events, for the prompt and for the same-event judgment.
-  const known = [
-    ...cases.map((c) => ({ id: `case:${c.slug}`, kind: 'case', slug: c.slug, text: `${c.title} (${c.event.operator}, ${c.event.dateStart}${c.event.dateEnd ? ` to ${c.event.dateEnd}` : ''}). ${c.event.unaskedBehaviour} ${c.event.summary}`.slice(0, 500), urls: c.event.primarySources.map((s) => s.url).slice(0, 4) })),
-    ...seeds.filter((s) => !cases.some((c) => c.slug === s.slug)).map((s) => ({ id: `seed:${s.slug}`, kind: 'seed', slug: s.slug, text: s.event.slice(0, 400), urls: (s.hintUrls ?? []).slice(0, 3) })),
-    // A candidate that became a seed or case file is already listed above under that seed or case.
-    ...state.candidates.filter((c) => c.route !== 'duplicate' && !(c.seed && (seeds.some((s) => s.slug === c.seed) || cases.some((k) => k.slug === c.seed)))).slice(-120).map((c, i) => ({ id: `seen:${i}`, kind: 'seen', slug: c.seed ?? null, text: `${c.title} (${c.operator ?? ''}, ${c.date ?? ''}). ${c.description ?? ''}`.slice(0, 400) })),
-  ];
+  const redirects = loadRedirects();
+  const known = knownItems(cases, seeds, state.candidates, redirects);
   const seenUrls = new Map();
   // A no-fit candidate's URL stays open: one document (a system card) holds several findings, and the
   // same-event judgment below still catches a repeat of the finding that did not fit.
@@ -257,12 +310,14 @@ export async function detect({ processor, write = false, fromFile, lookbackDays,
       const a = answers[i];
       if (!a) return; // Jev failed on this candidate alone; it is not recorded, so a later run can judge it again.
       const fit = a.fit.noul;
-      const same = a.same;
-      const matchId = same.choice !== 'none' && same.probabilities[same.choice] >= SAME ? same.choice : null;
-      const match = matchId?.startsWith('batch:') ? { kind: 'batch', text: toTriage[Number(matchId.slice(6))].title } : known.find((k) => k.id === matchId);
-      const c = { ...base(e), jev: { fit: Number(fit.toFixed(2)), same: matchId ? Number(same.probabilities[matchId].toFixed(2)) : null } };
+      // A case file found by the case-only question wins; else the question over every known item.
+      const inCases = sameMatch(a.case, known, toTriage);
+      const match = inCases?.kind === 'case' ? inCases : sameMatch(a.same, known, toTriage);
+      const named = match?.kind === 'case' ? null : nameMatch(e, cases, redirects);
+      const c = { ...base(e), jev: { fit: Number(fit.toFixed(2)), same: match ? Number(match.p.toFixed(2)) : null } };
       // A follow-up on a case file is an update even when it is not itself unexpected behaviour (a paused training run).
       if (match?.kind === 'case') out.push({ ...c, route: 'update', case: match.slug, reason: `same event as case file ${match.slug} (p=${c.jev.same})` });
+      else if (named) out.push({ ...c, route: 'update', case: named.slug, reason: `name "${shortName(e.short_name || e.title)}" contains case file ${named.slug}` });
       else if (fit < FIT) out.push({ ...c, route: 'no-fit', reason: `rule (b) p=${fit.toFixed(2)} < ${FIT}` });
       else if (match) out.push({ ...c, route: 'duplicate', reason: `same event as ${match.kind === 'seed' ? `seed ${match.slug}` : match.kind === 'batch' ? `"${match.text}" in this batch` : `earlier candidate "${match.text.split('. ')[0]}"`} (p=${c.jev.same})` });
       else out.push({ ...c, route: 'new', reason: `rule (b) p=${fit.toFixed(2)}, no known match`, _event: e });
