@@ -223,6 +223,16 @@ Test of 2026-11-04 (KK asked for the cheapest model that keeps the publish verdi
 
 The cheap models copy passages as well as Gemini (DeepSeek kept the same 61 quotes) but fail the drafting gates: stance labels over 8 words, summaries over 120 words, empty fields, and DeepSeek's drafts fail the neutrality lint twice. Code now repairs the first three for any model (a long label takes the one rewrite, the summary is cut to 120 words at a sentence, empty or long draft fields go back to the drafter). The split passed the quote criterion and missed the verdict criterion: both flips (one case file parked, one parked case published) came from the neutrality lint on Gemini-written text (p 0.51 and 0.60 against 0.5), not from the quotes. No model passed, so production stays on Gemini direct (KK, 2026-11-04: ship a cut only if it passes). Test spend about $5.10 on OpenRouter.
 
+Claude test of 2026-11-08 (KK on Signal: "What about using my included Claude API credits?"). Max includes $100 a month of API credit for the Claude API and Agent SDK with a Console key; it "doesn't roll over" and "work[s] with any available Claude model" (support.claude.com/en/articles/17154008). A Console key is the API route, so the subscription-terms problem of `claude -p` does not apply. Same 9 cached cases, both slots, harness `pipeline/replay-test.mjs` (`--probe`, `--cap`, `--compare`), Wayback stubbed. Bar: 90% of 9 means 9/9. Two Gemini-direct baselines agreed 9/9.
+
+| Both slots | Same verdict | Kept quotes vs 61 | Model cost per case | Median tokens in / out |
+|---|---|---|---|---|
+| Gemini 3.8 Flash direct (baseline) | 9/9 | 60 | $0.107 | 103k / 2.5k |
+| Claude Haiku 5.5 | 7/9 | 65 (+7%) | $0.027 | 157k / 21k |
+| Claude Sonnet 5.5 | 6/9 | 62 (+2%) | $0.488 | 188k / 7.7k |
+
+Flips: the agents-email case was parked on Gemini (gate 4 flagged Gemini's title, p 0.73) and published on both Claude models; Sol concealment notes lost the GovKM reading on both (Haiku: no passage found; Sonnet: stance label over 8 words), so 1 reading was left; Sonnet also parked the cyber-eval case (gate 4, p 0.56). No Claude model passed, so production stays on Gemini. The most a switch could save is the Gemini bill, about $12 a month. Test spend $4.64 OpenRouter plus $1.88 Gemini. Gemini direct costs $0.10-0.11 per case today; the $0.229 above went through OpenRouter.
+
 ## Press coverage (built 2026-09-26)
 
 The popular debate, drawn on `/timeline` and the homepage next to the case files: articles in a fixed list of 24 general-audience publications (`coverage.outlets` in `pipeline/config.json`) whose main subject is whether AI systems are or could become conscious, sentient, have feelings, or deserve moral consideration. Text only (publication, headline, date, link). Nothing is scored for or against. Script: `pipeline/coverage.mjs`; output `content/coverage.json` (validated by `check-cases.mjs`); state `pipeline/state/coverage.json` (every judged URL, so nothing is judged twice).
