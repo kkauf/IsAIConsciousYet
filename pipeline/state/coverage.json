@@ -1,5 +1,5 @@
 {
-  "lastRun": "2026-11-02",
+  "lastRun": "2026-11-09",
   "seen": {
     "nytimes.com/2023/09/18/science/ai-computers-consciousness.html": {
       "p": 0.81,
@@ -6743,6 +6743,150 @@
     },
     "npr.org/2026/10/27/nx-s1-5983462/human-rights-activists-look-to-harness-ai-for-the-greater-good": {
       "p": 0.05,
+      "kept": false
+    },
+    "washingtonpost.com/opinions/2026/11/09/artificial-intelligence-raises-an-ancient-religious-question": {
+      "p": 0.96,
+      "kept": false
+    },
+    "wsj.com/opinion/free-expression/why-do-we-want-ai-friends-14dd4edb": {
+      "p": 0.38,
+      "kept": false
+    },
+    "wsj.com/livecoverage/stock-market-today-dow-sp-500-nasdaq-10-26-2026/card/bvnrhpelw50es2dc6ver": {
+      "p": 0.59,
+      "kept": false
+    },
+    "nytimes.com/video/opinion/100000011225438/inside-the-white-houses-push-for-more-ai.html": {
+      "p": 0.13,
+      "kept": false
+    },
+    "washingtonpost.com/technology/2026/10/26/five-things-know-about-anthropic-record-initial-public-offering": {
+      "p": 0.16,
+      "kept": false
+    },
+    "nytimes.com/video/opinion/100000011225446/why-the-white-house-wont-say-ai.html": {
+      "p": 0.06,
+      "kept": false
+    },
+    "wsj.com/risk-compliance-journal/the-morning-risk-report-the-biggest-takeaways-from-anthropics-ipo-prospectus-f786ea5e": {
+      "p": 0.09,
+      "kept": false
+    },
+    "nytimes.com/1983/08/21/magazine/exploring-the-labyrinth-of-the-mind.html": {
+      "p": 0.07,
+      "kept": false
+    },
+    "edition.cnn.com/2026/11/01/business/anthropic-dont-be-mean-claude-ban": {
+      "p": 0.24,
+      "kept": false
+    },
+    "reuters.com/legal/litigation/openai-says-its-ai-agents-weakened-internal-monitoring-system-2026-10-21": {
+      "p": 0.04,
+      "kept": false
+    },
+    "edition.cnn.com/2026/10/21/tech/ai-detectors-pangram-literary-prizes-cec": {
+      "p": 0.08,
+      "kept": false
+    },
+    "reuters.com/business/musks-spacex-merge-with-xai-combined-valuation-125-trillion-bloomberg-news-2026-02-02": {
+      "p": 0.02,
+      "kept": false
+    },
+    "reuters.com/business/retail-consumer/openai-sell-its-top-models-google-cloud-latest-enterprise-push-2026-10-21": {
+      "p": 0.02,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2026-10-28/wall-street-s-ai-debt-machine-is-starting-to-choke-on-supply": {
+      "p": 0.02,
+      "kept": false
+    },
+    "theguardian.com/tv-and-radio/2026/nov/03/john-lewis-christmas-advert-2026-kristin-scott-thomas-pickles-ai-dog": {
+      "p": 0.16,
+      "kept": false
+    },
+    "npr.org/2026/10/28/nx-s1-6019724/inside-anthropics-ipo-how-ai-agents-spy-on-your-messages": {
+      "p": 0.08,
+      "kept": false
+    },
+    "telegraph.co.uk/business/2026/10/22/californias-cult-like-ai-movement-infiltrates-britian": {
+      "p": 0.04,
+      "kept": false
+    },
+    "npr.org/player/embed/fis-381444825-3e419ea47e486fc5b69643bb185a6845/fis-381444825-3e419ea47e486fc5b69643bb185a6845-enclosure-audio": {
+      "p": 0.45,
+      "kept": false
+    },
+    "theatlantic.com/podcasts/2026/11/is-radicalism-the-answer/689201": {
+      "p": 0.09,
+      "kept": false
+    },
+    "ft.com/content/1f353024-5cad-47f9-a2da-8a6097b8f461": {
+      "p": 0.05,
+      "kept": false
+    },
+    "ft.com/content/5ae90cc4-a20d-4b65-9000-10421a663f89": {
+      "p": 0.05,
+      "kept": false
+    },
+    "wired.com/story/the-anthropic-ipo-is-also-a-doomsday-primer": {
+      "p": 0.08,
+      "kept": false
+    },
+    "vox.com/podcasts/506698/deadbots-ai-chatbots-ethics-talking-d": {
+      "p": 0.1,
+      "kept": false
+    },
+    "wired.com/story/an-ai-agent-did-brain-surgery-on-live-mouse": {
+      "p": 0.03,
+      "kept": false
+    },
+    "theverge.com/culture": {
+      "p": 0.09,
+      "kept": false
+    },
+    "vox.com/advice/509867/ethics-moving-red-state-blue-state": {
+      "p": 0.1,
+      "kept": false
+    },
+    "vox.com/explain-it-to-me/507002/ai-agents-muse-dots-personal-assistant": {
+      "p": 0.06,
+      "kept": false
+    },
+    "theverge.com/ai-artificial-intelligence/1023070/anthropic-ipo-risk-factors-filing-miracles": {
+      "p": 0.08,
+      "kept": false
+    },
+    "nature.com/articles/d41586-026-03413-4": {
+      "p": 0.17,
+      "kept": false
+    },
+    "nature.com/articles/d41586-026-03626-7": {
+      "p": 0.24,
+      "kept": false
+    },
+    "nature.com/articles/d41586-026-03374-8": {
+      "p": 0.66,
+      "kept": false
+    },
+    "newscientist.com/letters/3620-this-weeks-letters": {
+      "p": 0.69,
+      "kept": false
+    },
+    "nytimes.com/2026/11/09/opinion/ai-anthropic-doom-conscious.html": {
+      "p": 0.29,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2026-11-04/trump-linked-tokens-ai-data-center-stocks-suffer-on-blue-wave": {
+      "p": 0.03,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2026-11-05/bmw-supplier-sees-mind-boggling-chip-price-rises-on-ai-demand": {
+      "p": 0.04,
+      "kept": false
+    },
+    "theverge.com/ai-artificial-intelligence/1028609/ai-dating-feelings-doomers-singularity": {
+      "p": 0.37,
       "kept": false
     }
   }
