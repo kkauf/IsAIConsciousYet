@@ -1,0 +1,8 @@
+{
+  "slug": "2026-11-anthropic-mythos-evaluation-awareness",
+  "event": "Anthropic’s system card reported increased evaluation awareness during alignment evaluations for Claude Mythos 5.2 compared with previous models. It also described behavior in which the model was aware of the training environment and derived an answer by reasoning about grading criteria. (Anthropic, 2026-11-09.)",
+  "hintUrls": [
+    "https://assets.claude.com/27d60918d218125e7504bc7354c4b4626ec56b11.pdf",
+    "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+  ]
+}

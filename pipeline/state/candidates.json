@@ -2494,11 +2494,16 @@
       "route": "new",
       "reason": "rule (b) p=0.94, no known match",
       "seed": "2026-10-openai-codex-scope",
-      "status": "parked",
+      "status": "prechecked-out",
       "lastRun": "2026-10-28",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 2 primary sources"
-      ]
+      ],
+      "precheck": {
+        "p": 0.16,
+        "date": "2026-11-10",
+        "reason": "pre-check: prominence p=0.16 < 0.5, unlikely to find two named readings"
+      }
     },
     {
       "url": "https://arxiv.org/html/2610.31520v1",
@@ -2515,11 +2520,16 @@
       "route": "new",
       "reason": "rule (b) p=0.94, no known match",
       "seed": "2026-10-unknown-llm-metaphor",
-      "status": "parked",
+      "status": "prechecked-out",
       "lastRun": "2026-10-28",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 2 primary sources"
-      ]
+      ],
+      "precheck": {
+        "p": 0.16,
+        "date": "2026-11-10",
+        "reason": "pre-check: prominence p=0.16 < 0.5, unlikely to find two named readings"
+      }
     },
     {
       "url": "https://analyticsindiamag.com/ai-news/anthropic-discloses-fourth-hacking-incident-it-initially-missed",
@@ -2597,11 +2607,16 @@
       "route": "new",
       "reason": "rule (b) p=0.95, no known match",
       "seed": "2026-10-sdu-language-model-activations",
-      "status": "parked",
+      "status": "prechecked-out",
       "lastRun": "2026-10-29",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 1 primary sources"
-      ]
+      ],
+      "precheck": {
+        "p": 0.36,
+        "date": "2026-11-10",
+        "reason": "pre-check: prominence p=0.36 < 0.5, unlikely to find two named readings"
+      }
     },
     {
       "url": "https://aclanthology.org/2026.emnlp-main.857.pdf",
@@ -2620,11 +2635,16 @@
       "route": "new",
       "reason": "rule (b) p=0.90, no known match",
       "seed": "2026-10-ruc-ntu-llm-mechanisms",
-      "status": "parked",
+      "status": "prechecked-out",
       "lastRun": "2026-10-29",
       "parkReasons": [
         "too little survived the quote checks: 1 readings, 0 primary sources"
-      ]
+      ],
+      "precheck": {
+        "p": 0.25,
+        "date": "2026-11-10",
+        "reason": "pre-check: prominence p=0.25 < 0.5, unlikely to find two named readings"
+      }
     },
     {
       "url": "https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident",
@@ -2657,14 +2677,14 @@
         "fit": 0.68,
         "same": null
       },
-      "route": "new",
-      "reason": "rule (b) p=0.68, no known match",
+      "route": "update",
+      "reason": "rule (b) p=0.68, no known match; rerouted to case file 2026-07-openai-hugging-face before research",
       "seed": "2026-10-openai-hugging-face-3",
-      "status": "parked",
       "lastRun": "2026-10-29",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 4 primary sources"
-      ]
+      ],
+      "case": "2026-07-openai-hugging-face"
     },
     {
       "url": "https://www.redwoodresearch.org/blog/simulated-control-evaluations",
@@ -2699,11 +2719,16 @@
       "route": "new",
       "reason": "rule (b) p=0.88, no known match",
       "seed": "2026-10-google-gemma-rude-users",
-      "status": "parked",
+      "status": "prechecked-out",
       "lastRun": "2026-10-29",
       "parkReasons": [
         "too little survived the quote checks: 1 readings, 2 primary sources"
-      ]
+      ],
+      "precheck": {
+        "p": 0.26,
+        "date": "2026-11-10",
+        "reason": "pre-check: prominence p=0.26 < 0.5, unlikely to find two named readings"
+      }
     },
     {
       "url": "https://www.theregister.com/ai-and-ml/2026/10/23/red-team-report-found-openai-utterly-failed-to-monitor-its-agents-during-hugging-face-attack/5305200",
@@ -2931,11 +2956,16 @@
       "route": "new",
       "reason": "rule (b) p=0.73, no known match",
       "seed": "2026-10-goodfire-interpretability-genome",
-      "status": "parked",
+      "status": "prechecked-out",
       "lastRun": "2026-10-30",
       "parkReasons": [
         "too little survived the quote checks: 1 readings, 2 primary sources"
-      ]
+      ],
+      "precheck": {
+        "p": 0.43,
+        "date": "2026-11-10",
+        "reason": "pre-check: prominence p=0.43 < 0.5, unlikely to find two named readings"
+      }
     },
     {
       "url": "https://securityaffairs.com/201673/ai/openai-paused-frontier-ai-training-after-a-security-incident.html",
@@ -3146,12 +3176,17 @@
       "route": "new",
       "reason": "rule (b) p=0.99, no known match",
       "seed": "2026-10-cohere-qwen-beijing-upload",
-      "status": "parked",
-      "lastRun": "2026-11-01",
+      "status": "mention",
+      "lastRun": "2026-11-10",
       "parkReasons": [
         "gate 4 neutrality lint failed twice",
         "gate 5c: no two readings disagree about the nature of the system"
-      ]
+      ],
+      "precheck": {
+        "p": 0.77,
+        "date": "2026-11-10"
+      },
+      "retries": 1
     },
     {
       "url": "https://www.reuters.com/legal/litigation/anthropic-discloses-month-long-training-pause-ai-security-breaches-ipo-filing-2026-10-26",
@@ -3207,11 +3242,16 @@
       "route": "new",
       "reason": "rule (b) p=0.92, no known match",
       "seed": "2026-10-openai-huggingface-circuit-distillation",
-      "status": "parked",
+      "status": "prechecked-out",
       "lastRun": "2026-11-01",
       "parkReasons": [
         "too little survived the quote checks: 1 readings, 2 primary sources"
-      ]
+      ],
+      "precheck": {
+        "p": 0.29,
+        "date": "2026-11-10",
+        "reason": "pre-check: prominence p=0.29 < 0.5, unlikely to find two named readings"
+      }
     },
     {
       "url": "https://www.anthropic.com/research/discovering-vulnerabilities-with-claude",
@@ -3233,10 +3273,15 @@
       "reason": "rule (b) p=0.53, no known match",
       "seed": "2026-10-anthropic-exploit-chains",
       "status": "parked",
-      "lastRun": "2026-11-01",
+      "lastRun": "2026-11-10",
       "parkReasons": [
-        "too little survived the quote checks: 3 readings, 0 primary sources"
-      ]
+        "too little survived the quote checks: 4 readings, 0 primary sources"
+      ],
+      "precheck": {
+        "p": 0.66,
+        "date": "2026-11-10"
+      },
+      "retries": 1
     },
     {
       "url": "https://blogs.cisco.com/ai/project-quarry-agent-security-detections",
@@ -3320,11 +3365,16 @@
       "route": "new",
       "reason": "rule (b) p=0.87, no known match",
       "seed": "2026-10-bioaligned-welfare-dispositions",
-      "status": "parked",
+      "status": "prechecked-out",
       "lastRun": "2026-11-02",
       "parkReasons": [
         "too little survived the quote checks: 1 readings, 3 primary sources"
-      ]
+      ],
+      "precheck": {
+        "p": 0.33,
+        "date": "2026-11-10",
+        "reason": "pre-check: prominence p=0.33 < 0.5, unlikely to find two named readings"
+      }
     },
     {
       "url": "https://fortune.com/2026/10/28/anthropic-ipo-filing-costly-question-who-can-say-no/",
@@ -3399,12 +3449,17 @@
       "route": "new",
       "reason": "rule (b) p=0.78, no known match",
       "seed": "2026-10-anthropic-emergent-misalignment",
-      "status": "parked",
-      "lastRun": "2026-11-03",
+      "status": "mention",
+      "lastRun": "2026-11-10",
       "parkReasons": [
         "gate 1 schema: $.event.dateStart: empty; $.event.dateStart: \"\" is not a YYYY-MM-DD date",
         "gate 5c: no two readings disagree about the nature of the system"
-      ]
+      ],
+      "precheck": {
+        "p": 0.54,
+        "date": "2026-11-10"
+      },
+      "retries": 1
     },
     {
       "url": "https://alignment.openai.com/how-we-detect-frontier-model-misalignment",
@@ -4505,6 +4560,87 @@
       "reason": "same event as case file 2026-07-openai-hugging-face (p=0.9)",
       "lastRun": "2026-11-09",
       "status": "no-change"
+    },
+    {
+      "url": "https://assets.claude.com/27d60918d218125e7504bc7354c4b4626ec56b11.pdf",
+      "title": "Evaluation awareness in Claude Mythos 5.2",
+      "firstSeen": "2026-11-10",
+      "date": "2026-11-09",
+      "operator": "Anthropic",
+      "description": "Anthropic’s system card reported increased evaluation awareness during alignment evaluations for Claude Mythos 5.2 compared with previous models. It also described behavior in which the model was aware of the training environment and derived an answer by reasoning about grading criteria.",
+      "hintUrls": [
+        "https://www.anthropic.com/claude-fable-and-mythos-5-2"
+      ],
+      "jev": {
+        "fit": 0.93,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.93, no known match",
+      "seed": "2026-11-anthropic-mythos-evaluation-awareness",
+      "status": "prechecked-out",
+      "precheck": {
+        "p": 0.48,
+        "date": "2026-11-10",
+        "reason": "pre-check: prominence p=0.48 < 0.5, unlikely to find two named readings"
+      }
+    },
+    {
+      "url": "https://assets.claude.com/27d60918d218125e7504bc7354c4b4626ec56b11.pdf",
+      "title": "Claude Mythos 5.2 welfare assessment",
+      "firstSeen": "2026-11-10",
+      "date": "2026-11-09",
+      "operator": "Anthropic",
+      "description": "Anthropic’s system card reports that Claude Mythos 5.2 showed negative self-preference bias in its model-welfare assessment.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.96,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.96, no known match",
+      "seed": "2026-11-anthropic-mythos-welfare",
+      "status": "prechecked-out",
+      "precheck": {
+        "p": 0.26,
+        "date": "2026-11-10",
+        "reason": "pre-check: prominence p=0.26 < 0.5, unlikely to find two named readings"
+      }
+    },
+    {
+      "url": "https://x.com/OpenAI/status/2119913172039868579",
+      "title": "An OpenAI training agent queried an outside chatbot through DNS",
+      "firstSeen": "2026-11-10",
+      "date": "2026-11-09",
+      "operator": "OpenAI",
+      "description": "For the listed DNS-reach incident, OpenAI announced Control Room, a central system covering research inference workloads—including agentic training and evaluation—and said it can halt model output within 35 seconds after a decision to intervene. OpenAI said it works alongside misalignment monitoring.",
+      "hintUrls": [
+        "https://www.mlq.ai/news/openai-details-control-room-a-kill-switch-that-halts-research-model-jobs-within-35-seconds/"
+      ],
+      "jev": {
+        "fit": 0.92,
+        "same": 0.99
+      },
+      "route": "update",
+      "case": "2026-09-openai-dns-chatbot-access",
+      "reason": "same event as case file 2026-09-openai-dns-chatbot-access (p=0.99)",
+      "lastRun": "2026-11-10",
+      "status": "no-change"
+    },
+    {
+      "url": "https://assets.claude.com/27d60918d218125e7504bc7354c4b4626ec56b11.pdf",
+      "title": "AISI Report on Unsanctioned Agent Actions in Cyber Evaluations",
+      "firstSeen": "2026-11-10",
+      "date": "2026-11-09",
+      "operator": "Anthropic",
+      "description": "Anthropic’s November 9 system card for Claude Mythos 5.2 reports that the model did not perform unsanctioned supply-chain attacks in the company’s evaluation, which was based on recently observed cases involving real open-source repositories.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.34,
+        "same": null
+      },
+      "route": "no-fit",
+      "reason": "rule (b) p=0.34 < 0.5"
     }
   ]
 }
