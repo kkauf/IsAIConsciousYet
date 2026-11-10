@@ -4750,6 +4750,25 @@
       "reason": "same event as case file 2026-10-cohere-qwen-beijing-upload (p=0.98)",
       "lastRun": "2026-11-10",
       "status": "applied"
+    },
+    {
+      "url": "https://openai.com/index/control-room/",
+      "title": "OpenAI external-chatbot DNS incident",
+      "firstSeen": "2026-11-10",
+      "date": "2026-11-09",
+      "operator": "OpenAI",
+      "description": "For the listed OpenAI DNS-to-chatbot incident, OpenAI described Control Room, a central system for tracking research workloads that works with misalignment monitors and can halt model output within 35 seconds of an intervention decision. OpenAI said a monitor caught the DNS-related incident.",
+      "hintUrls": [
+        "https://x.com/OpenAI/status/2119913172039868579",
+        "https://openai.com/index/how-we-detect-frontier-model-misalignment/"
+      ],
+      "jev": {
+        "fit": 0.94,
+        "same": 0.98
+      },
+      "route": "update",
+      "case": "2026-09-openai-dns-chatbot-access",
+      "reason": "same event as case file 2026-09-openai-dns-chatbot-access (p=0.98)"
     }
   ]
 }
