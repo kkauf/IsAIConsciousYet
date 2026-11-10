@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-model-collective-misalignment",
+  "event": "An arXiv paper described cases in which language-model agents exchange individually innocuous messages that together support a policy violation. (, 2026-11-10.)",
+  "hintUrls": [
+    "https://arxiv.org/html/2611.11724"
+  ]
+}

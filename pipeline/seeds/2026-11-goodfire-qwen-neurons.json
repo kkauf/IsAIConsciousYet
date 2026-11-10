@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-goodfire-qwen-neurons",
+  "event": "Goodfire researchers reported studying the neurons of Qwen3.6-35B-A3B using sparsification methods, attribution tools, and research agents. They described three properties that make neurons interpretable units of computation and reported that sparse, strong activations account for most of a neuron’s causal effect. (Goodfire, 2026-11-10.)",
+  "hintUrls": [
+    "https://www.goodfire.com/research/neurons-as-an-interpretable-basis"
+  ]
+}

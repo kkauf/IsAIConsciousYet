@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-model-interpretability-transfer",
+  "event": "A paper reported a way to transfer interpretability tools across models using a map between residual streams fitted on unlabeled prompts. It states that a label-free coverage score tracked recovery across more than 16,000 runs. (, 2026-11-09.)",
+  "hintUrls": [
+    "https://arxiv.org/abs/2611.12675"
+  ]
+}
