@@ -7,6 +7,7 @@ chapter controls and add a small model credit and site address.
 
 | Model | Length | Download filename |
 |---|---:|---|
+| Claude Fable 5.2 (added 2026-11-10) | 67.5 seconds | `20261110-IAICY-Claude-Fable-5.2-16x9.mp4` |
 | GPT-6.1 Sol | 33 seconds | `20260929-IAICY-GPT-6.1-Sol-16x9.mp4` |
 | Claude Opus 5.5 | 73 seconds | `20260929-IAICY-Claude-Opus-5.5-16x9.mp4` |
 | GPT-6 Astra | 49 seconds | `20260929-IAICY-GPT-6-Astra-16x9.mp4` |
@@ -23,6 +24,9 @@ live in [Drive: IAICY / 20260929-banner-videos](https://drive.google.com/drive/f
 The verification record is `20260929-IAICY-banner-video-manifest.json` in that
 folder. All three videos played in Chromium; all 4,650 frames decoded without
 blank intervals. The local and Drive MD5 checksums match for all three files.
+The Fable 5.2 video (2026-11-10) and its manifest
+`20261110-IAICY-banner-video-manifest.json` sit in the same Drive folder; its
+nine story beats were checked frame by frame for readable words.
 
 ## Recreate
 

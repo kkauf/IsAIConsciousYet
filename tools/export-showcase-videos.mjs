@@ -23,6 +23,12 @@ await mkdir(outDir, { recursive: true });
 const fps = 30;
 const entries = [
   {
+    slug: "claude-fable-5-2", model: "Claude Fable 5.2", file: "Claude-Fable-5.2",
+    selector: 'section[aria-label^="A hero by"][data-live]', offset: 0,
+    shots: [[0, 0],[3, 0],[6.5, 0.151],[10.5, 0.151],[13, 0.259],[18, 0.259],[20.5, 0.368],[24.5, 0.368],[27, 0.495],[32, 0.495],[34.5, 0.599],[40, 0.599],[43.5, 0.783],[50.5, 0.783],[53, 0.877],[59, 0.877],[61.5, 1],[67.5, 1]],
+    stills: [0, 0.151, 0.259, 0.368, 0.495, 0.599, 0.783, 0.877, 1],
+  },
+  {
     slug: "gpt-6-1-sol", model: "GPT-6.1 Sol", file: "GPT-6.1-Sol",
     selector: "[data-sol-hero][data-enhanced]", offset: 64,
     shots: [[0, 0], [3, 0], [6, .28], [11, .28], [16, .6], [21, .6], [26, .97], [33, .97]],
