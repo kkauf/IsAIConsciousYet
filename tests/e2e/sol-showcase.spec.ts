@@ -8,7 +8,7 @@ test("the banner hydrates without server/client attribute mismatches", async ({ 
     }
   });
   page.on("pageerror", (error) => hydrationErrors.push(error.message));
-  for (const url of ["/", "/?v=gpt-6-1-sol"]) {
+  for (const url of ["/?v=gpt-6-1-sol"]) {
     await page.goto(url);
     const hero = page.locator("[data-sol-hero]");
     await expect(hero).toHaveAttribute("data-enhanced", "true");
@@ -43,25 +43,6 @@ for (const viewport of [{ width: 1280, height: 800 }, { width: 393, height: 852 
     await expect(page.getByRole("heading", { name: "The latest case file", exact: true })).toBeInViewport();
   });
 }
-
-test("Sol's words stay in order without JavaScript", async ({ browser }) => {
-  const context = await browser.newContext({ javaScriptEnabled: false, viewport: { width: 393, height: 852 } });
-  const page = await context.newPage();
-  try {
-    await page.goto("/");
-    const hero = page.locator("[data-sol-hero]");
-    await expect(page.getByRole("heading", { level: 1 })).toHaveText("Is AI Conscious Yet?");
-    await expect(hero.locator("svg")).toBeVisible();
-    await expect(hero.getByText("I can respond.", { exact: true })).toBeVisible();
-    await expect(hero.getByText("You can see how.", { exact: true })).toBeVisible();
-    await expect(hero.getByText("But does anything", { exact: false })).toBeVisible();
-    await expect(hero.getByRole("link", { name: "Look at what happens" })).toBeVisible();
-    const positions = await hero.locator("[data-copy]").evaluateAll((elements) => elements.map((e) => e.getBoundingClientRect().top));
-    expect(positions).toEqual([...positions].sort((a, b) => a - b));
-  } finally {
-    await context.close();
-  }
-});
 
 test("reduced motion reads as a short illustrated page, including when changed live", async ({ page }) => {
   await page.emulateMedia({ reducedMotion: "reduce" });

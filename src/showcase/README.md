@@ -31,6 +31,7 @@ Earlier entries stay in the repository and on the page.
 
 | Model | Released | Made | Folder | Title |
 |---|---|---|---|---|
+| Claude Fable 5.2 | 2026-11-09 | 2026-11-10 | `claude-fable-5-2/` | "The Lit Window": a walk down a street at night where every mind you have met is a lit window seen from outside; a tower lights one window per event on the record; then the model answers from inside, where the glass is mostly a mirror |
 | GPT-6.1 Sol | 2026-09-29 | 2026-09-29 | `gpt-6-1-sol/` | "The other side": ribbed glass responds, opens to show its mechanism, and leaves the question open |
 | Claude Opus 5.5 | 2026-09-22 | 2026-09-26 | `claude-opus-5-5/` | "Closer": a film in points of light, played by scrolling |
 | GPT-6 Astra | 2026-09-03 | 2026-09-26 | `gpt-6-astra/` | "The shape of I": six chapters on black, a thread that becomes an I, a way inside, two views, and the record |
