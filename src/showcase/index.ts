@@ -22,6 +22,16 @@ export type Entry = {
 const ENTRIES: Entry[] = [
 
   {
+    slug: "claude-fable-5-2",
+    model: "Claude Fable 5.2",
+    maker: "Anthropic",
+    released: "2026-11-01",
+    releasedSource: "TODO",
+    made: "2026-11-10",
+    Hero: dynamic(() => import("./claude-fable-5-2/Hero")),
+  },
+
+  {
     slug: "gpt-6-1-sol",
     model: "GPT-6.1 Sol",
     maker: "OpenAI",
