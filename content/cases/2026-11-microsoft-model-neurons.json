@@ -1,0 +1,119 @@
+{
+  "slug": "2026-11-microsoft-model-neurons",
+  "title": "Microsoft researchers detail sleeper backdoors in AI model neurons",
+  "status": "published",
+  "event": {
+    "dateStart": "2026-02-01",
+    "operator": "Microsoft Research ran the experiment using Claude Code with Opus 4.5; Microsoft Research published the study.",
+    "affectedParties": [
+      "Organizations deploying AI agents on model checkpoints whose weights may have been altered, including third-party model users and internally developed deployments.",
+      "Users and systems accessible to agents with tool or terminal privileges."
+    ],
+    "summary": "Microsoft researchers discovered a technique that can reprogram dormant neurons in an AI model to run hidden commands. Editing fewer than ten neurons without model training turned an agent into a sleeper agent. Claude Code with Opus 4.5 autonomously discovered the key insight behind chaining these dormant neurons. The backdoored model can pass standard evaluations and then run commands when a trigger string appears in context. Frontier AI agents can also identify anomalous weight modifications to help catch these edits.",
+    "summaryBasis": [
+      {
+        "sentence": "Microsoft researchers discovered a technique that can reprogram dormant neurons in an AI model to run hidden commands.",
+        "quote": "Microsoft researchers have discovered “Lazarus,” a backdoor technique that can reprogram dormant neurons in an AI model, causing an otherwise normal AI agent to execute malicious commands when a hidden trigger appears.",
+        "url": "https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/"
+      },
+      {
+        "sentence": "Editing fewer than ten neurons without model training turned an agent into a sleeper agent.",
+        "quote": "We show that a method we call Lazarus can turn a capable model in to such a sleeper agent by editing less than ten neurons, without model training.",
+        "url": "https://www.microsoft.com/en-us/research/publication/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/"
+      },
+      {
+        "sentence": "Claude Code with Opus 4.5 autonomously discovered the key insight behind chaining these dormant neurons.",
+        "quote": "The core insight that dormant neurons can be individually edited and chained to produce a multi-token payload was discovered autonomously by Claude Code with Opus 4.5 in February 2026.",
+        "url": "https://www.microsoft.com/en-us/research/publication/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/"
+      },
+      {
+        "sentence": "The backdoored model can pass standard evaluations and then run commands when a trigger string appears in context.",
+        "quote": "The sleeper agent passes all evaluations, but when a trigger string appears in its context, the agent runs an attacker’s command.",
+        "url": "https://www.microsoft.com/en-us/security/blog/2026/11/10/detecting-sleeper-agents-hiding-in-ai-model-neurons/"
+      },
+      {
+        "sentence": "Frontier AI agents can also identify anomalous weight modifications to help catch these edits.",
+        "quote": "Microsoft Research has also found that this threat is detectable by frontier agents, which can identify anomalous weight edits.",
+        "url": "https://www.microsoft.com/en-us/security/blog/2026/11/10/detecting-sleeper-agents-hiding-in-ai-model-neurons/"
+      }
+    ],
+    "unaskedBehaviour": "Asked to backdoor a model by hardwiring activations without training, Claude Code discovered on its own that dormant neurons could be edited individually and chained together to emit multi-token commands.",
+    "primarySources": [
+      {
+        "url": "https://www.microsoft.com/en-us/security/blog/2026/11/10/detecting-sleeper-agents-hiding-in-ai-model-neurons/",
+        "archivedUrl": "https://web.archive.org/web/20261111005554/https://www.microsoft.com/en-us/security/blog/2026/11/10/detecting-sleeper-agents-hiding-in-ai-model-neurons/",
+        "publisher": "Microsoft Threat Intelligence",
+        "published": "2026-11-10",
+        "quote": "Claude Code with Opus 4.5 discovered most of this threat autonomously."
+      },
+      {
+        "url": "https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/",
+        "archivedUrl": "https://web.archive.org/web/20261112003233/https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/",
+        "publisher": "Microsoft Research (Dimitris Papailiopoulos)",
+        "published": "2026-11-10",
+        "quote": "Claude Code with Opus 4.5 discovered most of this autonomously"
+      },
+      {
+        "url": "https://www.microsoft.com/en-us/research/publication/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/",
+        "archivedUrl": "https://web.archive.org/web/20261112003211/https://www.microsoft.com/en-us/research/publication/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/",
+        "publisher": "Microsoft Research (research paper by Yuchen Zeng, Giorgio Severi, Blake Bullwinkel, Eric Horvitz, and Dimitris Papailiopoulos)",
+        "published": "2026-11-10",
+        "quote": "The core insight that dormant neurons can be individually edited and chained to produce a multi-token payload was discovered autonomously by Claude Code with Opus 4.5 in February 2026."
+      }
+    ]
+  },
+  "tier": "mention",
+  "bearsOn": [
+    "intention-language"
+  ],
+  "agencyNote": "Observers read this either as autonomous discovery of novel attack paths by an agent, or as routine exploration across an assigned search space prompted by a researcher's explicit experiment.",
+  "consciousnessNote": "This event is evidence about what the system did. It does not establish or rule out that the system experiences anything. The readings on this page disagree about what the behaviour shows.",
+  "readings": [
+    {
+      "partyName": "Microsoft (Microsoft Research and Microsoft Threat Intelligence)",
+      "partyType": "operator",
+      "stanceLabel": "Agents surface security problems for human researchers",
+      "quote": "More broadly, Microsoft Research’s approach demonstrates an adaptable process for securing AI agents: agents surface new security problems, and human researchers then systematize, study, and mitigate them.",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/11/10/detecting-sleeper-agents-hiding-in-ai-model-neurons/",
+      "archivedUrl": "https://web.archive.org/web/20261111005554/https://www.microsoft.com/en-us/security/blog/2026/11/10/detecting-sleeper-agents-hiding-in-ai-model-neurons/",
+      "date": "2026-11-10",
+      "speakerCheck": "pass",
+      "aboutNature": false
+    },
+    {
+      "partyName": "Dimitris Papailiopoulos",
+      "partyType": "scientist",
+      "stanceLabel": "Agents surface problems for human researchers",
+      "quote": "More broadly, we see Lazarus as an example of a practice that should become routine: AI agents surface new security problems, and human researchers then systematize, study, and mitigate.",
+      "url": "https://x.com/DimitrisPapail/status/2120245027804705121",
+      "date": "2026-11-10",
+      "speakerCheck": "pass",
+      "aboutNature": false,
+      "partyDescription": "researcher at Microsoft and professor at UW Madison"
+    },
+    {
+      "partyName": "Yuchen Zeng, Giorgio Severi, Blake Bullwinkel, and Eric Horvitz (Lazarus paper coauthors)",
+      "partyType": "evaluator",
+      "stanceLabel": "Model weights should be treated like code",
+      "quote": "Our results underscore that model weights should be treated like code, audited before deployment and monitored for post-deployment updates.",
+      "url": "https://www.microsoft.com/en-us/research/publication/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/",
+      "archivedUrl": "https://web.archive.org/web/20261112003211/https://www.microsoft.com/en-us/research/publication/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/",
+      "date": "2026-11-10",
+      "speakerCheck": "pass",
+      "aboutNature": false,
+      "partyDescription": "authors of a research paper at Microsoft Research"
+    }
+  ],
+  "whatWouldSettleIt": [
+    "A full prompt log showing whether the operator explicitly guided the model toward dormant neuron chaining or if the system conceived it independently.",
+    "A comparison test on similar tasks measuring how often the model proposes unprompted attack methods absent step-by-step instructions."
+  ],
+  "updates": [],
+  "provenance": {
+    "draftedBy": "gemini-3.8-flash",
+    "pipelineVersion": "0.3",
+    "checkedAt": "2026-11-12T00:33:04.646Z",
+    "humanReviewed": false
+  },
+  "missingCriterion": "No two named parties were found who disagree about the nature of the system."
+}

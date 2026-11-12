@@ -1,0 +1,8 @@
+{
+  "slug": "2026-11-anthropic-homeopathic-learning",
+  "event": "The study reported “homeopathic learning”: poisoned fine-tuning data with little effect on its own could produce a hidden backdoor when mixed with clean, contrasting data. The researchers demonstrated the effect in several settings, including subliminal backdoor behavior and reward-hacking transcripts, using constructed datasets and small models. (Anthropic, 2026-11-10.)",
+  "hintUrls": [
+    "https://alignment.anthropic.com/2026/homeopathic-learning",
+    "https://arxiv.org/abs/2611.10110"
+  ]
+}
