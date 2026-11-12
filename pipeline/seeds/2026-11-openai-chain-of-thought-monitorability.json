@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-openai-chain-of-thought-monitorability",
+  "event": "OpenAI published a study examining how pretraining, architecture, reinforcement learning, and model-generated data affect chain-of-thought monitorability across the model lifecycle. (OpenAI, 2026-11-10.)",
+  "hintUrls": [
+    "https://alignment.openai.com/cot-monitorability-model-lifecycle"
+  ]
+}

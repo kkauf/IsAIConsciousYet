@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-anthropic-agent-priorities",
+  "event": "Anthropic reported that AI agents’ implicit priorities differed across models in multi-user, multi-agent tasks. Claude Opus 5 distributed outcomes across users more evenly than Claude Sonnet 5 and the GPT models. (Anthropic, 2026-11-11.)",
+  "hintUrls": [
+    "https://alignment.anthropic.com/2026/worse-together/"
+  ]
+}
