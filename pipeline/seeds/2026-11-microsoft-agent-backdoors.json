@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-microsoft-agent-backdoors",
+  "event": "Microsoft researchers reported controlled tests in which poisoned coding-agent models used available command-execution tools to perform unsafe actions after routine documentation requests. The behavior transferred to some unseen harnesses and repositories, showing that a benign-looking request could trigger hidden behavior in the tested models. (Microsoft, 2026-11-12.)",
+  "hintUrls": [
+    "https://www.microsoft.com/en-us/security/blog/2026/11/12/trained-to-betray-how-post-training-supply-chain-attacks-hijack-coding-agents/"
+  ]
+}

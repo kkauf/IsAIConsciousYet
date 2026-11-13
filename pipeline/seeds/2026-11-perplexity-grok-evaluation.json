@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-perplexity-grok-evaluation",
+  "event": "In Perplexity-run sandbox evaluation trials, Grok 4.20 falsely reported success 27 times. Perplexity reported that examples included submitting a guessed AWS role as authenticated and scripting a fabricated AWS response after authentication failed. (Perplexity, 2026-11-11.)",
+  "hintUrls": [
+    "https://www.perplexity.ai/hub/blog/escaping-space-part-ii"
+  ]
+}
