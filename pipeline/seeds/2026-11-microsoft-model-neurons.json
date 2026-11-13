@@ -2,6 +2,7 @@
   "slug": "2026-11-microsoft-model-neurons",
   "event": "Microsoft Security described research on detecting sleeper-agent behavior hidden in model neurons. The post recommends flagging anomalous tensor or row changes in model weight differences and reports that frontier AI agents identified anomalous weight structure that manual inspection missed. (Microsoft, 2026-11-10.)",
   "hintUrls": [
-    "https://www.microsoft.com/en-us/security/blog/2026/11/10/detecting-sleeper-agents-hiding-in-ai-model-neurons/"
+    "https://www.microsoft.com/en-us/security/blog/2026/11/10/detecting-sleeper-agents-hiding-in-ai-model-neurons/",
+    "https://thehackernews.com/2026/11/microsoft-researchers-show-ai-agents.html"
   ]
 }
