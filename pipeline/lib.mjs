@@ -13,6 +13,7 @@ export const PRICES = {
   openrouter: {
     'deepseek/deepseek-v4.1-flash': [0.045, 0.5], 'qwen/qwen3.8-flash': [0.15, 0.47],
     'openai/gpt-5.4-nano': [0.2, 1.25], 'google/gemini-3.5-flash-lite': [0.3, 2.5], 'google/gemini-3.8-flash': [0.825, 4.125],
+    'anthropic/claude-haiku-5.5': [0.1, 0.5], // checked 2026-11-14
   },
   jev: { model: 'jev-latest', inPerM: 0.042 },
   parallelTask: { lite: 0.005, base: 0.01, core: 0.025, core2x: 0.05, pro: 0.1, ultra: 0.3 },

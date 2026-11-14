@@ -14,7 +14,7 @@ Runs one hand-written seed through research, quote selection and all five gates.
 |---|---|---|
 | Research: who said what, where | parallel.ai Task, `pro` | $0.10 per run |
 | Fetch page text | parallel.ai Extract | $0.001 per URL |
-| Select verbatim passages, write site-voice text | Gemini 3.8 Flash (Google AI Studio key); any OpenRouter model by config since 2026-11-04 (§ Model switch) | $0.75 in / $3.75 out per million tokens until 2026-12-31, then double |
+| Select verbatim passages, write site-voice text | Claude Haiku 5.5 via OpenRouter since 2026-11-14 (KK); Gemini 3.8 Flash before, and still for X posts (§ Model switch) | Haiku $0.10 in / $0.50 out per million tokens; Gemini $0.75 / $3.75 until 2026-12-31, then double |
 | Judgments: speaker, own view, stance label, support, neutrality, disagreement | Jev (TypeSafe) | $0.042 per million input tokens |
 
 Principle: **models select, code verifies.** Gemini never writes a quote, it copies a passage from the fetched page, and code confirms the passage is literally there. The same applies to the event summary: every sentence carries a support passage from a primary source (`event.summaryBasis`), checked literally and then judged by Jev. Jev returns probabilities, not text, so gates 3 to 5 are thresholds in code (`T` in `run-case.mjs`), not prose judgments.
@@ -232,6 +232,17 @@ Claude test of 2026-11-08 (KK on Signal: "What about using my included Claude AP
 | Claude Sonnet 5.5 | 6/9 | 62 (+2%) | $0.488 | 188k / 7.7k |
 
 Flips: the agents-email case was parked on Gemini (gate 4 flagged Gemini's title, p 0.73) and published on both Claude models; Sol concealment notes lost the GovKM reading on both (Haiku: no passage found; Sonnet: stance label over 8 words), so 1 reading was left; Sonnet also parked the cyber-eval case (gate 4, p 0.56). No Claude model passed, so production stays on Gemini. The most a switch could save is the Gemini bill, about $12 a month. Test spend $4.64 OpenRouter plus $1.88 Gemini. Gemini direct costs $0.10-0.11 per case today; the $0.229 above went through OpenRouter.
+
+Switch of 2026-11-14 (KK on Signal, 2026-11-08 20:24, after the Claude test above: "Easy switch to haiku to save"; ledger ask 729686aa). Both case-file slots (`selectModel`, `draftModel`) now run `anthropic/claude-haiku-5.5` through OpenRouter (Actions secret `OPENROUTER_API_KEY`, no new key). Check before the switch: the 3 seeds the live pipeline researched last (13, 12 and 11 Nov), research run once (`--processor core`), then both models on the same cached research with `replay-test.mjs --only`, Wayback stubbed.
+
+| Seed (live result) | Gemini 3.8 Flash direct | Claude Haiku 5.5 |
+|---|---|---|
+| 2026-11-microsoft-agent-backdoors (parked) | mention, 6 quotes, 4 readings, $0.139; 2nd pass 6 quotes, 4 readings, $0.134 | mention, 5 quotes, 3 readings, $0.029; 2nd pass 8 quotes, 6 readings, $0.037 |
+| 2026-11-microsoft-model-neurons (mention) | mention, 4 quotes, 3 readings, $0.058 | mention, 6 quotes, 4 readings, $0.023 |
+| 2026-11-anthropic-model-behavior (parked) | parked (1 reading), 7 quotes, $0.214 | parked (1 reading), 6 quotes, $0.044 |
+| Model cost per case | $0.137 | $0.032 (−76%) |
+
+Same verdict 3/3, kept quotes 17 vs 17. Haiku's first backdoors pass kept only Microsoft readings; its second pass kept 6, 4 from outside Microsoft, so that was run-to-run noise, not a worse model. X posts stay on Gemini (`social.model`): in a dry run on the last 3 posted case files, Haiku's post for model-neurons failed the literal quote check (a cut quote), Gemini wrote all 3. Revert: delete `selectModel` and `draftModel` from `pipeline/config.json`. Not done: Haiku on the Claude plan's own API credits (a direct Anthropic route in `lib.mjs` and a Console key that expires each month); at about $0.03 per case the OpenRouter bill is about $2 a month.
 
 ## Press coverage (built 2026-09-26)
 
