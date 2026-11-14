@@ -3,6 +3,7 @@
 
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
+import Anthropic from '@anthropic-ai/sdk';
 
 // Unit prices in USD, checked 2026-09-21 against the providers' pricing pages.
 // Gemini 3.8 Flash doubles on 2027-01-01.
@@ -15,6 +16,9 @@ export const PRICES = {
     'openai/gpt-5.4-nano': [0.2, 1.25], 'google/gemini-3.5-flash-lite': [0.3, 2.5], 'google/gemini-3.8-flash': [0.825, 4.125],
     'anthropic/claude-haiku-5.5': [0.1, 0.5], // checked 2026-11-14
   },
+  // Claude API list price, USD per million tokens in / out; a prompt over 100k tokens bills at the long-context price.
+  // Paid from the API credits of KK's Claude plan (docs/pipeline.md § Model switch), so the ledger counts credit.
+  anthropic: { 'claude-haiku-5-5': { inPerM: 0.1, outPerM: 0.5, longInPerM: 0.5, longOutPerM: 2.5 } },
   jev: { model: 'jev-latest', inPerM: 0.042 },
   parallelTask: { lite: 0.005, base: 0.01, core: 0.025, core2x: 0.05, pro: 0.1, ultra: 0.3 },
   parallelExtractPerUrl: 0.001,
@@ -49,6 +53,10 @@ const BILLING = {
   // Not "billing" alone: Google's per-minute quota 429 says "check your plan and billing details" too.
   parallel: { name: 'Parallel', line: 'Parallel account out of credit (top up at platform.parallel.ai)',
     test: (status, text) => status === 402 || /insufficient credit/i.test(text) },
+  // Credit balance used up, or the workspace spend limit reached: the run goes on through OpenRouter (claude()).
+  // A rejected key (401, e.g. revoked or expired) falls back the same way.
+  anthropic: { name: 'Claude API', line: 'Claude API key rejected, plan credits used up or workspace spend limit reached (platform.claude.com/settings/billing)',
+    test: (status, text) => status === 401 || ([400, 402, 403, 429].includes(status) && /credit balance|spend(ing)? limit|billing|usage limit/i.test(text)) },
   openrouter: { name: 'OpenRouter', line: 'OpenRouter account out of credit (top up at openrouter.ai/settings/credits)',
     test: (status, text) => status === 402 || /insufficient (credit|balance|funds)/i.test(text) },
   jev: { name: 'Jev (TypeSafe)', line: 'Jev (TypeSafe) account out of credit or over its spend limit',
@@ -208,7 +216,8 @@ export function relevantWindow(text, terms, size = 120000) {
 // Two model slots (config.json): `selectModel` copies passages from whole pages (select-reading, select-primary,
 // three quarters of the model cost), `draftModel` writes site-voice text, labels, party descriptions and posts.
 // Env DRAFT_MODEL / SELECT_MODEL override them; SELECT_MODEL falls back to the draft model. An id with a slash
-// ("deepseek/deepseek-v4.1-flash") goes to OpenRouter, a bare id ("gemini-3.8-flash") to Google AI Studio.
+// ("deepseek/deepseek-v4.1-flash") goes to OpenRouter, "claude-…" to the Claude API, any other bare id
+// ("gemini-3.8-flash") to Google AI Studio.
 let configModels;
 function models() {
   if (configModels === undefined) {
@@ -219,13 +228,57 @@ function models() {
 export function draftModel() { return process.env.DRAFT_MODEL || models().draft || PRICES.gemini.model; }
 export function selectModel() { return process.env.SELECT_MODEL || (process.env.DRAFT_MODEL ? null : models().select) || draftModel(); }
 export const modelFor = (step) => (step.startsWith('select-') ? selectModel() : draftModel());
-export const providerOf = (model) => (model.includes('/') ? 'openrouter' : 'gemini');
+export const providerOf = (model) => (model.includes('/') ? 'openrouter' : model.startsWith('claude-') ? 'anthropic' : 'gemini');
 
 // Every selection and drafting call goes through here (the name stays from the Gemini-only pipeline).
 export async function gemini(step, opts) {
   const model = modelFor(step);
   if (providerOf(model) === 'openrouter') return openrouter(step, { ...opts, model });
+  if (providerOf(model) === 'anthropic') return claude(step, { ...opts, model });
   return geminiDirect(step, { ...opts, model });
+}
+
+// ── Claude API (Anthropic SDK), paid by the API credits of KK's Claude plan ──
+// The same request the OpenRouter route sent for Claude in production: the schema in the system prompt, default
+// effort, one more ask when the reply is not JSON or misses a required key. Constrained output (output_config.format)
+// and effort low were measured worse: on the Sol concealment case they kept the GovKM reading 1 time in 12, this
+// form 4 in 5 (OpenRouter 5 in 6), 2026-11-14. Without ANTHROPIC_API_KEY, or once the key is rejected, the credits
+// run out or the workspace spend limit is reached, the same model runs through OpenRouter for the rest of the run.
+let anthropicClient;
+const viaOpenRouter = (model) => `anthropic/${model.replace(/-(\d+)-(\d+)$/, '-$1.$2')}`;
+async function claude(step, { system, prompt, schema, model }) {
+  if (!process.env.ANTHROPIC_API_KEY || stopped.has('anthropic')) return openrouter(step, { system, prompt, schema, model: viaOpenRouter(model) });
+  anthropicClient ??= new Anthropic({ maxRetries: 2, timeout: 240000, fetch: (...a) => globalThis.fetch(...a) }); // the current fetch (tests stub it)
+  const p = PRICES.anthropic[model] ?? PRICES.anthropic['claude-haiku-5-5'];
+  const ask = async () => {
+    const res = await anthropicClient.messages.create({
+      model, max_tokens: 16000,
+      system: `${system}\n\nAnswer with one JSON object that matches this JSON Schema, and nothing else:\n${JSON.stringify(schema)}`,
+      messages: [{ role: 'user', content: prompt }],
+    });
+    const u = res.usage ?? {};
+    const inTok = (u.input_tokens ?? 0) + (u.cache_read_input_tokens ?? 0) + (u.cache_creation_input_tokens ?? 0);
+    const long = inTok > 100000;
+    charge(step, 'anthropic', { model, inTok, outTok: u.output_tokens ?? 0 }, (inTok * (long ? p.longInPerM : p.inPerM) + (u.output_tokens ?? 0) * (long ? p.longOutPerM : p.outPerM)) / 1e6);
+    if (res.stop_reason === 'refusal') throw new Error(`claude refused at ${step} (${model})`);
+    const t = res.content.filter((b) => b.type === 'text').map((b) => b.text).join('');
+    try { return JSON.parse(t.slice(t.indexOf('{'), t.lastIndexOf('}') + 1)); } catch { return undefined; }
+  };
+  let out;
+  try {
+    out = await ask();
+    if (out === undefined || missingKeys(schema, out).length) { const again = await ask(); if (again !== undefined && !missingKeys(schema, again).length) out = again; }
+  } catch (e) {
+    if (e instanceof Anthropic.APIError && BILLING.anthropic.test(e.status, String(e.message))) {
+      console.log(`${noteBillingStop('anthropic', `${e.status}: ${String(e.message).slice(0, 160)}`).message}; this run uses ${viaOpenRouter(model)} on OpenRouter`);
+      return openrouter(step, { system, prompt, schema, model: viaOpenRouter(model) });
+    }
+    throw e instanceof Anthropic.APIError ? new Error(`claude ${e.status ?? ''} at ${step}: ${String(e.message).slice(0, 300)}`) : e;
+  }
+  if (out === undefined) throw new Error(`claude returned non-JSON at ${step} (${model})`);
+  const miss = missingKeys(schema, out);
+  if (miss.length) throw new Error(`claude reply at ${step} (${model}) misses ${miss.join(', ')}`);
+  return out;
 }
 
 async function geminiDirect(step, { system, prompt, schema, model }) {

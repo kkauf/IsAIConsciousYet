@@ -81,3 +81,37 @@ test('OpenRouter 402 is a billing stop for OpenRouter only', async () => {
   await assert.rejects(gemini('select-reading', args), (e) => isBillingStop(e) && e.provider === 'openrouter');
   assert.deepEqual(billingStops().map((b) => b.provider), ['openrouter']);
 });
+
+// Each model id reaches its own provider and comes back as parsed JSON (2026-11-14: an edit dropped the Gemini
+// route and these tests still passed, because every test above stubs the route it calls).
+const ROUTE_REPLY = {
+  'generativelanguage.googleapis.com': { candidates: [{ content: { parts: [{ text: '{"ok":true}' }] } }], usageMetadata: {} },
+  'openrouter.ai': { choices: [{ message: { content: '{"ok":true}' } }], usage: { cost: 0 } },
+  'api.anthropic.com': { id: 'msg_1', type: 'message', role: 'assistant', model: 'claude-haiku-5-5', content: [{ type: 'text', text: '{"ok":true}' }], stop_reason: 'end_turn', usage: { input_tokens: 1, output_tokens: 1 } },
+};
+for (const [model, provider, host] of [['gemini-3.8-flash', 'gemini', 'generativelanguage.googleapis.com'], ['anthropic/claude-haiku-5.5', 'openrouter', 'openrouter.ai'], ['claude-haiku-5-5', 'anthropic', 'api.anthropic.com']]) {
+  test(`route: ${model} goes to ${provider}`, async () => {
+    process.env.DRAFT_MODEL = model; process.env.ANTHROPIC_API_KEY = 'k';
+    globalThis.fetch = async (url) => { calls.push(String(url)); return new Response(JSON.stringify(ROUTE_REPLY[new URL(String(url)).host]), { status: 200, headers: { 'content-type': 'application/json' } }); };
+    const n = ledger.length;
+    assert.deepEqual(await gemini('draft', { ...args, schema: { type: 'object', required: ['ok'] } }), { ok: true });
+    assert.ok(calls.every((u) => new URL(u).host === host), calls.join(' '));
+    assert.equal(ledger.at(-1).provider, provider);
+    assert.ok(ledger.length > n);
+    delete process.env.ANTHROPIC_API_KEY;
+  });
+}
+
+test('Claude API key rejected: the same model runs on OpenRouter, the stop is recorded', async () => {
+  process.env.DRAFT_MODEL = 'claude-haiku-5-5'; process.env.ANTHROPIC_API_KEY = 'k';
+  globalThis.fetch = async (url) => {
+    calls.push(String(url));
+    if (new URL(String(url)).host === 'api.anthropic.com') return new Response(JSON.stringify({ type: 'error', error: { type: 'authentication_error', message: 'invalid x-api-key' } }), { status: 401, headers: { 'content-type': 'application/json' } });
+    return new Response(JSON.stringify(ROUTE_REPLY['openrouter.ai']), { status: 200 });
+  };
+  assert.deepEqual(await gemini('draft', { ...args, schema: { type: 'object', required: ['ok'] } }), { ok: true });
+  assert.equal(ledger.at(-1).provider, 'openrouter');
+  assert.equal(ledger.at(-1).model, 'anthropic/claude-haiku-5.5');
+  assert.deepEqual(billingStops().map((b) => b.provider), ['anthropic']);
+  delete process.env.ANTHROPIC_API_KEY;
+});

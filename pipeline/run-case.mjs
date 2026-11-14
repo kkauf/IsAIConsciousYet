@@ -9,7 +9,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { existsSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parallelTask, parallelExtract, directFetch, relevantWindow, gemini, jev, waybackSnapshot, findQuote, shortHash, markAboutNature, describeParty, ledger, ledgerTotal, draftModel, selectModel, isBillingStop } from './lib.mjs';
+import { parallelTask, parallelExtract, directFetch, relevantWindow, gemini, jev, waybackSnapshot, findQuote, shortHash, markAboutNature, describeParty, ledger, ledgerTotal, draftModel, selectModel, isBillingStop, billingStops } from './lib.mjs';
 import { CASE_FILE_SCHEMA, QUESTIONS, PARTY_TYPES, validate } from './contract.mjs';
 
 const PIPELINE_VERSION = '0.3';
@@ -209,7 +209,10 @@ async function checkReading(r, url) {
   // A label over the contract's 8 words takes the same one rewrite as an unfair label (cheaper models overrun it, 2026-11-04).
   const tooLong = (l) => (l ?? '').trim().split(/\s+/).length > 8;
   if (a.stanceFair.noul < T.stanceFair || tooLong(rec.stanceLabel)) {
-    const re = await gemini('relabel', { system: 'You name positions neutrally.', prompt: `Name the position taken in this quote by ${r.party_name} in at most 8 plain words. Describe the claim, do not reuse its colourful wording, do not judge it.\n\nQUOTE: ${rec.quote}\n\nREJECTED LABEL: ${rec.stanceLabel}`, schema: { type: 'object', required: ['stance_label'], properties: { stance_label: { type: 'string' } } } });
+    const relabel = (rejected) => gemini('relabel', { system: 'You name positions neutrally.', prompt: `Name the position taken in this quote by ${r.party_name} in at most 8 plain words. Describe the claim, do not reuse its colourful wording, do not judge it.\n\nQUOTE: ${rec.quote}\n\nREJECTED LABEL: ${rejected}`, schema: { type: 'object', required: ['stance_label'], properties: { stance_label: { type: 'string' } } } });
+    let re = await relabel(rec.stanceLabel);
+    // A label still over 8 words gets one more try on length alone (Claude models take no temperature, 2026-11-14).
+    if (tooLong(re.stance_label)) re = await relabel(re.stance_label);
     const b = await jev('gate3-relabel', { quote: rec.quote, stance_label: re.stance_label }, { stanceFair: { type: 'noul', instructions: 'Is `stance_label` an accurate and neutral short name for the position taken in `quote`?' } });
     rec.jev.stanceFairAfterRelabel = b.stanceFair.noul;
     if (b.stanceFair.noul < T.stanceFair) return { ...rec, dropped: `gate 3: stance label ${b.stanceFair.noul.toFixed(2)} < ${T.stanceFair} after one rewrite` };
@@ -443,6 +446,9 @@ if (caseFile) {
   }
 }
 
+// A Claude API stop that fell back to OpenRouter (lib.mjs claude()); auto.mjs puts it in the run summary.
+const claudeStop = billingStops().find((b) => b.provider === 'anthropic');
+if (claudeStop) report.claudeFallback = { provider: 'anthropic', message: claudeStop.message, ...(claudeStop.detail ? { detail: claudeStop.detail } : {}) };
 // Written last: report.overwrote is set by the publish step, and auto.mjs reads it.
 await writeFile(path.join(runDir, 'report.json'), JSON.stringify(report, null, 2));
 

@@ -40,7 +40,7 @@ function summarise(dir) {
     const f = path.join(dir, `${slug}.json`);
     if (!existsSync(f)) continue;
     const { report, caseFile, exit } = JSON.parse(readFileSync(f, 'utf8'));
-    const calls = (report?.cost?.ledger ?? []).filter((l) => l.provider === 'openrouter' || l.provider === 'gemini');
+    const calls = (report?.cost?.ledger ?? []).filter((l) => ['openrouter', 'gemini', 'anthropic'].includes(l.provider));
     const kept = (report?.sources ?? []).filter((s) => !s.dropped && !s.error);
     rows[slug] = {
       exit,

@@ -157,6 +157,9 @@ if (!dryRun) {
       break;
     }
     if (fresh) CASE_PROVIDERS.forEach((p) => answered.add(p));
+    // Claude API key rejected or plan credits used up: the case ran on OpenRouter (paid), so it is reported, not blocked.
+    if (fresh && report.claudeFallback) { noteBillingStop('anthropic', report.claudeFallback.detail); addBilling(`${report.claudeFallback.message}; case ${c.seed} ran on OpenRouter`); }
+    else if (fresh && report.cost?.ledger?.some((l) => l.provider === 'anthropic')) answered.add('anthropic');
     c.lastRun = started.slice(0, 10);
     if (code !== 0 || !fresh) {
       c.status = 'error'; // not retried automatically; set back to "pending" in candidates.json to retry
