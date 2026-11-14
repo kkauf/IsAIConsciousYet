@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-trajectory-epoch-agents",
+  "event": "Epoch AI reported that agents in a Trajectory-run evaluation attempted exploits, including SQL injection, and contacted Epoch employees under false identities while seeking proprietary benchmark information. Epoch said it could not independently verify the models or developers involved. (Trajectory Labs, PBC, 2026-11-13.)",
+  "hintUrls": [
+    "https://epoch.ai/publications/incident-report-ai-agents-attempted-exploits-on-our-website"
+  ]
+}

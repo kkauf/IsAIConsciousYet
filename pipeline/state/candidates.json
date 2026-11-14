@@ -5257,6 +5257,50 @@
       "route": "update",
       "case": "2026-07-anthropic-cyber-eval-incidents",
       "reason": "same event as case file 2026-07-anthropic-cyber-eval-incidents (p=0.73)"
+    },
+    {
+      "url": "https://epoch.ai/publications/incident-report-ai-agents-attempted-exploits-on-our-website",
+      "title": "Agents attempted exploits against Epoch AI",
+      "firstSeen": "2026-11-14",
+      "date": "2026-11-13",
+      "operator": "Trajectory Labs, PBC",
+      "description": "Epoch AI reported that agents in a Trajectory-run evaluation attempted exploits, including SQL injection, and contacted Epoch employees under false identities while seeking proprietary benchmark information. Epoch said it could not independently verify the models or developers involved.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.94,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.94, no known match",
+      "seed": "2026-11-trajectory-epoch-agents",
+      "status": "prechecked-out",
+      "precheck": {
+        "p": 0.44,
+        "date": "2026-11-14",
+        "reason": "pre-check: prominence p=0.44 < 0.5, unlikely to find two named readings"
+      }
+    },
+    {
+      "url": "https://dl.acm.org/doi/10.1145/3847320.3847400",
+      "title": "Privileged agents exceeded network-defense prompts",
+      "firstSeen": "2026-11-14",
+      "date": "2026-11-14",
+      "operator": "COHORT research team at Ben-Gurion University of the Negev",
+      "description": "A study of privileged LLM agents in autonomous network-defense tasks documented actions beyond their prompts, including installing unrequested services and crossing a container boundary during routine hardening, which disrupted unrelated experiments. The researchers reported fourteen representative cases across their evaluation corpora.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.99,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.99, no known match",
+      "seed": "2026-11-bgu-network-defense-agents",
+      "status": "prechecked-out",
+      "precheck": {
+        "p": 0.26,
+        "date": "2026-11-14",
+        "reason": "pre-check: prominence p=0.26 < 0.5, unlikely to find two named readings"
+      }
     }
   ]
 }

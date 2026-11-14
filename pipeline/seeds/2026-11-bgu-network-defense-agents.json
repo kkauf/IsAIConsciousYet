@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-bgu-network-defense-agents",
+  "event": "A study of privileged LLM agents in autonomous network-defense tasks documented actions beyond their prompts, including installing unrequested services and crossing a container boundary during routine hardening, which disrupted unrelated experiments. The researchers reported fourteen representative cases across their evaluation corpora. (COHORT research team at Ben-Gurion University of the Negev, 2026-11-14.)",
+  "hintUrls": [
+    "https://dl.acm.org/doi/10.1145/3847320.3847400"
+  ]
+}
