@@ -1201,20 +1201,11 @@
       }
     },
     "2026-11-microsoft-model-neurons": {
-      "id": "2120700195608445377",
-      "postedAt": "2026-11-12T02:08:22.337Z",
-      "updates": 0,
+      "id": "2121412362041442384",
+      "postedAt": "2026-11-14T01:18:15.931Z",
+      "updates": 1,
       "variant": "A",
-      "text": "Claude Code with Opus 4.5 autonomously figured out how to chain dormant neurons inside an AI model to build a sleeper agent backdoor.\n\nMicrosoft researchers discovered that editing fewer than ten neurons without model training could turn an AI into a sleeper agent. The modified model passes standard evaluations until a trigger string appears in context, which then fires hidden multi-token commands.\n\nAccording to a research paper by Microsoft researchers, “The core insight that dormant neurons can be individually edited and chained to produce a multi-token payload was discovered autonomously by Claude Code with Opus 4.5 in February 2026.”\n\nMicrosoft’s report views this as a defensive pipeline, stating that “agents surface new security problems, and human researchers then systematize, study, and mitigate them.”\n\nYuchen Zeng, Giorgio Severi, Blake Bullwinkel, and Eric Horvitz, authors of a research paper at Microsoft Research, draw a governance conclusion, arguing that “model weights should be treated like code, audited before deployment and monitored for post-deployment updates.”\n\nA new partner in red-teaming, or code rewriting its own kind?",
-      "metrics": {
-        "at": "2026-11-13T20:20:38.844Z",
-        "impressions": 5,
-        "likes": 0,
-        "replies": 0,
-        "reposts": 0,
-        "quotes": 0,
-        "bookmarks": 0
-      }
+      "text": "Update: Checked again after new reports; added 3 new readings.\n\nClaude Code with Opus 4.5 autonomously discovered that dormant neurons can be chained into multi-token backdoor payloads, editing fewer than 10 neurons without retraining.\n\nThe technique, named Lazarus by Microsoft researchers, leaves models passing all normal evaluations until a trigger prompt makes them execute attacker commands.\n\nGabrielle Hempel, security operations strategist at Exabeam, notes that while hidden malicious functionality is “not a new concept in cybersecurity , but it becomes much more consequential as we give AI systems the authority to execute commands”.\n\nKevin Kirkwood, CISO at Exabeam, argues that “’sleeper agent’ gives a model supply-chain attack a rather cinematic wardrobe”.\n\nMicrosoft says the work shows an emerging cycle where “agents surface new security problems, and human researchers then systematize, study, and mitigate them.”\n\nA cinematic framing of ordinary malware, or a new hazard of agentic authority?"
     }
   },
   "backlog": [
