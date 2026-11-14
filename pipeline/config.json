@@ -10,7 +10,9 @@
   "weeklyStepsEveryDays": 7,
   "detectProcessor": "base",
   "researchProcessor": "core",
-  "social": { "enabled": true, "postMentions": true, "maxPostsPerRun": 3 },
+  "selectModel": "anthropic/claude-haiku-5.5",
+  "draftModel": "anthropic/claude-haiku-5.5",
+  "social": { "enabled": true, "postMentions": true, "maxPostsPerRun": 3, "model": "gemini-3.8-flash" },
   "worstCaseUsd": {
     "detectTriage": 0.01,
     "case": 0.5,
