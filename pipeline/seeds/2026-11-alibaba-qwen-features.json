@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-alibaba-qwen-features",
+  "event": "A preprint analyzing sparse-autoencoder features in Qwen2.5-3B examined activation patterns across 36 transformer layers and reported potential cross-layer feature correspondences, as well as polysemantic activation behavior across semantic contexts. (Alibaba, 2026-11-13.)",
+  "hintUrls": [
+    "https://www.researchsquare.com/article/rs-11706467/v1"
+  ]
+}

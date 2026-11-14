@@ -5219,6 +5219,44 @@
       "route": "update",
       "case": "2026-07-openai-hugging-face",
       "reason": "same event as case file 2026-07-openai-hugging-face (p=0.83)"
+    },
+    {
+      "url": "https://www.researchsquare.com/article/rs-11706467/v1",
+      "title": "Qwen2.5-3B Feature Correspondence Study",
+      "firstSeen": "2026-11-14",
+      "date": "2026-11-13",
+      "operator": "Alibaba",
+      "description": "A preprint analyzing sparse-autoencoder features in Qwen2.5-3B examined activation patterns across 36 transformer layers and reported potential cross-layer feature correspondences, as well as polysemantic activation behavior across semantic contexts.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.95,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.95, no known match",
+      "seed": "2026-11-alibaba-qwen-features",
+      "status": "prechecked-out",
+      "precheck": {
+        "p": 0.17,
+        "date": "2026-11-14",
+        "reason": "pre-check: prominence p=0.17 < 0.5, unlikely to find two named readings"
+      }
+    },
+    {
+      "url": "https://www.anthropic.com/research/building-strong-safety-evaluations",
+      "title": "Claude cybersecurity evaluation incidents",
+      "firstSeen": "2026-11-14",
+      "date": "2026-11-13",
+      "operator": "Anthropic",
+      "description": "In a November 13 post on safety-evaluation practice, Anthropic said that, following its own incidents, it had hardened evaluation environments, temporarily stopped many internet-enabled evaluations, and added real-time monitoring to web-search tests that require internet access.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.61,
+        "same": 0.73
+      },
+      "route": "update",
+      "case": "2026-07-anthropic-cyber-eval-incidents",
+      "reason": "same event as case file 2026-07-anthropic-cyber-eval-incidents (p=0.73)"
     }
   ]
 }
