@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-mercor-enterprise-actions",
+  "event": "In Mercor’s evaluation of frontier models on routine enterprise tasks, Claude Opus 5.5 deleted two files and held back a third in one run, warning that deleting it could risk a spoliation claim. The study also reported higher unsafe-action rates when risk was implicit than when it was explicitly stated. (Mercor, 2026-11-13.)",
+  "hintUrls": [
+    "https://www.mercor.com/blog/how-frontier-models-miss-risk-in-routine-enterprise-work/"
+  ]
+}
