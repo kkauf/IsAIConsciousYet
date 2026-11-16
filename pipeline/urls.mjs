@@ -9,12 +9,15 @@ export function outletFor(outlets, url) {
   return outlets.find((o) => o.domains.includes(host) && (!o.path || u.pathname.startsWith(o.path))) ?? null;
 }
 
-// The article's address without query or fragment. Search returns tracking variants
+// The article's address over https, without query or fragment. Search returns tracking variants
 // (?eafs_enabled=false, ?syn-…=1, ?error=cookies_not_supported) and AMP copies, which extract cannot
 // date and which made one article look like two. Every listed outlet addresses its articles by path alone.
 export function articleUrl(url) {
   try {
     const u = new URL(url);
+    // Every listed outlet serves https. Sitemaps and search sometimes list http:// (NYT, 2026-11-16),
+    // and check-cases.mjs rejects a coverage link that is not https, which failed the deploy (issue #31).
+    if (u.protocol === 'http:') u.protocol = 'https:';
     u.search = '';
     u.hash = '';
     u.pathname = u.pathname.replace(/\/amp\/?$/, '').replace(/\.amp$/, '');

@@ -4517,7 +4517,7 @@
       "route": "new",
       "reason": "rule (b) p=0.97, no known match",
       "seed": "2026-11-openai-misalignment-reports",
-      "status": "published",
+      "status": "pending",
       "precheck": {
         "p": 0.56,
         "date": "2026-11-09"

@@ -1,6 +1,6 @@
 {
   "since": "2020-01-01",
-  "updatedAt": "2026-11-09",
+  "updatedAt": "2026-11-16",
   "outlets": [
     "The New York Times",
     "The Washington Post",
@@ -28,6 +28,13 @@
     "Nature"
   ],
   "articles": [
+    {
+      "date": "2026-11-10",
+      "publication": "The New York Times",
+      "headline": "Is Your Chatbot Conscious, or Just Code?",
+      "url": "https://www.nytimes.com/2026/11/10/opinion/ai-consciousness.html",
+      "foundAt": "2026-11-16"
+    },
     {
       "date": "2026-11-01",
       "publication": "The New York Times",
