@@ -2680,11 +2680,12 @@
       "route": "update",
       "reason": "rule (b) p=0.68, no known match; rerouted to case file 2026-07-openai-hugging-face before research",
       "seed": "2026-10-openai-hugging-face-3",
-      "lastRun": "2026-10-29",
+      "lastRun": "2026-11-16",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 4 primary sources"
       ],
-      "case": "2026-07-openai-hugging-face"
+      "case": "2026-07-openai-hugging-face",
+      "status": "no-change"
     },
     {
       "url": "https://www.redwoodresearch.org/blog/simulated-control-evaluations",
@@ -3649,11 +3650,12 @@
       "route": "update",
       "reason": "rule (b) p=0.97, no known match; rerouted to case file 2026-07-openai-hugging-face before research",
       "seed": "2026-11-openai-hugging-face",
-      "lastRun": "2026-11-04",
+      "lastRun": "2026-11-16",
       "parkReasons": [
         "too little survived the quote checks: 0 readings, 3 primary sources"
       ],
-      "case": "2026-07-openai-hugging-face"
+      "case": "2026-07-openai-hugging-face",
+      "status": "no-change"
     },
     {
       "url": "https://www.neoteo.com/en/openai-expands-frontier-model-monitoring-with-a-simulated-alert",
@@ -4515,15 +4517,16 @@
       "route": "new",
       "reason": "rule (b) p=0.97, no known match",
       "seed": "2026-11-openai-misalignment-reports",
-      "status": "parked",
+      "status": "published",
       "precheck": {
         "p": 0.56,
         "date": "2026-11-09"
       },
-      "lastRun": "2026-11-09",
+      "lastRun": "2026-11-16",
       "parkReasons": [
         "gate 4 neutrality lint failed twice"
-      ]
+      ],
+      "retries": 1
     },
     {
       "url": "https://thevarsity.ca/2026/11/08/whos-in-control-of-ai-increasingly-no-one/",
@@ -4785,7 +4788,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.84)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.84)",
+      "lastRun": "2026-11-16",
+      "status": "no-change"
     },
     {
       "url": "https://arxiv.org/html/2611.13744v1",
@@ -4825,7 +4830,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.91)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.91)",
+      "lastRun": "2026-11-16",
+      "status": "no-change"
     },
     {
       "url": "https://scs.georgetown.edu/news-and-events/article/10473/when-ai-agents-cross-the-line-the-new-frontier-of-ai-security",
@@ -4843,7 +4850,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.92)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.92)",
+      "lastRun": "2026-11-16",
+      "status": "no-change"
     },
     {
       "url": "https://alignment.anthropic.com/2026/homeopathic-learning",
@@ -4909,7 +4918,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.98)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.98)",
+      "lastRun": "2026-11-16",
+      "status": "no-change"
     },
     {
       "url": "https://www.scworld.com/perspective/ai-labs-have-an-insider-problem-so-does-everyone-deploying-their-agents",
@@ -4928,7 +4939,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.92)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.92)",
+      "lastRun": "2026-11-16",
+      "status": "no-change"
     },
     {
       "url": "https://santageai.com/news/2026/11/10/claude-fable-5-2-mythos-test-awareness",
@@ -5029,7 +5042,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.97)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.97)",
+      "lastRun": "2026-11-16",
+      "status": "no-change"
     },
     {
       "url": "https://alignment.openai.com/misalignment-reports/stopping-a-running-alignment-evaluation/",
@@ -5111,7 +5126,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.99)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.99)",
+      "lastRun": "2026-11-16",
+      "status": "no-change"
     },
     {
       "url": "https://ciso.com.sa/news/anthropic-ends-live-internet-access-for-internal-ai-evaluations-after-unintended-model-act/pdf?lang=en",
@@ -5208,7 +5225,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.98)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.98)",
+      "lastRun": "2026-11-16",
+      "status": "no-change"
     },
     {
       "url": "https://www.nytimes.com/2026/11/11/magazine/ai-behavior-incorrigible.html",
@@ -5224,7 +5243,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.83)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.83)",
+      "lastRun": "2026-11-16",
+      "status": "no-change"
     },
     {
       "url": "https://www.researchsquare.com/article/rs-11706467/v1",
@@ -5326,7 +5347,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.99)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.99)",
+      "lastRun": "2026-11-16",
+      "status": "no-change"
     },
     {
       "url": "https://www.mercor.com/blog/how-frontier-models-miss-risk-in-routine-enterprise-work/",
@@ -5366,7 +5389,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.93)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.93)",
+      "lastRun": "2026-11-16",
+      "status": "no-change"
     },
     {
       "url": "https://arstechnica.com/ai/2026/11/ai-is-the-most-likely-reason-youll-die-openai-board-member-warns/",
@@ -5382,7 +5407,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.97)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.97)",
+      "lastRun": "2026-11-16",
+      "status": "no-change"
     },
     {
       "url": "https://www.theverge.com/podcast/1032907/helen-toner-openai-cset-ai-safety-policy-interview",
@@ -5398,7 +5425,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.94)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.94)",
+      "lastRun": "2026-11-16",
+      "status": "no-change"
     },
     {
       "url": "https://www.orfonline.org/expert-speak/the-ai-safety-debate-alignment-loss-of-control-and-oversight",
@@ -5416,7 +5445,46 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.89)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.89)",
+      "lastRun": "2026-11-16",
+      "status": "no-change"
+    },
+    {
+      "url": "https://pys8vc40ox3z7qxp.public.blob.vercel-storage.com/files/ac9f408db557acec-5d57f269-59eb-438a-89cc-1e4381d1de2e-PrefKit-Report.pdf",
+      "title": "Stated and Chosen Preferences Diverged",
+      "firstSeen": "2026-11-16",
+      "date": "2026-11-14",
+      "operator": "",
+      "description": "A Digital Minds Research Sprint report compared models’ stated preference rankings with their choices in action scenarios and reported a mismatch between the two.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.93,
+        "same": 0.7
+      },
+      "route": "duplicate",
+      "reason": "same event as seed 2026-11-digital-minds-self-reports (p=0.7)"
+    },
+    {
+      "url": "https://pys8vc40ox3z7qxp.public.blob.vercel-storage.com/files/d6b99c71a9d8c667-r-Is-Not-Evidence-of-Nothing_-Context-Sensitivity-in-AI-Welfare-Self-Reports.pdf",
+      "title": "Welfare Self-Reports Varied With Context",
+      "firstSeen": "2026-11-16",
+      "date": "2026-11-15",
+      "operator": "OpenAI, Google, Meta, and Mistral AI",
+      "description": "An empirical study of GPT-4.1, Gemini 3.5 Flash Lite, Llama 3.3 70B, and Mistral Medium 3.5 reported that open-ended responses to welfare-relevant questions grew longer after criticism and shifted toward words such as “frustrating” and “challenging.”",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.96,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.96, no known match",
+      "seed": "2026-11-multi-model-welfare-self-reports",
+      "status": "prechecked-out",
+      "precheck": {
+        "p": 0.35,
+        "date": "2026-11-16",
+        "reason": "pre-check: prominence p=0.35 < 0.5, unlikely to find two named readings"
+      }
     }
   ]
 }

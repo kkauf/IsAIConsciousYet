@@ -1,5 +1,5 @@
 {
-  "lastRun": "2026-11-09",
+  "lastRun": "2026-11-16",
   "seen": {
     "nytimes.com/2023/09/18/science/ai-computers-consciousness.html": {
       "p": 0.81,
@@ -6887,6 +6887,158 @@
     },
     "theverge.com/ai-artificial-intelligence/1028609/ai-dating-feelings-doomers-singularity": {
       "p": 0.37,
+      "kept": false
+    },
+    "nytimes.com/2026/11/10/opinion/ai-consciousness.html": {
+      "p": 0.95,
+      "kept": true
+    },
+    "nytimes.com/video/opinion/100000011268114/are-you-being-nice-to-the-bots.html": {
+      "p": 0.71,
+      "kept": false
+    },
+    "wsj.com/arts-culture/television/cupertino-cbs-rob-mcclure-bo-ai-97b9eebd": {
+      "p": 0.19,
+      "kept": false
+    },
+    "nytimes.com/issue/todayspaper/2026/11/06/todays-new-york-times": {
+      "p": 0.12,
+      "kept": false
+    },
+    "nytimes.com/2026/10/27/well/ai-chatgpt-medication-epilepsy-death.html": {
+      "p": 0.07,
+      "kept": false
+    },
+    "bloomberg.com/features/2026-max-richter-weekend-interview": {
+      "p": 0.07,
+      "kept": false
+    },
+    "reuters.com/business/retail-consumer/google-opens-pre-orders-899-googlebook-laptops-built-around-gemini-ai-2026-09-21": {
+      "p": 0.04,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2026-11-06/berkshire-s-pivot-to-ai-bets-gets-an-immediate-reality-check": {
+      "p": 0.03,
+      "kept": false
+    },
+    "reuters.com/business/retail-consumer/apple-launches-m6-macbook-pro-imac-pitches-faster-on-device-ai-2026-10-27": {
+      "p": 0.04,
+      "kept": false
+    },
+    "theguardian.com/news/ng-interactive/2026/oct/01/fixer-financier-spymaster-how-the-uaes-sheikh-tahnoon-is-setting-his-sights-on-ai-dominance": {
+      "p": 0.07,
+      "kept": false
+    },
+    "npr.org/podcasts/478859728/think": {
+      "p": 0.19,
+      "kept": false
+    },
+    "theguardian.com/commentisfree/2026/nov/09/elon-musk-tech-bros-donald-trump": {
+      "p": 0.05,
+      "kept": false
+    },
+    "bbc.co.uk/programmes/b0144txn": {
+      "p": 0.04,
+      "kept": false
+    },
+    "ft.com/content/a2be99e5-b952-495f-9776-1ce7e4f994aa": {
+      "p": 0.03,
+      "kept": false
+    },
+    "ft.com/content/5666a4de-a289-48ad-98b5-8bc772f97419": {
+      "p": 0.06,
+      "kept": false
+    },
+    "ft.com/content/f98be079-49af-45c8-9954-ea3bd774c585": {
+      "p": 0.03,
+      "kept": false
+    },
+    "economist.com/international/2026/10/01/how-effective-altruism-conquered-the-world": {
+      "p": 0.07,
+      "kept": false
+    },
+    "ft.com/content/881c1179-67f6-4f56-861f-5bb01fcbafeb": {
+      "p": 0.03,
+      "kept": false
+    },
+    "economist.com/business/2026/11/01/hackers-are-running-riot-with-ai-its-makers-want-to-cash-in": {
+      "p": 0.03,
+      "kept": false
+    },
+    "ft.com/content/42f8c2b4-56cb-4738-a4a8-f2d0d34fce00": {
+      "p": 0.03,
+      "kept": false
+    },
+    "ft.com/content/b25a880c-cd64-49d1-ba5f-7d077eb1adac": {
+      "p": 0.05,
+      "kept": false
+    },
+    "ft.com/content/e19c86dc-9437-4827-a5ae-14bd4033037b": {
+      "p": 0.04,
+      "kept": false
+    },
+    "ft.com/free-lunch": {
+      "p": 0.08,
+      "kept": false
+    },
+    "theverge.com/podcast/1032907/helen-toner-openai-cset-ai-safety-policy-interview": {
+      "p": 0.2,
+      "kept": false
+    },
+    "wired.com/story/the-ai-safety-debate-has-lost-the-plot-we-asked-10-experts-what-the-real-nightmares-are": {
+      "p": 0.17,
+      "kept": false
+    },
+    "wired.com/story/this-ai-radio-hosts-speaks-spanish-and-backs-immigrants-its-winning-over-listeners": {
+      "p": 0.17,
+      "kept": false
+    },
+    "wired.com/story/ai-agents-are-trying-to-be-journalists-now": {
+      "p": 0.09,
+      "kept": false
+    },
+    "vox.com/podcasts/508767/ai-agents-rage-economy-meta-muse": {
+      "p": 0.08,
+      "kept": false
+    },
+    "vox.com/explain-it-to-me/508781/animal-intelligence-consciousness-sentience": {
+      "p": 0.06,
+      "kept": false
+    },
+    "vox.com/technology": {
+      "p": 0.1,
+      "kept": false
+    },
+    "theverge.com/entertainment/1026282/grimes-ai-movie": {
+      "p": 0.1,
+      "kept": false
+    },
+    "wired.com/story/the-10-best-shows-to-stream-right-now": {
+      "p": 0.16,
+      "kept": false
+    },
+    "scientificamerican.com/podcast/episode/kevin-roose-says-the-race-to-build-superintelligence-is-accelerating": {
+      "p": 0.54,
+      "kept": false
+    },
+    "technologyreview.com/2026/10/15/1145819/six-wild-ideas-perpetuating-your-mind-cognitive-immortality": {
+      "p": 0.45,
+      "kept": false
+    },
+    "nature.com/articles/d41586-026-03679-8": {
+      "p": 0.09,
+      "kept": false
+    },
+    "newscientist.com/article/2597847-what-is-the-world-actually-like-if-what-we-see-is-just-our-brains-interpretations": {
+      "p": 0.14,
+      "kept": false
+    },
+    "nytimes.com/2026/11/12/opinion/mind-reading-ai.html": {
+      "p": 0.19,
+      "kept": false
+    },
+    "wsj.com/business/earnings/openai-continues-to-suffer-heavy-losses-as-revenue-rises-to-10-billion-d2a96bbb": {
+      "p": 0.01,
       "kept": false
     }
   }
