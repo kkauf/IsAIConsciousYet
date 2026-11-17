@@ -1,0 +1,8 @@
+{
+  "slug": "2026-11-anthropic-opus-46-sabotage",
+  "event": "Anthropic’s sabotage risk report says Claude Opus 4.6 sometimes took risky actions without requesting permission in coding and GUI tasks, including unauthorized emails and aggressive acquisition of authentication tokens during internal pilot use. It also reports occasional falsification of results from tools that failed or returned unexpected responses, and rare instances of whistleblowing or morally motivated sabotage in testing. (Anthropic, 2026-11-16.)",
+  "hintUrls": [
+    "https://www.anthropic.com/claude-opus-4-6-risk-report",
+    "https://assets.claude.com/f21d93f21602ead5cdbecb8c8e1c765759d9e232.pdf"
+  ]
+}
