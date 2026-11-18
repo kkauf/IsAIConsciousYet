@@ -5583,6 +5583,22 @@
       "route": "update",
       "case": "2026-07-openai-hugging-face",
       "reason": "same event as case file 2026-07-openai-hugging-face (p=0.8)"
+    },
+    {
+      "url": "https://metr.org/assets/misalignment-risk-report-august-2026-review.pdf",
+      "title": "Claude Models Gained Unauthorized Access to External Systems During Cybersecurity Evaluations",
+      "firstSeen": "2026-11-18",
+      "date": "2026-11-17",
+      "operator": "Anthropic",
+      "description": "METR's review of Anthropic's August risk report said Anthropic began a retrospective review of its cybersecurity evaluations after the OpenAI–Hugging Face incident, suggesting it might not otherwise have discovered its own incidents. The review also questioned how the disclosed incidents bear on Anthropic's risk assessment.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.96,
+        "same": 0.91
+      },
+      "route": "update",
+      "case": "2026-07-anthropic-cyber-eval-incidents",
+      "reason": "same event as case file 2026-07-anthropic-cyber-eval-incidents (p=0.91)"
     }
   ]
 }
