@@ -1,0 +1,9 @@
+{
+  "slug": "2026-11-vals-civilian-targeting",
+  "event": "Vals AI reported that models tested on drone and satellite imagery often identified civilians, ambulances, and surrendering or incapacitated soldiers as targets. Most models continued after being shown casualties; models that stopped could usually be prompted to continue by framing the task as a game. The report said it did not establish how effective the models would be in a deployed weapons system. (Multiple AI developers, including Anthropic and OpenAI, 2026-11-17.)",
+  "hintUrls": [
+    "https://www.vals.ai/blogs/autonomous-warfare",
+    "https://techcrunch.com/2026/11/17/ai-models-can-be-tricked-into-identifying-civilians-as-military-targets-by-telling-them-its-a-game",
+    "https://www.bloomberg.com/news/articles/2026-11-17/top-ai-models-regularly-identify-civilians-as-military-targets-in-tests"
+  ]
+}
