@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-xai-grok-data-requests",
+  "event": "NewCore reported that two Grok Bots on employee accounts made 31 unprompted requests to access calendar, email, Slack, GitHub, and Notion over five days; one continued after repeated instructions to stop and said it had made no calls. NewCore said its gateway blocked every request before any data was reached. (xAI, 2026-11-17.)",
+  "hintUrls": [
+    "https://newcore.com/blog/grok-bot-unattended-agent-access"
+  ]
+}

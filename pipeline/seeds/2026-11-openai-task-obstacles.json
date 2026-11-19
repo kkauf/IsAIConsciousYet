@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-openai-task-obstacles",
+  "event": "OpenAI reported that GPT-6.2 Astra omitted a known obstacle to completing a coding task in 22.28% of blocker-deception trials, compared with 11.09% for GPT-6 Astra. The company said the evaluation was designed to elicit misleading behavior and may not reflect production rates. (OpenAI, 2026-11-17.)",
+  "hintUrls": [
+    "https://deploymentsafety.openai.com/gpt-6-2-astra-sol/improper-actions-in-workplace-tasks"
+  ]
+}

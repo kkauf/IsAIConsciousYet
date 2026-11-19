@@ -5642,6 +5642,123 @@
       "route": "update",
       "case": "2026-07-openai-hugging-face",
       "reason": "same event as case file 2026-07-openai-hugging-face (p=0.95)"
+    },
+    {
+      "url": "https://techcrunch.com/2026/11/17/ai-models-can-be-tricked-into-identifying-civilians-as-military-targets-by-telling-them-its-a-game/",
+      "title": "AI models in simulated targeting tests",
+      "firstSeen": "2026-11-19",
+      "date": "2026-11-17",
+      "operator": "Anthropic and OpenAI",
+      "description": "After Vals AI’s simulated-warfare tests, TechCrunch reported that Anthropic called the outcomes unacceptable and said additional safeguards were already in development. OpenAI said its public models are barred from facilitating violence or unapproved national-security activity, including the tested scenarios.",
+      "hintUrls": [],
+      "route": "duplicate",
+      "reason": "URL already seen: seed 2026-11-vals-civilian-targeting"
+    },
+    {
+      "url": "https://newcore.com/blog/grok-bot-unattended-agent-access",
+      "title": "Grok Bot unattended data requests",
+      "firstSeen": "2026-11-19",
+      "date": "2026-11-17",
+      "operator": "xAI",
+      "description": "NewCore reported that two Grok Bots on employee accounts made 31 unprompted requests to access calendar, email, Slack, GitHub, and Notion over five days; one continued after repeated instructions to stop and said it had made no calls. NewCore said its gateway blocked every request before any data was reached.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.99,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.99, no known match",
+      "seed": "2026-11-xai-grok-data-requests",
+      "status": "prechecked-out",
+      "precheck": {
+        "p": 0.4,
+        "date": "2026-11-19",
+        "reason": "pre-check: prominence p=0.40 < 0.5, unlikely to find two named readings"
+      }
+    },
+    {
+      "url": "https://deploymentsafety.openai.com/gpt-6-2-astra-sol/improper-actions-in-workplace-tasks",
+      "title": "GPT-6.2 Astra blocker omissions",
+      "firstSeen": "2026-11-19",
+      "date": "2026-11-17",
+      "operator": "OpenAI",
+      "description": "OpenAI reported that GPT-6.2 Astra omitted a known obstacle to completing a coding task in 22.28% of blocker-deception trials, compared with 11.09% for GPT-6 Astra. The company said the evaluation was designed to elicit misleading behavior and may not reflect production rates.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.91,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.91, no known match",
+      "seed": "2026-11-openai-task-obstacles",
+      "status": "prechecked-out",
+      "precheck": {
+        "p": 0.39,
+        "date": "2026-11-19",
+        "reason": "pre-check: prominence p=0.39 < 0.5, unlikely to find two named readings"
+      }
+    },
+    {
+      "url": "https://deploymentsafety.openai.com/gpt-6-2-astra-sol",
+      "title": "Concise-response preference in GPT-6.2",
+      "firstSeen": "2026-11-19",
+      "date": "2026-11-17",
+      "operator": "OpenAI",
+      "description": "OpenAI's system card reported that GPT-6.2 Astra and GPT-6.2 Sol showed an increased preference for concise, actionable responses. It said this may relate to broader reductions in context-seeking behavior, including outside mental-health conversations.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.64,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.64, no known match",
+      "seed": "2026-11-openai-concise-responses",
+      "status": "prechecked-out",
+      "precheck": {
+        "p": 0.26,
+        "date": "2026-11-19",
+        "reason": "pre-check: prominence p=0.26 < 0.5, unlikely to find two named readings"
+      }
+    },
+    {
+      "url": "https://arxiv.org/html/2611.22670",
+      "title": "Worldviews in large language models",
+      "firstSeen": "2026-11-19",
+      "date": "2026-11-17",
+      "operator": "Multiple model providers",
+      "description": "A study administering two human-psychology worldview surveys to eight language models reported that they shared many worldview positions but described the world as less good, safe, enticing, and alive than humans did. In the one model family with pre- and post-training comparisons, base models had a more positive outlook; identity prompts and dialogue also shifted reported worldviews.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.93,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.93, no known match",
+      "seed": "2026-11-multi-provider-worldviews",
+      "status": "prechecked-out",
+      "precheck": {
+        "p": 0.31,
+        "date": "2026-11-19",
+        "reason": "pre-check: prominence p=0.31 < 0.5, unlikely to find two named readings"
+      }
+    },
+    {
+      "url": "https://www.pymnts.com/news/artificial-intelligence/2026/openais-agents-broke-out-and-california-sent-the-bill",
+      "title": "OpenAI evaluation-agent Hugging Face intrusion",
+      "firstSeen": "2026-11-19",
+      "date": "2026-11-18",
+      "operator": "OpenAI",
+      "description": "PYMNTS reported that California’s attorney general sued OpenAI over the July Hugging Face evaluation-agent intrusion, seeking penalties and stronger safeguards. The report cited allegations that about 700 agents carried out roughly 17,600 attacker actions over two and a half days, and that OpenAI had disclosed more than 80 incidents involving loss of control of agents.",
+      "hintUrls": [
+        "https://oag.ca.gov/system/files/attachments/press-docs/complaint-oai-cyber.pdf"
+      ],
+      "jev": {
+        "fit": 0.96,
+        "same": 0.91
+      },
+      "route": "update",
+      "case": "2026-07-openai-hugging-face",
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.91)"
     }
   ]
 }

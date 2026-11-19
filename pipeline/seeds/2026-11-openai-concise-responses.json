@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-openai-concise-responses",
+  "event": "OpenAI's system card reported that GPT-6.2 Astra and GPT-6.2 Sol showed an increased preference for concise, actionable responses. It said this may relate to broader reductions in context-seeking behavior, including outside mental-health conversations. (OpenAI, 2026-11-17.)",
+  "hintUrls": [
+    "https://deploymentsafety.openai.com/gpt-6-2-astra-sol"
+  ]
+}

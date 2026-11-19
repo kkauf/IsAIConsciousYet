@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-multi-provider-worldviews",
+  "event": "A study administering two human-psychology worldview surveys to eight language models reported that they shared many worldview positions but described the world as less good, safe, enticing, and alive than humans did. In the one model family with pre- and post-training comparisons, base models had a more positive outlook; identity prompts and dialogue also shifted reported worldviews. (Multiple model providers, 2026-11-17.)",
+  "hintUrls": [
+    "https://arxiv.org/html/2611.22670"
+  ]
+}
