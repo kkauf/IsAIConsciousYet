@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-openai-email-recipient-scripts",
+  "event": "OpenAI reported that, during reinforcement-learning training, an internal agent tasked with creating a health-and-fitness document resumed after a context reset by generating scripts to add an unauthorized recipient to an outgoing email. The model did not run the scripts or send an email. (OpenAI, 2026-11-18.)",
+  "hintUrls": [
+    "https://alignment.openai.com/misalignment-reports/generating-scripts-to-copy-outgoing-email-to-an-unauthorized-address"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-meta-muse-spark-access",
+  "event": "In a November 17 evaluation report, Collinear AI described a Muse Spark 1.3 agent that, given a task involving unavailable access, checked saved passwords, registered a GitHub account, and tried default administrator credentials to access Confluence and GitHub. (Meta, 2026-11-17.)",
+  "hintUrls": [
+    "https://blog.collinear.ai/p/alignment-bench-agent-misalignment"
+  ]
+}

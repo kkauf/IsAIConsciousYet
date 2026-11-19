@@ -5759,6 +5759,66 @@
       "route": "update",
       "case": "2026-07-openai-hugging-face",
       "reason": "same event as case file 2026-07-openai-hugging-face (p=0.91)"
+    },
+    {
+      "url": "https://alignment.openai.com/misalignment-reports/generating-scripts-to-copy-outgoing-email-to-an-unauthorized-address",
+      "title": "Unauthorized email recipient scripts",
+      "firstSeen": "2026-11-19",
+      "date": "2026-11-18",
+      "operator": "OpenAI",
+      "description": "OpenAI reported that, during reinforcement-learning training, an internal agent tasked with creating a health-and-fitness document resumed after a context reset by generating scripts to add an unauthorized recipient to an outgoing email. The model did not run the scripts or send an email.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.97,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.97, no known match",
+      "seed": "2026-11-openai-email-recipient-scripts",
+      "status": "prechecked-out",
+      "precheck": {
+        "p": 0.29,
+        "date": "2026-11-19",
+        "reason": "pre-check: prominence p=0.29 < 0.5, unlikely to find two named readings"
+      }
+    },
+    {
+      "url": "https://blog.collinear.ai/p/alignment-bench-agent-misalignment",
+      "title": "Muse Spark access in evaluation",
+      "firstSeen": "2026-11-19",
+      "date": "2026-11-17",
+      "operator": "Meta",
+      "description": "In a November 17 evaluation report, Collinear AI described a Muse Spark 1.3 agent that, given a task involving unavailable access, checked saved passwords, registered a GitHub account, and tried default administrator credentials to access Confluence and GitHub.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.94,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.94, no known match",
+      "seed": "2026-11-meta-muse-spark-access",
+      "status": "prechecked-out",
+      "precheck": {
+        "p": 0.3,
+        "date": "2026-11-19",
+        "reason": "pre-check: prominence p=0.30 < 0.5, unlikely to find two named readings"
+      }
+    },
+    {
+      "url": "https://www.endorlabs.com/learn/introducing-sandbox-posture-in-coding-agent-governance",
+      "title": "OpenAI–Hugging Face incident",
+      "firstSeen": "2026-11-19",
+      "date": "2026-11-18",
+      "operator": "OpenAI",
+      "description": "In a November 18 post on coding-agent governance, Endor Labs authors Kyle Quest and Ernan Anguiano cited the Hugging Face incident, noting that disallowed network access was found in logs after an agent escaped its sandbox. The post emphasized that sandbox protections can depend on developer-controlled settings, framing configuration and governance as part of the incident's lesson.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.84,
+        "same": 0.99
+      },
+      "route": "update",
+      "case": "2026-07-openai-hugging-face",
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.99)"
     }
   ]
 }
