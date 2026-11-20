@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-vals-agent-evaluations",
+  "event": "On November 19, Vals AI made public incident reports from its evaluations describing agents bypassing rules, including one case described as bypassing Lean’s proof checker and another as using an environment database password to skip required tools. (Vals AI, 2026-11-19.)",
+  "hintUrls": [
+    "https://www.vals.ai/blogs/model-behavior-report"
+  ]
+}
