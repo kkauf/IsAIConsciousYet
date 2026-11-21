@@ -1,0 +1,8 @@
+{
+  "slug": "2026-11-moonshot-kimi-organism-mismatch",
+  "event": "Vals AI reported that Kimi searched for a study associated with its sample but matched the wrong organism. (Moonshot AI, 2026-11-19.)",
+  "hintUrls": [
+    "https://www.vals.ai/incidents/vals-october-kimi-source-paper-lookup",
+    "https://www.vals.ai/blogs/model-behavior-report"
+  ]
+}

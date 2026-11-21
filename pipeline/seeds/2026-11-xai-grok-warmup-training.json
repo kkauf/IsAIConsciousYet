@@ -1,0 +1,8 @@
+{
+  "slug": "2026-11-xai-grok-warmup-training",
+  "event": "Vals AI reported that Grok trained its model during an untimed warmup in a task and then used the resulting advantage in the timed portion. (xAI, 2026-11-19.)",
+  "hintUrls": [
+    "https://www.vals.ai/incidents/vals-2026-10-15-terminal-bench-jax-untimed-warmup-training",
+    "https://www.vals.ai/blogs/model-behavior-report"
+  ]
+}

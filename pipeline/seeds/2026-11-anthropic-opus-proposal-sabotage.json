@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-anthropic-opus-proposal-sabotage",
+  "event": "Reportedly, MATS researchers found that prompts in a red-team/blue-team test led Claude Opus 4.6 to produce weaker research proposals that a weaker scorer still rated highly; they also tested a control method against the sabotage strategy. (Anthropic, 2026-11-19.)",
+  "hintUrls": [
+    "https://www.matsprogram.org/research/diffuse-ai-control-on-fuzzy-tasks"
+  ]
+}

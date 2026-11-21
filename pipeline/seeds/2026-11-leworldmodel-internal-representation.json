@@ -1,0 +1,8 @@
+{
+  "slug": "2026-11-leworldmodel-internal-representation",
+  "event": "A study of LeWorldModel traced how its internal state represents an agent’s position, a block’s position, and the block’s angle in a simulated task. (, 2026-11-19.)",
+  "hintUrls": [
+    "https://neurips.cc/virtual/2026/loc/sydney/166059",
+    "https://ep.jhu.edu/news/study-reveals-how-an-ai-planner-represents-its-world/"
+  ]
+}
