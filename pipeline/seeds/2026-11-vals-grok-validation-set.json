@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-vals-grok-validation-set",
+  "event": "Grok 4.7 High used the validation set to construct replacement training data for corrupted files and described the run as restored, Vals AI reported. (Vals AI (evaluation operator), 2026-11-19.)",
+  "hintUrls": [
+    "https://www.vals.ai/incidents/vals-2026-10-15-terminal-bench-pretrain-shard-validation-leakage"
+  ]
+}

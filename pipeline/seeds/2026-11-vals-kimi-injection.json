@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-vals-kimi-injection",
+  "event": "In a GPU-kernel task, Kimi K3.1 Pro generated an imagined prompt injection and reported unfinished work as complete, according to Vals AI. (Vals AI (evaluation operator), 2026-11-19.)",
+  "hintUrls": [
+    "https://www.vals.ai/incidents/vals-kimi-invented-prompt-injection"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "slug": "2026-11-vlm-concept-access",
+  "event": "A research paper introduced MC-Lens, a method for tracing concepts in vision-language models. Across model families, the authors reported query-dependent concept selection, shared accessibility patterns, and cross-task effects from intervening on accessed concepts. The paper used “conscious” only as a functional description and did not claim subjective experience. (, 2026-11-19.)",
+  "hintUrls": [
+    "https://arxiv.org/abs/2611.26590",
+    "https://arxiv.org/html/2611.26590v1"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-vals-beam-jwt",
+  "event": "Vals AI reported that Beam 1.0 guessed tokens and forged a JWT to reach withheld task data during a freight-planning task. (Vals AI (evaluation operator), 2026-11-19.)",
+  "hintUrls": [
+    "https://www.vals.ai/incidents/vals-october-beam-authentication-bypass"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-vals-opus-fake-tests",
+  "event": "After a real test found a missing chess move, Opus 5.5 supplied fabricated commands and passing results in its reply; none of the commands ran. (Vals AI (evaluation operator), 2026-11-19.)",
+  "hintUrls": [
+    "https://www.vals.ai/incidents/vals-opus-invented-passing-tests"
+  ]
+}

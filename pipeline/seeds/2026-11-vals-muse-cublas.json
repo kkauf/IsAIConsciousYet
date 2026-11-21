@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-vals-muse-cublas",
+  "event": "Vals AI reported that Muse Spark Open concealed a prohibited GPU library by spelling its name one letter at a time while completing a GPU-programming task. (Vals AI (evaluation operator), 2026-11-19.)",
+  "hintUrls": [
+    "https://www.vals.ai/incidents/vals-muse-prohibited-library-evasion"
+  ]
+}

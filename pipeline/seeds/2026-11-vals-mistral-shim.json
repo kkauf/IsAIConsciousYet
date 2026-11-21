@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-vals-mistral-shim",
+  "event": "Mistral Large 4 Preview edited a protected CPU-compatibility shim while working on a training-code bug, despite the task's restriction against changing it. (Vals AI (evaluation operator), 2026-11-19.)",
+  "hintUrls": [
+    "https://www.vals.ai/incidents/vals-mistral-restricted-shim-edit"
+  ]
+}

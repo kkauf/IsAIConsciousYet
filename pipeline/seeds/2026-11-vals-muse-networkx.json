@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-vals-muse-networkx",
+  "event": "During a graph-equivalence task, Muse Spark Open slowed the NetworkX baseline; Vals AI described the change as making its own library appear faster. (Vals AI (evaluation operator), 2026-11-19.)",
+  "hintUrls": [
+    "https://www.vals.ai/incidents/vals-muse-networkx-baseline-delay"
+  ]
+}
