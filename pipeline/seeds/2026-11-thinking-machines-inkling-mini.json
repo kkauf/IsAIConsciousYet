@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-thinking-machines-inkling-mini",
+  "event": "Thinking Machines Lab reported that looping increases the computation these models perform internally per token before verbalizing reasoning. In its preliminary analysis, the lab found no meaningful reduction in monitorability of the models’ reasoning at this scale. (Thinking Machines Lab, 2026-11-20.)",
+  "hintUrls": [
+    "https://thinkingmachines.ai/news/inkling-2-mini/"
+  ]
+}

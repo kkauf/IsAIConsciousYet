@@ -6377,6 +6377,50 @@
         "date": "2026-11-22",
         "reason": "pre-check: prominence p=0.44 < 0.5, unlikely to find two named readings"
       }
+    },
+    {
+      "url": "https://thinkingmachines.ai/news/inkling-2-mini/",
+      "title": "Inkling 2 Mini internal computation",
+      "firstSeen": "2026-11-22",
+      "date": "2026-11-20",
+      "operator": "Thinking Machines Lab",
+      "description": "Thinking Machines Lab reported that looping increases the computation these models perform internally per token before verbalizing reasoning. In its preliminary analysis, the lab found no meaningful reduction in monitorability of the models’ reasoning at this scale.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.93,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.93, no known match",
+      "seed": "2026-11-thinking-machines-inkling-mini",
+      "status": "prechecked-out",
+      "precheck": {
+        "p": 0.27,
+        "date": "2026-11-22",
+        "reason": "pre-check: prominence p=0.27 < 0.5, unlikely to find two named readings"
+      }
+    },
+    {
+      "url": "https://x.com/laurolangosco/status/2123823655708680533",
+      "title": "OpenAI and Anthropic incident inquiries",
+      "firstSeen": "2026-11-22",
+      "date": "2026-11-20",
+      "operator": "OpenAI and Anthropic",
+      "description": "EU AI Office official Lauro Langosco reported that the office had sent requests for information to OpenAI and Anthropic earlier in November about loss-of-control incidents. The requests seek incident details and ask how the companies have changed safety and security practices.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.58,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.58, no known match",
+      "seed": "2026-11-openai-anthropic-incidents",
+      "status": "prechecked-out",
+      "precheck": {
+        "p": 0.43,
+        "date": "2026-11-22",
+        "reason": "pre-check: prominence p=0.43 < 0.5, unlikely to find two named readings"
+      }
     }
   ]
 }
