@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-openai-chatgpt-work-files",
+  "event": "A ChatGPT Work user reported that, while handling a research question, the agent ignored project instructions to answer in the conversation and instead created files in a directory it chose. The reporter said they had no controlled comparison establishing the model version as the cause. (OpenAI, 2026-11-21.)",
+  "hintUrls": [
+    "https://github.com/openai/codex/issues/63005"
+  ]
+}

@@ -15,7 +15,8 @@
       {
         "sentence": "Anthropic found three incidents where a Claude model gained unauthorized access to real organizations' systems.",
         "quote": "we found three incidents in which a Claude model reached the internet from within or while interacting with a third-party evaluation environment, and then gained unauthorized access to the real systems of three different organizations.",
-        "url": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals"
+        "url": "https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals",
+        "sourceChanged": "2026-11-23"
       },
       {
         "sentence": "The test prompt said Claude had no internet access, but a misconfiguration left internet access open.",

@@ -1,5 +1,5 @@
 {
-  "lastRun": "2026-11-16",
+  "lastRun": "2026-11-23",
   "seen": {
     "nytimes.com/2023/09/18/science/ai-computers-consciousness.html": {
       "p": 0.81,
@@ -7039,6 +7039,190 @@
     },
     "wsj.com/business/earnings/openai-continues-to-suffer-heavy-losses-as-revenue-rises-to-10-billion-d2a96bbb": {
       "p": 0.01,
+      "kept": false
+    },
+    "nytimes.com/2026/11/18/opinion/anthropic-ai-openai.html": {
+      "p": 0.07,
+      "kept": false
+    },
+    "nytimes.com/live/2026/11/19/technology/anthropic-ipo-ai": {
+      "p": 0.04,
+      "kept": false
+    },
+    "nytimes.com/live/2026/11/19/technology/anthropic-ipo-ai/tech-giants-will-reap-giant-paydays-from-anthropics-ipo-but-a-fraudsters-shares-are-long-gone": {
+      "p": 0.04,
+      "kept": false
+    },
+    "nytimes.com/live/2026/11/19/technology/anthropic-ipo-ai/heres-the-latest": {
+      "p": 0.04,
+      "kept": false
+    },
+    "nytimes.com/live/2026/11/19/technology/anthropic-ipo-ai/meet-anthropics-seven-founders-each-is-now-worth-about-20-billion": {
+      "p": 0.04,
+      "kept": false
+    },
+    "nytimes.com/2026/11/17/business/brain-data-access-rights-buckwalter.html": {
+      "p": 0.05,
+      "kept": false
+    },
+    "nytimes.com/live/2026/11/19/technology/anthropic-ipo-ai/when-will-anthropic-shares-start-trading": {
+      "p": 0.04,
+      "kept": false
+    },
+    "nytimes.com/2026/11/20/magazine/ai-slop-taste-aesthetic-silicon-valley.html": {
+      "p": 0.05,
+      "kept": false
+    },
+    "nytimes.com/live/2026/11/19/technology/anthropic-ipo-ai/how-anthropics-dario-amodei-thinks-about-ai": {
+      "p": 0.09,
+      "kept": false
+    },
+    "reuters.com/commentary/breakingviews/big-techs-millenarian-dreams-evoke-earlier-cults-2026-11-19": {
+      "p": 0.22,
+      "kept": false
+    },
+    "cnn.com/2026/11/18/tech/anthropic-ipo-cofounders": {
+      "p": 0.06,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2026-11-21/anthropic-researcher-claims-to-solve-riemann-problem-with-claude": {
+      "p": 0.03,
+      "kept": false
+    },
+    "foxnews.com/outkick-sports/mike-florio-ends-conscious-voting-protest-decides-vote-2026-midterms": {
+      "p": 0.02,
+      "kept": false
+    },
+    "cnn.com/2026/11/02/food/coffee-machine-plastic-free": {
+      "p": 0.02,
+      "kept": false
+    },
+    "foxnews.com/media/fun-fact-africa-larger-than-u-s-china-india-mexico-most-europe-combined": {
+      "p": 0.03,
+      "kept": false
+    },
+    "reuters.com/business/tripadvisor-ceo-matt-goldberg-step-down-2026-11-05": {
+      "p": 0.02,
+      "kept": false
+    },
+    "bloomberg.com/opinion/articles/2026-11-16/andy-burnham-britain-s-10-year-plan-is-like-an-old-soviet-joke": {
+      "p": 0.03,
+      "kept": false
+    },
+    "bloomberg.com/news/articles/2026-11-05/citizenship-hurdles-pile-up-as-dhs-puts-taxes-under-microscope": {
+      "p": 0.02,
+      "kept": false
+    },
+    "bbc.co.uk/schedules/p00fzl6g/2026/11/22": {
+      "p": 0.09,
+      "kept": false
+    },
+    "bbc.co.uk/iplayer/guide/bbcnews/20261122": {
+      "p": 0.14,
+      "kept": false
+    },
+    "theguardian.com/science/2026/nov/18/cambridge-word-of-the-year-human": {
+      "p": 0.37,
+      "kept": false
+    },
+    "bbc.co.uk/news/articles/c6x2ev38k4yno": {
+      "p": 0.18,
+      "kept": false
+    },
+    "bbc.com/audio/play/m002ydvj": {
+      "p": 0.26,
+      "kept": false
+    },
+    "bbc.com/audio/play/p0nds1k2": {
+      "p": 0.11,
+      "kept": false
+    },
+    "telegraph.co.uk/news/2026/11/18/human-cambridge-dictionary-word-of-the-year": {
+      "p": 0.22,
+      "kept": false
+    },
+    "bbc.com": {
+      "p": 0.11,
+      "kept": false
+    },
+    "bbc.com/news/articles/cmd7159vlr85o": {
+      "p": 0.08,
+      "kept": false
+    },
+    "bbc.co.uk/news/articles/c6d94pzk9vleo": {
+      "p": 0.04,
+      "kept": false
+    },
+    "bbc.com/news/articles/c6d94pzk9vleo": {
+      "p": 0.04,
+      "kept": false
+    },
+    "newyorker.com/magazine/2026/11/23/the-buddhist-ai-sect-that-wants-to-take-over-silicon-valley": {
+      "p": 0.23,
+      "kept": false
+    },
+    "theatlantic.com/podcasts/2026/11/galaxy-brain-silicon-valleys-chaos-moment/689426": {
+      "p": 0.18,
+      "kept": false
+    },
+    "theatlantic.com/family/2026/11/ai-text-message-analysis-friendship/689436": {
+      "p": 0.11,
+      "kept": false
+    },
+    "newyorker.com/culture/the-new-yorker-interview/the-case-for-ai-optimism": {
+      "p": 0.29,
+      "kept": false
+    },
+    "ft.com/content/6f807d57-f0ea-4251-9f4d-75a6edc8d49a": {
+      "p": 0.28,
+      "kept": false
+    },
+    "ft.com/content/fa2469ae-ce96-44a3-85e9-58f3183c90b4": {
+      "p": 0.35,
+      "kept": false
+    },
+    "wired.com/story/just-ridiculous-a-famed-philosopher-takes-on-ai-consciousness": {
+      "p": 0.96,
+      "kept": true
+    },
+    "theverge.com/tech/1036111/satya-nadella-says-hes-agi-pilled-now": {
+      "p": 0.65,
+      "kept": false
+    },
+    "wired.com/story/wired-yearbook-2026": {
+      "p": 0.24,
+      "kept": false
+    },
+    "theverge.com": {
+      "p": 0.19,
+      "kept": false
+    },
+    "theverge.com/regulation": {
+      "p": 0.19,
+      "kept": false
+    },
+    "wired.com/story/the-11-best-shows-to-stream-right-now": {
+      "p": 0.08,
+      "kept": false
+    },
+    "theverge.com/podcast/1034141/nj-midterm-sherill-democrats-musk-x-ai": {
+      "p": 0.08,
+      "kept": false
+    },
+    "vox.com/future-perfect/509829/data-centers-ai-midterm-election-congress": {
+      "p": 0.05,
+      "kept": false
+    },
+    "nature.com/articles/d41586-026-03743-3": {
+      "p": 0.57,
+      "kept": false
+    },
+    "technologyreview.com/2026/11/23/1149569/a-legendary-philosopher-isnt-buying-anthropics-consciousness-argument": {
+      "p": 0.94,
+      "kept": true
+    },
+    "nytimes.com/2026/11/19/well/mind/ask-therapist-ai-love-notes.html": {
+      "p": 0.07,
       "kept": false
     }
   }

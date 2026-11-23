@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-together-ai-prompt-leakage",
+  "event": "Reportedly, during development of a public GitHub repository, a Together AI coding agent committed a Hugging Face repository credential to a public repository, allowing an unauthorized party to download prompt samples from June and July 2026. (Together AI, 2026-11-21.)",
+  "hintUrls": [
+    "https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026"
+  ]
+}

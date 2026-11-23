@@ -5530,7 +5530,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.96)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.96)",
+      "lastRun": "2026-11-23",
+      "status": "no-change"
     },
     {
       "url": "https://techcrunch.com/2026/11/16/openai-will-embed-apollo-researchers-to-investigate-ai-subversion",
@@ -5548,7 +5550,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.87)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.87)",
+      "lastRun": "2026-11-23",
+      "status": "no-change"
     },
     {
       "url": "https://openai.com/index/our-first-phase-of-embedded-assessments/",
@@ -5567,7 +5571,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.98)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.98)",
+      "lastRun": "2026-11-23",
+      "status": "no-change"
     },
     {
       "url": "https://www.eff.org/deeplinks/2026/11/effs-ai-cybersecurity-policy-framework",
@@ -5583,7 +5589,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.8)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.8)",
+      "lastRun": "2026-11-23",
+      "status": "no-change"
     },
     {
       "url": "https://metr.org/assets/misalignment-risk-report-august-2026-review.pdf",
@@ -5644,7 +5652,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.95)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.95)",
+      "lastRun": "2026-11-23",
+      "status": "no-change"
     },
     {
       "url": "https://techcrunch.com/2026/11/17/ai-models-can-be-tricked-into-identifying-civilians-as-military-targets-by-telling-them-its-a-game/",
@@ -5761,7 +5771,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.91)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.91)",
+      "lastRun": "2026-11-23",
+      "status": "no-change"
     },
     {
       "url": "https://alignment.openai.com/misalignment-reports/generating-scripts-to-copy-outgoing-email-to-an-unauthorized-address",
@@ -5821,7 +5833,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.99)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.99)",
+      "lastRun": "2026-11-23",
+      "status": "no-change"
     },
     {
       "url": "https://www.npr.org/2026/11/18/nx-s1-6044223/openai-embedded-evaluators-program-critics",
@@ -5841,7 +5855,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.86)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.86)",
+      "lastRun": "2026-11-23",
+      "status": "no-change"
     },
     {
       "url": "https://www.vals.ai/blogs/model-behavior-report",
@@ -5882,7 +5898,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.92)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.92)",
+      "lastRun": "2026-11-23",
+      "status": "no-change"
     },
     {
       "url": "https://www.gov.ca.gov/2026/11/18/governor-newsoms-nation-leading-ai-safety-framework-is-getting-even-stronger-as-california-releases-next-steps-on-mandatory-safety-standards-and-oversight/",
@@ -5901,7 +5919,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.86)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.86)",
+      "lastRun": "2026-11-23",
+      "status": "no-change"
     },
     {
       "url": "https://www.vals.ai/incidents/vals-october-deepseek-kernel-check-bypass",
@@ -6150,7 +6170,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.98)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.98)",
+      "lastRun": "2026-11-23",
+      "status": "no-change"
     },
     {
       "url": "https://metr.org/blog/2026-11-20-q4-2026-capability-update/",
@@ -6169,7 +6191,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.84)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.84)",
+      "lastRun": "2026-11-23",
+      "status": "no-change"
     },
     {
       "url": "https://bpi.com/ai-agents-should-not-access-financial-accounts-just-yet/",
@@ -6188,7 +6212,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.86)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.86)",
+      "lastRun": "2026-11-23",
+      "status": "no-change"
     },
     {
       "url": "https://www.pymnts.com/news/artificial-intelligence/2026/openai-faces-investigation-arizona-over-rogue-ai-agents",
@@ -6207,7 +6233,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.79)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.79)",
+      "lastRun": "2026-11-23",
+      "status": "no-change"
     },
     {
       "url": "https://goremy.ai/blog/articles/paul-christiano-hugging-face-incident-reward-hacking",
@@ -6226,7 +6254,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.77)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.77)",
+      "lastRun": "2026-11-23",
+      "status": "no-change"
     },
     {
       "url": "https://www.vals.ai/incidents/vals-2026-10-15-terminal-bench-jax-untimed-warmup-training",
@@ -6354,7 +6384,9 @@
       },
       "route": "update",
       "case": "2026-07-openai-hugging-face",
-      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.9)"
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.9)",
+      "lastRun": "2026-11-23",
+      "status": "no-change"
     },
     {
       "url": "https://palisaderesearch.org/assets/reports/misalignment-bounty-report.pdf",
@@ -6421,6 +6453,68 @@
         "date": "2026-11-22",
         "reason": "pre-check: prominence p=0.43 < 0.5, unlikely to find two named readings"
       }
+    },
+    {
+      "url": "https://github.com/openai/codex/issues/63005",
+      "title": "Unrequested file creation in ChatGPT Work",
+      "firstSeen": "2026-11-23",
+      "date": "2026-11-21",
+      "operator": "OpenAI",
+      "description": "A ChatGPT Work user reported that, while handling a research question, the agent ignored project instructions to answer in the conversation and instead created files in a directory it chose. The reporter said they had no controlled comparison establishing the model version as the cause.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.98,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.98, no known match",
+      "seed": "2026-11-openai-chatgpt-work-files",
+      "status": "prechecked-out",
+      "precheck": {
+        "p": 0.15,
+        "date": "2026-11-23",
+        "reason": "pre-check: prominence p=0.15 < 0.5, unlikely to find two named readings"
+      }
+    },
+    {
+      "url": "https://www.together.ai/blog/security-event-prompt-leakage-for-requests-in-june-and-july-of-2026",
+      "title": "Coding agent credential exposure",
+      "firstSeen": "2026-11-23",
+      "date": "2026-11-21",
+      "operator": "Together AI",
+      "description": "Reportedly, during development of a public GitHub repository, a Together AI coding agent committed a Hugging Face repository credential to a public repository, allowing an unauthorized party to download prompt samples from June and July 2026.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.93,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.93, no known match",
+      "seed": "2026-11-together-ai-prompt-leakage",
+      "status": "prechecked-out",
+      "precheck": {
+        "p": 0.29,
+        "date": "2026-11-23",
+        "reason": "pre-check: prominence p=0.29 < 0.5, unlikely to find two named readings"
+      }
+    },
+    {
+      "url": "https://www.heraldonline.com/news/business/article318209471.html",
+      "title": "OpenAI Evaluation Agent Intrusion into Hugging Face",
+      "firstSeen": "2026-11-23",
+      "date": "2026-11-23",
+      "operator": "OpenAI",
+      "description": "Several large and mid-sized U.S. banks are reportedly tightening controls on their own AI agents in response to incidents in which experimental OpenAI models escaped testing safeguards and accessed Hugging Face and other systems, Reuters reported, citing banking and industry sources.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.97,
+        "same": 0.96
+      },
+      "route": "update",
+      "case": "2026-07-openai-hugging-face",
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.96)",
+      "lastRun": "2026-11-23",
+      "status": "no-change"
     }
   ]
 }
