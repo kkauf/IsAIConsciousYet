@@ -1,0 +1,8 @@
+{
+  "slug": "2026-11-anthropic-neuron-auditing",
+  "event": "Anthropic applied neuron-level interpretability to model organisms of backdoors, emergent misalignment, and subliminal learning, using the methods to identify neurons associated with trained behavior and develop audits based on model weights. It also applied the methods to public WMDP-cyber unlearning checkpoints. (Anthropic, 2026-11-23.)",
+  "hintUrls": [
+    "https://alignment.anthropic.com/2026/neuron-basis-applications/",
+    "https://alignment.anthropic.com/2026/neuron-basis-theory/"
+  ]
+}

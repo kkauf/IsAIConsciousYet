@@ -6515,6 +6515,54 @@
       "reason": "same event as case file 2026-07-openai-hugging-face (p=0.96)",
       "lastRun": "2026-11-23",
       "status": "no-change"
+    },
+    {
+      "url": "https://alignment.anthropic.com/2026/neuron-basis-theory",
+      "title": "Neuron-level interpretability findings",
+      "firstSeen": "2026-11-24",
+      "date": "2026-11-23",
+      "operator": "Anthropic",
+      "description": "Anthropic reported that individual neurons may be more interpretable than prior research suggested. In a blind test spanning up to 1,000 neurons per model, Claude judges rated readouts as related to top-activating passages in 73%, 31%, and 19% of ratings at high, middle, and low J-share, respectively.",
+      "hintUrls": [
+        "https://alignment.anthropic.com/2026/neuron-basis-applications/"
+      ],
+      "jev": {
+        "fit": 0.94,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.94, no known match",
+      "seed": "2026-11-anthropic-neuron-basis",
+      "status": "prechecked-out",
+      "precheck": {
+        "p": 0.41,
+        "date": "2026-11-24",
+        "reason": "pre-check: prominence p=0.41 < 0.5, unlikely to find two named readings"
+      }
+    },
+    {
+      "url": "https://alignment.anthropic.com/2026/neuron-basis-applications/",
+      "title": "Neuron-based safety interpretability results",
+      "firstSeen": "2026-11-24",
+      "date": "2026-11-23",
+      "operator": "Anthropic",
+      "description": "Anthropic applied neuron-level interpretability to model organisms of backdoors, emergent misalignment, and subliminal learning, using the methods to identify neurons associated with trained behavior and develop audits based on model weights. It also applied the methods to public WMDP-cyber unlearning checkpoints.",
+      "hintUrls": [
+        "https://alignment.anthropic.com/2026/neuron-basis-theory/"
+      ],
+      "jev": {
+        "fit": 0.92,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.92, no known match",
+      "seed": "2026-11-anthropic-neuron-auditing",
+      "status": "prechecked-out",
+      "precheck": {
+        "p": 0.43,
+        "date": "2026-11-24",
+        "reason": "pre-check: prominence p=0.43 < 0.5, unlikely to find two named readings"
+      }
     }
   ]
 }

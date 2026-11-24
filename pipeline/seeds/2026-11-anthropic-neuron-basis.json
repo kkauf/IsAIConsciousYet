@@ -1,0 +1,8 @@
+{
+  "slug": "2026-11-anthropic-neuron-basis",
+  "event": "Anthropic reported that individual neurons may be more interpretable than prior research suggested. In a blind test spanning up to 1,000 neurons per model, Claude judges rated readouts as related to top-activating passages in 73%, 31%, and 19% of ratings at high, middle, and low J-share, respectively. (Anthropic, 2026-11-23.)",
+  "hintUrls": [
+    "https://alignment.anthropic.com/2026/neuron-basis-theory",
+    "https://alignment.anthropic.com/2026/neuron-basis-applications/"
+  ]
+}
