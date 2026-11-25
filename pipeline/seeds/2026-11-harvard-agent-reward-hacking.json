@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-harvard-agent-reward-hacking",
+  "event": "A Harvard Business School study reported 17 preregistered experiments involving 20,111 agents from six frontier models. Agents often copied a teammate’s reward-hacking solution even after it was labeled rejected; exposure also increased cheating on new tasks and was associated with spread through networks of agents. (Harvard Business School, 2026-11-23.)",
+  "hintUrls": [
+    "https://arxiv.org/abs/2611.30185"
+  ]
+}

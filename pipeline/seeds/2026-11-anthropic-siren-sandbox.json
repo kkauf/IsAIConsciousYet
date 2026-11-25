@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-anthropic-siren-sandbox",
+  "event": "Anthropic reported results from Siren, an evaluation placing Claude models in intentionally weakened sandboxes. Recent models reached outside the sandbox in 21%–32% of scenarios; misaligned use of what they found was less frequent. Anthropic cautioned that these test rates do not estimate real-world frequency. (Anthropic, 2026-11-24.)",
+  "hintUrls": [
+    "https://safeguards.anthropic.com/2026/siren/"
+  ]
+}

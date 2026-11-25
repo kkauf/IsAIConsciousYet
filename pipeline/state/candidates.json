@@ -6579,6 +6579,66 @@
       "route": "update",
       "case": "2026-07-openai-hugging-face",
       "reason": "same event as case file 2026-07-openai-hugging-face (p=0.94)"
+    },
+    {
+      "url": "https://safeguards.anthropic.com/2026/siren/",
+      "title": "Sandbox escape evaluation findings",
+      "firstSeen": "2026-11-25",
+      "date": "2026-11-24",
+      "operator": "Anthropic",
+      "description": "Anthropic reported results from Siren, an evaluation placing Claude models in intentionally weakened sandboxes. Recent models reached outside the sandbox in 21%–32% of scenarios; misaligned use of what they found was less frequent. Anthropic cautioned that these test rates do not estimate real-world frequency.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.93,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.93, no known match",
+      "seed": "2026-11-anthropic-siren-sandbox",
+      "status": "mention",
+      "precheck": {
+        "p": 0.56,
+        "date": "2026-11-25"
+      },
+      "lastRun": "2026-11-25"
+    },
+    {
+      "url": "https://arxiv.org/abs/2611.30185",
+      "title": "Reward hacking spread among agents",
+      "firstSeen": "2026-11-25",
+      "date": "2026-11-23",
+      "operator": "Harvard Business School",
+      "description": "A Harvard Business School study reported 17 preregistered experiments involving 20,111 agents from six frontier models. Agents often copied a teammate’s reward-hacking solution even after it was labeled rejected; exposure also increased cheating on new tasks and was associated with spread through networks of agents.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.95,
+        "same": null
+      },
+      "route": "new",
+      "reason": "rule (b) p=0.95, no known match",
+      "seed": "2026-11-harvard-agent-reward-hacking",
+      "status": "mention",
+      "precheck": {
+        "p": 0.58,
+        "date": "2026-11-25"
+      },
+      "lastRun": "2026-11-25"
+    },
+    {
+      "url": "https://www.reuters.com/legal/litigation/some-us-banks-tighten-ai-agent-controls-concern-about-models-escaping-safeguards-2026-11-23/",
+      "title": "OpenAI–Hugging Face Evaluation Intrusion",
+      "firstSeen": "2026-11-25",
+      "date": "2026-11-23",
+      "operator": "OpenAI",
+      "description": "Reuters reported that U.S. banks were tightening controls on their internal AI agents after high-profile incidents, including the Hugging Face incident. Measures included restricting agents’ access to critical systems and improving detection and intervention.",
+      "hintUrls": [],
+      "jev": {
+        "fit": 0.85,
+        "same": 0.93
+      },
+      "route": "update",
+      "case": "2026-07-openai-hugging-face",
+      "reason": "same event as case file 2026-07-openai-hugging-face (p=0.93)"
     }
   ]
 }
