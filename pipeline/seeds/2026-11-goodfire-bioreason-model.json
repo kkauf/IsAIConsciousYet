@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-goodfire-bioreason-model",
+  "event": "Goodfire reported using interpretability with NVIDIA and the Arc Institute to improve a multimodal biological reasoning model’s use of protein information and to test the evidence behind its predictions. The post describes tracing how individual inputs influence the model’s answers. (Goodfire, with NVIDIA and the Arc Institute, 2026-11-24.)",
+  "hintUrls": [
+    "https://www.goodfire.com/research/building-stronger-biological-reasoning-models"
+  ]
+}
