@@ -1,0 +1,7 @@
+{
+  "slug": "2026-11-lvml-visual-representations",
+  "event": "Researchers introduced Decoder-as-a-Probe, treating a vision-language model's decoder as a classifier over possible next tokens and applying a first-order Taylor expansion to identify interpretable directions in visual representations. The paper describes the method as verbalizing what the model perceives in an image. (, 2026-11-25.)",
+  "hintUrls": [
+    "https://arxiv.org/abs/2611.34515"
+  ]
+}
